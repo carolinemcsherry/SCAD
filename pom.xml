@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.napier.sem</groupId>
-    <artifactId>SCAD</artifactId>
+    <artifactId>seMethods</artifactId>
     <version>0.1.0.2</version>
 
     <properties>
@@ -13,14 +13,6 @@
         <maven.compiler.target>10</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongodb-driver</artifactId>
-            <version>3.6.4</version>
-        </dependency>
-    </dependencies>
     <build>
         <plugins>
             <plugin>
@@ -49,5 +41,10 @@
             </plugin>
         </plugins>
     </build>
-
-</project>
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.28</version>
+        </dependency>
+    </dependencies>
