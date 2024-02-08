@@ -3,12 +3,14 @@
 Software Engineering Methods Coursework Assessment
 Creating workflow
 
-![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/carolinemcsherry/SCAD/main.yml?branch=master)
+* Master Build Status  ![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/carolinemcsherry/SCAD/main.yml?branch=master)
 
-[![LICENSE](https://img.shields.io/github/license/carolinemcsherry/SCAD.svg?style=flat-square)](https://github.com/carolinemcsherry/SCAD/blob/master/LICENSE)
+* Develop Branch Status ![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/carolinemcsherry/SCAD/main.yml?branch=develop)
 
-[![Releases](https://img.shields.io/github/release/carolinemcsherry/SCAD/all.svg?style=flat-square)](https://github.com/carolinemcsherry/SCAD/releases)
+*License [![LICENSE](https://img.shields.io/github/license/carolinemcsherry/SCAD.svg?style=flat-square)](https://github.com/carolinemcsherry/SCAD/blob/master/LICENSE)
 
-https://img.shields.io/github/actions/workflow/status/carolinemcsherry/SCAD/main.yml?branch=develop
+* Release ![Releases](https://img.shields.io/github/release/carolinemcsherry/SCAD/all.svg?style=flat-square)](https://github.com/carolinemcsherry/SCAD/releases)
+
+
 
 
