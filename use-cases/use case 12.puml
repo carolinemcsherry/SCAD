@@ -1,0 +1,20 @@
+@startuml Regional_Strategy_System
+
+usecase UC12 as "Generate Top N Populated Capital Cities Report"
+
+actor "Regional Strategist" as Strategist
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Capital City Data" as RetrieveCapitalCityData
+    usecase "Retrieve Continent Data" as RetrieveContinentData
+}
+
+Strategist --> UC12
+UC12 --> RetrievePopulationData
+UC12 --> RetrieveCapitalCityData
+UC12 --> RetrieveContinentData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+
+@enduml

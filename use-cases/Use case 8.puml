@@ -1,0 +1,17 @@
+@startuml Country_Population_System
+
+usecase UC8 as "Generate Country Population Report"
+
+actor "Country Director" as Director
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Country Data" as RetrieveCountryData
+}
+
+Director --> UC8
+UC8 --> RetrievePopulationData
+UC8 --> RetrieveCountryData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+@enduml

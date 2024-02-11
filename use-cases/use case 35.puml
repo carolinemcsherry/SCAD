@@ -1,0 +1,20 @@
+@startuml PA_System
+
+usecase UC35 as "Generate Top N Populated Capital Cities Report for a Region"
+
+actor "PA" as PA
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Capital City Data" as RetrieveCapitalCityData
+    usecase "Retrieve Region Data" as RetrieveRegionData
+}
+
+PA --> UC35
+UC35 --> RetrievePopulationData
+UC35 --> RetrieveCapitalCityData
+UC35 --> RetrieveRegionData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+
+@enduml

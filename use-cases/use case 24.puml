@@ -1,0 +1,18 @@
+@startuml Geographer_System
+
+usecase UC24 as "Generate Population Analysis Report for Cities in a Continent"
+
+actor "Geographer" as Geographer
+
+rectangle Database {
+    usecase "Retrieve Continent Data" as RetrieveContinentData
+    usecase "Retrieve City Data" as RetrieveCityData
+}
+
+Geographer --> UC24
+UC24 --> RetrieveContinentData
+UC24 --> RetrieveCityData
+
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+@enduml

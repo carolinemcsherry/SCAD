@@ -1,0 +1,18 @@
+@startuml Continent_Population_System
+
+usecase UC10 as "Generate Continent Population Report"
+
+actor "Regional Manager" as Manager
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Continent Data" as RetrieveContinentData
+}
+
+Manager --> UC10
+UC10 --> RetrievePopulationData
+UC10 --> RetrieveContinentData
+
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+@enduml

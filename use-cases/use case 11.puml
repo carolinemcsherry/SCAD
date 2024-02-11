@@ -1,0 +1,17 @@
+@startuml World_Population_System
+
+usecase UC11 as "Generate World Population Report"
+
+actor "Organization Administrator" as Administrator
+
+rectangle Database {
+    usecase "Retrieve World Population Data" as RetrieveWorldPopulationData
+}
+
+Administrator --> UC11
+UC11 --> RetrieveWorldPopulationData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+
+@enduml
+

@@ -1,0 +1,18 @@
+@startuml Region_Population_System
+
+usecase UC9 as "Generate Region Population Report"
+
+actor "Area Coordinator" as Coordinator
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Region Data" as RetrieveRegionData
+}
+
+Coordinator --> UC9
+UC9 --> RetrievePopulationData
+UC9 --> RetrieveRegionData
+
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+@enduml

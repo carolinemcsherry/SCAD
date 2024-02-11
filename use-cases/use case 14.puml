@@ -1,0 +1,18 @@
+@startuml Economic_Development_System
+
+usecase UC14 as "Generate Population Analysis Report for Capital Cities in a Region"
+
+actor "Economic Development Officer" as Officer
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Region Data" as RetrieveRegionData
+}
+
+Officer --> UC14
+UC14 --> RetrievePopulationData
+UC14 --> RetrieveRegionData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+
+@enduml

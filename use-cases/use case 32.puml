@@ -1,0 +1,19 @@
+@startuml Data_Analyst_System
+
+usecase UC32 as "Generate Population Analysis Report for Countries Worldwide"
+
+actor "Data Analyst" as Analyst
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Country Data" as RetrieveCountryData
+}
+
+Analyst --> UC32
+UC32 --> RetrievePopulationData
+UC32 --> RetrieveCountryData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+
+@enduml
+

@@ -1,0 +1,153 @@
+@startuml
+
+title Combined System Diagram
+
+actor "Data Analyst" as Analyst
+actor "Linguistic Data Analyst" as LinguisticAnalyst
+actor "City Coordinator" as CityCoordinator
+actor "District Manager" as DistrictManager
+actor "Country Director" as CountryDirector
+actor "Area Coordinator" as AreaCoordinator
+actor "Regional Manager" as RegionalManager
+actor "Organization Administrator" as OrgAdministrator
+actor "Regional Strategist" as RegionalStrategist
+actor "Geopolitical Analyst" as GeopoliticalAnalyst
+actor "Economic Development Officer" as EconomicOfficer
+actor "Political Scientist" as PoliticalScientist
+actor "City Planner" as CityPlanner
+actor "Market Analyst" as MarketAnalyst
+actor "Demographer" as Demographer
+actor "Urban Planner" as UrbanPlanner
+actor "Geographer" as Geographer
+actor "City Administrator" as CityAdministrator
+actor "Government Official" as GovOfficial
+actor "PA" as PA
+actor "Market Research Analyst" as MarketResearcher
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Country Data" as RetrieveCountryData
+    usecase "Retrieve City Data" as RetrieveCityData
+    usecase "Retrieve Continent Data" as RetrieveContinentData
+    usecase "Retrieve Region Data" as RetrieveRegionData
+    usecase "Retrieve World Data" as RetrieveWorldData
+    usecase "Retrieve World Countries Data" as RetrieveWorldCountriesData
+    usecase "Retrieve District Data" as RetrieveDistrictData
+    usecase "Retrieve Per Capita Income Data" as RetrievePerCapitaIncomeData
+    usecase "Retrieve Country Code Data" as RetrieveCountryCodeData
+    usecase "Retrieve Capital City Data" as RetrieveCapitalCityData
+    usecase "Retrieve Spoken Languages Data" as RetrieveSpokenLanguagesData
+    usecase "Retrieve World Population Data" as RetrieveWorldPopulationData
+}
+
+rectangle "Population Report" {
+    usecase "Generate Population Report" as GeneratePopulationReport
+}
+
+rectangle "Capital City Report" {
+    usecase "Generate Capital City Report" as GenerateCapitalCityReport
+}
+
+rectangle "Country Report" {
+    usecase "Generate Country Report" as GenerateCountryReport
+}
+
+rectangle "Language Report" {
+    usecase "Generate Language Report" as GenerateLanguageReport
+}
+
+rectangle "City Population Report" {
+    usecase "Generate City Population Report" as GenerateCityPopulationReport
+}
+
+rectangle "District Population Report" {
+    usecase "Generate District Population Report" as GenerateDistrictPopulationReport
+}
+
+rectangle "Country Population Report" {
+    usecase "Generate Country Population Report" as GenerateCountryPopulationReport
+}
+
+rectangle "Region Population Report" {
+    usecase "Generate Region Population Report" as GenerateRegionPopulationReport
+}
+
+rectangle "Continent Population Report" {
+    usecase "Generate Continent Population Report" as GenerateContinentPopulationReport
+}
+
+rectangle "World Population Report" {
+    usecase "Generate World Population Report" as GenerateWorldPopulationReport
+}
+
+rectangle "Regional Strategy Report" {
+    usecase "Generate Top N Populated Capital Cities Report" as GenerateTopNPopulatedCapitalCitiesReport
+}
+
+rectangle "Geopolitical Analysis Report" {
+    usecase "Generate Top N Populated Capital Cities Report" as GenerateTopNPopulatedCapitalCitiesReportGeopolitical
+}
+
+rectangle "Economic Development Report" {
+    usecase "Generate Population Analysis Report for Capital Cities in a Region" as GeneratePopulationAnalysisReportEconomic
+}
+
+rectangle "Political Science Report" {
+    usecase "Generate Population Analysis Report for Capital Cities in a Continent" as GeneratePopulationAnalysisReportPolitical
+}
+
+rectangle "City Planning Report" {
+    usecase "Generate Top N Populated Cities Report for a District" as GenerateTopNPopulatedCitiesReportCityPlanning
+}
+
+rectangle "Market Analysis Report" {
+    usecase "Generate Top N Populated Cities Report for a Country" as GenerateTopNPopulatedCitiesReportMarketAnalysis
+}
+
+rectangle "Demography Analysis Report" {
+    usecase "Generate Top N Populated Cities Report for a Continent" as GenerateTopNPopulatedCitiesReportDemography
+}
+
+rectangle "Urban Planning Report" {
+    usecase "Generate Population Analysis Report for Cities in a Region" as GeneratePopulationAnalysisReportUrbanPlanning
+}
+
+rectangle "Geography Report" {
+    usecase "Generate Population Analysis Report for Cities in a Continent" as GeneratePopulationAnalysisReportGeography
+}
+
+rectangle "Data Analyst Report" {
+    usecase "Generate Population Analysis Report for Cities Worldwide" as GeneratePopulationAnalysisReportDataAnalyst
+}
+
+rectangle "Market Research Report" {
+    usecase "Generate Top N Populated Countries Report" as GenerateTopNPopulatedCountriesReportMarketResearch
+}
+
+rectangle "PA Report" {
+    usecase "Generate Top N Populated Capital Cities Report for a Region" as GenerateTopNPopulatedCapitalCitiesReportPA
+}
+
+Analyst --> RetrievePopulationData : 1
+LinguisticAnalyst --> RetrievePopulationData : 2
+CityCoordinator --> RetrievePopulationData : 3
+DistrictManager --> RetrievePopulationData : 4
+CountryDirector --> RetrievePopulationData : 5
+AreaCoordinator --> RetrievePopulationData : 6
+RegionalManager --> RetrievePopulationData : 7
+OrgAdministrator --> RetrievePopulationData : 8
+RegionalStrategist --> RetrievePopulationData : 9
+GeopoliticalAnalyst --> RetrievePopulationData : 10
+EconomicOfficer --> RetrievePopulationData : 11
+PoliticalScientist --> RetrievePopulationData : 12
+CityPlanner --> RetrievePopulationData : 13
+MarketAnalyst --> RetrievePopulationData : 14
+Demographer --> RetrievePopulationData : 15
+UrbanPlanner --> RetrievePopulationData : 16
+Geographer --> RetrievePopulationData : 17
+CityAdministrator --> RetrievePopulationData : 18
+GovOfficial --> RetrievePopulationData : 19
+PA --> RetrievePopulationData : 20
+MarketResearcher --> RetrievePopulationData : 21
+
+@enduml

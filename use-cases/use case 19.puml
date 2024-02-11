@@ -1,0 +1,20 @@
+@startuml Demography_Analysis_System
+
+usecase UC19 as "Generate Top N Populated Cities Report for a Continent"
+
+actor "Demographer" as Demographer
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve City Data" as RetrieveCityData
+    usecase "Retrieve Continent Data" as RetrieveContinentData
+}
+
+Demographer --> UC19
+UC19 --> RetrievePopulationData
+UC19 --> RetrieveCityData
+UC19 --> RetrieveContinentData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+
+@enduml

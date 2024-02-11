@@ -1,0 +1,17 @@
+@startuml City_Population_System
+
+usecase UC6 as "Generate City Population Report"
+
+actor "City Coordinator" as Coordinator
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve City Data" as RetrieveCityData
+}
+
+Coordinator --> UC6
+UC6 --> RetrievePopulationData
+UC6 --> RetrieveCityData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+@enduml

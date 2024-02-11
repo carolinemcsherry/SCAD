@@ -1,0 +1,20 @@
+@startuml Data_Analyst_System
+
+usecase UC34 as "Generate Top N Populated Countries Report for a Region"
+
+actor "Data Analyst" as Analyst
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Country Data" as RetrieveCountryData
+    usecase "Retrieve Region Data" as RetrieveRegionData
+}
+
+Analyst --> UC34
+UC34 --> RetrievePopulationData
+UC34 --> RetrieveCountryData
+UC34 --> RetrieveRegionData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+
+@enduml

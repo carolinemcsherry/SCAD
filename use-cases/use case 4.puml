@@ -1,0 +1,25 @@
+
+
+@startuml Country_Report_System
+
+usecase UC4 as "Generate Country Report"
+
+actor "Report Generator" as Generator
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Country Code Data" as RetrieveCountryCodeData
+    usecase "Retrieve Country Name Data" as RetrieveCountryNameData
+    usecase "Retrieve Continent Data" as RetrieveContinentData
+    usecase "Retrieve Per Capita Income Data" as RetrievePerCapitaIncomeData
+}
+
+Generator --> UC4
+UC4 --> RetrievePopulationData
+UC4 --> RetrieveCountryCodeData
+UC4 --> RetrieveCountryNameData
+UC4 --> RetrieveContinentData
+UC4 --> RetrievePerCapitaIncomeData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+@enduml

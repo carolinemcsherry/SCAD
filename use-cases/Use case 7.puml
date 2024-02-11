@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+@startuml District_Population_System
+
+usecase UC7 as "Generate District Population Report"
+
+actor "District Manager" as Manager
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve District Data" as RetrieveDistrictData
+}
+
+Manager --> UC7
+UC7 --> RetrievePopulationData
+UC7 --> RetrieveDistrictData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+
+@enduml

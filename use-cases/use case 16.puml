@@ -1,0 +1,20 @@
+@startuml Political_Science_System
+
+usecase UC15 as "Generate Population Analysis Report for Capital Cities in a Continent"
+
+actor "Political Scientist" as Scientist
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Capital City Data" as RetrieveCapitalCityData
+    usecase "Retrieve Continent Data" as RetrieveContinentData
+}
+
+Scientist --> UC15
+UC15 --> RetrievePopulationData
+UC15 --> RetrieveCapitalCityData
+UC15 --> RetrieveContinentData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+
+@enduml

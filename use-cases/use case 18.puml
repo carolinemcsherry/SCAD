@@ -1,0 +1,20 @@
+@startuml Market_Analysis_System
+
+usecase UC18 as "Generate Top N Populated Cities Report for a Country"
+
+actor "Market Analyst" as Analyst
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Country Data" as RetrieveCountryData
+    usecase "Retrieve City Data" as RetrieveCityData
+}
+
+Analyst --> UC18
+UC18 --> RetrievePopulationData
+UC18 --> RetrieveCountryData
+UC18 --> RetrieveCityData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+
+@enduml

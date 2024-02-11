@@ -1,0 +1,26 @@
+@startuml
+usecase UC2 as "Use Case 2"
+
+actor "Data Analyst" as Analyst
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Country Data" as RetrieveCountryData
+    usecase "Retrieve City Data" as RetrieveCityData
+}
+
+rectangle "Capital City Report" {
+    usecase "Generate Capital City Report" as GenerateCapitalCityReport
+}
+
+Analyst --> RetrievePopulationData
+RetrievePopulationData --> Database
+Analyst --> RetrieveCountryData
+RetrieveCountryData --> Database
+Analyst --> RetrieveCityData
+RetrieveCityData --> Database
+GenerateCapitalCityReport --> RetrievePopulationData
+GenerateCapitalCityReport --> RetrieveCountryData
+GenerateCapitalCityReport --> RetrieveCityData
+note left of Database : These use cases\nretrieve data\nfrom the database.
+@enduml

@@ -1,0 +1,18 @@
+@startuml Geopolitical_Analysis_System
+
+usecase UC13 as "Generate Top N Populated Capital Cities Report"
+
+actor "Geopolitical Analyst" as Analyst
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Capital City Data" as RetrieveCapitalCityData
+}
+
+Analyst --> UC13
+UC13 --> RetrievePopulationData
+UC13 --> RetrieveCapitalCityData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+
+@enduml

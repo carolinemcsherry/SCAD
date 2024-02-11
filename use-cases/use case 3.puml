@@ -1,0 +1,32 @@
+@startuml
+
+actor "Report Compiler" as Compiler
+
+rectangle Database {
+    usecase "Connect to Database" as ConnectDatabase
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Country Data" as RetrieveCountryData
+    usecase "Retrieve City Data" as RetrieveCityData
+    usecase "Retrieve District Data" as RetrieveDistrictData
+}
+
+rectangle "City Report" {
+    usecase "Generate City Report" as GenerateCityReport
+}
+
+Compiler --> ConnectDatabase
+Compiler --> RetrievePopulationData
+Compiler --> RetrieveCountryData
+Compiler --> RetrieveCityData
+Compiler --> RetrieveDistrictData
+Compiler --> GenerateCityReport
+
+GenerateCityReport --> RetrievePopulationData
+GenerateCityReport --> RetrieveCountryData
+GenerateCityReport --> RetrieveCityData
+GenerateCityReport --> RetrieveDistrictData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+@enduml
+
+

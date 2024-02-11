@@ -1,0 +1,19 @@
+
+@startuml Language_Report_System
+
+usecase UC5 as "Generate Language Report"
+
+actor "Linguistic Data Analyst" as Analyst
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Spoken Languages Data" as RetrieveSpokenLanguagesData
+}
+
+Analyst --> UC5
+UC5 --> RetrievePopulationData
+UC5 --> RetrieveSpokenLanguagesData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+
+@enduml

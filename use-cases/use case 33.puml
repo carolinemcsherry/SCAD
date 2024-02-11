@@ -1,0 +1,18 @@
+@startuml Market_Research_System
+
+usecase UC33 as "Generate Population Analysis Report for Regions"
+
+actor "Market Researcher" as Researcher
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve City Data" as RetrieveCityData
+}
+
+Researcher --> UC33
+UC33 --> RetrievePopulationData
+UC33 --> RetrieveCityData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+
+@enduml

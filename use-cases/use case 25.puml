@@ -1,0 +1,17 @@
+@startuml Data_Analyst_System
+
+usecase UC25 as "Generate Population Analysis Report for Cities Worldwide"
+
+actor "Data Analyst" as Analyst
+
+rectangle Database {
+    usecase "Retrieve World Data" as RetrieveWorldData
+    usecase "Retrieve City Data" as RetrieveCityData
+}
+
+Analyst --> UC25
+UC25 --> RetrieveWorldData
+UC25 --> RetrieveCityData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+@enduml

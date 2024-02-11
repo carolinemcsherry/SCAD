@@ -1,0 +1,20 @@
+@startuml Government_Official_System
+
+usecase UC22 as "Generate Population Analysis Report for Cities in a Country"
+
+actor "Government Official" as Official
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Country Data" as RetrieveCountryData
+    usecase "Retrieve City Data" as RetrieveCityData
+}
+
+Official --> UC22
+UC22 --> RetrievePopulationData
+UC22 --> RetrieveCountryData
+UC22 --> RetrieveCityData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+
+@enduml

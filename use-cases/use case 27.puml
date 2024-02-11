@@ -1,0 +1,21 @@
+@startuml Market_Research_System
+
+usecase UC27 as "Generate Top N Populated Countries Report for a Continent"
+
+actor "Market Research Analyst" as Analyst
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Country Data" as RetrieveCountryData
+    usecase "Retrieve Continent Data" as RetrieveContinentData
+}
+
+Analyst --> UC27
+UC27 --> RetrievePopulationData
+UC27 --> RetrieveCountryData
+UC27 --> RetrieveContinentData
+
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+
+@enduml

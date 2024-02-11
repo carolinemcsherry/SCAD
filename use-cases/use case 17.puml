@@ -1,0 +1,19 @@
+@startuml City_Planning_System
+
+usecase UC17 as "Generate Top N Populated Cities Report for a District"
+
+actor "City Planner" as Planner
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve City Data" as RetrieveCityData
+    usecase "Retrieve District Data" as RetrieveDistrictData
+}
+
+Planner --> UC17
+UC17 --> RetrievePopulationData
+UC17 --> RetrieveCityData
+UC17 --> RetrieveDistrictData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+@enduml

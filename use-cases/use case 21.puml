@@ -1,0 +1,17 @@
+@startuml City_Administration_System
+
+usecase UC21 as "Generate Population Analysis Report for Cities in a District"
+
+actor "City Administrator" as Administrator
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve City Data" as RetrieveCityData
+}
+
+Administrator --> UC21
+UC21 --> RetrievePopulationData
+UC21 --> RetrieveCityData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+@enduml

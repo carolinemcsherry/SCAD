@@ -1,0 +1,18 @@
+@startuml Urban_Planning_System
+
+usecase UC23 as "Generate Population Analysis Report for Cities in a Region"
+
+actor "Urban Planner" as Planner
+
+rectangle Database {
+    usecase "Retrieve Region Data" as RetrieveRegionData
+    usecase "Retrieve City Data" as RetrieveCityData
+}
+
+Planner --> UC23
+UC23 --> RetrieveRegionData
+UC23 --> RetrieveCityData
+
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+@enduml
