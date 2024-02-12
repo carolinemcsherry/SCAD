@@ -1,0 +1,27 @@
+@startuml
+
+actor "Market Research Analyst" as Analyst
+
+rectangle Database {
+    usecase "Retrieve Population Data" as RetrievePopulationData
+    usecase "Retrieve Country Data" as RetrieveCountryData
+    usecase "Retrieve Continent Data" as RetrieveContinentData
+}
+
+rectangle "Population Report" {
+    usecase "Generate Population Report" as GeneratePopulationReport
+}
+
+Analyst --> RetrievePopulationData
+RetrievePopulationData --> Database
+Analyst --> RetrieveCountryData
+RetrieveCountryData --> Database
+Analyst --> RetrieveContinentData
+RetrieveContinentData --> Database
+GeneratePopulationReport --> RetrievePopulationData
+GeneratePopulationReport --> RetrieveCountryData
+GeneratePopulationReport --> RetrieveContinentData
+
+note left of Database : These use cases\nretrieve data\nfrom the database.
+
+@enduml
