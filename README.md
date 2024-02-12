@@ -1,7 +1,7 @@
 # SCAD
 
 Software Engineering Methods Coursework Assessment
-Creating workflow
+Creating workflow.
 
 * Master Build Status  ![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/carolinemcsherry/SCAD/main.yml?branch=master)
 
