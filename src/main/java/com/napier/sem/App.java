@@ -1,5 +1,5 @@
 package com.napier.sem;
-
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -23,7 +23,7 @@ public class App {
                 // Wait a bit for db to start
                 Thread.sleep(30000);
                 // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");;
+                con = DriverManager.getConnection("jdbc:mysql://db:3307/world?useSSL=false", "root", "examples");;
 
 
                 System.out.println("Successfully connected");
