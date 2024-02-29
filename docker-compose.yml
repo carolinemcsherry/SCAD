@@ -23,7 +23,7 @@ services:
     networks:
       - scad-db-network
 
-#creates network bridge called
+#creates network bridge called scad-db-network
 networks:
   scad-db-network:
     driver: bridge
