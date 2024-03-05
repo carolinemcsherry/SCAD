@@ -3,9 +3,9 @@ services:
 
 # Build container for java and gives port 8080. Adds network for app and db
   app:
-    build: .
+    build: /.
     ports:
-      - "8080:8080"  # Expose the necessary port for your Java application
+      - "8080:8080"
     depends_on:
       - db
     networks:
