@@ -1,5 +1,7 @@
 # SCAD
 
+# Conection has been updated in alpha 3 
+
 Software Engineering Methods Coursework Assessment
 Creating workflow.
 
