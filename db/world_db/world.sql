@@ -45,6 +45,8 @@ CREATE TABLE `city` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+SELECT 'LOADING world DB' as 'INFO';
 --
 -- Dumping data for table `city`
 --
