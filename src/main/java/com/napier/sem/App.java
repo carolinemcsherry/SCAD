@@ -46,9 +46,9 @@ public class App {
                 con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
                 System.out.println("Successfully connected");
                 break;
-            } catch (SQLException sqle) {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
-                System.out.println(sqle.getMessage());
+            } catch (SQLException sql) {
+                System.out.println("Failed to connect to database attempt " + i);
+                System.out.println(sql.getMessage());
             } catch (InterruptedException ie) {
                 System.out.println("Thread interrupted? Should not happen.");
             }
@@ -107,48 +107,8 @@ public class App {
         private String district;
         private int population;
 
-        public int getId() {
-            return id;
-        }
+        
 
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getCountryCode() {
-            return countryCode;
-        }
-
-        public void setCountryCode(String countryCode) {
-            this.countryCode = countryCode;
-        }
-
-        public String getDistrict() {
-            return district;
-        }
-
-        public void setDistrict(String district) {
-            this.district = district;
-        }
-
-        public int getPopulation() {
-            return population;
-        }
-
-        public void setPopulation(int population) {
-            this.population = population;
-        }
-
-        // You may want to override the toString() method to print the City object nicely
-        @Override
         public String toString() {
             return "City{" +
                     "id=" + id +
@@ -157,6 +117,21 @@ public class App {
                     ", district='" + district + '\'' +
                     ", population=" + population +
                     '}';
+        }
+
+        public void setPopulation(int population) {
+        }
+
+        public void setDistrict(String district) {
+        }
+
+        public void setCountryCode(String countryCode) {
+        }
+
+        public void setId(int id) {
+        }
+
+        public void setName(String name) {
         }
     }
 }
