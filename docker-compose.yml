@@ -24,12 +24,12 @@ services:
     # Add the following line to allow external connections
     expose:
       - "3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
 
-# Creates a network bridge called scad-db-network
 networks:
   scad-db-network:
     driver: bridge
 
-# Define the volume for MySQL data
 volumes:
   mysql-data:
