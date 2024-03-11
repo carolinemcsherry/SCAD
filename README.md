@@ -1,4 +1,4 @@
-# SCAD
+# SCAD Alpha-7 (Unit Testing)
 
 Software Engineering Methods Coursework Assessment
 Creating workflow
