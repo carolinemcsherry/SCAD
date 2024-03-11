@@ -3,7 +3,7 @@ import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-java.util.ArrayList;
+import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
@@ -54,6 +54,7 @@ public class App {
             } catch (Exception e) {
                 System.out.println("Error closing connection to database");
             }
+            System.out.println("We are now ready to pull from the database");
         }
     }
 }
