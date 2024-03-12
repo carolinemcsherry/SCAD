@@ -2,15 +2,9 @@ version: '3'
 services:
   # Build container for java and gives port 8080. Adds network for app and db
   app:
-    build: /.
-    ports:
-      - "8080:8080"
-    depends_on:
-      - db
+    build: .
     networks:
       - scad-db-network
-    expose:
-      - "8080"
 
   # Builds container for db server, sets root password and gives port 3306 for container.
   db:
