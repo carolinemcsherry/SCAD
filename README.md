@@ -1,4 +1,4 @@
-# SCAD Alpha-7 (Unit Testing)
+# SCAD Master Alpha-7
 
 # Conection has been updated in alpha 3 
 
