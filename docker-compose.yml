@@ -20,7 +20,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: example
     ports:
-      - "3306:3306"  # This line exposes the database container's port to the host machine
+      - "3306:3306"
     networks:
       - scad-db-network
     # Add the following line to allow external connections
