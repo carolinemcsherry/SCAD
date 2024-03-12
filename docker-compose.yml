@@ -22,9 +22,5 @@ services:
       - mysql-data:/var/lib/mysql
 
 
-networks:
-  scad-db-network:
-    driver: bridge
-
 volumes:
   mysql-data:
