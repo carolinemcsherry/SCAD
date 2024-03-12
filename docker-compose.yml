@@ -3,8 +3,7 @@ services:
   # Build container for java and gives port 8080. Adds network for app and db
   app:
     build: .
-    networks:
-      - scad-db-network
+
 
   # Builds container for db server, sets root password and gives port 3306 for container.
   db:
@@ -15,8 +14,7 @@ services:
       MYSQL_ROOT_PASSWORD: example
     ports:
       - "3306:3306"
-    networks:
-      - scad-db-network
+
     # Add the following line to allow external connections
     expose:
       - "3306"
