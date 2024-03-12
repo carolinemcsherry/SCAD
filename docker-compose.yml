@@ -9,25 +9,30 @@ services:
       - db
     networks:
       - scad-db-network
+    expose:
+      - "8080"
 
   # Builds container for db server, sets root password and gives port 3306 for container.
   db:
     build: db/.
+    command: --default-authentication-plugin=mysql_native_password --bind-address=0.0.0.0
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
     ports:
-      - "3306:3306"  # This line exposes the database container's port to the host machine
+      - "3306:3306"
     networks:
       - scad-db-network
-    # Add the following lines to allow external connections
+    # Add the following line to allow external connections
     expose:
       - "3306"
-    # Modify the MySQL configuration to allow connections from any host
-    entrypoint: >
-      sh -c 'exec mysqld --default-authentication-plugin=mysql_native_password --bind-address=0.0.0.0'
+    volumes:
+      - mysql-data:/var/lib/mysql
 
-# Creates a network bridge called scad-db-network
+
 networks:
   scad-db-network:
     driver: bridge
+
+volumes:
+  mysql-data:

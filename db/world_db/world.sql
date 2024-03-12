@@ -45,6 +45,8 @@ CREATE TABLE `city` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+-- info of loading DB
+SELECT 'LOADING world DB' as 'INFO';
 --
 -- Dumping data for table `city`
 --
@@ -4132,9 +4134,14 @@ INSERT INTO `city` VALUES (4078,'Nablus','PSE','Nablus',100231);
 INSERT INTO `city` VALUES (4079,'Rafah','PSE','Rafah',92020);
 commit;
 
+-- info of loading DB
+SELECT 'LOADED CITY' as 'INFO';
 --
 -- Table structure for table `country`
 --
+
+-- info of loading DB
+SELECT 'LOADING TABLE COUNTRY' as 'INFO';
 
 DROP TABLE IF EXISTS `country`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -4406,9 +4413,14 @@ INSERT INTO `country` VALUES ('ZMB','Zambia','Africa','Eastern Africa',752618.00
 INSERT INTO `country` VALUES ('ZWE','Zimbabwe','Africa','Eastern Africa',390757.00,1980,11669000,37.8,5951.00,8670.00,'Zimbabwe','Republic','Robert G. Mugabe',4068,'ZW');
 commit;
 
+-- info of loading DB
+SELECT 'LOADED TABLE COUNTRY' as 'INFO';
 --
 -- Table structure for table `countrylanguage`
 --
+
+-- info of loading DB
+SELECT 'LOADING COUNTRY LANGUAGE TABLE' as 'INFO';
 
 DROP TABLE IF EXISTS `countrylanguage`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -5416,6 +5428,9 @@ INSERT INTO `countrylanguage` VALUES ('ZWE','Nyanja','F',2.2);
 INSERT INTO `countrylanguage` VALUES ('ZWE','Shona','F',72.1);
 commit;
 
+
+-- info of loading DB
+SELECT 'LOADED COUNTRY LANGUAGE TABLE' as 'INFO';
 --
 -- Dumping events for database 'world'
 --

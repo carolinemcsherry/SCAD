@@ -1,4 +1,4 @@
-# SCAD
+# SCAD Alpha-7 (Unit Testing)
 
 # Conection has been updated in alpha 3 
 
@@ -12,3 +12,6 @@ Creating workflow.
 * License [![LICENSE](https://img.shields.io/github/license/carolinemcsherry/SCAD.svg?style=flat-square)](https://github.com/carolinemcsherry/SCAD/blob/master/LICENSE)
 
 * Release [![Releases](https://img.shields.io/github/release/carolinemcsherry/SCAD/all.svg?style=flat-square)](https://github.com/<username>/<repository>/releases)
+
+
+Updated to now have DB Connectivity
