@@ -1,33 +1,58 @@
 package com.napier.sem;
-
+import javax.swing.*;
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+
+
 public class App {
 
     public static void main(String[] args) {
         // Create new Application
-        App a = new App();
+       // App a = new App();
+        String SelectedReport = User_Input.UserReport();
+
+        //User_Input.ClassArrayName(SelectedReport);
 
         // Connect to database
-        a.connect();
-        System.out.println("Database has successfully connected and will now pull a query");
+        Connection con = connect();
+    //log post
+        System.out.println("out of connect");
 
+       Switch_Report.ReportArray(SelectedReport, con);
+
+        //ArrayList<test_sql.CapitalCityReport> ReportArray = test_sql.getAllCities(con);
+        //log post
+        System.out.println("out of ArrayList.");
+        System.out.println("Going in to if.");
+/*
+        if (ReportArray != null) {
+            // Print the retrieved cities to the console
+            //log post
+            System.out.println("going to print cities.");
+
+            test_sql.printAllCities(ReportArray);
+        } else {
+            System.out.println("No cities retrieved from the database.");
+        }
+*/
         // Retrieve and print city information
-        ArrayList<City> cities = a.getAllCities();
-        System.out.println("There are a total of " + cities.size() + " cities in the database");
+       /* ArrayList<City> cities = a.getAllCities();
+        System.out.println("There are a total of " + cities.size() + " cities in the database");*/
 
         // Disconnect from database
-        a.disconnect();
+        disconnect();
         System.out.println("Database has successfully disconnected");
+
     }
 
-    private Connection con = null;
 
-    public void connect() {
+    private static Connection con = null;
+
+     static Connection connect() {
         try {
             // Load Database driver
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -37,25 +62,31 @@ public class App {
         }
 
         int retries = 10;
-        for (int i = 0; i < retries; ++i) {
+        for (int i = 1; i < retries; ++i) {
             System.out.println("Connecting to database...");
+            System.out.println("going in to try");
             try {
                 // Wait a bit for db to start
                 Thread.sleep(30000);
                 // Connect to database
+                System.out.println("going in to con");
                 con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
                 System.out.println("Successfully connected");
                 break;
             } catch (SQLException sql) {
                 System.out.println("Failed to connect to database attempt " + i);
                 System.out.println(sql.getMessage());
+
             } catch (InterruptedException ie) {
                 System.out.println("Thread interrupted? Should not happen.");
+
             }
         }
+        return con;
     }
 
-    public void disconnect() {
+
+    public static void disconnect() {
         if (con != null) {
             try {
                 // Close connection
@@ -65,73 +96,5 @@ public class App {
             }
         }
     }
-
-    public ArrayList<City> getAllCities() {
-        try {
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT ID, Name, CountryCode, District, Population " +
-                            "FROM city " +
-                            "ORDER BY ID ASC";
-
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-
-            // Extract city information
-            ArrayList<City> cities = new ArrayList<>();
-            while (rset.next()) {
-                City city = new City();
-                city.setId(rset.getInt("ID"));
-                city.setName(rset.getString("Name"));
-                city.setCountryCode(rset.getString("CountryCode"));
-                city.setDistrict(rset.getString("District"));
-                city.setPopulation(rset.getInt("Population"));
-                cities.add(city);
-            }
-
-            return cities;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
-            return null;
-        }
-    }
-
-    public class City {
-        private int id;
-        private String name;
-        private String countryCode;
-        private String district;
-        private int population;
-
-        
-
-        public String toString() {
-            return "City{" +
-                    "id=" + id +
-                    ", name='" + name + '\'' +
-                    ", countryCode='" + countryCode + '\'' +
-                    ", district='" + district + '\'' +
-                    ", population=" + population +
-                    '}';
-        }
-
-        public void setPopulation(int population) {
-        }
-
-        public void setDistrict(String district) {
-        }
-
-        public void setCountryCode(String countryCode) {
-        }
-
-        public void setId(int id) {
-        }
-
-        public void setName(String name) {
-        }
-    }
 }
+
