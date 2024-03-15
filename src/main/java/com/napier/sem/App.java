@@ -12,18 +12,22 @@ public class App {
 
     public static void main(String[] args) {
         // Get user input to pick report. Returns chosen report as string
-        String SelectedReport = User_Input.UserReport();
+        //joption
+     //   String SelectedReport = User_Input.UserReport();
 
         // Connect to database
         Connection con = connect();
         //log post
         System.out.println("out of connect");
+
+       //consoul
+        Menu.runMenu(con);
         //Go in to switch to build chosen report passes selected report string and connection
-       Switch_Report.ReportArray(SelectedReport, con);
+     /*  Switch_Report.ReportArray(SelectedReport, con);
 
         //log post
         System.out.println("out of ArrayList.");
-        System.out.println("Going in to if.");
+        System.out.println("Going in to if.");*/
         // Disconnect from database
         disconnect();
         System.out.println("Database has successfully disconnected");
