@@ -11,38 +11,19 @@ import java.util.ArrayList;
 public class App {
 
     public static void main(String[] args) {
-        // Create new Application
-       // App a = new App();
+        // Get user input to pick report. Returns chosen report as string
         String SelectedReport = User_Input.UserReport();
-
-        //User_Input.ClassArrayName(SelectedReport);
 
         // Connect to database
         Connection con = connect();
-    //log post
+        //log post
         System.out.println("out of connect");
-
+        //Go in to switch to build chosen report passes selected report string and connection
        Switch_Report.ReportArray(SelectedReport, con);
 
-        //ArrayList<test_sql.CapitalCityReport> ReportArray = test_sql.getAllCities(con);
         //log post
         System.out.println("out of ArrayList.");
         System.out.println("Going in to if.");
-/*
-        if (ReportArray != null) {
-            // Print the retrieved cities to the console
-            //log post
-            System.out.println("going to print cities.");
-
-            test_sql.printAllCities(ReportArray);
-        } else {
-            System.out.println("No cities retrieved from the database.");
-        }
-*/
-        // Retrieve and print city information
-       /* ArrayList<City> cities = a.getAllCities();
-        System.out.println("There are a total of " + cities.size() + " cities in the database");*/
-
         // Disconnect from database
         disconnect();
         System.out.println("Database has successfully disconnected");
