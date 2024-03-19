@@ -12,8 +12,9 @@ static boolean exit;
     PrintHeader();
     while (!exit){
         printMenu();
+        System.out.println("Moving to getinput()");
         int choice = getInput();
-
+        System.out.println("leaving getinput()");
         performAction(choice, con);
     }
 
@@ -38,19 +39,18 @@ static boolean exit;
     }
 
     private static int getInput(){
+        System.out.print("Building Scanner ");
         Scanner kb = new Scanner(System.in);
-        int choice = -1; // Initialize choice to a value that will enter the loop at least once
+        System.out.print("Build Scanner ");
+        System.out.print("Integer choice being declared");
+        int choice; // Initialize choice to a value that will enter the loop at least once
+        System.out.print("Integer choice declared");
 
-        while (true) {
-            try {
                 System.out.print("Please enter a number: ");
                 choice = kb.nextInt(); // Wait for user input
-                break; // Exit the loop if input is successfully parsed
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a valid number.");
-                kb.nextLine(); // Consume the invalid input
-            }
-        }
+                //break; // Exit the loop if input is successfully parsed
+
+
 
         // Close the scanner when done
         kb.close();
