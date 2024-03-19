@@ -1,0 +1,83 @@
+package com.napier.sem;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+
+// The population of people, people living in cities, and people not living in cities in each region.
+
+public class User_report_7 {
+
+    // Inner class to represent the population report of a region
+    public static class RegionPopulationReport {
+        private String Region;
+        private int Total_Population;
+        private int City_Population;
+        private int Non_City_Population;
+
+        // Constructor for the RegionPopulationReport class
+        public RegionPopulationReport(String Region, int Total_Population, int City_Population, int Non_City_Population) {
+            this.Region = Region;
+            this.Total_Population = Total_Population;
+            this.City_Population = City_Population;
+            this.Non_City_Population = Non_City_Population;
+        }
+
+        // Method to represent the object as a string
+        public String toString() {
+            return  "Region: " + Region + ", " +
+                    "Total Population: " + Total_Population + ", " +
+                    "City Population: " + City_Population + ", " +
+                    "Non-City Population: " + Non_City_Population;
+        }
+    }
+
+    // Method to retrieve population data for each region
+    public static ArrayList<RegionPopulationReport> getRegionPopulation(Connection con) {
+        try {
+            Statement stmt = con.createStatement();
+
+            // SQL query to retrieve population data for each region
+            String strSelect = "SELECT country.Region, " +
+                    "SUM(country.Population) AS Total_Population, " +
+                    "SUM(city.Population) AS City_Population, " +
+                    "(SUM(country.Population) - SUM(city.Population)) AS Non_City_Population " +
+                    "FROM country " +
+                    "LEFT JOIN city ON country.Code = city.CountryCode " +
+                    "GROUP BY country.Region";
+
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            ArrayList<RegionPopulationReport> regionReports = new ArrayList<>();
+
+            // Iterate through the result set and create RegionPopulationReport objects
+            while (rset.next()) {
+                String Region = rset.getString("Region");
+                int Total_Population = rset.getInt("Total_Population");
+                int City_Population = rset.getInt("City_Population");
+                int Non_City_Population = rset.getInt("Non_City_Population");
+
+                // Create a RegionPopulationReport object and add it to the list
+                RegionPopulationReport region = new RegionPopulationReport(Region, Total_Population, City_Population, Non_City_Population);
+                regionReports.add(region);
+            }
+            return regionReports;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get region population details");
+            return null;
+        }
+    }
+
+    // Method to print population data for each region
+    public static void printRegionPopulation(ArrayList<RegionPopulationReport> regions) {
+        System.out.println("Region Population Report");
+        // Iterate through the list of RegionPopulationReport objects and print each one
+        for (RegionPopulationReport region : regions) {
+            System.out.println(region);
+        }
+    }
+}

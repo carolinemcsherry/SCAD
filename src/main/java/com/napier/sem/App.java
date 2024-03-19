@@ -19,9 +19,15 @@ public class App {
         Connection con = connect();
         //log post
         System.out.println("out of connect");
+        ArrayList<test_sql.CapitalCityReport> ReportArray1 = user_report_1con);
+        if (ReportArray1 != null) {
+            // Print the retrieved cities to the console
+            //log post
+            System.out.println("going to print reports.");
 
+            test_sql.printAllCities(ReportArray1);
        //consoul
-        Menu.runMenu(con);
+        //Menu.runMenu(con);
         //Go in to switch to build chosen report passes selected report string and connection
      /*  Switch_Report.ReportArray(SelectedReport, con);
 
