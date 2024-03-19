@@ -3,6 +3,7 @@ package com.napier.sem;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Menu {
 static boolean exit;
@@ -12,6 +13,7 @@ static boolean exit;
     while (!exit){
         printMenu();
         int choice = getInput();
+
         performAction(choice, con);
     }
 
@@ -37,27 +39,21 @@ static boolean exit;
 
     private static int getInput(){
         Scanner kb = new Scanner(System.in);
-        int choice = -1;
-        while (choice < 0 || choice > 3){
-            if (kb.hasNextLine()) {
-                // Read the input line and parse it to an integer
-                try {
-                    choice = Integer.parseInt(kb.nextLine());
-                } catch (NumberFormatException e) {
-                    System.out.println("Invalid input. Please enter a valid integer.");
-                    // You might want to handle this error case appropriately
-                }
-            } else {
-                System.out.println("No input provided.");
-                // You might want to handle this case appropriately
+        int choice = -1; // Initialize choice to a value that will enter the loop at least once
+
+        while (true) {
+            try {
+                System.out.print("Please enter a number: ");
+                choice = kb.nextInt(); // Wait for user input
+                break; // Exit the loop if input is successfully parsed
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                kb.nextLine(); // Consume the invalid input
             }
-
-            // Now you have the user's choice in the 'choice' variable
-            System.out.println("Your choice is: " + choice);
-
-            // Close the scanner when done
-            kb.close();
         }
+
+        // Close the scanner when done
+        kb.close();
 
         return choice;
     }
@@ -67,7 +63,7 @@ static boolean exit;
         switch(choice){
             case 0:
                 exit = true;
-                System.out.println("Thank you for using this serviec!");
+                System.out.println("Thank you for using this service!");
                 break;
             case 1:
                 ArrayList<test_sql.CapitalCityReport> ReportArray1 = test_sql.getAllCities(con);

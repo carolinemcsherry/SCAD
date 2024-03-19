@@ -16,19 +16,19 @@ public class App {
 
 
         // Connect to database
-      //  Connection con = connect();
+      Connection con = connect();
         //log post
         System.out.println("out of connect");
-       String SelectedReport = User_Input.UserReport();
+       //String SelectedReport = User_Input.UserReport();
 
-       //consoul
-       // Menu.runMenu(con);
+       //console
+       Menu.runMenu(con);
         //Go in to switch to build chosen report passes selected report string and connection
-     /*  Switch_Report.ReportArray(SelectedReport, con);
+      //Switch_Report.ReportArray(SelectedReport, con);
 
         //log post
         System.out.println("out of ArrayList.");
-        System.out.println("Going in to if.");*/
+        System.out.println("Going in to if.");
         // Disconnect from database
         disconnect();
         System.out.println("Database has successfully disconnected");
@@ -53,7 +53,7 @@ public class App {
             System.out.println("going in to try");
             try {
                 // Wait a bit for db to start
-                Thread.sleep(30000);
+                Thread.sleep(5000);
                 // Connect to database
                 System.out.println("going in to con");
                 con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
