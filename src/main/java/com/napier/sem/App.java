@@ -13,20 +13,17 @@ public class App {
     public static void main(String[] args) {
         // Get user input to pick report. Returns chosen report as string
         //joption
-     //   String SelectedReport = User_Input.UserReport();
+        //   String SelectedReport = User_Input.UserReport();
 
         // Connect to database
         Connection con = connect();
         //log post
         System.out.println("out of connect");
-        ArrayList<test_sql.CapitalCityReport> ReportArray1 = user_report_1con);
-        if (ReportArray1 != null) {
-            // Print the retrieved cities to the console
-            //log post
-            System.out.println("going to print reports.");
 
-            test_sql.printAllCities(ReportArray1);
-       //consoul
+        ArrayList<User_report_1.CountryPopulationReport> ReportArray1 = User_report_1.getAllCountriesPopulation(con);
+        //consoul
+        User_report_1.printAllCountriesPopulation(ReportArray1);
+
         //Menu.runMenu(con);
         //Go in to switch to build chosen report passes selected report string and connection
      /*  Switch_Report.ReportArray(SelectedReport, con);
@@ -43,7 +40,7 @@ public class App {
 
     private static Connection con = null;
 
-     static Connection connect() {
+    static Connection connect() {
         try {
             // Load Database driver
             Class.forName("com.mysql.cj.jdbc.Driver");
