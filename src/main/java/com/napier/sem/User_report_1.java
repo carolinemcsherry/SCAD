@@ -16,95 +16,89 @@ import java.util.ArrayList;
 //The total population of the continent/region/country not living in cities (including a %).
 public class User_report_1 {
 
-    public static class CountryNameReport {
-        private String CountryName;
-        private int Total_Country_Population;
-        private int Total_City_Population;
-        private String City_Population_Percentage;
-        private int Total_Not_City_Population;
-        private String None_City_Population_Percentage;
 
 
+                public static class CountryPopulationReport {
+                    private String countryName;
+                    private int totalCountryPopulation;
+                    private int totalCityPopulation;
+                    private String cityPopulationPercentage;
+                    private int totalNotCityPopulation;
+                    private String noneCityPopulationPercentage;
 
-        public CountryNameReport(String CountryName, int Total_Country_Population, int Total_City_Population, String City_Population_Percentage, int Total_Not_City_Population, String None_City_Population_Percentage) {
-            this.CountryName = CountryName;
-            this.Total_Country_Population = Total_Country_Population;
-            this.Total_City_Population = Total_City_Population;
-            this.Total_Not_City_Population = Total_Not_City_Population;
-            this.City_Population_Percentage = City_Population_Percentage;
-            this.None_City_Population_Percentage = None_City_Population_Percentage;
-        }
+                    // Constructor
+                    public CountryPopulationReport(String countryName, int totalCountryPopulation, int totalCityPopulation,
+                                                   String cityPopulationPercentage, int totalNotCityPopulation,
+                                                   String noneCityPopulationPercentage) {
+                        this.countryName = countryName;
+                        this.totalCountryPopulation = totalCountryPopulation;
+                        this.totalCityPopulation = totalCityPopulation;
+                        this.cityPopulationPercentage = cityPopulationPercentage;
+                        this.totalNotCityPopulation = totalNotCityPopulation;
+                        this.noneCityPopulationPercentage = noneCityPopulationPercentage;
+                    }
 
-        public String toString() {
-            return  "Country Name: " + CountryName + ", " +
-                    "Total Country Population: " + Total_Country_Population + ", " +
-                    "Total City Population: " + Total_City_Population + ", " +
-                    "Total Not City Population: " + Total_Not_City_Population + ", " +
-                    "City Population Percentage: " + City_Population_Percentage + ", " +
-                    "None City Population Percentage: " + None_City_Population_Percentage;
-        }
-    }
+                    // toString method to represent the object as a string
+                    public String toString() {
+                        return "Country: " + countryName + ", " +
+                                "Total Country Population: " + totalCountryPopulation + ", " +
+                                "Total City Population: " + totalCityPopulation + ", " +
+                                "City Population Percentage: " + cityPopulationPercentage + ", " +
+                                "Total Not City Population: " + totalNotCityPopulation + ", " +
+                                "None City Population Percentage: " + noneCityPopulationPercentage;
+                    }
+                }
 
-    // Name your arrayList
-    public static ArrayList<CountryNameReport> getAllCountries(Connection con) {
-        try {
-            System.out.println("in getAllCountries.");
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
+                // Method to retrieve population data for all countries
+                public static ArrayList<CountryPopulationReport> getAllCountriesPopulation(Connection con) {
+                    try {
+                        // Create an SQL statement
+                        Statement stmt = con.createStatement();
 
-            System.out.println("Out of Statement stmt = con.createStatement.");
+                        // SQL query to retrieve country population data
+                        String strSelect = "SELECT country.name AS Country, " +
+                                "SUM(country.Population) AS Total_Country_Population, " +
+                                "SUM(city.Population) AS Total_City_Population, " +
+                                "CONCAT(ROUND(SUM(city.Population) / SUM(country.Population) * 100, 2),'%') AS City_Population_Percentage, " +
+                                "SUM(country.Population) - SUM(city.Population) AS Total_Not_City_Population, " +
+                                "CONCAT(100 - ROUND(SUM(city.Population) / SUM(country.Population) * 100, 2) ,'%') AS None_City_Population_Percentage " +
+                                "FROM country " +
+                                "JOIN city ON country.Code = city.CountryCode " +
+                                "GROUP BY country.name";
 
-            String strSelect = "SELECT country.name AS Country, " +
-                    "SUM(country.Population) AS Total_Country_Population, " +
-                    "SUM(city.Population) AS Total_City_Population, " +
-                    "CONCAT(ROUND(SUM(city.Population) / SUM(country.Population) * 100, 2),'%') AS City_Population_Percentage, " +
-                    "SUM(country.Population) - SUM(city.Population) AS Total_Not_City_Population, " +
-                    "CONCAT(100 - ROUND(SUM(city.Population) / SUM(country.Population) * 100, 2) ,'%') AS None_City_Population_Percentage " +
-                    "FROM country " +
-                    "JOIN city ON country.Code = city.CountryCode " +
-                    "GROUP BY country.name";
+                        // Execute SQL statement
+                        ResultSet rset = stmt.executeQuery(strSelect);
 
-            System.out.println("made String strSelect.");
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            //log message
-            System.out.println("out of execute.");
+                        ArrayList<CountryPopulationReport> countryReports = new ArrayList<>();
 
+                        // Iterate through the result set and create CountryPopulationReport objects
+                        while (rset.next()) {
+                            String countryName = rset.getString("Country");
+                            int totalCountryPopulation = rset.getInt("Total_Country_Population");
+                            int totalCityPopulation = rset.getInt("Total_City_Population");
+                            String cityPopulationPercentage = rset.getString("City_Population_Percentage");
+                            int totalNotCityPopulation = rset.getInt("Total_Not_City_Population");
+                            String noneCityPopulationPercentage = rset.getString("None_City_Population_Percentage");
 
-            ArrayList<CountryNameReport> countryReports = new ArrayList<>();
+                            // Create a CountryPopulationReport object and add it to the list
+                            CountryPopulationReport country = new CountryPopulationReport(countryName, totalCountryPopulation,
+                                    totalCityPopulation, cityPopulationPercentage, totalNotCityPopulation,
+                                    noneCityPopulationPercentage);
+                            countryReports.add(country);
+                        }
+                        return countryReports;
+                    } catch (SQLException e) {
+                        System.out.println(e.getMessage());
+                        System.out.println("Failed to get country population details");
+                        return null;
+                    }
+                }
 
-            System.out.println("built ArrayList.");
-
-
-            while (rset.next()) {
-
-                String CountryName = rset.getString("Country");
-                int Total_Country_Population = rset.getInt("Total_Country_Population");
-                int Total_City_Population = rset.getInt("Total_City_Population");
-                int Total_Not_City_Population = rset.getInt("Total_Not_City_Population");
-                String City_Population_Percentage = rset.getString("City_Population_Percentage");
-                String None_City_Population_Percentage = rset.getString("None_City_Population_Percentage");
-
-                CountryNameReport country = new CountryNameReport(CountryName, Total_Country_Population, Total_City_Population, City_Population_Percentage, Total_Not_City_Population, None_City_Population_Percentage);
-                countryReports.add(country);
-                System.out.println("out of while.");
+                // Method to print country population data
+                public static void printAllCountriesPopulation(ArrayList<CountryPopulationReport> countries) {
+                    System.out.println("Country Population Report");
+                    for (CountryPopulationReport country : countries) {
+                        System.out.println(country);
+                    }
+                }
             }
-            System.out.println("return.");
-            return countryReports;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get country details");
-            return null;
-        }
-    }
-
-    // Method to print change to variable above
-    public static void printAllCountries(ArrayList<CountryNameReport> countries) {
-        System.out.println("Country Name Report");
-        for (CountryNameReport country : countries) {
-            System.out.println(country);
-        }
-    }
-}
-
-
