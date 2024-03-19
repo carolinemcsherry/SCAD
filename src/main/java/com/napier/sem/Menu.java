@@ -13,7 +13,7 @@ static boolean exit;
     while (!exit){
         printMenu();
         System.out.println("Moving to getinput()");
-        int choice = getInput();
+       int choice = getInput();
         System.out.println("leaving getinput()");
         performAction(choice, con);
     }
@@ -38,22 +38,22 @@ static boolean exit;
         System.out.println("3) All the countries in a region organised by largest population to smallest. ");
     }
 
-    private static int getInput(){
-        System.out.print("Building Scanner ");
-        Scanner kb = new Scanner(System.in);
-        System.out.print("Build Scanner ");
-        System.out.print("Integer choice being declared");
-        int choice; // Initialize choice to a value that will enter the loop at least once
+   private static int getInput(){
+       System.out.print("Building Scanner ");
+      Scanner kb = new Scanner(System.in);
+       System.out.print("Build Scanner ");
+       System.out.print("Integer choice being declared");
+       int choice; // Initialize choice to a value that will enter the loop at least once
         System.out.print("Integer choice declared");
 
-                System.out.print("Please enter a number: ");
+               System.out.print("Please enter a number: ");
                 choice = kb.nextInt(); // Wait for user input
-                //break; // Exit the loop if input is successfully parsed
+               //break; // Exit the loop if input is successfully parsed
 
 
 
-        // Close the scanner when done
-        kb.close();
+      //   Close the scanner when done
+      kb.close();
 
         return choice;
     }
