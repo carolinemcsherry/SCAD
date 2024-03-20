@@ -1,6 +1,7 @@
 package com.napier.sem;
 
 
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,11 +17,11 @@ import java.util.ArrayList;
 
 
 
-public class User_report_33 {
+public class User_report_10{
 
     public static class ContinentPopulationReport {
 
-    // Inner class to represent the population report of a continent
+        // Inner class to represent the population report of a continent
 
         private String Continent;
         private int Total_Continent_Population;

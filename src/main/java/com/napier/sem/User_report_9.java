@@ -14,11 +14,11 @@ import java.util.ArrayList;
 //The total population of the continent/region/country living in cities (including a %).
 //The total population of the continent/region/country not living in cities (including a %).
 
-public class User_report_34 {
+public class User_report_9{
 
     public static class RegionPopulationReport {
 
-    // Inner class to represent the population report of a region
+        // Inner class to represent the population report of a region
 
         private String Region;
         private int Total_Region_Population;
