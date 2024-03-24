@@ -58,6 +58,8 @@ public class AppTest {
         ReportArray1.add(null);
         User_report_1.printPopulationReport(ReportArray1);
     }
+
+    //User report 3
     @Test
     void CityReportTestNull()
     {
@@ -78,4 +80,27 @@ public class AppTest {
         ReportArray2.add(null);
         User_report_3.printCityReport(ReportArray2);
     }
+    //user report 4
+    @Test
+    void user_report4_TestNull()
+    {
+        User_report_4.printCountryReport(null);
+    }
+
+    @Test
+    void user_report4_TestEmpty()
+    {
+        ArrayList<User_report_4.CountryReport> ReportArray3 = new ArrayList<User_report_4.CountryReport>();
+        User_report_4.printCountryReport(ReportArray3);
+    }
+
+    @Test
+    void print_user_report4_TestContainsNull()
+    {
+        ArrayList<User_report_4.CountryReport> ReportArray3 = new ArrayList<User_report_4.CountryReport>();
+        ReportArray3.add(null);
+        User_report_4.printCountryReport(ReportArray3);
+    }
+
+
 }
