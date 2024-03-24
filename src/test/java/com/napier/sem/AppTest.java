@@ -101,6 +101,28 @@ public class AppTest {
         ReportArray3.add(null);
         User_report_4.printCountryReport(ReportArray3);
     }
+    //user report 5
+    @Test
+    void user_report5_TestNull()
+    {
+        User_report_5.printLanguageStatistics(null);
+    }
+
+    @Test
+    void user_report5_TestEmpty()
+    {
+        ArrayList<User_report_5.LanguageStats> ReportArray4 = new ArrayList<User_report_5.LanguageStats>();
+        User_report_5.printLanguageStatistics(ReportArray4);
+    }
+
+    @Test
+    void print_user_report5_TestContainsNull()
+    {
+        ArrayList<User_report_5.LanguageStats> ReportArray4 = new ArrayList<User_report_5.LanguageStats>();
+        ReportArray4.add(null);
+        User_report_5.printLanguageStatistics(ReportArray4);
+
+    }
 
 
 }
