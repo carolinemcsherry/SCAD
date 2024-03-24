@@ -6,9 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
-//All the capital cities in a region organised by largest to smallest.
-public class User_report_14 {
+//All the cities in a continent organised by largest population to smallest.
+public class User_report_25 {
 
     // Inner class to represent the city report
     public static class CityReport {
@@ -34,16 +33,15 @@ public class User_report_14 {
         }
     }
 
-    // Method to retrieve city report data for all cities in a specific region sorted by population
-    public static ArrayList<CityReport> getCityReportByRegion(Connection con, String region) {
+    // Method to retrieve city report data for all cities in the world sorted by population
+    public static ArrayList<CityReport> getCitiesInWorld(Connection con) {
         try {
             Statement stmt = con.createStatement();
 
-            // SQL query to retrieve city report data for all cities in a specific region
+            // SQL query to retrieve city report data for all cities in the world
             String strSelect = "SELECT A.Name AS CityName, B.Name AS CountryName, A.District, A.Population " +
                     "FROM city A " +
                     "JOIN country B ON A.CountryCode = B.Code " +
-                    "WHERE B.Region = '" + region + "' " +
                     "ORDER BY A.Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -83,4 +81,3 @@ public class User_report_14 {
         }
     }
 }
-

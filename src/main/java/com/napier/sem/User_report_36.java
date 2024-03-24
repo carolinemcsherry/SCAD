@@ -1,77 +1,78 @@
 package com.napier.sem;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-
-// The population of a dISTRICT
-//For the population reports, the following information is requested:
-//
-//The name of the continent/region/country.
-//The total population of the continent/region/country.
-//The total population of the continent/region/country living in cities (including a %).
-//The total population of the continent/region/country not living in cities (including a %).
 public class User_report_36 {
-    public static class DistrictPopulationReport {
-        private String DistrictName;
-        private int Total_District_Population;
 
-        // Constructor for the DistrictPopulationReport class
-        public DistrictPopulationReport(String DistrictName, int Total_District_Population) {
-            this.DistrictName = DistrictName;
-            this.Total_District_Population = Total_District_Population;
+    public static class CityPopulation {
+        private String cityName;
+        private int population;
+
+        public CityPopulation(String cityName, int population) {
+            this.cityName = cityName;
+            this.population = population;
         }
 
-        // Method to represent the object as a string
-        public String toString() {
-            return "District: " + DistrictName + ", " +
-                    "Total District Population: " + Total_District_Population;
+        public String getCityName() {
+            return cityName;
+        }
+
+        public int getPopulation() {
+            return population;
         }
     }
 
-    // Method to retrieve population data for all districts
-    public static ArrayList<DistrictPopulationReport> getAllDistrictsPopulation(Connection con) {
+    public static Map<String, Map<String, Integer>> getTopNCitiesPopulation(Connection con, int N) {
+        Map<String, Map<String, Integer>> topNCities = new HashMap<>();
+
         try {
             Statement stmt = con.createStatement();
 
-            // SQL query to retrieve district-wise population data
-            String strSelect = "SELECT district.Name AS DistrictName, " +
-                    "SUM(city.Population) AS Total_District_Population " +
-                    "FROM city " +
-                    "JOIN country ON city.CountryCode = country.Code " +
-                    "JOIN district ON city.District = district.Name " +
-                    "GROUP BY district.Name";
+            String strSelect = "SELECT R.Name AS Region, C.Name AS City, C.Population " +
+                    "FROM city C " +
+                    "JOIN country CO ON C.CountryCode = CO.Code " +
+                    "JOIN region R ON CO.Region = R.Code " +
+                    "ORDER BY R.Name, C.Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
-            ArrayList<DistrictPopulationReport> districtReports = new ArrayList<>();
-
-            // Iterate through the result set and create DistrictPopulationReport objects
             while (rset.next()) {
-                String DistrictName = rset.getString("DistrictName");
-                int Total_District_Population = rset.getInt("Total_District_Population");
+                String region = rset.getString("Region");
+                String city = rset.getString("City");
+                int population = rset.getInt("Population");
 
-                // Create a DistrictPopulationReport object and add it to the list
-                DistrictPopulationReport district = new DistrictPopulationReport(DistrictName, Total_District_Population);
-                districtReports.add(district);
+                topNCities.putIfAbsent(region, new HashMap<>());
+                Map<String, Integer> cities = topNCities.get(region);
+
+                if (cities.size() < N) {
+                    cities.put(city, population);
+                }
             }
-            return districtReports;
+
+            rset.close();
+            stmt.close();
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get district population details");
-            return null;
+            System.out.println("Failed to get top N cities population");
         }
+
+        return topNCities;
     }
 
-    // Method to print population data for all districts
-    public static void printAllDistrictsPopulation(ArrayList<DistrictPopulationReport> districts) {
-        System.out.println("District Population Report");
-        // Iterate through the list of DistrictPopulationReport objects and print each one
-        for (DistrictPopulationReport district : districts) {
-            System.out.println(district);
+    public static void printTopNCities(Map<String, Map<String, Integer>> topNCities) {
+        System.out.println("Top N Populated Cities Report");
+        for (String region : topNCities.keySet()) {
+            System.out.println("Region: " + region);
+            Map<String, Integer> cities = topNCities.get(region);
+            for (String city : cities.keySet()) {
+                System.out.println("City: " + city + ", Population: " + cities.get(city));
+            }
+            System.out.println();
         }
     }
 }

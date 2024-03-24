@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+//•	11.The population of the world.•
 public class User_report_11 {
 
     // Inner class to represent the population report of the world
