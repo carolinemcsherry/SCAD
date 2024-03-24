@@ -74,6 +74,12 @@ public class User_report_7 {
 
     // Method to print population data for each region
     public static void printRegionPopulation(ArrayList<RegionPopulationReport> regions) {
+
+        if (regions == null)
+        {
+            System.out.println("No regions");
+            return;
+        }
         System.out.println("Region Population Report");
         // Iterate through the list of RegionPopulationReport objects and print each one
         for (RegionPopulationReport region : regions) {

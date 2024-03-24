@@ -74,6 +74,12 @@ public class User_report_3 {
 
     // Method to print city report data
     public static void printCityReport(ArrayList<CityReport> cities) {
+
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
         System.out.println("City Report");
         // Iterate through the list of CityReport objects and print each one
         for (CityReport city : cities) {

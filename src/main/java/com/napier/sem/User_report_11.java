@@ -50,6 +50,12 @@ public class User_report_11 {
 
     // Method to print population data for the entire world
     public static void printWorldPopulation(WorldPopulationReport worldPopulation) {
+        if (worldPopulation == null)
+        {
+            System.out.println("No worldPopulation");
+            return;
+        }
+
         System.out.println("World Population Report");
         System.out.println(worldPopulation);
     }

@@ -68,6 +68,12 @@ public class User_report_36 {
 
     // Method to print population data for all districts
     public static void printAllDistrictsPopulation(ArrayList<DistrictPopulationReport> districts) {
+
+        if (districts == null)
+        {
+            System.out.println("No districts");
+            return;
+        }
         System.out.println("District Population Report");
         // Iterate through the list of DistrictPopulationReport objects and print each one
         for (DistrictPopulationReport district : districts) {

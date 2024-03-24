@@ -87,6 +87,12 @@ public class User_report_4 {
 
     // Method to print country report
     public static void printCountryReport(ArrayList<CountryReport> countries) {
+        if (countries == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
+
         System.out.println("Country Report");
         for (CountryReport country : countries) {
             System.out.println(country);

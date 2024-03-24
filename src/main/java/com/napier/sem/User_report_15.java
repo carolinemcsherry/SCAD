@@ -71,6 +71,12 @@ public class User_report_15 {
 
     // Method to print capital cities by continent
     public static void printCapitalCitiesByContinent(ArrayList<CapitalCitiesByContinent> capitalCitiesByContinentList) {
+        if (capitalCitiesByContinentList == null)
+        {
+            System.out.println("No capital Cities By Continent List");
+            return;
+        }
+
         System.out.println("Capital Cities By Continent Report:");
         for (CapitalCitiesByContinent capitalCity : capitalCitiesByContinentList) {
             System.out.println(capitalCity);

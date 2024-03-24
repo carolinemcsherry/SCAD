@@ -67,6 +67,12 @@ public class User_report_14 {
 
     // Method to print cities by region
     public static void printCitiesByRegion(ArrayList<CityByRegion> cityByRegionList) {
+
+        if (cityByRegionList == null)
+        {
+            System.out.println("No city By Region List");
+            return;
+        }
         System.out.println("Cities By Region Report:");
         for (CityByRegion cityByRegion : cityByRegionList) {
             System.out.println(cityByRegion);

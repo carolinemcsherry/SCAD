@@ -88,6 +88,12 @@ public class User_report_8 {
 
     // Method to print country population data
     public static void printCountryPopulation(ArrayList<CountryPopulation> countryPopulationList) {
+        if (countryPopulationList == null)
+        {
+            System.out.println("No country Population List");
+            return;
+        }
+
         System.out.println("Country Population Report:");
         for (CountryPopulation countryPopulation : countryPopulationList) {
             System.out.println(countryPopulation);

@@ -75,6 +75,11 @@ public class User_report_35 {
 
         // Method to print population data for all cities
         public static void printAllCitiesPopulation(ArrayList<CityPopulationReport> cities) {
+            if (cities == null)
+            {
+                System.out.println("No cities");
+                return;
+            }
             System.out.println("City Population Report");
             // Iterate through the list of CityPopulationReport objects and print each one
             for (CityPopulationReport city : cities) {

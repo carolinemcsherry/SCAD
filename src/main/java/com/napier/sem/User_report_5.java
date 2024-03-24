@@ -77,6 +77,11 @@ public class User_report_5{
 
     // Method to print language statistics
     public static void printLanguageStatistics(ArrayList<LanguageStats> languageStatsList) {
+        if (languageStatsList == null)
+        {
+            System.out.println("No language Stats List");
+            return;
+        }
         System.out.println("Language Statistics:");
         for (LanguageStats languageStats : languageStatsList) {
             System.out.println(languageStats);
