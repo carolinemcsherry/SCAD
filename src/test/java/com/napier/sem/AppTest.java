@@ -31,5 +31,13 @@ public class AppTest {
         User_report_2.printCapitalCityReport(ReportArray);
     }
 
+    @Test
+    void printCapitalCityReportTestContainsNull()
+    {
+        ArrayList<User_report_2.CapitalCityReport> ReportArray = new ArrayList<User_report_2.CapitalCityReport>();
+        ReportArray.add(null);
+        User_report_2.printCapitalCityReport(ReportArray);
+    }
+
 }
 //ArrayList<User_report_2.CapitalCityReport> ReportArray = User_report_2.getAllCapitalCities(con);

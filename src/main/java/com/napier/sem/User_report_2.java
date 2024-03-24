@@ -27,9 +27,9 @@ public class User_report_2{
 
         // toString method to represent the object as a string
         public String toString() {
-            return "City Name: " + cityName + ", " +
-                    "Country: " + countryName + ", " +
-                    "Population: " + population;
+            return  cityName +
+                      countryName +
+                      population;
         }
     }
 
@@ -77,8 +77,19 @@ public class User_report_2{
             return;
         }
         System.out.println("Capital City Report:");
+        System.out.println(String.format("%-10s %-15s %-20s", "CityName", "CountryName", "Population"));
+
         for (CapitalCityReport city : cities) {
-            System.out.println(city);
+            if (city == null)
+                continue;
+            String emp_string =
+                    String.format("%-10s %-15s %-20s",
+                            city.cityName, city.countryName, city.population);
+            System.out.println(emp_string);
+         //   System.out.println(city);
+
+
+
         }
     }
 }
