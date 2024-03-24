@@ -38,6 +38,44 @@ public class AppTest {
         ReportArray.add(null);
         User_report_2.printCapitalCityReport(ReportArray);
     }
+    @Test
+    void CityPopulationReportTestNull()
+    {
+        User_report_1.printPopulationReport(null);
+    }
 
+    @Test
+    void CityPopulationReportTestEmpty()
+    {
+        ArrayList<User_report_1.PopulationReport> ReportArray1 = new ArrayList<User_report_1.PopulationReport>();
+        User_report_1.printPopulationReport(ReportArray1);
+    }
+
+    @Test
+    void printCityPopulationReportTestContainsNull()
+    {
+        ArrayList<User_report_1.PopulationReport> ReportArray1 = new ArrayList<User_report_1.PopulationReport>();
+        ReportArray1.add(null);
+        User_report_1.printPopulationReport(ReportArray1);
+    }
+    @Test
+    void CityReportTestNull()
+    {
+        User_report_3.printCityReport(null);
+    }
+
+    @Test
+    void CityReportTestEmpty()
+    {
+        ArrayList<User_report_3.CityReport> ReportArray2 = new ArrayList<User_report_3.CityReport>();
+        User_report_3.printCityReport(ReportArray2);
+    }
+
+    @Test
+    void printCityReportTestContainsNull()
+    {
+        ArrayList<User_report_3.CityReport> ReportArray2 = new ArrayList<User_report_3.CityReport>();
+        ReportArray2.add(null);
+        User_report_3.printCityReport(ReportArray2);
+    }
 }
-//ArrayList<User_report_2.CapitalCityReport> ReportArray = User_report_2.getAllCapitalCities(con);

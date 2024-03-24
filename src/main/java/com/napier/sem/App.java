@@ -15,10 +15,16 @@ public class App {
     public static void main(String[] args) {
         // Connect to database
         Connection con = connect();
+
+        // user report 1
+        ArrayList<User_report_1.PopulationReport> ReportArrayFirst = User_report_1.getPopulationByRegion(con);
+
+        User_report_1.printPopulationReport(ReportArrayFirst);
        // user report 2
        ArrayList<User_report_2.CapitalCityReport> ReportArray = User_report_2.getAllCapitalCities(con);
 
         User_report_2.printCapitalCityReport(ReportArray);
+
 // user report 3
        ArrayList<User_report_3.CityReport> ReportArray1 = User_report_3.getCityReport(con);
 

@@ -76,17 +76,21 @@ public class User_report_2{
             System.out.println("No cities");
             return;
         }
+        //print report name
         System.out.println("Capital City Report:");
+        //format and print header
         System.out.println(String.format("%-10s %-15s %-20s", "CityName", "CountryName", "Population"));
 
         for (CapitalCityReport city : cities) {
+            //If an atrabute value is null the job will continue
             if (city == null)
                 continue;
-            String emp_string =
+            //Prints table values in columbs
+            String Table_string =
                     String.format("%-10s %-15s %-20s",
                             city.cityName, city.countryName, city.population);
-            System.out.println(emp_string);
-         //   System.out.println(city);
+            System.out.println(Table_string);
+
 
 
 

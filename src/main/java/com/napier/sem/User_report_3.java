@@ -74,16 +74,27 @@ public class User_report_3 {
 
     // Method to print city report data
     public static void printCityReport(ArrayList<CityReport> cities) {
-
+            //test for nullin arraylist
         if (cities == null)
         {
             System.out.println("No cities");
             return;
         }
+        //print report name
         System.out.println("City Report");
+        //format and print header
+        System.out.println(String.format("%-20s %-20s %-25s %-20s" , "CityName", "CountryName", "District", "Population"));
         // Iterate through the list of CityReport objects and print each one
         for (CityReport city : cities) {
-            System.out.println(city);
+           //If an atrabute value is null the job will continue
+            if (city == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-20s %-20s %-25s %-20s",
+                            city.CityName, city.CountryName, city.District, city.Population);
+            System.out.println(Table_string);
+
         }
     }
 }

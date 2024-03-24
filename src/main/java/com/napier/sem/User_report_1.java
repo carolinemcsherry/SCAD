@@ -12,12 +12,12 @@ public class User_report_1 {
     // Inner class to represent the population report for a region
     public static class PopulationReport {
         private String Region;
-        private int TotalPopulation;
-        private int PopulationInCities;
-        private int PopulationNotInCities;
+        private long TotalPopulation;
+        private long PopulationInCities;
+        private long PopulationNotInCities;
 
         // Constructor for the PopulationReport class
-        public PopulationReport(String Region, int TotalPopulation, int PopulationInCities, int PopulationNotInCities) {
+        public PopulationReport(String Region, long TotalPopulation, long PopulationInCities, long PopulationNotInCities) {
             this.Region = Region;
             this.TotalPopulation = TotalPopulation;
             this.PopulationInCities = PopulationInCities;
@@ -26,10 +26,10 @@ public class User_report_1 {
 
         // Method to represent the object as a string
         public String toString() {
-            return "Region: " + Region + ", " +
-                    "Total Population: " + TotalPopulation + ", " +
-                    "Population in Cities: " + PopulationInCities + ", " +
-                    "Population Not in Cities: " + PopulationNotInCities;
+            return  Region +
+                    TotalPopulation +
+                     PopulationInCities +
+                    PopulationNotInCities;
         }
     }
 
@@ -56,9 +56,9 @@ public class User_report_1 {
             // Iterate through the result set and create PopulationReport objects
             while (rset.next()) {
                 String Region = rset.getString("Region");
-                int TotalPopulation = rset.getInt("TotalPopulation");
-                int PopulationInCities = rset.getInt("PopulationInCities");
-                int PopulationNotInCities = rset.getInt("PopulationNotInCities");
+                long TotalPopulation = rset.getLong("TotalPopulation");
+                long PopulationInCities = rset.getLong("PopulationInCities");
+                long PopulationNotInCities = rset.getLong("PopulationNotInCities");
 
                 // Create a PopulationReport object and add it to the list
                 PopulationReport report = new PopulationReport(Region, TotalPopulation, PopulationInCities, PopulationNotInCities);
@@ -79,10 +79,24 @@ public class User_report_1 {
 
     // Method to print population report data for each region
     public static void printPopulationReport(ArrayList<PopulationReport> reports) {
+        if (reports == null)
+        {
+            System.out.println("No reports");
+            return;
+        }
+        //print report name
         System.out.println("Population Report");
+        //format and print header
+        System.out.println(String.format("%-20s %-15s %-15s %-15s", "Region", "TotalPopulation", "PopulationInCities", "PopulationNotInCities"));
         // Iterate through the list of PopulationReport objects and print each one
         for (PopulationReport report : reports) {
-            System.out.println(report);
+            if (report == null)
+                continue;
+            String Table_string =
+                    String.format("%-20s %-15s %-15s %-15s",
+                            report.Region, report.TotalPopulation, report.PopulationInCities, report.PopulationNotInCities);
+            System.out.println(Table_string);
+
         }
     }
 }
