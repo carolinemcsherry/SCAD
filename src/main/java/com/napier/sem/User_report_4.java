@@ -55,7 +55,7 @@ public class User_report_4 {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve country data for the report
-            String strSelect = "SELECT Code, Name, Continent, Region, Population, city.Name AS Capital " +
+            String strSelect = "SELECT country.Code, country.Name, country.Continent, Region, country.Population, city.Name AS Capital " +
                     "FROM country " +
                     "LEFT JOIN city ON country.Capital = city.ID";
 
