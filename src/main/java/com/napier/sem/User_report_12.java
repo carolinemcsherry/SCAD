@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 //. The top N populated capital cities in a region where N is provided by the user.
-public class User_report_12{
+public class User_report_12 {
 
     // Inner class to represent the top N populated capital cities in a continent report
     public static class TopCapitalCitiesInContinent {
@@ -65,11 +65,20 @@ public class User_report_12{
         }
     }
 
+
+
     // Method to print top N populated capital cities in a continent
-    public static void printTopPopulatedCapitalCitiesInContinent(ArrayList<TopCapitalCitiesInContinent> topCapitalCitiesList) {
-        System.out.println("Top Populated Capital Cities in the Continent Report:");
-        for (TopCapitalCitiesInContinent topCapitalCity : topCapitalCitiesList) {
-            System.out.println(topCapitalCity);
+    public static void printTopCapitalCitiesInContinentReport(ArrayList<User_report_12.TopCapitalCitiesInContinent> TopCapitalCitiesInContinent) {
+        // Check if ArrayList is not null
+        if (TopCapitalCitiesInContinent == null) {
+            System.out.println("No TopCapitalCitiesInContinent");
+            return;
         }
+        System.out.println("TopCapitalCitiesInContinent:");
+        for (TopCapitalCitiesInContinent capitalCity : TopCapitalCitiesInContinent) {
+            System.out.println(capitalCity);
+        }
+
     }
-}
+    }
+
