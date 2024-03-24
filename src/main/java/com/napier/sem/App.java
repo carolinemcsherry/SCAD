@@ -48,6 +48,11 @@ public class App {
 
         User_report_9.printAllRegionsPopulation(ReportArray7);
 
+        //user report 11
+
+        ArrayList<User_report_11.WorldPopulationReport> ReportArray9 = User_report_11.getWorldPopulationList(con);
+
+        User_report_11.printWorldPopulationReport(ReportArray9);
         // Disconnect from database
         disconnect();
         System.out.println("Database has successfully disconnected");
