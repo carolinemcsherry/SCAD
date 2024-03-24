@@ -66,7 +66,7 @@ public class User_report_12 {
     }
 
 
-
+// 
     // Method to print top N populated capital cities in a continent
     public static void printTopCapitalCitiesInContinentReport(ArrayList<User_report_12.TopCapitalCitiesInContinent> TopCapitalCitiesInContinent) {
         // Check if ArrayList is not null
