@@ -24,14 +24,14 @@ public class User_report_10{
         // Inner class to represent the population report of a continent
 
         private String Continent;
-        private int Total_Continent_Population;
-        private int Total_City_Population;
+        private long Total_Continent_Population;
+        private long Total_City_Population;
         private String City_Population_Percentage;
-        private int Total_Not_City_Population;
+        private long Total_Not_City_Population;
         private String None_City_Population_Percentage;
 
         // Constructor for the ContinentPopulationReport class
-        public ContinentPopulationReport(String Continent, int Total_Continent_Population, int Total_City_Population, String City_Population_Percentage, int Total_Not_City_Population, String None_City_Population_Percentage) {
+        public ContinentPopulationReport(String Continent, long Total_Continent_Population, long Total_City_Population, String City_Population_Percentage, long Total_Not_City_Population, String None_City_Population_Percentage) {
             this.Continent = Continent;
             this.Total_Continent_Population = Total_Continent_Population;
             this.Total_City_Population = Total_City_Population;
@@ -42,12 +42,12 @@ public class User_report_10{
 
         // Method to represent the object as a string
         public String toString() {
-            return  "Continent: " + Continent + ", " +
-                    "Total Continent Population: " + Total_Continent_Population + ", " +
-                    "Total City Population: " + Total_City_Population + ", " +
-                    "Total Not City Population: " + Total_Not_City_Population + ", " +
-                    "City Population Percentage: " + City_Population_Percentage + ", " +
-                    "None City Population Percentage: " + None_City_Population_Percentage;
+            return   Continent +
+                     Total_Continent_Population +
+                     Total_City_Population +
+                     Total_Not_City_Population +
+                     City_Population_Percentage +
+                     None_City_Population_Percentage;
         }
     }
 
@@ -74,9 +74,9 @@ public class User_report_10{
             // Iterate through the result set and create ContinentPopulationReport objects
             while (rset.next()) {
                 String Continent = rset.getString("Continent");
-                int Total_Continent_Population = rset.getInt("Total_Continent_Population");
-                int Total_City_Population = rset.getInt("Total_City_Population");
-                int Total_Not_City_Population = rset.getInt("Total_Not_City_Population");
+                long Total_Continent_Population = rset.getLong("Total_Continent_Population");
+                long Total_City_Population = rset.getLong("Total_City_Population");
+                long Total_Not_City_Population = rset.getLong("Total_Not_City_Population");
                 String City_Population_Percentage = rset.getString("City_Population_Percentage");
                 String None_City_Population_Percentage = rset.getString("None_City_Population_Percentage");
 
@@ -99,10 +99,20 @@ public class User_report_10{
             System.out.println("No continents");
             return;
         }
+
         System.out.println("Continent Population Report");
+        //print header
+        System.out.println(String.format("%-10s %-15s %-20s %-15s %-15s ", "Continent", "Total_Continent_Population", "Total_Not_City_Population", "City_Population_Percentage", "None_City_Population_Percentage"));
+
         // Iterate through the list of ContinentPopulationReport objects and print each one
         for (ContinentPopulationReport continent : continents) {
-            System.out.println(continent);
+            if (continent == null)
+                continue;
+            String emp_string =
+                    String.format("%-10s %-15s %-20s %-15s %-15s",
+                            continent.Continent, continent.Total_Continent_Population, continent.Total_Not_City_Population, continent.City_Population_Percentage, continent.None_City_Population_Percentage);
+            System.out.println(emp_string);
+        //    System.out.println(continent);
         }
     }
 }

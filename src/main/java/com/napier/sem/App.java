@@ -20,7 +20,7 @@ public class App {
 
         User_report_2.printCapitalCityReport(ReportArray);
 // user report 3
-     /*   ArrayList<User_report_3.CityReport> ReportArray1 = User_report_3.getCityReport(con);
+       ArrayList<User_report_3.CityReport> ReportArray1 = User_report_3.getCityReport(con);
 
        User_report_3.printCityReport(ReportArray1);
 // user report 4
@@ -46,9 +46,16 @@ public class App {
 // user report 9
         ArrayList<User_report_9.RegionPopulationReport> ReportArray7 = User_report_9.getAllRegionsPopulation(con);
 
-        User_report_9.printAllRegionsPopulation(ReportArray7);*/
+        User_report_9.printAllRegionsPopulation(ReportArray7);
+
+        // user report 10
+        ArrayList<User_report_10.ContinentPopulationReport> ReportArray8 = User_report_10.getAllContinentsPopulation(con);
+
+        User_report_10.printAllContinentsPopulation(ReportArray8);
 
         // Disconnect from database
+
+
         disconnect();
         System.out.println("Database has successfully disconnected");
 
