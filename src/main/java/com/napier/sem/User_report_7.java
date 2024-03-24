@@ -14,12 +14,12 @@ public class User_report_7 {
     // Inner class to represent the population report of a region
     public static class RegionPopulationReport {
         private String Region;
-        private int Total_Population;
-        private int City_Population;
-        private int Non_City_Population;
+        private long Total_Population;
+        private long City_Population;
+        private long Non_City_Population;
 
         // Constructor for the RegionPopulationReport class
-        public RegionPopulationReport(String Region, int Total_Population, int City_Population, int Non_City_Population) {
+        public RegionPopulationReport(String Region, long Total_Population, long City_Population, long Non_City_Population) {
             this.Region = Region;
             this.Total_Population = Total_Population;
             this.City_Population = City_Population;
@@ -56,9 +56,9 @@ public class User_report_7 {
             // Iterate through the result set and create RegionPopulationReport objects
             while (rset.next()) {
                 String Region = rset.getString("Region");
-                int Total_Population = rset.getInt("Total_Population");
-                int City_Population = rset.getInt("City_Population");
-                int Non_City_Population = rset.getInt("Non_City_Population");
+                long Total_Population = rset.getLong("Total_Population");
+                long City_Population = rset.getLong("City_Population");
+                long Non_City_Population = rset.getLong("Non_City_Population");
 
                 // Create a RegionPopulationReport object and add it to the list
                 RegionPopulationReport region = new RegionPopulationReport(Region, Total_Population, City_Population, Non_City_Population);

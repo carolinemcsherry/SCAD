@@ -21,14 +21,14 @@ public class User_report_9{
         // Inner class to represent the population report of a region
 
         private String Region;
-        private int Total_Region_Population;
-        private int Total_City_Population;
+        private long Total_Region_Population;
+        private long Total_City_Population;
         private String City_Population_Percentage;
-        private int Total_Not_City_Population;
+        private long Total_Not_City_Population;
         private String None_City_Population_Percentage;
 
         // Constructor for the RegionPopulationReport class
-        public RegionPopulationReport(String Region, int Total_Region_Population, int Total_City_Population, String City_Population_Percentage, int Total_Not_City_Population, String None_City_Population_Percentage) {
+        public RegionPopulationReport(String Region, long Total_Region_Population, long Total_City_Population, String City_Population_Percentage, long Total_Not_City_Population, String None_City_Population_Percentage) {
             this.Region = Region;
             this.Total_Region_Population = Total_Region_Population;
             this.Total_City_Population = Total_City_Population;
@@ -71,9 +71,9 @@ public class User_report_9{
             // Iterate through the result set and create RegionPopulationReport objects
             while (rset.next()) {
                 String Region = rset.getString("Region");
-                int Total_Region_Population = rset.getInt("Total_Region_Population");
-                int Total_City_Population = rset.getInt("Total_City_Population");
-                int Total_Not_City_Population = rset.getInt("Total_Not_City_Population");
+                long Total_Region_Population = rset.getLong("Total_Region_Population");
+                long Total_City_Population = rset.getLong("Total_City_Population");
+                long Total_Not_City_Population = rset.getLong("Total_Not_City_Population");
                 String City_Population_Percentage = rset.getString("City_Population_Percentage");
                 String None_City_Population_Percentage = rset.getString("None_City_Population_Percentage");
 

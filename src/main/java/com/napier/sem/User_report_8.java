@@ -18,14 +18,14 @@ public class User_report_8 {
     // Inner class to represent the population report of a region
     public static class CountryPopulation{
         private String name;
-        private int totalPopulation;
-        private int populationInCities;
+        private long totalPopulation;
+        private long populationInCities;
         private String populationInCitiesPercentage;
-        private int populationNotInCities;
+        private long populationNotInCities;
         private String populationNotInCitiesPercentage;
 
         // Constructor for CountryPopulation class
-        public CountryPopulation(String name, int totalPopulation, int populationInCities, String populationInCitiesPercentage, int populationNotInCities, String populationNotInCitiesPercentage) {
+        public CountryPopulation(String name, long totalPopulation, long populationInCities, String populationInCitiesPercentage, long populationNotInCities, String populationNotInCitiesPercentage) {
             this.name = name;
             this.totalPopulation = totalPopulation;
             this.populationInCities = populationInCities;
@@ -68,10 +68,10 @@ public class User_report_8 {
             // Iterate through the result set and create CountryPopulation objects
             while (rset.next()) {
                 String name = rset.getString("Name");
-                int totalPopulation = rset.getInt("TotalPopulation");
-                int populationInCities = rset.getInt("PopulationInCities");
+                long totalPopulation = rset.getLong("TotalPopulation");
+                long populationInCities = rset.getLong("PopulationInCities");
                 String populationInCitiesPercentage = rset.getString("PopulationInCitiesPercentage");
-                int populationNotInCities = rset.getInt("PopulationNotInCities");
+                long populationNotInCities = rset.getLong("PopulationNotInCities");
                 String populationNotInCitiesPercentage = rset.getString("PopulationNotInCitiesPercentage");
 
                 // Create a CountryPopulation object and add it to the list
