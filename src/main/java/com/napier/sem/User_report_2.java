@@ -70,6 +70,12 @@ public class User_report_2{
 
     // Method to print capital city report
     public static void printCapitalCityReport(ArrayList<CapitalCityReport> cities) {
+        // Check Array List  is not null
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
         System.out.println("Capital City Report:");
         for (CapitalCityReport city : cities) {
             System.out.println(city);
