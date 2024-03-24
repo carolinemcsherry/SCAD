@@ -7,26 +7,26 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /*
-* Main appliacation to run reports
-* */
+ * Main appliacation to run reports
+ * */
 
 public class App {
 
     public static void main(String[] args) {
         // Connect to database
         Connection con = connect();
-       // user report 2
-       ArrayList<User_report_2.CapitalCityReport> ReportArray = User_report_2.getAllCapitalCities(con);
+        // user report 2
+        ArrayList<User_report_2.CapitalCityReport> ReportArray = User_report_2.getAllCapitalCities(con);
 
         User_report_2.printCapitalCityReport(ReportArray);
 // user report 3
         ArrayList<User_report_3.CityReport> ReportArray1 = User_report_3.getCityReport(con);
 
-       User_report_3.printCityReport(ReportArray1);
+        User_report_3.printCityReport(ReportArray1);
 // user report 4
         ArrayList<User_report_4.CountryReport> ReportArray2 = User_report_4.getAllCountries(con);
 
-         User_report_4.printCountryReport(ReportArray2);
+        User_report_4.printCountryReport(ReportArray2);
 // user report 5
         ArrayList<User_report_5.LanguageStats> ReportArray3 = User_report_5.getLanguageStatistics(con);
 
