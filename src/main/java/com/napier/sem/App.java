@@ -56,10 +56,12 @@ public class App {
 
         //user report 12
 
-        ArrayList<User_report_12.TopCapitalCitiesInContinent> ReportArray10= User_report_12.getTopPopulatedCapitalCitiesInContinent(con);
+
+        ArrayList<User_report_12.TopCapitalCitiesInContinent> ReportArray10 = User_report_12.getTopPopulatedCapitalCitiesInContinent(con);
 
         User_report_12.printTopCapitalCitiesInContinentReport(ReportArray10);
-        // Disconnect from database
+
+
         disconnect();
         System.out.println("Database has successfully disconnected");
 
