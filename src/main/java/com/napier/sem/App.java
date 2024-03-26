@@ -56,10 +56,9 @@ public class App {
 
         //user report 12
 
+        ArrayList<User_report_12.PopulationbyRegionReport> ReportArray10 = User_report_12.getPopulationbyRegionReport(con);
 
-        ArrayList<User_report_12.TopCapitalCitiesInContinent> ReportArray10 = User_report_12.getTopPopulatedCapitalCitiesInContinent(con);
-
-        User_report_12.printTopCapitalCitiesInContinentReport(ReportArray10);
+        User_report_12.printRegionPopulation(ReportArray10);
 
 
         disconnect();

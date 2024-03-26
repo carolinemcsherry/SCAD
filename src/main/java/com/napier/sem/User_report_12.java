@@ -1,72 +1,79 @@
 package com.napier.sem;
 
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+// The population of the world.
 public class User_report_12 {
 
+    public static class PopulationbyRegionReport {
+        private String Region;
+        private String City;
+        private int Population;
 
-
-    public static class TopCapitalCitiesInContinent {
-        private int population;
-        private String capitalCityName;
-        private String continent;
-
-        public TopCapitalCitiesInContinent(int population, String capitalCityName, String continent) {
-            this.population = population;
-            this.capitalCityName = capitalCityName;
-            this.continent = continent;
+        public PopulationbyRegionReport(String Region, String City, int Population) {
+            this.Region = Region;
+            this.City = City;
+            this.Population = Population;
         }
 
         public String toString() {
-            return "Population: " + population + ", " +
-                    "Capital City Name: " + capitalCityName + ", " +
-                    "Continent: " + continent;
+            return "Region: " + Region + ", " +
+                    "City: " + City + ", " +
+                    "Population: " + Population;
         }
     }
 
-    public static ArrayList<TopCapitalCitiesInContinent> getTopPopulatedCapitalCitiesInContinent(Connection con, String continent, int limit) {
+    public static ArrayList<PopulationbyRegionReport> getPopulationbyRegionReport(Connection con) {
+        ArrayList<PopulationbyRegionReport> populationReports = new ArrayList<>();
+
         try {
             Statement stmt = con.createStatement();
-            String strSelect = "SELECT country.Population, city.Name AS CapitalCity, country.Continent " +
+
+            // SQL query to retrieve top N populated capital cities in each region
+            String strSelect = "SELECT R.Name AS Region, city.Name AS City, city.Population " +
                     "FROM city " +
-                    "JOIN country ON city.ID = country.Capital " +
-                    "WHERE country.Continent = '" + continent + "' " +
-                    "ORDER BY country.Population DESC " +
-                    "LIMIT " + limit;
+                    "JOIN country ON city.CountryCode = country.Code " +
+                    "JOIN region R ON country.Region = R.Code " +
+                    "WHERE city.ID = country.Capital " +
+                    "ORDER BY city.Population DESC " +
+                    "LIMIT " + "";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
-            ArrayList<TopCapitalCitiesInContinent> topCapitalCitiesList = new ArrayList<>();
-
             while (rset.next()) {
-                int population = rset.getInt("Population");
-                String capitalCityName = rset.getString("CapitalCity");
-                String continentName = rset.getString("Continent");
+                String Region = rset.getString("Region");
+                String City = rset.getString("City");
+                int Population = rset.getInt("Population");
 
-                TopCapitalCitiesInContinent topCapitalCity = new TopCapitalCitiesInContinent(population, capitalCityName, continentName);
-                topCapitalCitiesList.add(topCapitalCity);
+                PopulationbyRegionReport report = new PopulationbyRegionReport(Region, City, Population);
+                populationReports.add(report);
             }
-            return topCapitalCitiesList;
+
+            rset.close();
+            stmt.close();
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get top populated capital cities in the continent");
-            return null;
+            System.out.println("Failed to get population report details");
         }
+
+        return populationReports;
     }
 
-    public static void printTopCapitalCitiesInContinentReport(ArrayList<TopCapitalCitiesInContinent> topCapitalCitiesInContinent) {
-        if (topCapitalCitiesInContinent == null) {
-            System.out.println("No TopCapitalCitiesInContinent");
+    public static void printRegionPopulation(ArrayList<PopulationbyRegionReport> regions) {
+        if (regions == null) {
+            System.out.println("No regions");
             return;
         }
-        System.out.println("TopCapitalCitiesInContinent:");
-        for (TopCapitalCitiesInContinent capitalCity : topCapitalCitiesInContinent) {
-            System.out.println(capitalCity);
+        System.out.println("Region Population Report");
+        for (PopulationbyRegionReport region : regions) {
+            System.out.println(region);
         }
     }
 }
+
+
