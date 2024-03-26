@@ -168,7 +168,7 @@ public class AppTest {
         User_report_7.printRegionPopulation(ReportArray6);
 
     }
-    //user report 7
+    //user report 8
     @Test
     void user_report8_TestNull()
     {
@@ -191,5 +191,26 @@ public class AppTest {
         User_report_8.printCountryPopulation(ReportArray7);
 
     }
+    //user report 9
+    @Test
+    void user_report9_TestNull()
+    {
+        User_report_9.printAllRegionsPopulation(null);
+    }
 
+    @Test
+    void user_report9_TestEmpty()
+    {
+        ArrayList<User_report_9.RegionPopulationReport> ReportArray8 = new ArrayList<User_report_9.RegionPopulationReport>();
+        User_report_9.printAllRegionsPopulation(ReportArray8);
+    }
+
+    @Test
+    void print_user_report9_TestContainsNull()
+    {
+        ArrayList<User_report_9.RegionPopulationReport> ReportArray8 = new ArrayList<User_report_9.RegionPopulationReport>();
+        ReportArray8.add(null);
+        User_report_9.printAllRegionsPopulation(ReportArray8);
+
+    }
 }
