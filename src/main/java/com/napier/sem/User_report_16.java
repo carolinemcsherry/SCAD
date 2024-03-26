@@ -1,6 +1,5 @@
 
 
-    // Inner class to represent capital cities in the world report
     package com.napier.sem;
 
     import java.sql.Connection;
@@ -62,9 +61,15 @@
 
     // Method to print capital cities in the world
     public static void printCapitalCitiesWorld(ArrayList<CapitalCitiesWorld> capitalCitiesWorldList) {
+        if (capitalCitiesWorldList == null || capitalCitiesWorldList.isEmpty()) {
+            System.out.println("No capital cities in the world to display");
+            return;
+        }
         System.out.println("Capital Cities in the World Report:");
         for (CapitalCitiesWorld capitalCity : capitalCitiesWorldList) {
             System.out.println(capitalCity);
         }
     }
-}
+
+    }
+
