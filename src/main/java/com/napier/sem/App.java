@@ -91,6 +91,12 @@ public class App {
 
         User_report_17.printTopCitiesInDistrict(ReportArray15);
 
+        // User report 18
+
+        ArrayList<User_report_18.TopCitiesInCountry> ReportArray16 = User_report_18.getTopPopulatedCitiesInCountry(con);
+
+        User_report_18.printTopPopulatedCitiesInCountry(ReportArray16);
+
         disconnect();
         System.out.println("Database has successfully disconnected");
 
