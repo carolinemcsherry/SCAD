@@ -13,8 +13,14 @@ import java.util.ArrayList;
 public class App {
 
     public static void main(String[] args) {
-        // Connect to database
-        Connection con = connect();
+        // Create new Application and connect to database
+        App a = new App();
+        if (args.length < 1) {
+            a.connect("localhost:33060", 10000);
+        } else {
+            a.connect(args[0], Integer.parseInt(args[1]));
+        }
+
 
         // user report 1
         ArrayList<User_report_1.PopulationReport> ReportArrayFirst = User_report_1.getPopulationByRegion(con);
@@ -37,10 +43,12 @@ public class App {
         ArrayList<User_report_5.LanguageStats> ReportArray3 = User_report_5.getLanguageStatistics(con);
 
         User_report_5.printLanguageStatistics(ReportArray3);
+
 // user report 6
         ArrayList<User_report_6.CityReport> ReportArray4 = User_report_6.getAllCities(con);
 
         User_report_6.printCityReport(ReportArray4);
+
 // user report 7
         ArrayList<User_report_7.RegionPopulationReport> ReportArray5 = User_report_7.getRegionPopulation(con);
 
@@ -70,7 +78,7 @@ public class App {
 
     private static Connection con = null;
 
-    static Connection connect() {
+    public void connect(String location, int delay) {
         try {
             // Load Database driver
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -80,29 +88,32 @@ public class App {
         }
 
         int retries = 10;
-        for (int i = 1; i < retries; ++i) {
+        boolean shouldWait = false;
+        for (int i = 0; i < retries; ++i) {
             System.out.println("Connecting to database...");
-            System.out.println("going in to try");
             try {
-                // Wait a bit for db to start
-                Thread.sleep(5000);
+                if (shouldWait) {
+                    // Wait a bit for db to start
+                    Thread.sleep(delay);
+                }
+
                 // Connect to database
-                System.out.println("going in to con");
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
+                con = DriverManager.getConnection("jdbc:mysql://" + location
+                                + "/world?allowPublicKeyRetrieval=true&useSSL=false",
+                        "root", "example");
                 System.out.println("Successfully connected");
                 break;
-            } catch (SQLException sql) {
+            } catch (SQLException sqle) {
                 System.out.println("Failed to connect to database attempt " + i);
-                System.out.println(sql.getMessage());
+                System.out.println(sqle.getMessage());
 
+                // Let's wait before attempting to reconnect
+                shouldWait = true;
             } catch (InterruptedException ie) {
                 System.out.println("Thread interrupted? Should not happen.");
-
             }
         }
-        return con;
     }
-
 
     public static void disconnect() {
         if (con != null) {

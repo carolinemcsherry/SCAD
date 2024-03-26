@@ -83,7 +83,7 @@ public class User_report_7 {
         //print report name
         System.out.println("Region Population Report");
         //format and print header
-        System.out.println(String.format("%-25s%-25s%-25s%-25s%-25s", "Region", "Total_Population", "City_Population", "Non_City_Population"));
+        System.out.println(String.format("%-25s %-25s %-25s %-25s", "Region", "Total_Population", "City_Population", "Non_City_Population"));
         // Iterate through the list of RegionPopulationReport objects and print each one
         for (RegionPopulationReport region : regions) {
             //If an atrabute value is null the job will continue
@@ -91,7 +91,7 @@ public class User_report_7 {
                 continue;
             //Prints table values in columbs
             String Table_string =
-                    String.format("%-25s%-25s%-25s%-25s%-25s",
+                    String.format("%-25s %-25s %-25s %-25s",
                             region.Region, region.Total_Population, region.City_Population,region.Non_City_Population);
             System.out.println(Table_string);
         }
