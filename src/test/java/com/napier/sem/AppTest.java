@@ -168,4 +168,28 @@ public class AppTest {
         User_report_7.printRegionPopulation(ReportArray6);
 
     }
+    //user report 7
+    @Test
+    void user_report8_TestNull()
+    {
+        User_report_8.printCountryPopulation(null);
+    }
+
+    @Test
+    void user_report8_TestEmpty()
+    {
+        ArrayList<User_report_8.CountryPopulation> ReportArray7 = new ArrayList<User_report_8.CountryPopulation>();
+        User_report_8.printCountryPopulation(ReportArray7);
+    }
+
+    @Test
+    void print_user_report8_TestContainsNull()
+    {
+
+        ArrayList<User_report_8.CountryPopulation> ReportArray7 = new ArrayList<User_report_8.CountryPopulation>();
+        ReportArray7.add(null);
+        User_report_8.printCountryPopulation(ReportArray7);
+
+    }
+
 }

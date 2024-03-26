@@ -36,12 +36,12 @@ public class User_report_8 {
 
         // Method to represent the object as a string
         public String toString() {
-            return "Name: " + name + ", " +
-                    "Total Population: " + totalPopulation + ", " +
-                    "Population in Cities: " + populationInCities + ", " +
-                    "Population in Cities Percentage: " + populationInCitiesPercentage + ", " +
-                    "Population Not in Cities: " + populationNotInCities + ", " +
-                    "Population Not in Cities Percentage: " + populationNotInCitiesPercentage;
+            return  name + ", " +
+                     totalPopulation +
+                     populationInCities +
+                     populationInCitiesPercentage +
+                     populationNotInCities +
+                     populationNotInCitiesPercentage;
         }
     }
 
@@ -88,15 +88,26 @@ public class User_report_8 {
 
     // Method to print country population data
     public static void printCountryPopulation(ArrayList<CountryPopulation> countryPopulationList) {
+        // Check Array List  is not null
         if (countryPopulationList == null)
         {
             System.out.println("No country Population List");
             return;
         }
-
+        //print report name
         System.out.println("Country Population Report:");
+        //format and print header
+        System.out.println(String.format("%-20s %-20s %-20s %-20s %-20s %-20s", "Name", "TotalPopulation", "PopulationInCities", "PopulationInCitiesPercentage", "PopulationNotInCities", "PopulationNotInCitiesPercentage"));
+
         for (CountryPopulation countryPopulation : countryPopulationList) {
-            System.out.println(countryPopulation);
+            //If an atrabute value is null the job will continue
+            if (countryPopulation == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-20s %-20s %-20s %-20s %-20s %-20s",
+                            countryPopulation.name,countryPopulation.totalPopulation,countryPopulation.populationInCities, countryPopulation.populationInCitiesPercentage, countryPopulation.populationNotInCities, countryPopulation.populationNotInCitiesPercentage);
+            System.out.println(Table_string);
         }
     }
 }
