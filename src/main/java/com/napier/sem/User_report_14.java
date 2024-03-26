@@ -35,7 +35,7 @@ public class User_report_14 {
     }
 
     // Method to retrieve city report data for all cities in a specific region sorted by population
-    public static ArrayList<CityReport> getCityReportByRegion(Connection con, String region) {
+    public static ArrayList<CityReport> getCityReportByRegion(Connection con) {
         try {
             Statement stmt = con.createStatement();
 
@@ -43,7 +43,7 @@ public class User_report_14 {
             String strSelect = "SELECT A.Name AS CityName, B.Name AS CountryName, A.District, A.Population " +
                     "FROM city A " +
                     "JOIN country B ON A.CountryCode = B.Code " +
-                    "WHERE B.Region = '" + region + "' " +
+                    "WHERE B.Region = '" + "" + "' " +
                     "ORDER BY A.Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -76,6 +76,10 @@ public class User_report_14 {
 
     // Method to print city report data
     public static void printCityReport(ArrayList<CityReport> cities) {
+        if (cities == null || cities.isEmpty()) {
+            System.out.println("No cities");
+            return;
+        }
         System.out.println("City Report");
         // Iterate through the list of CityReport objects and print each one
         for (CityReport city : cities) {
@@ -83,4 +87,3 @@ public class User_report_14 {
         }
     }
 }
-

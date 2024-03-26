@@ -35,7 +35,7 @@ public class User_report_15 {
     }
 
     // Method to retrieve capital cities by continent
-    public static ArrayList<CapitalCitiesByContinent> getCapitalCitiesByContinent(Connection con, String continent) {
+    public static ArrayList<CapitalCitiesByContinent> getCapitalCitiesByContinent(Connection con) {
         try {
             Statement stmt = con.createStatement();
 
@@ -43,8 +43,9 @@ public class User_report_15 {
             String strSelect = "SELECT city.Name AS CityName, country.Name AS CountryName, country.Continent, city.Population " +
                     "FROM city " +
                     "JOIN country ON city.ID = country.Capital " +
-                    "WHERE country.Continent = '" + continent + "' " +
+                    "WHERE country.Continent = '" + "" + "' " +
                     "ORDER BY city.Population DESC";
+
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -71,6 +72,10 @@ public class User_report_15 {
 
     // Method to print capital cities by continent
     public static void printCapitalCitiesByContinent(ArrayList<CapitalCitiesByContinent> capitalCitiesByContinentList) {
+        if (capitalCitiesByContinentList == null || capitalCitiesByContinentList.isEmpty()) {
+            System.out.println("No capital cities by continent to display");
+            return;
+        }
         System.out.println("Capital Cities By Continent Report:");
         for (CapitalCitiesByContinent capitalCity : capitalCitiesByContinentList) {
             System.out.println(capitalCity);
