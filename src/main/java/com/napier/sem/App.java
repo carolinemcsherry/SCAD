@@ -60,6 +60,12 @@ public class App {
 
         User_report_12.printRegionPopulation(ReportArray10);
 
+        // User report 13
+
+        ArrayList<User_report_13.TopCapitalCitiesInWorld> ReportArray11 = User_report_13.getTopPopulatedCapitalCitiesInWorld(con);
+
+        User_report_13.printTopCapitalCitiesInWorld(ReportArray11);
+
 
         disconnect();
         System.out.println("Database has successfully disconnected");
