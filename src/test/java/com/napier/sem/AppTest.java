@@ -142,8 +142,30 @@ public class AppTest {
     {
         ArrayList<User_report_6.CityReport> ReportArray5 = new ArrayList<User_report_6.CityReport>();
         ReportArray5.add(null);
-        User_report_6.printCityReport(ReportArray5);;
+        User_report_6.printCityReport(ReportArray5);
 
     }
+    //user report 7
+    @Test
+    void user_report7_TestNull()
+    {
+        User_report_7.printRegionPopulation(null);
+    }
 
+    @Test
+    void user_report7_TestEmpty()
+    {
+        ArrayList<User_report_7.RegionPopulationReport> ReportArray6 = new ArrayList<User_report_7.RegionPopulationReport>();
+        User_report_7.printRegionPopulation(ReportArray6);
+    }
+
+    @Test
+    void print_user_report7_TestContainsNull()
+    {
+
+        ArrayList<User_report_7.RegionPopulationReport> ReportArray6 = new ArrayList<User_report_7.RegionPopulationReport>();
+        ReportArray6.add(null);
+        User_report_7.printRegionPopulation(ReportArray6);
+
+    }
 }
