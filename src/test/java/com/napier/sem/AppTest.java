@@ -123,6 +123,27 @@ public class AppTest {
         User_report_5.printLanguageStatistics(ReportArray4);
 
     }
+    //user report 6
+    @Test
+    void user_report6_TestNull()
+    {
+        User_report_6.printCityReport(null);
+    }
 
+    @Test
+    void user_report6_TestEmpty()
+    {
+        ArrayList<User_report_6.CityReport> ReportArray5 = new ArrayList<User_report_6.CityReport>();
+        User_report_6.printCityReport(ReportArray5);
+    }
+
+    @Test
+    void print_user_report6_TestContainsNull()
+    {
+        ArrayList<User_report_6.CityReport> ReportArray5 = new ArrayList<User_report_6.CityReport>();
+        ReportArray5.add(null);
+        User_report_6.printCityReport(ReportArray5);;
+
+    }
 
 }
