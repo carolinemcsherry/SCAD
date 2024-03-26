@@ -16,8 +16,8 @@ public class AppIntegrationTest {
     @BeforeAll
     public static void setUp() {
         // Establish a connection to the database
-        App app = new App();
-        app.connect("localhost:33060", 10000); // Adjust parameters as needed
+        App a = new App();
+        a.connect("db:3306", 30000); // Adjust parameters as needed
 
         // Set the connection for fetching the expected city
         con = App.con;
