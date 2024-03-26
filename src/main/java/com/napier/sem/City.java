@@ -48,5 +48,16 @@ public class City {
         }
     }
 
-
+    public void displayCity(City oneCity)
+    {
+        if (oneCity != null)
+        {
+            System.out.println(
+                    oneCity.ID + " "
+                            + oneCity.Name + " "
+                            + oneCity.CountryCode + "\n"
+                            + oneCity.District+ "\n"
+                            + oneCity.Population);
+        }
+    }
 }

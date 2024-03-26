@@ -12,13 +12,13 @@ import java.util.ArrayList;
 
 public class App {
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         // Create new Application and connect to database
         App a = new App();
         if (args.length < 1) {
             a.connect("localhost:33060", 10000);
         } else {
-            a.connect(args[0], Integer.parseInt(args[1]));
+           a.connect(args[0], Integer.parseInt(args[1]));
         }
 
 
@@ -73,7 +73,27 @@ public class App {
         disconnect();
         System.out.println("Database has successfully disconnected");
 
-    }
+    }*/
+   public static void main(String[] args) {
+       // Create new Application and connect to database
+       App a = new App();
+       a.connect("db:3306", 30000);
+       con = App.con;
+
+       // Call getCity method from City class
+       City cityInstance = new City();
+       City oneCity = cityInstance.getCity(30);
+
+       // Check if oneCity is null before displaying
+       if (oneCity != null) {
+           cityInstance.displayCity(oneCity);
+       } else {
+           System.out.println("City with ID 30 not found.");
+
+       }
+       a.disconnect();
+   }
+
 
 
     static Connection con = null;
@@ -99,7 +119,7 @@ public class App {
 
                 // Connect to database
                 con = DriverManager.getConnection("jdbc:mysql://" + location
-                                + "/world?allowPublicKeyRetrieval=true&useSSL=false",
+                                + "/world?useSSL=false",
                         "root", "example");
                 System.out.println("Successfully connected");
                 break;
@@ -115,11 +135,13 @@ public class App {
         }
     }
 
+
     public static void disconnect() {
         if (con != null) {
             try {
                 // Close connection
                 con.close();
+                System.out.println("Disconnected from db");
             } catch (Exception e) {
                 System.out.println("Error closing connection to database");
             }
