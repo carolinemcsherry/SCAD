@@ -76,7 +76,7 @@ public class App {
     }
 
 
-    private static Connection con = null;
+    static Connection con = null;
 
     public void connect(String location, int delay) {
         try {
