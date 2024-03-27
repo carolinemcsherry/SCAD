@@ -11,23 +11,23 @@ public class User_report_26{
     // Inner class to represent country data
     public static class CountryData {
         private String countryName;
-        private int population;
+        private Long population;
 
         // Constructor for CountryData class
-        public CountryData(String countryName, int population) {
+        public CountryData(String countryName, Long population) {
             this.countryName = countryName;
             this.population = population;
         }
 
         // Method to represent the object as a string
         public String toString() {
-            return "Country Name: " + countryName + ", " +
-                    "Population: " + population;
+            return countryName +
+                    population;
         }
     }
 
     // Method to retrieve the top N populated countries in the world
-    public static ArrayList<CountryData> getTopPopulatedCountries(Connection con, int N) {
+    public static ArrayList<CountryData> getTopPopulatedCountries(Connection con, Long N) {
         try {
             Statement stmt = con.createStatement();
 
@@ -44,7 +44,7 @@ public class User_report_26{
             // Iterate through the result set and create CountryData objects
             while (rset.next()) {
                 String countryName = rset.getString("CountryName");
-                int population = rset.getInt("Population");
+                Long population = rset.getLong("Population");
 
                 // Create a CountryData object and add it to the list
                 CountryData country = new CountryData(countryName, population);
