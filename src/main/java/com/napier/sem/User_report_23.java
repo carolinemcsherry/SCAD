@@ -15,10 +15,10 @@ public class User_report_23 {
         private String CityName;
         private String CountryName;
         private String District;
-        private int Population;
+        private Long Population;
 
         // Constructor for the CityReport class
-        public CityReport(String CityName, String CountryName, String District, int Population) {
+        public CityReport(String CityName, String CountryName, String District, Long Population) {
             this.CityName = CityName;
             this.CountryName = CountryName;
             this.District = District;
@@ -27,10 +27,10 @@ public class User_report_23 {
 
         // Method to represent the object as a string
         public String toString() {
-            return "City Name: " + CityName + ", " +
-                    "Country Name: " + CountryName + ", " +
-                    "District: " + District + ", " +
-                    "Population: " + Population;
+            return CityName +
+                   CountryName +
+                    District +
+                    Population;
         }
     }
 
