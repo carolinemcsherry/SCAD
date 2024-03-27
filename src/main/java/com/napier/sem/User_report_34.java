@@ -25,9 +25,9 @@ public class User_report_34{
 
         // Method to represent the object as a string
         public String toString() {
-            return "City Name: " + cityName + ", " +
-                    "Population: " + population + ", " +
-                    "Continent: " + continent;
+            return cityName
+                    + population
+                    + continent;
         }
     }
 
