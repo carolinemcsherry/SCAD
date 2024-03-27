@@ -79,7 +79,7 @@ public class User_report_29 {
             System.out.println("No continentPopulationList");
             return;
         }
-
+        System.out.println(String.format("%-25s %-25s %-25s %-25s","continentName","totalPopulation","populationInCities","populationNotInCities"));
 
         System.out.println("Population by Continent Report:");
         for (ContinentPopulation continentPopulation : continentPopulationList) {
