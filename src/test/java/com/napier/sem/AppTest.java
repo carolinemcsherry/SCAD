@@ -269,3 +269,10 @@ public class AppTest {
 //        ReportArray25.add(null);
 //        User_report_26.printAllTopPopulatedCountries(ReportArray25);
 //    }
+//    @Test
+//    void print_user_report27_TestContainsNull()
+//    {
+//        ArrayList<User_report_27.TopCountriesInContinent> ReportArray26 = new ArrayList<User_report_27.TopCountriesInContinent>();
+//        ReportArray26.add(null);
+//        User_report_27.printAllTopCountriesInContinent(ReportArray26);
+//    }

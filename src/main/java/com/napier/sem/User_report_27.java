@@ -65,9 +65,24 @@ public class User_report_27{
 
     // Method to print top N populated countries in a continent
     public static void printTopPopulatedCountriesInContinent(ArrayList<TopCountriesInContinent> topCountriesList) {
+        // Check Array List  is not null
+        if (topCountriesList == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
         System.out.println("Top Populated Countries in the Continent Report:");
+        System.out.println("Country Report:");
+        //format and print header
+        System.out.println(String.format("%-25s %-25s %-25s %-25s", "Popultation", "CountryName", "Continent"));
         for (TopCountriesInContinent topCountry : topCountriesList) {
-            System.out.println(topCountry);
+            if (topCountriesList== null)
+            continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s %-25s %-25s",
+                            topCountry.population,  topCountry.countryName, topCountry.continent );
+            System.out.println(Table_string);
         }
     }
 }
