@@ -68,6 +68,7 @@ public class User_report_30{
             return;
         }
         System.out.println(String.format("%-25s %-25s %-25s %-25s","countryName","population"));
+
         System.out.println("Countries by Region Report:");
         for (CountryInRegion country : countriesList) {
             System.out.println(country);
