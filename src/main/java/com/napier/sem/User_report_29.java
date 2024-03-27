@@ -81,7 +81,14 @@ public class User_report_29 {
         }
         System.out.println(String.format("%-25s %-25s %-25s %-25s","continentName","totalPopulation","populationInCities","populationNotInCities"));
 
-
-
+        for (ContinentPopulation continentPopulation : continentPopulationList) {
+            if (continentPopulationList == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s %-25s %-25s",
+                            continentPopulation.continentName, continentPopulation.totalPopulation, continentPopulation.populationInCities, continentPopulation.populationNotInCities);
+            System.out.println(Table_string);
+        }
     }
 }
