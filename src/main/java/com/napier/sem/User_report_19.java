@@ -63,9 +63,25 @@ public class User_report_19 {
 
     // Method to print the top N populated capital cities in a continent
     public static void printTopPopulatedCapitalCitiesInContinent(ArrayList<CapitalCityDataInContinent> citiesList) {
+// Check Array List  is not null
+        if (citiesList == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
+
         System.out.println("Top Populated Capital Cities in Continent Report:");
+        System.out.println("City Report:");
+        //format and print header
+        System.out.println(String.format("%-25s %-25s %-25s %-25s", "CityName", "Population"));
         for (CapitalCityDataInContinent city : citiesList) {
-            System.out.println(city);
+            if (city == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s %-25s %-25s",
+                            city.cityName, city.population);
+            System.out.println(Table_string);
         }
     }
 }
