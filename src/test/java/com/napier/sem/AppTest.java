@@ -234,3 +234,10 @@ public class AppTest {
 //        ReportArray20.add(null);
 //        User_report_21.printAllCityReport(ReportArray20);
 //    }
+// @Test
+//    void print_user_report22_TestContainsNull()
+//    {
+//        ArrayList<User_report_22.CityReportReport> ReportArray21 = new ArrayList<User_report_22.CityReportReport>();
+//        ReportArray21.add(null);
+//        User_report_22.printAllCityReport(ReportArray21);
+//    }
