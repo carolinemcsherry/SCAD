@@ -216,8 +216,15 @@ public class AppTest {
     //    @Test
     //    void print_user_report19_TestContainsNull()
     //    {
-    //        ArrayList<User_report_19.TopPopulatedCapitalCitiesinContinentReport> ReportArray18 = new ArrayList<User_report_9.TopPopulatedCapitalCitiesinContinentReport>();
+    //        ArrayList<User_report_19.TopPopulatedCapitalCitiesinContinentReport> ReportArray18 = new ArrayList<User_report_19.TopPopulatedCapitalCitiesinContinentReport>();
     //        ReportArray18.add(null);
-    //        User_report_19.printAllCapitalCityDataInContinent(ReportArray8);
+    //        User_report_19.printAllCapitalCityDataInContinent(ReportArray18);
+    //    }
+    //    @Test
+    //    void print_user_report20_TestContainsNull()
+    //    {
+    //        ArrayList<User_report_20.TopPopulatedCitiesInWorldReport> ReportArray19 = new ArrayList<User_report_20.TopPopulatedCitiesInWorldReport>();
+    //        ReportArray18.add(null);
+    //        User_report_20.printTopPopulatedCitiesInWorld(ReportArray19);
     //    }
 }
