@@ -10,12 +10,12 @@ public class User_report_27{
 
     // Inner class to represent the top N populated countries in a continent report
     public static class TopCountriesInContinent {
-        private int population;
+        private Long population;
         private String countryName;
         private String continent;
 
         // Constructor for TopCountriesInContinent class
-        public TopCountriesInContinent(int population, String countryName, String continent) {
+        public TopCountriesInContinent(Long population, String countryName, String continent) {
             this.population = population;
             this.countryName = countryName;
             this.continent = continent;
@@ -23,9 +23,9 @@ public class User_report_27{
 
         // Method to represent the object as a string
         public String toString() {
-            return "Population: " + population + ", " +
-                    "Country Name: " + countryName + ", " +
-                    "Continent: " + continent;
+            return population +
+                    countryName +
+                    continent;
         }
     }
 
@@ -47,7 +47,7 @@ public class User_report_27{
 
             // Iterate through the result set and create TopCountriesInContinent objects
             while (rset.next()) {
-                int population = rset.getInt("Population");
+                Long population = rset.getLong("Population");
                 String countryName = rset.getString("country");
                 String continentName = rset.getString("Continent");
 
