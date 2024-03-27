@@ -78,9 +78,5 @@ public class User_report_34{
         System.out.println(String.format("%-25s %-25s %-25s %-25s","cityName","population","continentName"));
 
 
-        System.out.println("Top Populated Cities in the Continent Report:");
-        for (TopCitiesInContinent topCity : topCitiesList) {
-            System.out.println(topCity);
-        }
     }
 }
