@@ -72,9 +72,5 @@ public class User_report_33 {
         System.out.println(String.format("%-25s %-25s %-25s %-25s","countryName","population"));
 
 
-        System.out.println("Top Populated Countries in Region Report:");
-        for (CountryDataInRegion country : countriesList) {
-            System.out.println(country);
-        }
     }
 }
