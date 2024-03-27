@@ -255,3 +255,10 @@ public class AppTest {
 //        ReportArray23.add(null);
 //        User_report_24.printAllCityReport(ReportArray23);
 //    }
+//    @Test
+//    void print_user_report25_TestContainsNull()
+//    {
+//        ArrayList<User_report_25.CityReportReport> ReportArray24 = new ArrayList<User_report_25.CityReportReport>();
+//        ReportArray24.add(null);
+//        User_report_25.printAllCityReport(ReportArray24);
+//    }
