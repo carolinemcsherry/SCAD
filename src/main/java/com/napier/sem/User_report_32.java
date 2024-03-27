@@ -61,6 +61,12 @@ public class User_report_32{
 
     // Method to print all countries in the world organized by largest population to smallest
     public static void printCountriesByPopulation(ArrayList<CountryData> countriesList) {
+        // Check Array List  is not null
+        if (countriesList == null)
+        {
+            System.out.println("No countriesList");
+            return;
+        }
         System.out.println("Countries by Population Report:");
         for (CountryData country : countriesList) {
             System.out.println(country);
