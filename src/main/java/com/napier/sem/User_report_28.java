@@ -70,6 +70,14 @@ public class User_report_28{
 
     // Method to print population data
     public static void printPopulationReport(ArrayList<Population> populationList) {
+        // Check Array List  is not null
+        if (populationList == null)
+        {
+            System.out.println("No populationList");
+            return;
+        }
+
+
         System.out.println("Population Report:");
         for (Population population : populationList) {
             System.out.println(population);
