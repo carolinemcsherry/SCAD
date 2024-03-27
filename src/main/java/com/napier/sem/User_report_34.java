@@ -77,6 +77,14 @@ public class User_report_34{
 
         System.out.println(String.format("%-25s %-25s %-25s %-25s","cityName","population","continentName"));
 
-
+        for (TopCitiesInContinent countries : topCitiesList) {
+            if (topCitiesList == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s %-25s %-25s",
+                            countries.cityName, countries.population, countries.continent);
+            System.out.println(Table_string);
+        }
     }
 }
