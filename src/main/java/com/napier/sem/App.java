@@ -72,8 +72,8 @@ public class App {
 
         disconnect();
         System.out.println("Database has successfully disconnected");
+} */
 
-    }*/
    public static void main(String[] args) {
        // Create new Application and connect to database
        App a = new App();

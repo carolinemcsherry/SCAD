@@ -27,10 +27,10 @@ public class User_report_28{
 
         // Method to represent the object as a string
         public String toString() {
-            return "City Name: " + cityName + ", " +
-                    "City Population: " + cityPopulation + ", " +
-                    "Country Name: " + countryName + ", " +
-                    "Country Population: " + countryPopulation;
+            return cityName +
+                    + cityPopulation
+                    + countryName
+                   + countryPopulation;
         }
     }
 
