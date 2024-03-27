@@ -12,21 +12,16 @@ import java.util.ArrayList;
 
 public class App {
 
-   /* public static void main(String[] args) {
-        // Create new Application and connect to database
+    public static void main(String[] args) {
         App a = new App();
-        if (args.length < 1) {
-            a.connect("localhost:33060", 10000);
-        } else {
-           a.connect(args[0], Integer.parseInt(args[1]));
-        }
-
-
+        a.connect("172.19.0.3:3306", 30000);
+        con = App.con;
+        /*
         // user report 1
         ArrayList<User_report_1.PopulationReport> ReportArrayFirst = User_report_1.getPopulationByRegion(con);
 
-        User_report_1.printPopulationReport(ReportArrayFirst);
-       // user report 2
+       // User_report_1.printPopulationReport(ReportArrayFirst);
+        user report 2
        ArrayList<User_report_2.CapitalCityReport> ReportArray = User_report_2.getAllCapitalCities(con);
 
         User_report_2.printCapitalCityReport(ReportArray);
@@ -66,34 +61,14 @@ public class App {
         ArrayList<User_report_10.ContinentPopulationReport> ReportArray8 = User_report_10.getAllContinentsPopulation(con);
 
         User_report_10.printAllContinentsPopulation(ReportArray8);
-
+*/
         // Disconnect from database
 
 
         disconnect();
         System.out.println("Database has successfully disconnected");
 
-    }*/
-   public static void main(String[] args) {
-       // Create new Application and connect to database
-       App a = new App();
-       a.connect("172.19.0.3:3306", 30000);
-       con = App.con;
-
-       // Call getCity method from City class
-       City cityInstance = new City();
-       City oneCity = cityInstance.getCity(30);
-
-       // Check if oneCity is null before displaying
-       if (oneCity != null) {
-           cityInstance.displayCity(oneCity);
-       } else {
-           System.out.println("City with ID 30 not found.");
-
-       }
-       a.disconnect();
-   }
-
+    }
 
 
     static Connection con = null;

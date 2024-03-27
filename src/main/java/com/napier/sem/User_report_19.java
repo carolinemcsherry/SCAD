@@ -12,23 +12,23 @@ public class User_report_19 {
     // Inner class to represent capital city data in a continent
     public static class CapitalCityDataInContinent {
         private String cityName;
-        private int population;
+        private Long population;
 
         // Constructor for CapitalCityDataInContinent class
-        public CapitalCityDataInContinent(String cityName, int population) {
+        public CapitalCityDataInContinent(String cityName, Long population) {
             this.cityName = cityName;
             this.population = population;
         }
 
         // Method to represent the object as a string
         public String toString() {
-            return "City Name: " + cityName + ", " +
-                    "Population: " + population;
+            return cityName +
+                    population;
         }
     }
 
     // Method to retrieve the top N populated capital cities in a continent
-    public static ArrayList<CapitalCityDataInContinent> getTopPopulatedCapitalCitiesInContinent(Connection con, String continent, int N) {
+    public static ArrayList<CapitalCityDataInContinent> getTopPopulatedCapitalCitiesInContinent(Connection con, String continent, Long N) {
         try {
             Statement stmt = con.createStatement();
 
@@ -47,7 +47,7 @@ public class User_report_19 {
             // Iterate through the result set and create CapitalCityDataInContinent objects
             while (rset.next()) {
                 String cityName = rset.getString("CityName");
-                int population = rset.getInt("Population");
+                Long population = rset.getLong("Population");
 
                 // Create a CapitalCityDataInContinent object and add it to the list
                 CapitalCityDataInContinent city = new CapitalCityDataInContinent(cityName, population);
