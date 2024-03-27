@@ -14,10 +14,10 @@ public class User_report_24 {
         private String CityName;
         private String CountryName;
         private String District;
-        private int Population;
+        private Long Population;
 
         // Constructor for the CityReport class
-        public CityReport(String CityName, String CountryName, String District, int Population) {
+        public CityReport(String CityName, String CountryName, String District, Long Population) {
             this.CityName = CityName;
             this.CountryName = CountryName;
             this.District = District;
@@ -26,10 +26,10 @@ public class User_report_24 {
 
         // Method to represent the object as a string
         public String toString() {
-            return "City Name: " + CityName + ", " +
-                    "Country Name: " + CountryName + ", " +
-                    "District: " + District + ", " +
-                    "Population: " + Population;
+            return  CityName +
+                    CountryName +
+                    District +
+                    Population;
         }
     }
 
@@ -54,7 +54,7 @@ public class User_report_24 {
                 String CityName = rset.getString("CityName");
                 String CountryName = rset.getString("CountryName");
                 String District = rset.getString("District");
-                int Population = rset.getInt("Population");
+              Long Population = rset.getLong("Population");
 
                 // Create a CityReport object and add it to the list
                 CityReport city = new CityReport(CityName, CountryName, District, Population);
