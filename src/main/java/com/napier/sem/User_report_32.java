@@ -69,6 +69,14 @@ public class User_report_32{
         }
         System.out.println(String.format("%-25s %-25s %-25s %-25s","countryName","population"));
 
-
+        for (CountryData countries : countriesList) {
+            if (countriesList == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s %-25s %-25s",
+                            countries.countryName, countries.population);
+            System.out.println(Table_string);
+        }
     }
 }
