@@ -12,23 +12,23 @@ public class User_report_20 {
     // Inner class to represent the top N populated cities in the world report
     public static class TopCitiesInWorld {
         private String cityName;
-        private int population;
+        private Long population;
 
         // Constructor for TopCitiesInWorld class
-        public TopCitiesInWorld(String cityName, int population) {
+        public TopCitiesInWorld(String cityName, Long population) {
             this.cityName = cityName;
             this.population = population;
         }
 
         // Method to represent the object as a string
         public String toString() {
-            return "City Name: " + cityName + ", " +
-                    "Population: " + population;
+            return  cityName +
+                    population;
         }
     }
 
     // Method to retrieve top N populated cities in the world
-    public static ArrayList<TopCitiesInWorld> getTopPopulatedCitiesInWorld(Connection con, int limit) {
+    public static ArrayList<TopCitiesInWorld> getTopPopulatedCitiesInWorld(Connection con, Long limit) {
         try {
             Statement stmt = con.createStatement();
 
@@ -45,7 +45,7 @@ public class User_report_20 {
             // Iterate through the result set and create TopCitiesInWorld objects
             while (rset.next()) {
                 String cityName = rset.getString("CityName");
-                int population = rset.getInt("Population");
+                Long population = rset.getLong("Population");
 
                 // Create a TopCitiesInWorld object and add it to the list
                 TopCitiesInWorld topCity = new TopCitiesInWorld(cityName, population);
@@ -61,9 +61,25 @@ public class User_report_20 {
 
     // Method to print top N populated cities in the world
     public static void printTopPopulatedCitiesInWorld(ArrayList<TopCitiesInWorld> topCitiesList) {
+        // Check Array List  is not null
+        if (topCitiesList == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
+
         System.out.println("Top Populated Cities in the World Report:");
+        System.out.println("City Report:");
+                // format and print header
+        System.out.println(String.format("%-25s %-25s %-25s %-25s", "CityName", "Population"));
         for (TopCitiesInWorld topCity : topCitiesList) {
-            System.out.println(topCity);
+            if (topCitiesList == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s %-25s %-25s",
+                            topCity.cityName, topCity.population);
+            System.out.println(Table_string);
         }
     }
 }

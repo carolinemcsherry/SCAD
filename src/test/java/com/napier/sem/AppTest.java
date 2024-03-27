@@ -213,4 +213,11 @@ public class AppTest {
         User_report_9.printAllRegionsPopulation(ReportArray8);
 
     }
+    //    @Test
+    //    void print_user_report19_TestContainsNull()
+    //    {
+    //        ArrayList<User_report_19.TopPopulatedCapitalCitiesinContinentReport> ReportArray18 = new ArrayList<User_report_9.TopPopulatedCapitalCitiesinContinentReport>();
+    //        ReportArray18.add(null);
+    //        User_report_19.printAllCapitalCityDataInContinent(ReportArray8);
+    //    }
 }
