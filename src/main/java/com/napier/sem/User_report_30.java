@@ -22,8 +22,8 @@ public class User_report_30{
 
         // Method to represent the object as a string
         public String toString() {
-            return "Country Name: " + countryName + ", " +
-                    "Population: " + population;
+            return countryName
+                    + population;
         }
     }
 
