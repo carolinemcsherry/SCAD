@@ -73,6 +73,14 @@ public class User_report_29 {
 
     // Method to print population data for each continent
     public static void printPopulationByContinent(ArrayList<ContinentPopulation> continentPopulationList) {
+        // Check Array List  is not null
+        if (continentPopulationList == null)
+        {
+            System.out.println("No continentPopulationList");
+            return;
+        }
+
+
         System.out.println("Population by Continent Report:");
         for (ContinentPopulation continentPopulation : continentPopulationList) {
             System.out.println(continentPopulation);

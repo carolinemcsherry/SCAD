@@ -61,6 +61,13 @@ public class User_report_30{
 
     // Method to print countries in a region organized by largest population to smallest
     public static void printCountriesByRegion(ArrayList<CountryInRegion> countriesList) {
+        // Check Array List  is not null
+        if (countriesList == null)
+        {
+            System.out.println("No countriesList");
+            return;
+        }
+
         System.out.println("Countries by Region Report:");
         for (CountryInRegion country : countriesList) {
             System.out.println(country);
