@@ -60,6 +60,14 @@ public class User_report_31 {
 
     // Method to print countries in a continent organized by largest population to smallest
     public static void printCountriesByContinent(ArrayList<CountryInContinent> countriesList) {
+        // Check Array List  is not null
+        if (countriesList == null)
+        {
+            System.out.println("No countriesList");
+            return;
+        }
+
+
         System.out.println("Countries by Continent Report:");
         for (CountryInContinent country : countriesList) {
             System.out.println(country);
