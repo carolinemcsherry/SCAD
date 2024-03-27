@@ -67,6 +67,8 @@ public class User_report_32{
             System.out.println("No countriesList");
             return;
         }
+        System.out.println(String.format("%-25s %-25s %-25s %-25s","countryName","population"));
+
         System.out.println("Countries by Population Report:");
         for (CountryData country : countriesList) {
             System.out.println(country);
