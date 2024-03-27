@@ -76,9 +76,10 @@ public class User_report_28{
             System.out.println("No populationList");
             return;
         }
+        System.out.println(String.format("%-25s %-25s %-25s %-25s","cityName","cityPopulation","countryName","countryPopulation"));
 
 
-        System.out.println("Population Report:");
+                        System.out.println("Population Report:");
         for (Population population : populationList) {
             System.out.println(population);
         }
