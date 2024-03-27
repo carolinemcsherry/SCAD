@@ -76,8 +76,8 @@ public class User_report_30{
             //Prints table values in columbs
             String Table_string =
                     String.format("%-25s %-25s %-25s %-25s",
-                            countries.countryName,countries.population);
+                            countries.countryName, countries.population);
             System.out.println(Table_string);
-
+        }
     }
 }
