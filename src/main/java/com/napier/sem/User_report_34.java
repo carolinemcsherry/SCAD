@@ -68,6 +68,13 @@ public class User_report_34{
 
     // Method to print top N populated cities in a continent
     public static void printTopPopulatedCitiesInContinent(ArrayList<TopCitiesInContinent> topCitiesList) {
+        // Check Array List  is not null
+        if (topCitiesList == null)
+        {
+            System.out.println("No topCitiesList");
+            return;
+        }
+
         System.out.println("Top Populated Cities in the Continent Report:");
         for (TopCitiesInContinent topCity : topCitiesList) {
             System.out.println(topCity);
