@@ -68,9 +68,6 @@ public class User_report_31 {
         }
         System.out.println(String.format("%-25s %-25s %-25s %-25s","countryName","population"));
 
-        System.out.println("Countries by Continent Report:");
-        for (CountryInContinent country : countriesList) {
-            System.out.println(country);
-        }
+
     }
 }
