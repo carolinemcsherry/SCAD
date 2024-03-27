@@ -224,7 +224,13 @@ public class AppTest {
     //    void print_user_report20_TestContainsNull()
     //    {
     //        ArrayList<User_report_20.TopPopulatedCitiesInWorldReport> ReportArray19 = new ArrayList<User_report_20.TopPopulatedCitiesInWorldReport>();
-    //        ReportArray18.add(null);
-    //        User_report_20.printTopPopulatedCitiesInWorld(ReportArray19);
+    //        ReportArray19.add(null);
+    //        User_report_20.printAllTopPopulatedCitiesInWorld(ReportArray19);
     //    }
-}
+ // @Test
+//    void print_user_report21_TestContainsNull()
+//    {
+//        ArrayList<User_report_21.CityReportReport> ReportArray20 = new ArrayList<User_report_21.CityReportReport>();
+//        ReportArray20.add(null);
+//        User_report_21.printAllCityReport(ReportArray20);
+//    }
