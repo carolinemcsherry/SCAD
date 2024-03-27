@@ -62,6 +62,13 @@ public class User_report_33 {
 
     // Method to print the top N populated countries in a region
     public static void printTopPopulatedCountriesInRegion(ArrayList<CountryDataInRegion> countriesList) {
+        // Check Array List  is not null
+        if (countriesList == null)
+        {
+            System.out.println("No countriesList");
+            return;
+        }
+
         System.out.println("Top Populated Countries in Region Report:");
         for (CountryDataInRegion country : countriesList) {
             System.out.println(country);
