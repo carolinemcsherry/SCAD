@@ -17,7 +17,7 @@ public class User_report_25 {
         private Long Population;
 
         // Constructor for the CityReport class
-        public CityReport(String CityName, String CountryName, String District, long Population) {
+        public CityReport(String CityName, String CountryName, String District, Long Population) {
             this.CityName = CityName;
             this.CountryName = CountryName;
             this.District = District;
@@ -74,10 +74,25 @@ public class User_report_25 {
 
     // Method to print city report data
     public static void printCityReport(ArrayList<CityReport> cities) {
+        // Check Array List  is not null
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
+        System.out.println("Capital City Report:");
         System.out.println("City Report");
+        //format and print header
+        System.out.println(String.format("%-25s %-25s %-25s %-25s", "CityName", "CountryName","District", "Population"));
         // Iterate through the list of CityReport objects and print each one
         for (CityReport city : cities) {
-            System.out.println(city);
+            if (city == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s %-25s %-25s",
+                            city.CityName, city.CountryName, city.District , city.Population);
+            System.out.println(Table_string);
         }
     }
 }
