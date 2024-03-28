@@ -12,7 +12,7 @@ public class User_report_5{
 
     Chinese.
     English.
-    //Hindi.
+    Hindi.
     //Spanish.
     //Arabic.
 
