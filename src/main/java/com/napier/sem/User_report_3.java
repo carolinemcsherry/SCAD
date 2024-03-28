@@ -11,7 +11,7 @@ import java.util.ArrayList;
 Name.
 Country.
 District.
-//Population.
+Population.
 //Capital City Report
 public class User_report_3 {
 
