@@ -84,7 +84,7 @@ public class User_report_1  {
         for (PopulationReport report : reports) {
             System.out.println(report);
 
-            // end 
+            // end
         }
     }
 }
