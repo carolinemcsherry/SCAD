@@ -77,7 +77,7 @@ public class User_report_1  {
         return populationReports;
     }
 
-    // Method to print population report data for each region
+    // Method to print population report data for each region.
     public static void printPopulationReport(ArrayList<PopulationReport> reports) {
         System.out.println("Population Report");
         // Iterate through the list of PopulationReport objects and print each one
