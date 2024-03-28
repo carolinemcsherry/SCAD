@@ -8,8 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 //Country Report
-A country report requires the following columns:
-//
+/*A country report requires the following columns:
+
 //Code.
 //Name.
 //Continent.
