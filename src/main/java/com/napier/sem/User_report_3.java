@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-/*A city report requires the following columns:
+//A city report requires the following columns:
 
 Name.
 Country.
