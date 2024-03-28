@@ -13,7 +13,7 @@ A city report requires the following columns:
 Name
 Country
 District
-Population /*
+Population */
 
     public static class CityReport {
         private String cityName;
@@ -81,3 +81,5 @@ Population /*
         }
     }
 }
+
+// End of code
