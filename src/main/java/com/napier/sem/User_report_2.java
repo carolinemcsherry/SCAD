@@ -9,10 +9,10 @@ public class User_report_2{
 // User Report 2 - Capital City Report
 /*A Capital city report requires the following columns:
 
-//Name.
-//Country.
-//District.
-//Population.
+Name.
+Country.
+District.
+Population.*/
     public static class CapitalCityReport {
         private String cityName;
         private String countryName;
