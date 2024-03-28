@@ -10,7 +10,7 @@ public class User_report_6{
 /*City Report
 A city report requires the following columns:
 
-Name.
+Name
 Country.
 District.
 //Population.
