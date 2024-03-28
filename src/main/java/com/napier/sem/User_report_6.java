@@ -12,7 +12,7 @@ A city report requires the following columns:
 
 Name
 Country
-District.
+District
 //Population.
 
     public static class CityReport {
