@@ -83,6 +83,8 @@ public class User_report_1  {
         // Iterate through the list of PopulationReport objects and print each one
         for (PopulationReport report : reports) {
             System.out.println(report);
+
+            // end 
         }
     }
 }
