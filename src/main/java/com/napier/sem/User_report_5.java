@@ -16,6 +16,8 @@ public class User_report_5{
     Spanish.
     Arabic.
 
+     */
+
     // Inner class to represent language statistics
     public static class LanguageStats {
         private String language;
@@ -83,3 +85,5 @@ public class User_report_5{
         }
     }
 }
+
+// code end 
