@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class User_report_2{
 
     //Capital City Report
-    
+
 /*A Capital city report requires the following columns:
 
 Name.
@@ -85,3 +85,5 @@ Population*/
         }
     }
 }
+
+//
