@@ -14,7 +14,7 @@ public class User_report_5{
     English.
     Hindi.
     Spanish.
-    //Arabic.
+    Arabic.
 
     // Inner class to represent language statistics
     public static class LanguageStats {
