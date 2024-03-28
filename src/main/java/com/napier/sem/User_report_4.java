@@ -13,7 +13,7 @@ import java.util.ArrayList;
 Code
 Name.
 Continent.
-//Region.
+Region.
 //Population.
 //Capital.
 //City Report
