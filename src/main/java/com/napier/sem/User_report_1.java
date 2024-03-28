@@ -33,7 +33,7 @@ public class User_report_1  {
         }
     }
 
-    // Method to retrieve population report data for each region
+    // Method to retrieve population report data for each of the regions
     public static ArrayList<PopulationReport> getPopulationByRegion(Connection con) {
         ArrayList<PopulationReport> populationReports = new ArrayList<>();
 
