@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class User_report_6{
-//  City Report
+/*City Report
 //A city report requires the following columns:
 //
 //Name.
