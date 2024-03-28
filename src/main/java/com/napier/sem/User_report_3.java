@@ -12,7 +12,7 @@ Name.
 Country.
 District.
 Population.
-Capital City Report*
+Capital City Report*/
 public class User_report_3 {
 
     // Inner class to represent the city report
