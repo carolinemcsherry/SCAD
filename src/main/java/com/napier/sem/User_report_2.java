@@ -9,7 +9,7 @@ public class User_report_2{
 /*Capital City Report
 A Capital city report requires the following columns:
 
-//Name.
+Name.
 //Country.
 //District.
 //Population.
