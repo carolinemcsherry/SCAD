@@ -5,9 +5,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-// User Report 1 - The population of people, people living in cities, and people not living in cities in each region.
+// User Report 1  - The population of people, people living in cities, and people not living in cities in each region.
 
-public class User_report_1 {
+public class User_report_1  {
 
     // Inner class to represent the population report for a region
     public static class PopulationReport {
