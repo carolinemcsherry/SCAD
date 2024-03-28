@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /*A country report requires the following columns:
 
 Code
-Name.
+Name
 Continent
 Region.
 //Population.
