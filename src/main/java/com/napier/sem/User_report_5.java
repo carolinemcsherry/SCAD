@@ -13,7 +13,7 @@ public class User_report_5{
     Chinese.
     English.
     Hindi.
-    //Spanish.
+    Spanish.
     //Arabic.
 
     // Inner class to represent language statistics
