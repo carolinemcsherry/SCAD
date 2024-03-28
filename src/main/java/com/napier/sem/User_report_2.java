@@ -33,7 +33,7 @@ Population.*/
         }
     }
 
-    // Method to retrieve capital city data for the report
+    // Method to retrieve capital city data for the report.
     public static ArrayList<CapitalCityReport> getAllCapitalCities(Connection con) {
         try {
             // Create an SQL statement
