@@ -15,7 +15,7 @@ Name
 Continent
 Region
 Population
-Capital.
+Capital
 //City Report
 public class User_report_4 {
 
