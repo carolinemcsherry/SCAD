@@ -12,7 +12,7 @@ A Capital city report requires the following columns:
 Name.
 Country.
 District.
-Population./
+Population.*/
     public static class CapitalCityReport {
         private String cityName;
         private String countryName;
