@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class User_report_6{
 /*City Report
-//A city report requires the following columns:
+A city report requires the following columns:
 //
 //Name.
 //Country.
