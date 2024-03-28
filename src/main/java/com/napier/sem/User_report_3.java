@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /*A city report requires the following columns:
 
-//Name.
+Name.
 //Country.
 //District.
 //Population.
