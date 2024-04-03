@@ -77,7 +77,7 @@ public class App {
    public static void main(String[] args) {
        // Create new Application and connect to database
        App a = new App();
-       a.connect("172.19.0.3:3306", 30000);
+       a.connect("localhost:3306", 5000);
        con = App.con;
 
        // Call getCity method from City class
