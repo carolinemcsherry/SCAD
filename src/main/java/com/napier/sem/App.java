@@ -13,27 +13,6 @@ import com.napier.sem.City;
 
 public class App {
 
-   /* public static void main(String[] args) {
-        App a = new App();
-        int i = 0;
-        a.log(++i);
-        // Connect to database
-        a.connect();
-        a.log(++i);
-        System.out.println("here");
-        a.log(++i);
-        con = App.con;
-        a.log(++i);
-        // Call getCity method from City class
-        City cityInstance = new City();
-        City oneCity = cityInstance.getCity(40);
-        a.log(++i);
-        a.disconnect();
-        System.out.println("Database has successfully disconnected");
-
-
-    }*/
-
     public static void main(String[] args) {
         App a = new App();
         System.out.println("going in to connect");
@@ -43,11 +22,6 @@ public class App {
             a.connect(args[0], Integer.parseInt(args[1]));
         }
 
-
-
-
-
-        System.out.println("con is app.con");
 
         con = App.con;
 
@@ -78,46 +52,9 @@ public class App {
 
 
 
-   /* public void connect()
-    {
-        try
-        {
-            // Load Database driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        }
-        catch (ClassNotFoundException e)
-        {
-            System.out.println("Could not load SQL driver");
-            System.exit(-1);
-        }
-
-        int retries = 10;
-        for (int i = 0; i < retries; ++i)
-        {
-            System.out.println("Connecting to database...");
-            try
-            {
-                // Wait a bit for db to start
-                Thread.sleep(10000);
-                // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
-                System.out.println("Successfully connected");
-                break;
-            }
-            catch (SQLException sqle)
-            {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
-                System.out.println(sqle.getMessage());
-            }
-            catch (InterruptedException ie)
-            {
-                System.out.println("Thread interrupted? Should not happen.");
-            }
-        }
-    }
 
     /**
-     * Disconnect from the MySQL database.
+     * connect from the MySQL database.
      */
 
     static Connection con = null;
@@ -158,6 +95,10 @@ public class App {
             }
         }
     }
+
+    /*
+    disconnect from dev branch
+     */
     public void disconnect()
     {
         if (con != null)
