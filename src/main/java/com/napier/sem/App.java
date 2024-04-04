@@ -47,7 +47,7 @@ public class App {
         a.log(++i);
         // Call getCity method from City class
         City cityInstance = new City();
-        City oneCity = cityInstance.getCity(40);
+        City oneCity = cityInstance.getCity(30);
         a.log(++i);
 
         // Check if a city was returned
