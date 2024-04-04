@@ -6,13 +6,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 public class User_report_2{
-// Capital City Report
-//A Capital city report requires the following columns:
-//
-//Name.
-//Country.
-//District.
-//Population.
+// User Report 2 - Capital City Report
+/*A Capital city report requires the following columns:
+
+Name.
+Country.
+District.
+Population.*/
     public static class CapitalCityReport {
         private String cityName;
         private String countryName;
@@ -33,7 +33,7 @@ public class User_report_2{
         }
     }
 
-    // Method to retrieve capital city data for the report
+    // Method to retrieve capital city data for the report.
     public static ArrayList<CapitalCityReport> getAllCapitalCities(Connection con) {
         try {
             // Create an SQL statement
@@ -97,3 +97,5 @@ public class User_report_2{
         }
     }
 }
+
+//End

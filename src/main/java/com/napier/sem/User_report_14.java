@@ -6,14 +6,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-// A city report requires the following columns:
-/*
-Name.
-Country.
-District.
-Population.
-Capital City Report*/
-public class User_report_3 {
+
+//All the capital cities in a region organised by largest to smallest.
+public class User_report_14 {
 
     // Inner class to represent the city report
     public static class CityReport {
@@ -32,22 +27,24 @@ public class User_report_3 {
 
         // Method to represent the object as a string
         public String toString() {
-            return  CityName +
-                      CountryName +
-                    District +
-                    Population;
+            return "City Name: " + CityName + ", " +
+                    "Country Name: " + CountryName + ", " +
+                    "District: " + District + ", " +
+                    "Population: " + Population;
         }
     }
 
-    // Method to retrieve city report data
-    public static ArrayList<CityReport> getCityReport(Connection con) {
+    // Method to retrieve city report data for all cities in a specific region sorted by population
+    public static ArrayList<CityReport> getCityReportByRegion(Connection con) {
         try {
             Statement stmt = con.createStatement();
 
-            // SQL query to retrieve city report data
+            // SQL query to retrieve city report data for all cities in a specific region
             String strSelect = "SELECT A.Name AS CityName, B.Name AS CountryName, A.District, A.Population " +
                     "FROM city A " +
-                    "LEFT JOIN country B ON A.CountryCode = B.Code";
+                    "JOIN country B ON A.CountryCode = B.Code " +
+                    "WHERE B.Region = '" + "" + "' " +
+                    "ORDER BY A.Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -64,6 +61,11 @@ public class User_report_3 {
                 CityReport city = new CityReport(CityName, CountryName, District, Population);
                 cityReports.add(city);
             }
+
+            // Close the result set and statement
+            rset.close();
+            stmt.close();
+
             return cityReports;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -74,28 +76,14 @@ public class User_report_3 {
 
     // Method to print city report data
     public static void printCityReport(ArrayList<CityReport> cities) {
-            //test for nullin arraylist
-        if (cities == null)
-        {
+        if (cities == null || cities.isEmpty()) {
             System.out.println("No cities");
             return;
         }
-        //print report name
         System.out.println("City Report");
-        //format and print header
-        System.out.println(String.format("%-20s %-20s %-25s %-20s" , "CityName", "CountryName", "District", "Population"));
         // Iterate through the list of CityReport objects and print each one
         for (CityReport city : cities) {
-           //If an atrabute value is null the job will continue
-            if (city == null)
-                continue;
-            //Prints table values in columbs
-            String Table_string =
-                    String.format("%-20s %-20s %-25s %-20s",
-                            city.CityName, city.CountryName, city.District, city.Population);
-            System.out.println(Table_string);
-
+            System.out.println(city);
         }
     }
 }
-//

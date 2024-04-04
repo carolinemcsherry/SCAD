@@ -1,14 +1,14 @@
 package com.napier.sem;
 
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
-// the top N populated cities within a district, where N is determined based on planning requirement
-public class User_report_17{
+// The top N populated cities within a district, where N is determined based on planning requirement
+public class User_report_17 {
 
     // Inner class to represent the top N populated cities in a district report
     public static class TopCitiesInDistrict {
@@ -32,16 +32,16 @@ public class User_report_17{
     }
 
     // Method to retrieve top N populated cities in a district
-    public static ArrayList<TopCitiesInDistrict> getTopPopulatedCitiesInDistrict(Connection con, String district, int limit) {
+    public static ArrayList<TopCitiesInDistrict> getTopCitiesInDistrict(Connection con) {
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve top N populated cities in a district
             String strSelect = "SELECT Name AS CityName, District, Population " +
                     "FROM city " +
-                    "WHERE District = '" + district + "' " +
+                    "WHERE District = '" + "district" + "' " +
                     "ORDER BY Population DESC " +
-                    "LIMIT " + limit;
+                    "LIMIT " + "limit";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -66,9 +66,13 @@ public class User_report_17{
     }
 
     // Method to print top N populated cities in a district
-    public static void printTopPopulatedCitiesInDistrict(ArrayList<TopCitiesInDistrict> topCitiesList) {
+    public static void printTopCitiesInDistrict(ArrayList<TopCitiesInDistrict> topCitiesInDistrictArrayList) {
+        if (topCitiesInDistrictArrayList == null || topCitiesInDistrictArrayList.isEmpty()) {
+            System.out.println("No top populated cities in the district to display");
+            return;
+        }
         System.out.println("Top Populated Cities in the District Report:");
-        for (TopCitiesInDistrict topCity : topCitiesList) {
+        for (TopCitiesInDistrict topCity : topCitiesInDistrictArrayList) {
             System.out.println(topCity);
         }
     }
