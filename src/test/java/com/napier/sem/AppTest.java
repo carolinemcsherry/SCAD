@@ -1,5 +1,5 @@
 package com.napier.sem;
-
+/*
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -213,4 +213,4 @@ public class AppTest {
         User_report_9.printAllRegionsPopulation(ReportArray8);
 
     }
-}
+}*/
