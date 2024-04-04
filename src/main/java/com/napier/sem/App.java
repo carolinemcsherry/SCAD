@@ -38,10 +38,11 @@ public class App {
         App a = new App();
         System.out.println("going in to connect");
         if (args.length < 1) {
-            a.connect("db:3306", 10000);
+            a.connect("localhost:33060", 10000);
         } else {
             a.connect(args[0], Integer.parseInt(args[1]));
         }
+
 
 
 
@@ -140,6 +141,7 @@ public class App {
                 }
 
                 // Connect to database
+                System.out.println("Going in to  connect");
                 con = DriverManager.getConnection("jdbc:mysql://" + location
                                 + "/world?allowPublicKeyRetrieval=true&useSSL=false",
                         "root", "example");
