@@ -26,7 +26,7 @@ public class App {
 
         User_report_12.printRegionPopulation(ReportArray10);
         // user report 13
-       /* ArrayList<User_report_13.TopCapitalCitiesInWorld> ReportArray11 = User_report_13.getTopPopulatedCapitalCitiesInWorld(con);
+        ArrayList<User_report_13.TopCapitalCitiesInWorld> ReportArray11 = User_report_13.getTopPopulatedCapitalCitiesInWorld(con);
 
         User_report_13.printTopCapitalCitiesInWorld(ReportArray11);
         // user report 14
@@ -52,7 +52,7 @@ public class App {
         ArrayList<User_report_18.TopCitiesInCountry> ReportArray16 = User_report_18.getTopPopulatedCitiesInCountry(con);
 
         User_report_18.printTopPopulatedCitiesInCountry(ReportArray16);
-*/
+
         // disconect from BD
         a.disconnect();
         System.out.println("Database has successfully disconnected");
