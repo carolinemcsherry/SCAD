@@ -1,11 +1,8 @@
 package com.napier.sem;
-import javax.swing.*;
-import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import com.napier.sem.City;
 
 /*
 * Main appliacation to run reports
@@ -22,27 +19,12 @@ public class App {
             a.connect(args[0], Integer.parseInt(args[1]));
         }
 
-
         con = App.con;
 
-        // Call getCity method from City class
-        // user report 1
-        // user report 2
-        ArrayList<User_report_2.CapitalCityReport> ReportArray = User_report_2.getAllCapitalCities(con);
+        // user report 12
+        ArrayList<User_report_12.PopulationbyRegionReport> ReportArray10 = User_report_12.getPopulationbyRegionReport(con);
 
-        User_report_2.printCapitalCityReport(ReportArray);
-
-        City cityInstance = new City();
-        City oneCity = cityInstance.getCity(30);
-
-
-        // Check if a city was returned
-        if (oneCity != null) {
-            // Display city information
-            cityInstance.displayCity(oneCity);
-        } else {
-            System.out.println("City not found.");
-        }
+        User_report_12.printRegionPopulation(ReportArray10);
 
         a.disconnect();
         System.out.println("Database has successfully disconnected");
@@ -97,7 +79,7 @@ public class App {
     }
 
     /*
-    disconnect from dev branch
+    disconnect from bd
      */
     public void disconnect()
     {

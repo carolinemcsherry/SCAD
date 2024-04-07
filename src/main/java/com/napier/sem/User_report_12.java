@@ -21,9 +21,9 @@ public class User_report_12 {
         }
 
         public String toString() {
-            return "Region: " + Region + ", " +
-                    "City: " + City + ", " +
-                    "Population: " + Population;
+            return  Region +
+                     City +
+                     + Population;
         }
     }
 
@@ -34,13 +34,12 @@ public class User_report_12 {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve top N populated capital cities in each region
-            String strSelect = "SELECT R.Name AS Region, city.Name AS City, city.Population " +
+            String strSelect = "SELECT country.Region, city.Name AS City, city.Population " +
                     "FROM city " +
                     "JOIN country ON city.CountryCode = country.Code " +
-                    "JOIN region R ON country.Region = R.Code " +
                     "WHERE city.ID = country.Capital " +
                     "ORDER BY city.Population DESC " +
-                    "LIMIT " + "";
+                    "LIMIT " + "5";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -65,15 +64,26 @@ public class User_report_12 {
     }
 
     public static void printRegionPopulation(ArrayList<PopulationbyRegionReport> regions) {
-        if (regions == null) {
+        if (regions == null)
+        {
             System.out.println("No regions");
             return;
         }
+
         System.out.println("Region Population Report");
+        //print header
+        System.out.println(String.format("%-25s %-20s %-20s", "Region", "City", "Population"));
+
+        // Iterate through the list of ContinentPopulationReport objects and print each one
         for (PopulationbyRegionReport region : regions) {
-            System.out.println(region);
-        }
-    }
+            if (regions == null)
+                continue;
+            String emp_string =
+                    String.format("%-25s %-20s %-20s",
+                            region.Region , region.City, region.Population);
+            System.out.println(emp_string);
+            //    System.out.println(continent);
+        }}
 }
 
 
