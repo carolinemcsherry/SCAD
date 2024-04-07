@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 // The population of the world.
 public class User_report_12 {
@@ -29,9 +30,11 @@ public class User_report_12 {
 
     public static ArrayList<PopulationbyRegionReport> getPopulationbyRegionReport(Connection con) {
         ArrayList<PopulationbyRegionReport> populationReports = new ArrayList<>();
+        String input = "";
+        input = JOptionPane.showInputDialog("Enter the Number of top Populated Region's");
 
         try {
-            Statement stmt = con.createStatement();
+                        Statement stmt = con.createStatement();
 
             // SQL query to retrieve top N populated capital cities in each region
             String strSelect = "SELECT country.Region, city.Name AS City, city.Population " +
@@ -39,7 +42,7 @@ public class User_report_12 {
                     "JOIN country ON city.CountryCode = country.Code " +
                     "WHERE city.ID = country.Capital " +
                     "ORDER BY city.Population DESC " +
-                    "LIMIT " + "5";
+                    "LIMIT " + input ;
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
