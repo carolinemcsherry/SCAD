@@ -25,7 +25,35 @@ public class App {
         ArrayList<User_report_12.PopulationbyRegionReport> ReportArray10 = User_report_12.getPopulationbyRegionReport(con);
 
         User_report_12.printRegionPopulation(ReportArray10);
+        // user report 13
+        ArrayList<User_report_13.TopCapitalCitiesInWorld> ReportArray11 = User_report_13.getTopPopulatedCapitalCitiesInWorld(con);
 
+        User_report_13.printTopCapitalCitiesInWorld(ReportArray11);
+        // user report 14
+        ArrayList<User_report_14.CityReport> ReportArray12 = User_report_14.getCityReportByRegion(con);
+
+        User_report_14.printCityReport(ReportArray12);
+
+        // user report 15
+        ArrayList<User_report_15.CapitalCitiesByContinent> ReportArray13 = User_report_15.getCapitalCitiesByContinent(con);
+
+        User_report_15.printCapitalCitiesByContinent(ReportArray13);
+
+        // user report 16
+        ArrayList<User_report_16.CapitalCitiesWorld> ReportArray14 = User_report_16.getCapitalCitiesWorld(con);
+
+        User_report_16.printCapitalCitiesWorld(ReportArray14);
+        // user report 17
+        ArrayList<User_report_17.TopCitiesInDistrict> ReportArray15 = User_report_17.getTopCitiesInDistrict(con);
+
+        User_report_17.printTopCitiesInDistrict(ReportArray15);
+
+        // user report 18
+        ArrayList<User_report_18.TopCitiesInCountry> ReportArray16 = User_report_18.getTopPopulatedCitiesInCountry(con);
+
+        User_report_18.printTopPopulatedCitiesInCountry(ReportArray16);
+
+        // disconect from BD
         a.disconnect();
         System.out.println("Database has successfully disconnected");
     }
