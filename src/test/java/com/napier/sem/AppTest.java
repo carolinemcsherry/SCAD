@@ -2,22 +2,89 @@ package com.napier.sem;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 
 public class AppTest {
     static App app;
-
     @BeforeAll
     static void init()
     {
         app = new App();
     }
 
+    //User report 1 Continent tests
+    @Test
+    void User_report_1_Continent_TestNull()
+    {
+
+        User_report_1_Continent.printPopulationReport(null);
+    }
+
+    @Test
+    void User_report_1_Continent_TestEmpty()
+    {
+        ArrayList<User_report_1_Continent.PopulationReport> ReportArray1A = new ArrayList<User_report_1_Continent.PopulationReport>();
+        User_report_1_Continent.printPopulationReport(ReportArray1A);
+    }
+
+    @Test
+    void User_report_1_Continent_TestContainsNull()
+    {
+        ArrayList<User_report_1_Continent.PopulationReport> ReportArray1A = new ArrayList<User_report_1_Continent.PopulationReport>();
+        ReportArray1A.add(null);
+        User_report_1_Continent.printPopulationReport(ReportArray1A);
+    }
+
+    //User report 1 Country tests
+    @Test
+    void User_report_1_Country_TestNull()
+    {
+
+        User_report_1_Country.printPopulationReport(null);
+    }
+
+    @Test
+    void User_report_1_Country_TestEmpty()
+    {
+        ArrayList<User_report_1_Country.PopulationReport> ReportArray1B = new ArrayList<User_report_1_Country.PopulationReport>();
+        User_report_1_Country.printPopulationReport(ReportArray1B);
+    }
+
+
+    @Test
+    void User_report_1_Country_TestContainsNull()
+    {
+        ArrayList<User_report_1_Country.PopulationReport> ReportArray1B = new ArrayList<User_report_1_Country.PopulationReport>();
+        ReportArray1B.add(null);
+        User_report_1_Country.printPopulationReport(ReportArray1B);
+    }
+
+    //User report 1 Region
+    @Test
+    void CityPopulationReportTestNull()
+    {
+
+        User_report_1_Region.printPopulationReport(null);
+    }
+    @Test
+    void CityPopulationReportTestEmpty()
+    {
+        ArrayList<User_report_1_Region.PopulationReport> ReportArray1 = new ArrayList<User_report_1_Region.PopulationReport>();
+        User_report_1_Region.printPopulationReport(ReportArray1);
+    }
+
+    @Test
+    void printCityPopulationReportTestContainsNull()
+    {
+        ArrayList<User_report_1_Region.PopulationReport> ReportArray1 = new ArrayList<User_report_1_Region.PopulationReport>();
+        ReportArray1.add(null);
+        User_report_1_Region.printPopulationReport(ReportArray1);
+    }
+
+
+    //User report 2
     @Test
     void printCapitalCityReportTestNull()
     {
@@ -37,26 +104,6 @@ public class AppTest {
         ArrayList<User_report_2.CapitalCityReport> ReportArray = new ArrayList<User_report_2.CapitalCityReport>();
         ReportArray.add(null);
         User_report_2.printCapitalCityReport(ReportArray);
-    }
-    @Test
-    void CityPopulationReportTestNull()
-    {
-        User_report_1.printPopulationReport(null);
-    }
-
-    @Test
-    void CityPopulationReportTestEmpty()
-    {
-        ArrayList<User_report_1.PopulationReport> ReportArray1 = new ArrayList<User_report_1.PopulationReport>();
-        User_report_1.printPopulationReport(ReportArray1);
-    }
-
-    @Test
-    void printCityPopulationReportTestContainsNull()
-    {
-        ArrayList<User_report_1.PopulationReport> ReportArray1 = new ArrayList<User_report_1.PopulationReport>();
-        ReportArray1.add(null);
-        User_report_1.printPopulationReport(ReportArray1);
     }
 
     //User report 3
