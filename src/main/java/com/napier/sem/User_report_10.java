@@ -102,14 +102,14 @@ public class User_report_10{
 
         System.out.println("Continent Population Report");
         //print header
-        System.out.println(String.format("%-10s %-15s %-20s %-15s %-15s ", "Continent", "Total_Continent_Population", "Total_Not_City_Population", "City_Population_Percentage", "None_City_Population_Percentage"));
+        System.out.println(String.format("%-25s %-15s %-20s %-15s %-15s ", "Continent", "Total_Continent_Population", "Total_Not_City_Population", "City_Population_Percentage", "None_City_Population_Percentage"));
 
         // Iterate through the list of ContinentPopulationReport objects and print each one
         for (ContinentPopulationReport continent : continents) {
             if (continent == null)
                 continue;
             String emp_string =
-                    String.format("%-10s %-15s %-20s %-15s %-15s",
+                    String.format("%-25s %-15s %-20s %-15s %-15s",
                             continent.Continent, continent.Total_Continent_Population, continent.Total_Not_City_Population, continent.City_Population_Percentage, continent.None_City_Population_Percentage);
             System.out.println(emp_string);
         //    System.out.println(continent);

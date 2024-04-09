@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /* User Report 1  - The population of people, people living in cities, and people not living in cities in each region.*/
 
-public class User_report_1 {
+public class User_report_1_Continent {
 
     // Inner class to represent the population report for a region
     public static class PopulationReport {

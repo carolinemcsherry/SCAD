@@ -11,10 +11,10 @@ public class User_report_11 {
 
     // Inner class to represent the world population report
     public static class WorldPopulationReport {
-        private int totalPopulation;
+        private long totalPopulation;
 
         // Constructor for WorldPopulationReport class
-        public WorldPopulationReport(int totalPopulation) {
+        public WorldPopulationReport(long totalPopulation) {
             this.totalPopulation = totalPopulation;
         }
 
@@ -34,11 +34,11 @@ public class User_report_11 {
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
-            int totalWorldPopulation = 0;
+            long totalWorldPopulation = 0;
 
             // Extract total world population from the result set
             if (rset.next()) {
-                totalWorldPopulation = rset.getInt("Total_World_Population");
+                totalWorldPopulation = rset.getLong("Total_World_Population");
             }
 
             return new WorldPopulationReport(totalWorldPopulation);
@@ -83,4 +83,3 @@ public class User_report_11 {
     }
 
 }
-
