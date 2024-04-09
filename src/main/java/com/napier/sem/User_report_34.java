@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 
 // The top N populated countries in a continent where N is provided by the user.
-public class User_report_34{
+public class User_report_34 {
 
     // Inner class to represent the top N populated cities in a continent report
     public static class TopCitiesInContinent {
@@ -69,22 +69,22 @@ public class User_report_34{
     // Method to print top N populated cities in a continent
     public static void printTopPopulatedCitiesInContinent(ArrayList<TopCitiesInContinent> topCitiesList) {
         // Check Array List  is not null
-        if (topCitiesList == null)
-        {
+        if (topCitiesList == null) {
             System.out.println("No topCitiesList");
             return;
         }
 
-        System.out.println(String.format("%-25s %-25s %-25s %-25s","cityName","population","continentName"));
+        System.out.println(String.format("%-25s %-25s %-25s", "cityName", "population", "continentName"));
 
-        for (TopCitiesInContinent countries : topCitiesList) {
-            if (topCitiesList == null)
-                continue;
-            //Prints table values in columbs
-            String Table_string =
-                    String.format("%-25s %-25s %-25s %-25s",
-                            countries.cityName, countries.population, countries.continent);
-            System.out.println(Table_string);
+        for (TopCitiesInContinent city : topCitiesList) {
+            // Check if the city object is not null
+            if (city != null) {
+                //Prints table values in columns
+                String tableString =
+                        String.format("%-25s %-25s %-25s",
+                                city.cityName, city.population, city.continent);
+                System.out.println(tableString);
+            }
         }
     }
 }

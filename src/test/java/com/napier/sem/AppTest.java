@@ -213,4 +213,25 @@ public class AppTest {
         User_report_9.printAllRegionsPopulation(ReportArray8);
 
     }
+    //user report 34
+    @Test
+    void user_report34_TestNull()
+    {
+        User_report_34.printTopPopulatedCitiesInContinent(null);
+    }
+
+    @Test
+
+    void user_report34_TestEmpty() {
+        ArrayList<User_report_34.TopCitiesInContinent> ReportArray33 = new ArrayList<>();
+        User_report_34.printTopPopulatedCitiesInContinent(ReportArray33);
+    }
+
+    @Test
+    void print_user_report34_TestContainsNull() {
+        ArrayList<User_report_34.TopCitiesInContinent> ReportArray33 = new ArrayList<>();
+        ReportArray33.add(null);
+        User_report_34.printTopPopulatedCitiesInContinent(ReportArray33);
+    }
+
 }
