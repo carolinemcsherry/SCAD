@@ -3,7 +3,8 @@ services:
   # Build container for java and gives port 8080. Adds network for app and db
   app:
     build: .
-
+  web:
+    build: web/.
 
   # Builds container for db server, sets root password and gives port 3306 for container.
   db:
@@ -12,3 +13,4 @@ services:
     restart: always
     ports:
     - "33060:3306"
+
