@@ -15,10 +15,10 @@ public class User_report_23 {
         private String CityName;
         private String CountryName;
         private String District;
-        private int Population;
+        private Long Population;
 
         // Constructor for the CityReport class
-        public CityReport(String CityName, String CountryName, String District, int Population) {
+        public CityReport(String CityName, String CountryName, String District, Long Population) {
             this.CityName = CityName;
             this.CountryName = CountryName;
             this.District = District;
@@ -27,15 +27,15 @@ public class User_report_23 {
 
         // Method to represent the object as a string
         public String toString() {
-            return "City Name: " + CityName + ", " +
-                    "Country Name: " + CountryName + ", " +
-                    "District: " + District + ", " +
-                    "Population: " + Population;
+            return CityName +
+                    CountryName +
+                    District +
+                    Population;
         }
     }
 
     // Method to retrieve city report data for cities within a specific region sorted by population
-    public static ArrayList<CityReport> getCitiesByRegion(Connection con, String region) {
+    public static ArrayList<CityReport> getCitiesByRegion(Connection con) {
         try {
             Statement stmt = con.createStatement();
 
@@ -43,7 +43,7 @@ public class User_report_23 {
             String strSelect = "SELECT A.Name AS CityName, B.Name AS CountryName, A.District, A.Population " +
                     "FROM city A " +
                     "JOIN country B ON A.CountryCode = B.Code " +
-                    "WHERE B.Region = '" + region + "' " +
+                    "WHERE B.Region = '" + " region " +
                     "ORDER BY A.Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -55,7 +55,7 @@ public class User_report_23 {
                 String CityName = rset.getString("CityName");
                 String CountryName = rset.getString("CountryName");
                 String District = rset.getString("District");
-                int Population = rset.getInt("Population");
+                Long Population = rset.getLong("Population");
 
                 // Create a CityReport object and add it to the list
                 CityReport city = new CityReport(CityName, CountryName, District, Population);
@@ -76,10 +76,25 @@ public class User_report_23 {
 
     // Method to print city report data
     public static void printCityReport(ArrayList<CityReport> cities) {
+        // Check Array List  is not null
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
+        System.out.println("Capital City Report:");
         System.out.println("City Report");
+        //format and print header
         // Iterate through the list of CityReport objects and print each one
+        System.out.println(String.format("%-25s %-25s %-25s %-25s", "CityName", "CountryName","District", "Population"));
         for (CityReport city : cities) {
-            System.out.println(city);
+            if (city == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s %-25s %-25s",
+                            city.CityName, city.CountryName, city.District , city.Population);
+            System.out.println(Table_string);
         }
     }
 }
