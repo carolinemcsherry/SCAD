@@ -30,6 +30,26 @@ public class App {
         // user report 2
 
 
+
+// user report 28
+        ArrayList<User_report_28.Population> ReportArray27 = User_report_28.getPopulationReport(con);
+        User_report_28.printPopulationReport(ReportArray27);
+// user report 29
+        ArrayList<User_report_29.ContinentPopulation> ReportArray28 = User_report_29.getPopulationByContinent(con);
+        User_report_29.printPopulationByContinent(ReportArray28);
+// user report 30
+        ArrayList<User_report_30.CountryInRegion> ReportArray29 = User_report_30.getCountriesByRegion(con);
+        User_report_30.printCountriesByRegion(ReportArray29);
+// user report 31
+        ArrayList<User_report_31.CountryInContinent> ReportArray30 = User_report_31.getCountriesByContinent(con);
+        User_report_31.printCountriesByContinent(ReportArray30);
+// user report 32
+        ArrayList<User_report_32.CountryData> ReportArray31 = User_report_32.getCountriesByPopulation(con);
+        User_report_32.printCountriesByPopulation(ReportArray31);
+// user report 33
+        ArrayList<User_report_33.CountryDataInRegion> ReportArray32 = User_report_33.getTopPopulatedCountriesInRegion(con);
+        User_report_33.printTopPopulatedCountriesInRegion(ReportArray32);
+// user report 34
         ArrayList<User_report_34.TopCitiesInContinent> ReportArray33 = User_report_34.getTopPopulatedCitiesInContinent(con);
         User_report_34.printTopPopulatedCitiesInContinent(ReportArray33);
 

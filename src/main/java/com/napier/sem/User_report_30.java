@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 // All the countries in a region organised by largest population to smallest.
 public class User_report_30{
@@ -29,7 +28,7 @@ public class User_report_30{
     }
 
     // Method to retrieve countries in a region organized by largest population to smallest
-    public static ArrayList<CountryInRegion> getCountriesByRegion(Connection con, String region) {
+    public static ArrayList<CountryInRegion> getCountriesByRegion(Connection con) {
 
         try {
             Statement stmt = con.createStatement();
@@ -37,7 +36,7 @@ public class User_report_30{
             // SQL query to retrieve countries in a region organized by largest population to smallest
             String strSelect = "SELECT Name AS CountryName, Population " +
                     "FROM country " +
-                    "WHERE Region = '" + region + "' " +
+                    "WHERE Region = '" + "region" + "' " +
                     "ORDER BY Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);

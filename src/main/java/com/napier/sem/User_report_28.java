@@ -37,7 +37,7 @@ public class User_report_28{
 
     // Method to retrieve population data
     public static ArrayList<Population> getPopulationReport(Connection con) {
-       
+
         try {
             Statement stmt = con.createStatement();
 
