@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 // The top N populated countries in the world where N is provided by the user.
 public class User_report_26{
 
@@ -28,6 +29,9 @@ public class User_report_26{
 
     // Method to retrieve the top N populated countries in the world
     public static ArrayList<CountryData> getTopPopulatedCountries(Connection con) {
+        String input = "";
+        input = JOptionPane.showInputDialog("Enter the Number of top Populated Countries");
+
         try {
             Statement stmt = con.createStatement();
 
@@ -35,7 +39,7 @@ public class User_report_26{
             String strSelect = "SELECT Name AS CountryName, Population " +
                     "FROM country " +
                     "ORDER BY Population DESC " +
-                    "LIMIT " + N;
+                    "LIMIT " + input ;
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
