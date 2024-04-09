@@ -42,7 +42,7 @@ public class User_report_27{
             // SQL query to retrieve top N populated countries in a continent
             String strSelect = "SELECT Population, Name AS country, Continent " +
                     "FROM country " +
-                    "WHERE Continent" = ' + continent +
+                    "WHERE Continent = '" + " continent " +
                     "ORDER BY Population DESC " +
                     "LIMIT " + input;
 
