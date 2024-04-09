@@ -22,8 +22,8 @@ public class User_report_33 {
 
         // Method to represent the object as a string
         public String toString() {
-            return "Country Name: " + countryName + ", " +
-                    "Population: " + population;
+            return countryName
+                    + population;
         }
     }
 
@@ -62,9 +62,23 @@ public class User_report_33 {
 
     // Method to print the top N populated countries in a region
     public static void printTopPopulatedCountriesInRegion(ArrayList<CountryDataInRegion> countriesList) {
-        System.out.println("Top Populated Countries in Region Report:");
-        for (CountryDataInRegion country : countriesList) {
-            System.out.println(country);
+        // Check Array List  is not null
+        if (countriesList == null)
+        {
+            System.out.println("No countriesList");
+            return;
+        }
+
+        System.out.println(String.format("%-25s %-25s %-25s %-25s","countryName","population"));
+
+        for (CountryDataInRegion countries : countriesList) {
+            if (countriesList == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s %-25s %-25s",
+                            countries.countryName, countries.population);
+            System.out.println(Table_string);
         }
     }
 }
