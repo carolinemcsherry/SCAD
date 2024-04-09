@@ -28,9 +28,9 @@ public class App {
         // Call getCity method from City class
         // user report 1
         // user report 2
-        ArrayList<User_report_2.CapitalCityReport> ReportArray = User_report_2.getAllCapitalCities(con);
+        ArrayList<User_report_27.TopCountriesInContinent> ReportArray26 = User_report_27.getTopPopulatedCountriesInContinent(con);
 
-        User_report_2.printCapitalCityReport(ReportArray);
+        User_report_27.printTopPopulatedCountriesInContinent(ReportArray26);
 
         City cityInstance = new City();
         City oneCity = cityInstance.getCity(30);
