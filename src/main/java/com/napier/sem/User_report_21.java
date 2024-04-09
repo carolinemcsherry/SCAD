@@ -38,7 +38,7 @@ public class User_report_21 {
     }
 
     // Method to retrieve city report data for a specific district sorted by population
-    public static ArrayList<CityReport> getCityReportByDistrict(Connection con, String district) {
+    public static ArrayList<CityReport> getCityReportByDistrict(Connection con) {
         try {
             Statement stmt = con.createStatement();
 
@@ -46,7 +46,7 @@ public class User_report_21 {
             String strSelect = "SELECT A.Name AS CityName, B.Name AS CountryName, A.District, A.Population " +
                     "FROM city A " +
                     "LEFT JOIN country B ON A.CountryCode = B.Code " +
-                    "WHERE A.District = '" + district + "' " +
+                    "WHERE A.District = '" + "district" + "' " +
                     "ORDER BY A.Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);

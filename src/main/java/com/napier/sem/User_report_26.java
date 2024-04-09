@@ -36,10 +36,12 @@ public class User_report_26{
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve the top N populated countries in the world
-            String strSelect = "SELECT Name AS CountryName, Population " +
+            String strSelect = "SELECT Population, Name AS country, Continent " +
                     "FROM country " +
+                    "WHERE Continent = '" + "continent" + "' " + // corrected line
                     "ORDER BY Population DESC " +
-                    "LIMIT " + input ;
+                    "LIMIT " + input;
+
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
