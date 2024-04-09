@@ -213,6 +213,48 @@ public class AppTest {
         User_report_9.printAllRegionsPopulation(ReportArray8);
 
     }
+    //user report 32
+    @Test
+    void user_report32_TestNull()
+    {
+        User_report_32.printCountriesByPopulation(null);
+    }
+
+    @Test
+    void user_report32_TestEmpty() {
+        ArrayList<User_report_32.CountryData> ReportArray31 = new ArrayList<>();
+        User_report_32.printCountriesByPopulation(ReportArray31);
+    }
+
+    @Test
+    void print_user_report32_TestContainsNull() {
+        ArrayList<User_report_32.CountryData> ReportArray31 = new ArrayList<>();
+        ReportArray31.add(null); // Corrected the variable name to ReportArray31
+        User_report_32.printCountriesByPopulation(ReportArray31);
+    }
+
+
+
+    //user report 33
+    @Test
+    void user_report33_TestNull()
+    {
+        User_report_33.printTopPopulatedCountriesInRegion(null);
+    }
+
+    @Test
+    void user_report33_TestEmpty() {
+        ArrayList<User_report_33.CountryDataInRegion> ReportArray32 = new ArrayList<>();
+        User_report_33.printTopPopulatedCountriesInRegion(ReportArray32);
+    }
+
+    @Test
+    void print_user_report33_TestContainsNull() {
+        ArrayList<User_report_33.CountryDataInRegion> ReportArray32 = new ArrayList<>();
+        ReportArray32.add(null);
+        User_report_33.printTopPopulatedCountriesInRegion(ReportArray32);
+    }
+
     //user report 34
     @Test
     void user_report34_TestNull()

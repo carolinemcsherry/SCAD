@@ -62,23 +62,23 @@ public class User_report_33 {
 
     // Method to print the top N populated countries in a region
     public static void printTopPopulatedCountriesInRegion(ArrayList<CountryDataInRegion> countriesList) {
-        // Check Array List  is not null
-        if (countriesList == null)
-        {
+        // Check if the ArrayList is not null
+        if (countriesList == null) {
             System.out.println("No countriesList");
             return;
         }
 
-        System.out.println(String.format("%-25s %-25s %-25s %-25s","countryName","population"));
+        System.out.println(String.format("%-25s %-25s", "countryName", "population"));
 
-        for (CountryDataInRegion countries : countriesList) {
-            if (countriesList == null)
-                continue;
-            //Prints table values in columbs
-            String Table_string =
-                    String.format("%-25s %-25s %-25s %-25s",
-                            countries.countryName, countries.population);
-            System.out.println(Table_string);
+        for (CountryDataInRegion country : countriesList) {
+            // Check if the country object is not null
+            if (country != null) {
+                //Prints table values in columns
+                String tableString =
+                        String.format("%-25s %-25s",
+                                country.countryName, country.population);
+                System.out.println(tableString);
+            }
         }
     }
 }
