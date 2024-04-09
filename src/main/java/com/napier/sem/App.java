@@ -21,6 +21,64 @@ public class App {
 
         con = App.con;
 
+       // user report 1 Continent
+        ArrayList<User_report_1_Continent.PopulationReport> ReportArray1a = User_report_1_Continent.getPopulationByRegion(con);
+
+        User_report_1_Continent.printPopulationReport(ReportArray1a);
+
+        // user report 1 Country
+        ArrayList<User_report_1_Country.PopulationReport> ReportArray1b = User_report_1_Country.getPopulationByRegion(con);
+
+        User_report_1_Country.printPopulationReport(ReportArray1b);
+        // user report 1 Region
+        ArrayList<User_report_1_Region.PopulationReport> ReportArray1c = User_report_1_Region.getPopulationByRegion(con);
+
+        User_report_1_Region.printPopulationReport(ReportArray1c);
+        // user report 2
+        ArrayList<User_report_2.CapitalCityReport> ReportArray = User_report_2.getAllCapitalCities(con);
+
+        User_report_2.printCapitalCityReport(ReportArray);
+
+// user report 3
+        ArrayList<User_report_3.CityReport> ReportArray1 = User_report_3.getCityReport(con);
+
+        User_report_3.printCityReport(ReportArray1);
+// user report 4
+        ArrayList<User_report_4.CountryReport> ReportArray2 = User_report_4.getAllCountries(con);
+
+        User_report_4.printCountryReport(ReportArray2);
+// user report 5
+        ArrayList<User_report_5.LanguageStats> ReportArray3 = User_report_5.getLanguageStatistics(con);
+
+        User_report_5.printLanguageStatistics(ReportArray3);
+
+// user report 6
+        ArrayList<User_report_6.CityReport> ReportArray4 = User_report_6.getAllCities(con);
+
+        User_report_6.printCityReport(ReportArray4);
+
+// user report 7
+        ArrayList<User_report_7.RegionPopulationReport> ReportArray5 = User_report_7.getRegionPopulation(con);
+
+        User_report_7.printRegionPopulation(ReportArray5);
+// user report 8
+        ArrayList<User_report_8.CountryPopulation> ReportArray6 = User_report_8.getCountryPopulation(con);
+
+        User_report_8.printCountryPopulation(ReportArray6);
+// user report 9
+        ArrayList<User_report_9.RegionPopulationReport> ReportArray7 = User_report_9.getAllRegionsPopulation(con);
+
+        User_report_9.printAllRegionsPopulation(ReportArray7);
+
+        // user report 10
+        ArrayList<User_report_10.ContinentPopulationReport> ReportArray8 = User_report_10.getAllContinentsPopulation(con);
+
+        User_report_10.printAllContinentsPopulation(ReportArray8);
+        // user report 11
+        ArrayList<User_report_11.WorldPopulationReport> ReportArray9 = User_report_11.getWorldPopulationList(con);
+
+        User_report_11.printWorldPopulationReport(ReportArray9);
+
         // user report 12
         ArrayList<User_report_12.PopulationbyRegionReport> ReportArray10 = User_report_12.getPopulationbyRegionReport(con);
 
