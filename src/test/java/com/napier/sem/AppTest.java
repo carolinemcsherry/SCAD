@@ -214,6 +214,26 @@ public class AppTest {
 
     }
 
+
+    @Test
+    void user_report30_TestNull() {
+        User_report_30.printCountriesByRegion(null);
+    }
+
+    @Test
+    void user_report30_TestEmpty() {
+        ArrayList<User_report_30.CountryInRegion> ReportArray29 = new ArrayList<>();
+        User_report_30.printCountriesByRegion(ReportArray29);
+    }
+
+    @Test
+    void print_user_report30_TestContainsNull() {
+        ArrayList<User_report_30.CountryInRegion> ReportArray29 = new ArrayList<>();
+        ReportArray29.add(null);
+        User_report_30.printCountriesByRegion(ReportArray29);
+    }
+
+
     @Test
     void user_report31_TestNull() {
         User_report_31.printCountriesByContinent(null);

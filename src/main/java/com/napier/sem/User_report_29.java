@@ -73,22 +73,19 @@ public class User_report_29 {
 
     // Method to print population data for each continent
     public static void printPopulationByContinent(ArrayList<ContinentPopulation> continentPopulationList) {
-        // Check Array List  is not null
-        if (continentPopulationList == null)
-        {
+        if (continentPopulationList == null) {
             System.out.println("No continentPopulationList");
             return;
         }
-        System.out.println(String.format("%-25s %-25s %-25s %-25s","continentName","totalPopulation","populationInCities","populationNotInCities"));
+
+        System.out.println(String.format("%-25s %-25s %-25s %-25s", "continentName", "totalPopulation", "populationInCities", "populationNotInCities"));
 
         for (ContinentPopulation continentPopulation : continentPopulationList) {
-            if (continentPopulationList == null)
-                continue;
-            //Prints table values in columbs
-            String Table_string =
-                    String.format("%-25s %-25s %-25s %-25s",
-                            continentPopulation.continentName, continentPopulation.totalPopulation, continentPopulation.populationInCities, continentPopulation.populationNotInCities);
-            System.out.println(Table_string);
+            if (continentPopulation != null) {
+                String tableString = String.format("%-25s %-25s %-25s %-25s",
+                        continentPopulation.continentName, continentPopulation.totalPopulation, continentPopulation.populationInCities, continentPopulation.populationNotInCities);
+                System.out.println(tableString);
+            }
         }
     }
 }
