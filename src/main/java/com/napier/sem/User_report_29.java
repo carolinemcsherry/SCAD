@@ -37,6 +37,8 @@ public class User_report_29 {
 
     // Method to retrieve population data for each continent
     public static ArrayList<ContinentPopulation> getPopulationByContinent(Connection con) {
+        String input = "";
+        input = JOptionPane.showInputDialog("Enter the Number of top Populated Region's");
         try {
             Statement stmt = con.createStatement();
 
