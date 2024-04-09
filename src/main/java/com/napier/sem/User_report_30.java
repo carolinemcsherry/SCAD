@@ -30,8 +30,7 @@ public class User_report_30{
 
     // Method to retrieve countries in a region organized by largest population to smallest
     public static ArrayList<CountryInRegion> getCountriesByRegion(Connection con, String region) {
-        String input = "";
-        input = JOptionPane.showInputDialog("Enter the Number of top Populated Region's");
+       
         try {
             Statement stmt = con.createStatement();
 

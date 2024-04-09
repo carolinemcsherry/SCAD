@@ -31,7 +31,7 @@ public class User_report_32 {
 
     // Method to retrieve all countries in the world organized by largest population to smallest
     public static ArrayList<CountryData> getCountriesByPopulation(Connection con) {
-        
+
         try {
             Statement stmt = con.createStatement();
 
