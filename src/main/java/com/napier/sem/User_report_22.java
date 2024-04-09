@@ -5,55 +5,64 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
+
+//All the cities in a country organised by largest population to smallest.
 
 public class User_report_22 {
 
+    // Inner class to represent the city report
     public static class CityReport {
-        private String cityName;
-        private String countryName;
-        private String district;
-        private Long population;
+        private String CityName;
+        private String CountryName;
+        private String District;
+        private Long Population;
 
-        public CityReport(String cityName, String countryName, String district, Long population) {
-            this.cityName = cityName;
-            this.countryName = countryName;
-            this.district = district;
-            this.population = population;
+        // Constructor for the CityReport class
+        public CityReport(String CityName, String CountryName, String District, Long Population) {
+            this.CityName = CityName;
+            this.CountryName = CountryName;
+            this.District = District;
+            this.Population = Population;
         }
 
+        // Method to represent the object as a string
         public String toString() {
-            return cityName + " " + countryName + " " + district + " " + population;
+            return  CityName +
+                    CountryName +
+                    District +
+                    Population;
         }
     }
 
-    public static ArrayList<CityReport> getCityReportByCountry(Connection con, String country) {
-        String input = JOptionPane.showInputDialog("Enter the Number of top Populated Regions");
-
+    // Method to retrieve city report data for a specific country sorted by population
+    public static ArrayList<CityReport> getCityReport(Connection con) {
         try {
             Statement stmt = con.createStatement();
 
+            // SQL query to retrieve city report data for a specific country
             String strSelect = "SELECT A.Name AS CityName, B.Name AS CountryName, A.District, A.Population " +
                     "FROM city A " +
                     "LEFT JOIN country B ON A.CountryCode = B.Code " +
-                    "WHERE B.Name = '" + country + "' " +
-                    "ORDER BY A.Population DESC " +
-                    "LIMIT " + input;
+                    "WHERE B.Name = '" + "country" + "' " +
+                    "ORDER BY A.Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
             ArrayList<CityReport> cityReports = new ArrayList<>();
 
+            // Iterate through the result set and create CityReport objects
             while (rset.next()) {
-                String cityName = rset.getString("CityName");
-                String countryName = rset.getString("CountryName");
-                String district = rset.getString("District");
-                Long population = rset.getLong("Population");
+                String CityName = rset.getString("CityName");
+                String CountryName = rset.getString("CountryName");
+                String District = rset.getString("District");
+                Long Population = rset.getLong("Population");
 
-                CityReport city = new CityReport(cityName, countryName, district, population);
+                // Create a CityReport object and add it to the list
+                CityReport city = new CityReport(CityName, CountryName, District, Population);
                 cityReports.add(city);
             }
 
+            // Close the result set and statement
             rset.close();
             stmt.close();
 
@@ -65,20 +74,28 @@ public class User_report_22 {
         }
     }
 
+    // Method to print city report data
     public static void printCityReport(ArrayList<CityReport> cities) {
-        if (cities == null) {
+        // Check Array List  is not null
+        if (cities == null)
+        {
             System.out.println("No cities");
             return;
         }
-        System.out.println("City Report:");
-        System.out.println(String.format("%-25s %-25s %-25s %-25s", "CityName", "CountryName", "District", "Population"));
+        System.out.println("Capital City Report:");
+        System.out.println("City Report");
+        //format and print header
+        // Iterate through the list of CityReport objects and print each one
+        System.out.println(String.format("%-25s %-25s %-25s %-25s", "CityName", "CountryName","District", "Population"));
         for (CityReport city : cities) {
+
             if (city == null)
                 continue;
-            String tableString =
+            //Prints table values in columbs
+            String Table_string =
                     String.format("%-25s %-25s %-25s %-25s",
-                            city.cityName, city.countryName, city.district, city.population);
-            System.out.println(tableString);
+                            city.CityName, city.CountryName, city.District , city.Population);
+            System.out.println(Table_string);
         }
     }
 }
