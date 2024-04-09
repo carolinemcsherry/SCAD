@@ -9,24 +9,22 @@ public class User_report_20 {
 
     public static class TopCitiesInWorld {
         private String cityName;
-        private int population;
+        private Long population;
 
-        public TopCitiesInWorld(String cityName, int population) {
+        public TopCitiesInWorld(String cityName, Long population) {
             this.cityName = cityName;
             this.population = population;
         }
 
         public String toString() {
-            return "City Name: " + cityName + ", " +
-                    "Population: " + population;
+            return cityName + " " + population;
         }
     }
 
     public static ArrayList<TopCitiesInWorld> getTopPopulatedCitiesInWorld(Connection con) {
-        // Prompt the user for input
-        String input = JOptionPane.showInputDialog("Enter the Number of top Populated Cities");
-
         try {
+            String input = JOptionPane.showInputDialog("Enter the Number of top Populated Cities");
+
             Statement stmt = con.createStatement();
 
             String strSelect = "SELECT Name AS CityName, Population " +
@@ -40,14 +38,14 @@ public class User_report_20 {
 
             while (rset.next()) {
                 String cityName = rset.getString("CityName");
-                int population = rset.getInt("Population");
+                Long population = rset.getLong("Population");
 
                 TopCitiesInWorld topCity = new TopCitiesInWorld(cityName, population);
                 topCitiesList.add(topCity);
             }
             return topCitiesList;
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             System.out.println("Failed to get top populated cities in the world");
             return null;
         }
@@ -60,8 +58,15 @@ public class User_report_20 {
         }
 
         System.out.println("Top Populated Cities in the World Report:");
+        System.out.println("City Report:");
+        System.out.println(String.format("%-25s %-25s", "CityName", "Population"));
         for (TopCitiesInWorld topCity : topCitiesList) {
-            System.out.println(topCity);
+            if (topCity == null)
+                continue;
+            String Table_string =
+                    String.format("%-25s %-25s",
+                            topCity.cityName, topCity.population);
+            System.out.println(Table_string);
         }
     }
 }
