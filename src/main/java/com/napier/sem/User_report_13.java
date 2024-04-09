@@ -1,10 +1,12 @@
 package com.napier.sem;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 //The top N populated capital cities in the world where N is provided by the user.
@@ -25,14 +27,17 @@ public class User_report_13 {
 
         // Method to represent the object as a string
         public String toString() {
-            return "Population: " + population + ", " +
-                    "Capital City Name: " + capitalCityName + ", " +
-                    "Continent: " + continent;
+            return  population +
+                    capitalCityName +
+                     continent;
         }
     }
 
     // Method to retrieve top N populated capital cities in the world
     public static ArrayList<TopCapitalCitiesInWorld> getTopPopulatedCapitalCitiesInWorld(Connection con) {
+
+        String input = "";
+        input = JOptionPane.showInputDialog("Enter the Number of top Populated Region's");
         try {
             Statement stmt = con.createStatement();
 
@@ -41,7 +46,7 @@ public class User_report_13 {
                     "FROM city " +
                     "JOIN country ON city.ID = country.Capital " +
                     "ORDER BY country.Population DESC " +
-                    "LIMIT " + "";
+                    "LIMIT " + input;
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -66,17 +71,26 @@ public class User_report_13 {
     }
 
     // Method to print top N populated capital cities in the world
-    public static void printTopCapitalCitiesInWorld(ArrayList<TopCapitalCitiesInWorld> TopCapitalCitiesInWorld) {
+    public static void printTopCapitalCitiesInWorld(ArrayList<TopCapitalCitiesInWorld> Cities) {
         // Check if ArrayList is not null
-        if (TopCapitalCitiesInWorld == null || TopCapitalCitiesInWorld.isEmpty()) {
+        if (Cities == null ) {
             System.out.println("No Top Capital Cities in the World to display");
             return;
         }
         System.out.println("Top Capital Cities in the World Report:");
-        for (TopCapitalCitiesInWorld city : TopCapitalCitiesInWorld) {
-            System.out.println(city);
-        }
-    }
+        //print header
+        System.out.println(String.format("%-25s %-20s %-20s", "Population", "CapitalCity", "continent"));
+
+        // Iterate through the list of ContinentPopulationReport objects and print each one
+        for (TopCapitalCitiesInWorld city: Cities) {
+            if (Cities == null)
+                continue;
+            String emp_string =
+                    String.format("%-25s %-20s %-20s",
+                            city.population, city.capitalCityName, city.continent   );
+            System.out.println(emp_string);
+            //    System.out.println(continent);
+        }}
 
 }
 
