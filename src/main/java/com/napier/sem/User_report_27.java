@@ -5,17 +5,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 // The top N populated countries in a continent where N is provided by the user.
 public class User_report_27{
 
     // Inner class to represent the top N populated countries in a continent report
     public static class TopCountriesInContinent {
-        private int population;
+        private Long population;
         private String countryName;
         private String continent;
 
         // Constructor for TopCountriesInContinent class
-        public TopCountriesInContinent(int population, String countryName, String continent) {
+        public TopCountriesInContinent(Long population, String countryName, String continent) {
             this.population = population;
             this.countryName = countryName;
             this.continent = continent;
@@ -23,23 +24,27 @@ public class User_report_27{
 
         // Method to represent the object as a string
         public String toString() {
-            return "Population: " + population + ", " +
-                    "Country Name: " + countryName + ", " +
-                    "Continent: " + continent;
+            return population +
+                    countryName +
+                    continent;
         }
     }
 
     // Method to retrieve top N populated countries in a continent
-    public static ArrayList<TopCountriesInContinent> getTopPopulatedCountriesInContinent(Connection con, String continent, int limit) {
+    public static ArrayList<TopCountriesInContinent> getTopPopulatedCountriesInContinent(Connection con) {
+
+        String input = "";
+        input = JOptionPane.showInputDialog("Enter the Number of top Populated Countries");
+
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve top N populated countries in a continent
             String strSelect = "SELECT Population, Name AS country, Continent " +
                     "FROM country " +
-                    "WHERE Continent = '" + continent + "' " +
+                    "WHERE Continent = '" + " continent " +
                     "ORDER BY Population DESC " +
-                    "LIMIT " + limit;
+                    "LIMIT " + input;
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -47,7 +52,7 @@ public class User_report_27{
 
             // Iterate through the result set and create TopCountriesInContinent objects
             while (rset.next()) {
-                int population = rset.getInt("Population");
+                Long population = rset.getLong("Population");
                 String countryName = rset.getString("country");
                 String continentName = rset.getString("Continent");
 
@@ -65,9 +70,24 @@ public class User_report_27{
 
     // Method to print top N populated countries in a continent
     public static void printTopPopulatedCountriesInContinent(ArrayList<TopCountriesInContinent> topCountriesList) {
+        // Check Array List  is not null
+        if (topCountriesList == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
         System.out.println("Top Populated Countries in the Continent Report:");
+        System.out.println("Country Report:");
+        //format and print header
+        System.out.println(String.format("%-25s %-25s %-25s %-25s", "Popultation", "CountryName", "Continent"));
         for (TopCountriesInContinent topCountry : topCountriesList) {
-            System.out.println(topCountry);
+            if (topCountriesList== null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s %-25s %-25s",
+                            topCountry.population,  topCountry.countryName, topCountry.continent );
+            System.out.println(Table_string);
         }
     }
 }
