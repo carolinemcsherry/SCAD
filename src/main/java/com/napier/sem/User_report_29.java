@@ -27,10 +27,10 @@ public class User_report_29 {
 
         // Method to represent the object as a string
         public String toString() {
-            return "Continent: " + continentName + ", " +
-                    "Total Population: " + totalPopulation + ", " +
-                    "Population in Cities: " + populationInCities + ", " +
-                    "Population Not in Cities: " + populationNotInCities;
+            return continentName
+                    + totalPopulation
+                    + populationInCities
+                    + populationNotInCities;
         }
     }
 
@@ -73,9 +73,19 @@ public class User_report_29 {
 
     // Method to print population data for each continent
     public static void printPopulationByContinent(ArrayList<ContinentPopulation> continentPopulationList) {
-        System.out.println("Population by Continent Report:");
+        if (continentPopulationList == null) {
+            System.out.println("No continentPopulationList");
+            return;
+        }
+
+        System.out.println(String.format("%-25s %-25s %-25s %-25s", "continentName", "totalPopulation", "populationInCities", "populationNotInCities"));
+
         for (ContinentPopulation continentPopulation : continentPopulationList) {
-            System.out.println(continentPopulation);
+            if (continentPopulation != null) {
+                String tableString = String.format("%-25s %-25s %-25s %-25s",
+                        continentPopulation.continentName, continentPopulation.totalPopulation, continentPopulation.populationInCities, continentPopulation.populationNotInCities);
+                System.out.println(tableString);
+            }
         }
     }
 }

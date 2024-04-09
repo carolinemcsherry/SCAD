@@ -5,10 +5,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
+import javax.swing.JOptionPane;
 
 // The top N populated countries in a continent where N is provided by the user.
-public class User_report_34{
+public class User_report_34 {
 
     // Inner class to represent the top N populated cities in a continent report
     public static class TopCitiesInContinent {
@@ -25,14 +25,16 @@ public class User_report_34{
 
         // Method to represent the object as a string
         public String toString() {
-            return "City Name: " + cityName + ", " +
-                    "Population: " + population + ", " +
-                    "Continent: " + continent;
+            return cityName
+                    + population
+                    + continent;
         }
     }
 
     // Method to retrieve top N populated cities in a continent
-    public static ArrayList<TopCitiesInContinent> getTopPopulatedCitiesInContinent(Connection con, String continent, int limit) {
+    public static ArrayList<TopCitiesInContinent> getTopPopulatedCitiesInContinent(Connection con) {
+        String input = "";
+        input = JOptionPane.showInputDialog("Enter the Number of top Populated Region's");
         try {
             Statement stmt = con.createStatement();
 
@@ -40,9 +42,9 @@ public class User_report_34{
             String strSelect = "SELECT city.Name AS cityName, city.Population, country.Continent " +
                     "FROM city " +
                     "JOIN country ON city.CountryCode = country.Code " +
-                    "WHERE country.Continent = '" + continent + "' " +
+                    "WHERE country.Continent = '" + "continent" + "' " +
                     "ORDER BY city.Population DESC " +
-                    "LIMIT " + limit;
+                    "LIMIT " + input ;
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -68,9 +70,23 @@ public class User_report_34{
 
     // Method to print top N populated cities in a continent
     public static void printTopPopulatedCitiesInContinent(ArrayList<TopCitiesInContinent> topCitiesList) {
-        System.out.println("Top Populated Cities in the Continent Report:");
-        for (TopCitiesInContinent topCity : topCitiesList) {
-            System.out.println(topCity);
+        // Check Array List  is not null
+        if (topCitiesList == null) {
+            System.out.println("No topCitiesList");
+            return;
+        }
+
+        System.out.println(String.format("%-25s %-25s %-25s", "cityName", "population", "continentName"));
+
+        for (TopCitiesInContinent city : topCitiesList) {
+            // Check if the city object is not null
+            if (city != null) {
+                //Prints table values in columns
+                String tableString =
+                        String.format("%-25s %-25s %-25s",
+                                city.cityName, city.population, city.continent);
+                System.out.println(tableString);
+            }
         }
     }
 }

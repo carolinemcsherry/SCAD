@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 // All the countries in the world organised by largest population to smallest.
 
-public class User_report_32{
+public class User_report_32 {
 
     // Inner class to represent country data
     public static class CountryData {
@@ -23,8 +23,8 @@ public class User_report_32{
 
         // Method to represent the object as a string
         public String toString() {
-            return "Country Name: " + countryName + ", " +
-                    "Population: " + population;
+            return countryName
+                    + population;
         }
     }
 
@@ -61,9 +61,18 @@ public class User_report_32{
 
     // Method to print all countries in the world organized by largest population to smallest
     public static void printCountriesByPopulation(ArrayList<CountryData> countriesList) {
-        System.out.println("Countries by Population Report:");
+        if (countriesList == null) {
+            System.out.println("No countriesList");
+            return;
+        }
+
+        System.out.println(String.format("%-25s %-25s", "countryName", "population"));
+
         for (CountryData country : countriesList) {
-            System.out.println(country);
+            if (country != null) {
+                String tableString = String.format("%-25s %-25s", country.countryName, country.population);
+                System.out.println(tableString);
+            }
         }
     }
 }

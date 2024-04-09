@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 //The top N populated countries in a region where N is provided by the user.
 public class User_report_33 {
@@ -22,8 +23,8 @@ public class User_report_33 {
 
         // Method to represent the object as a string
         public String toString() {
-            return "Country Name: " + countryName + ", " +
-                    "Population: " + population;
+            return countryName
+                    + population;
         }
     }
 
@@ -62,9 +63,23 @@ public class User_report_33 {
 
     // Method to print the top N populated countries in a region
     public static void printTopPopulatedCountriesInRegion(ArrayList<CountryDataInRegion> countriesList) {
-        System.out.println("Top Populated Countries in Region Report:");
+        // Check if the ArrayList is not null
+        if (countriesList == null) {
+            System.out.println("No countriesList");
+            return;
+        }
+
+        System.out.println(String.format("%-25s %-25s", "countryName", "population"));
+
         for (CountryDataInRegion country : countriesList) {
-            System.out.println(country);
+            // Check if the country object is not null
+            if (country != null) {
+                //Prints table values in columns
+                String tableString =
+                        String.format("%-25s %-25s",
+                                country.countryName, country.population);
+                System.out.println(tableString);
+            }
         }
     }
 }

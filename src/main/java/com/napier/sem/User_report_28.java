@@ -27,10 +27,10 @@ public class User_report_28{
 
         // Method to represent the object as a string
         public String toString() {
-            return "City Name: " + cityName + ", " +
-                    "City Population: " + cityPopulation + ", " +
-                    "Country Name: " + countryName + ", " +
-                    "Country Population: " + countryPopulation;
+            return cityName
+                    + cityPopulation
+                    + countryName
+                    + countryPopulation;
         }
     }
 
@@ -70,9 +70,17 @@ public class User_report_28{
 
     // Method to print population data
     public static void printPopulationReport(ArrayList<Population> populationList) {
-        System.out.println("Population Report:");
+        if (populationList == null) {
+            System.out.println("No populationList");
+            return;
+        }
+        System.out.println(String.format("%-25s %-25s %-25s %-25s", "cityName", "cityPopulation", "countryName", "countryPopulation"));
         for (Population population : populationList) {
-            System.out.println(population);
+            if (population != null) {
+                String tableString = String.format("%-25s %-25s %-25s %-25s",
+                        population.cityName, population.cityPopulation, population.countryName, population.countryPopulation);
+                System.out.println(tableString);
+            }
         }
     }
 }

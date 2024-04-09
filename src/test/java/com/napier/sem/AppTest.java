@@ -260,4 +260,144 @@ public class AppTest {
         User_report_9.printAllRegionsPopulation(ReportArray8);
 
     }
+
+
+    @Test
+    void user_report28_TestNull() {
+        User_report_28.printPopulationReport(null);
+    }
+
+    @Test
+    void user_report28_TestEmpty() {
+        ArrayList<User_report_28.Population> reportArray28 = new ArrayList<>();
+        User_report_28.printPopulationReport(reportArray28);
+    }
+
+    @Test
+    void print_user_report28_TestContainsNull() {
+        ArrayList<User_report_28.Population> reportArray28 = new ArrayList<>();
+        reportArray28.add(null);
+        User_report_28.printPopulationReport(reportArray28);
+    }
+
+    @Test
+    void user_report29_TestNull() {
+        User_report_29.printPopulationByContinent(null);
+    }
+
+    @Test
+    void user_report29_TestEmpty() {
+        ArrayList<User_report_29.ContinentPopulation> ReportArray28 = new ArrayList<>();
+        User_report_29.printPopulationByContinent(ReportArray28);
+    }
+
+    @Test
+    void print_user_report29_TestContainsNull() {
+        ArrayList<User_report_29.ContinentPopulation> ReportArray28 = new ArrayList<>();
+        ReportArray28.add(null);
+        User_report_29.printPopulationByContinent(ReportArray28);
+    }
+
+
+
+    @Test
+    void user_report30_TestNull() {
+        User_report_30.printCountriesByRegion(null);
+    }
+
+    @Test
+    void user_report30_TestEmpty() {
+        ArrayList<User_report_30.CountryInRegion> ReportArray29 = new ArrayList<>();
+        User_report_30.printCountriesByRegion(ReportArray29);
+    }
+
+    @Test
+    void print_user_report30_TestContainsNull() {
+        ArrayList<User_report_30.CountryInRegion> ReportArray29 = new ArrayList<>();
+        ReportArray29.add(null);
+        User_report_30.printCountriesByRegion(ReportArray29);
+    }
+
+
+    @Test
+    void user_report31_TestNull() {
+        User_report_31.printCountriesByContinent(null);
+    }
+
+    @Test
+    void user_report31_TestEmpty() {
+        ArrayList<User_report_31.CountryInContinent> ReportArray30 = new ArrayList<>();
+        User_report_31.printCountriesByContinent(ReportArray30);
+    }
+
+    @Test
+    void print_user_report31_TestContainsNull() {
+        ArrayList<User_report_31.CountryInContinent> ReportArray30 = new ArrayList<>();
+        ReportArray30.add(null);
+        User_report_31.printCountriesByContinent(ReportArray30);
+    }
+
+
+    @Test
+    void user_report32_TestNull() {
+        User_report_32.printCountriesByPopulation(null);
+    }
+
+    @Test
+    void user_report32_TestEmpty() {
+        ArrayList<User_report_32.CountryData> ReportArray31 = new ArrayList<>();
+        User_report_32.printCountriesByPopulation(ReportArray31);
+    }
+
+    @Test
+    void print_user_report32_TestContainsNull() {
+        ArrayList<User_report_32.CountryData> ReportArray31 = new ArrayList<>();
+        ReportArray31.add(null);
+        User_report_32.printCountriesByPopulation(ReportArray31);
+    }
+
+
+
+
+    //user report 33
+    @Test
+    void user_report33_TestNull()
+    {
+        User_report_33.printTopPopulatedCountriesInRegion(null);
+    }
+
+    @Test
+    void user_report33_TestEmpty() {
+        ArrayList<User_report_33.CountryDataInRegion> ReportArray32 = new ArrayList<>();
+        User_report_33.printTopPopulatedCountriesInRegion(ReportArray32);
+    }
+
+    @Test
+    void print_user_report33_TestContainsNull() {
+        ArrayList<User_report_33.CountryDataInRegion> ReportArray32 = new ArrayList<>();
+        ReportArray32.add(null);
+        User_report_33.printTopPopulatedCountriesInRegion(ReportArray32);
+    }
+
+    //user report 34
+    @Test
+    void user_report34_TestNull()
+    {
+        User_report_34.printTopPopulatedCitiesInContinent(null);
+    }
+
+    @Test
+
+    void user_report34_TestEmpty() {
+        ArrayList<User_report_34.TopCitiesInContinent> ReportArray33 = new ArrayList<>();
+        User_report_34.printTopPopulatedCitiesInContinent(ReportArray33);
+    }
+
+    @Test
+    void print_user_report34_TestContainsNull() {
+        ArrayList<User_report_34.TopCitiesInContinent> ReportArray33 = new ArrayList<>();
+        ReportArray33.add(null);
+        User_report_34.printTopPopulatedCitiesInContinent(ReportArray33);
+    }
+
 }
