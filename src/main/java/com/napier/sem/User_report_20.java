@@ -1,3 +1,5 @@
+package com.napier.sem;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,9 +24,9 @@ public class User_report_20 {
     }
 
     public static ArrayList<TopCitiesInWorld> getTopPopulatedCitiesInWorld(Connection con) {
-        try {
-            String input = JOptionPane.showInputDialog("Enter the Number of top Populated Cities");
+        String input = JOptionPane.showInputDialog("Enter the Number of top Populated cities");
 
+        try {
             Statement stmt = con.createStatement();
 
             String strSelect = "SELECT Name AS CityName, Population " +
