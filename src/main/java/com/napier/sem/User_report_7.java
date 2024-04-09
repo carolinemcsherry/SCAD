@@ -28,10 +28,10 @@ public class User_report_7 {
 
         // Method to represent the object as a string
         public String toString() {
-            return  "Region: " + Region + ", " +
-                    "Total Population: " + Total_Population + ", " +
-                    "City Population: " + City_Population + ", " +
-                    "Non-City Population: " + Non_City_Population;
+            return   Region +
+                    Total_Population +
+                     City_Population +
+                     Non_City_Population;
         }
     }
 
@@ -74,10 +74,26 @@ public class User_report_7 {
 
     // Method to print population data for each region
     public static void printRegionPopulation(ArrayList<RegionPopulationReport> regions) {
+        // Check Array List  is not null
+        if (regions == null)
+        {
+            System.out.println("No regions");
+            return;
+        }
+        //print report name
         System.out.println("Region Population Report");
+        //format and print header
+        System.out.println(String.format("%-25s %-25s %-25s %-25s", "Region", "Total_Population", "City_Population", "Non_City_Population"));
         // Iterate through the list of RegionPopulationReport objects and print each one
         for (RegionPopulationReport region : regions) {
-            System.out.println(region);
+            //If an atrabute value is null the job will continue
+            if (region == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s %-25s %-25s",
+                            region.Region, region.Total_Population, region.City_Population,region.Non_City_Population);
+            System.out.println(Table_string);
         }
     }
-}
+    }

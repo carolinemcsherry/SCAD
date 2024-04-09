@@ -32,7 +32,7 @@ public class User_report_18 {
     }
 
     // Method to retrieve top N populated cities in a country
-    public static ArrayList<TopCitiesInCountry> getTopPopulatedCitiesInCountry(Connection con, String countryCode, int limit) {
+    public static ArrayList<TopCitiesInCountry> getTopPopulatedCitiesInCountry(Connection con) {
         try {
             Statement stmt = con.createStatement();
 
@@ -40,9 +40,9 @@ public class User_report_18 {
             String strSelect = "SELECT A.Name AS CityName, B.Name AS CountryName, A.Population " +
                     "FROM city A " +
                     "LEFT JOIN country B ON A.CountryCode = B.Code " +
-                    "WHERE A.CountryCode = '" + countryCode + "' " +
+                    "WHERE A.CountryCode = '" + "countryCode" + "' " +
                     "ORDER BY A.Population DESC " +
-                    "LIMIT " + limit;
+                    "LIMIT " + "limit";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -68,6 +68,10 @@ public class User_report_18 {
 
     // Method to print top N populated cities in a country
     public static void printTopPopulatedCitiesInCountry(ArrayList<TopCitiesInCountry> topCitiesList) {
+        if (topCitiesList == null || topCitiesList.isEmpty()) {
+            System.out.println("No top populated cities in the country to display");
+            return;
+        }
         System.out.println("Top Populated Cities in the Country Report:");
         for (TopCitiesInCountry topCity : topCitiesList) {
             System.out.println(topCity);

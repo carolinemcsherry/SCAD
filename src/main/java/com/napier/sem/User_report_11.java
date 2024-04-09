@@ -6,30 +6,30 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-//•	11.The population of the world.•
+// The population of the world.
 public class User_report_11 {
 
-    // Inner class to represent the population report of the world
+    // Inner class to represent the world population report
     public static class WorldPopulationReport {
-        private int Total_World_Population;
+        private int totalPopulation;
 
-        // Constructor for the WorldPopulationReport class
-        public WorldPopulationReport(int Total_World_Population) {
-            this.Total_World_Population = Total_World_Population;
+        // Constructor for WorldPopulationReport class
+        public WorldPopulationReport(int totalPopulation) {
+            this.totalPopulation = totalPopulation;
         }
 
         // Method to represent the object as a string
         public String toString() {
-            return "Total World Population: " + Total_World_Population;
+            return "Total World Population: " + totalPopulation;
         }
     }
 
-    // Method to retrieve population data for the entire world
+    // Method to retrieve world population
     public static WorldPopulationReport getWorldPopulation(Connection con) {
         try {
             Statement stmt = con.createStatement();
 
-            // SQL query to retrieve world population data
+            // SQL query to retrieve world population
             String strSelect = "SELECT SUM(Population) AS Total_World_Population FROM country";
 
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -49,10 +49,38 @@ public class User_report_11 {
         }
     }
 
-    // Method to print population data for the entire world
+    // Method to print world population
     public static void printWorldPopulation(WorldPopulationReport worldPopulation) {
-        System.out.println("World Population Report");
-        System.out.println(worldPopulation);
+        if (worldPopulation != null) {
+            System.out.println("World Population Report:");
+            System.out.println(worldPopulation);
+        } else {
+            System.out.println("Failed to print world population report.");
+        }
     }
+
+    // Method to retrieve and store world population in an ArrayList
+    public static ArrayList<WorldPopulationReport> getWorldPopulationList(Connection con) {
+        ArrayList<WorldPopulationReport> worldPopulationList = new ArrayList<>();
+        WorldPopulationReport worldPopulation = getWorldPopulation(con);
+        if (worldPopulation != null) {
+            worldPopulationList.add(worldPopulation);
+        }
+        return worldPopulationList;
+    }
+
+    // Method to print capital city report
+    public static void printWorldPopulationReport(ArrayList<WorldPopulationReport> worldPopulationList) {
+        // Check if ArrayList is not null
+        if (worldPopulationList == null) {
+            System.out.println("No World Population");
+            return;
+        }
+        System.out.println("World Population Report:");
+        for (WorldPopulationReport worldPopulation : worldPopulationList) {
+            System.out.println(worldPopulation);
+        }
+    }
+
 }
 

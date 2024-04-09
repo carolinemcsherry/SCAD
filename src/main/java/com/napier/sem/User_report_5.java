@@ -31,9 +31,9 @@ public class User_report_5{
 
         // Method to represent the object as a string
         public String toString() {
-            return "Language: " + language + ", " +
-                    "Speakers Worldwide: " + speakersWorldwide + ", " +
-                    "Percentage of World Population: " + percentageOfWorldPopulation;
+            return  language +
+                     speakersWorldwide +
+                     percentageOfWorldPopulation;
         }
     }
 
@@ -77,9 +77,30 @@ public class User_report_5{
 
     // Method to print language statistics
     public static void printLanguageStatistics(ArrayList<LanguageStats> languageStatsList) {
+        // Check Array List  is not null
+        if (languageStatsList == null)
+        {
+            System.out.println("No language Stats List");
+            return;
+        }
+        //print report name
         System.out.println("Language Statistics:");
-        for (LanguageStats languageStats : languageStatsList) {
-            System.out.println(languageStats);
+        //format and print header
+        System.out.println(String.format("%-25s %-25s %-25s", "Language", "speakers_world_wide", "percentage_of_speakers"));
+
+        for (LanguageStats Stat : languageStatsList) {
+            //If an atrabute value is null the job will continue
+            if (Stat == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s %-25s",
+                            Stat.language, Stat.speakersWorldwide, Stat.percentageOfWorldPopulation);
+            System.out.println(Table_string);
+
+
+
+
         }
     }
 }

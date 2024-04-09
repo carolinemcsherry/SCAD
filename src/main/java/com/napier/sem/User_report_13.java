@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 
 //The top N populated capital cities in the world where N is provided by the user.
-public class User_report_13{
+public class User_report_13 {
 
     // Inner class to represent the top N populated capital cities in the world report
     public static class TopCapitalCitiesInWorld {
@@ -32,7 +32,7 @@ public class User_report_13{
     }
 
     // Method to retrieve top N populated capital cities in the world
-    public static ArrayList<TopCapitalCitiesInWorld> getTopPopulatedCapitalCitiesInWorld(Connection con, int limit) {
+    public static ArrayList<TopCapitalCitiesInWorld> getTopPopulatedCapitalCitiesInWorld(Connection con) {
         try {
             Statement stmt = con.createStatement();
 
@@ -41,7 +41,7 @@ public class User_report_13{
                     "FROM city " +
                     "JOIN country ON city.ID = country.Capital " +
                     "ORDER BY country.Population DESC " +
-                    "LIMIT " + limit;
+                    "LIMIT " + "";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -66,10 +66,20 @@ public class User_report_13{
     }
 
     // Method to print top N populated capital cities in the world
-    public static void printTopPopulatedCapitalCitiesInWorld(ArrayList<TopCapitalCitiesInWorld> topCapitalCitiesList) {
-        System.out.println("Top Populated Capital Cities in the World Report:");
-        for (TopCapitalCitiesInWorld topCapitalCity : topCapitalCitiesList) {
-            System.out.println(topCapitalCity);
+    public static void printTopCapitalCitiesInWorld(ArrayList<TopCapitalCitiesInWorld> TopCapitalCitiesInWorld) {
+        // Check if ArrayList is not null
+        if (TopCapitalCitiesInWorld == null || TopCapitalCitiesInWorld.isEmpty()) {
+            System.out.println("No Top Capital Cities in the World to display");
+            return;
+        }
+        System.out.println("Top Capital Cities in the World Report:");
+        for (TopCapitalCitiesInWorld city : TopCapitalCitiesInWorld) {
+            System.out.println(city);
         }
     }
+
 }
+
+
+
+

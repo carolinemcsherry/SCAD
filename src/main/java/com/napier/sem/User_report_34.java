@@ -25,9 +25,9 @@ public class User_report_34{
 
         // Method to represent the object as a string
         public String toString() {
-            return "City Name: " + cityName + ", " +
-                    "Population: " + population + ", " +
-                    "Continent: " + continent;
+            return cityName
+                    + population
+                    + continent;
         }
     }
 
@@ -68,9 +68,23 @@ public class User_report_34{
 
     // Method to print top N populated cities in a continent
     public static void printTopPopulatedCitiesInContinent(ArrayList<TopCitiesInContinent> topCitiesList) {
-        System.out.println("Top Populated Cities in the Continent Report:");
-        for (TopCitiesInContinent topCity : topCitiesList) {
-            System.out.println(topCity);
+        // Check Array List  is not null
+        if (topCitiesList == null)
+        {
+            System.out.println("No topCitiesList");
+            return;
+        }
+
+        System.out.println(String.format("%-25s %-25s %-25s %-25s","cityName","population","continentName"));
+
+        for (TopCitiesInContinent countries : topCitiesList) {
+            if (topCitiesList == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s %-25s %-25s",
+                            countries.cityName, countries.population, countries.continent);
+            System.out.println(Table_string);
         }
     }
 }

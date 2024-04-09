@@ -21,8 +21,8 @@ public class User_report_31 {
 
         // Method to represent the object as a string
         public String toString() {
-            return "Country Name: " + countryName + ", " +
-                    "Population: " + population;
+            return  countryName
+                    + population;
         }
     }
 
@@ -60,9 +60,21 @@ public class User_report_31 {
 
     // Method to print countries in a continent organized by largest population to smallest
     public static void printCountriesByContinent(ArrayList<CountryInContinent> countriesList) {
-        System.out.println("Countries by Continent Report:");
-        for (CountryInContinent country : countriesList) {
-            System.out.println(country);
+        // Check Array List  is not null
+        if (countriesList == null)
+        {
+            System.out.println("No countriesList");
+            return;
+        }
+        System.out.println(String.format("%-25s %-25s %-25s %-25s","countryName","population"));
+        for (CountryInContinent countries : countriesList) {
+            if (countriesList == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s %-25s %-25s",
+                            countries.countryName, countries.population);
+            System.out.println(Table_string);
         }
     }
 }

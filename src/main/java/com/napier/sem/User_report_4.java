@@ -39,12 +39,12 @@ public class User_report_4 {
 
         // toString method to represent the object as a string
         public String toString() {
-            return "Code: " + code + ", " +
-                    "Name: " + name + ", " +
-                    "Continent: " + continent + ", " +
-                    "Region: " + region + ", " +
-                    "Population: " + population + ", " +
-                    "Capital: " + capital;
+            return  code +
+                    name +
+                   continent +
+                   region +
+                    population +
+                     capital;
         }
     }
 
@@ -87,9 +87,27 @@ public class User_report_4 {
 
     // Method to print country report
     public static void printCountryReport(ArrayList<CountryReport> countries) {
+        // Check Array List  is not null
+        if (countries == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
+        //print report name
         System.out.println("Country Report");
+        //format and print header
+        System.out.println(String.format("%-5s %-20s %-20s %-20s %-20s", "Code", "Name", "Continent", "Region","Population","Capital"));
+        // Iterate through the list of CityReport objects and print each one
         for (CountryReport country : countries) {
-            System.out.println(country);
+            //If an atrabute value is null the job will continue
+            if (country == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-5s %-20s %-20s %-20s %-20s",
+                            country.code, country.name, country.continent, country.region, country.population, country.capital);
+            System.out.println(Table_string);
+
         }
     }
 }

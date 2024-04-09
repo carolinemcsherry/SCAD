@@ -39,12 +39,12 @@ public class User_report_9{
 
         // Method to represent the object as a string
         public String toString() {
-            return  "Region: " + Region + ", " +
-                    "Total Region Population: " + Total_Region_Population + ", " +
-                    "Total City Population: " + Total_City_Population + ", " +
-                    "Total Not City Population: " + Total_Not_City_Population + ", " +
-                    "City Population Percentage: " + City_Population_Percentage + ", " +
-                    "None City Population Percentage: " + None_City_Population_Percentage;
+            return   Region +
+                    Total_Region_Population +
+                     Total_City_Population +
+                     Total_Not_City_Population +
+                    City_Population_Percentage +
+                    None_City_Population_Percentage;
         }
     }
 
@@ -91,10 +91,31 @@ public class User_report_9{
 
     // Method to print population data for all regions
     public static void printAllRegionsPopulation(ArrayList<RegionPopulationReport> regions) {
+
+        // Check Array List  is not null
+        if (regions == null)
+        {
+            System.out.println("No regions");
+            return;
+        }
+        //print report name
         System.out.println("Region Population Report");
+        //format and print header
+        System.out.println(String.format("%-20s %-20s %-20s %-20s %-20s %-20s", "Region", "Total_Region_Population", "Total_City_Population", "Total_Not_City_Population", "City_Population_Percentage", "None_City_Population_Percentage"));
+
+
         // Iterate through the list of RegionPopulationReport objects and print each one
         for (RegionPopulationReport region : regions) {
-            System.out.println(region);
+            //If an atrabute value is null the job will continue
+            if (region == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-20s %-20s %-20s %-20s %-20s %-20s",
+                            region.Region, region.Total_Region_Population, region.Total_City_Population, region.Total_Not_City_Population, region.City_Population_Percentage, region.None_City_Population_Percentage);
+            System.out.println(Table_string);
+        }
+
         }
     }
-}
+
