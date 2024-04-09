@@ -280,9 +280,43 @@ public class AppTest {
 
 //User_Report_18
 @Test
+void user_report18_TestNull() {
+    User_report_18.printTopPopulatedCitiesInCountry(null);
+}
+
+    @Test
+    void user_report18_TestEmpty() {
+        ArrayList<User_report_18.TopCitiesInCountry> reportArray18 = new ArrayList<>();
+        User_report_18.printTopPopulatedCitiesInCountry(reportArray18);
+    }
+
+    @Test
+    void print_user_report18_TestContainsNull() {
+        ArrayList<User_report_18.TopCitiesInCountry> reportArray18 = new ArrayList<>();
+        reportArray18.add(null);
+        User_report_18.printTopPopulatedCitiesInCountry(reportArray18);
+    }
+
 
 //User_Report_19
 @Test
+void user_report19_TestNull() {
+    User_report_19.printTopPopulatedCapitalCitiesInContinent(null);
+}
+
+    @Test
+    void user_report19_TestEmpty() {
+        ArrayList<User_report_19.CapitalCityDataInContinent> reportArray19 = new ArrayList<>();
+        User_report_19.printTopPopulatedCapitalCitiesInContinent(reportArray19);
+    }
+
+    @Test
+    void print_user_report19_TestContainsNull() {
+        ArrayList<User_report_19.CapitalCityDataInContinent> reportArray19 = new ArrayList<>();
+        reportArray19.add(null);
+        User_report_19.printTopPopulatedCapitalCitiesInContinent(reportArray19);
+    }
+
 
 
 //User_Report_20
