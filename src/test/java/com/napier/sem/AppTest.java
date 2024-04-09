@@ -263,20 +263,156 @@ public class AppTest {
 
 
 //User_Report_10
+@Test
+void user_report10_TestNull() {
+    User_report_10.printAllContinentsPopulation(null);
+}
+
+    @Test
+    void user_report10_TestEmpty() {
+        ArrayList<User_report_10.ContinentPopulationReport> reportArray10 = new ArrayList<>();
+        User_report_10.printAllContinentsPopulation(reportArray10);
+    }
+
+    @Test
+    void print_user_report10_TestContainsNull() {
+        ArrayList<User_report_10.ContinentPopulationReport> reportArray10 = new ArrayList<>();
+        reportArray10.add(null);
+        User_report_10.printAllContinentsPopulation(reportArray10);
+    }
 
 //User_Report_11
+@Test
+void user_report11_TestNull() {
+    User_report_11.printWorldPopulationReport(null);
+}
+
+    @Test
+    void user_report11_TestEmpty() {
+        ArrayList<User_report_11.WorldPopulationReport> reportArray11 = new ArrayList<>();
+        User_report_11.printWorldPopulationReport(reportArray11);
+    }
+
+    @Test
+    void print_user_report11_TestContainsNull() {
+        ArrayList<User_report_11.WorldPopulationReport> reportArray11 = new ArrayList<>();
+        reportArray11.add(null);
+        User_report_11.printWorldPopulationReport(reportArray11);
+    }
 
 //User_Report_12
+@Test
+void user_report12_TestNull() {
+    User_report_12.printRegionPopulation(null);
+}
+
+    @Test
+    void user_report12_TestEmpty() {
+        ArrayList<User_report_12.PopulationbyRegionReport> reportArray12 = new ArrayList<>();
+        User_report_12.printRegionPopulation(reportArray12);
+    }
+
+    @Test
+    void print_user_report12_TestContainsNull() {
+        ArrayList<User_report_12.PopulationbyRegionReport> reportArray12 = new ArrayList<>();
+        reportArray12.add(null);
+        User_report_12.printRegionPopulation(reportArray12);
+    }
 
 //User_Report_13
+@Test
+    void user_report13_TestNull() {
+    User_report_13.printTopCapitalCitiesInWorld(null);
+}
+
+    @Test
+    void user_report13_TestEmpty() {
+        ArrayList<User_report_13.TopCapitalCitiesInWorld> reportArray13 = new ArrayList<>();
+        User_report_13.printTopCapitalCitiesInWorld(reportArray13);
+    }
+
+    @Test
+    void print_user_report13_TestContainsNull() {
+        ArrayList<User_report_13.TopCapitalCitiesInWorld> reportArray13 = new ArrayList<>();
+        reportArray13.add(null);
+        User_report_13.printTopCapitalCitiesInWorld(reportArray13);
+    }
 
 //User_Report_14
+@Test
+    void user_report14_TestNull() {
+    User_report_14.printCityReport(null);
+}
+
+    @Test
+    void user_report14_TestEmpty() {
+        ArrayList<User_report_14.CityReport> reportArray14 = new ArrayList<>();
+        User_report_14.printCityReport(reportArray14);
+    }
+
+    @Test
+    void print_user_report14_TestContainsNull() {
+        ArrayList<User_report_14.CityReport> reportArray14 = new ArrayList<>();
+        reportArray14.add(null);
+        User_report_14.printCityReport(reportArray14);
+    }
 
 //User_Report_15
+@Test
+void user_report15_TestNull() {
+    User_report_15.printCapitalCitiesByContinent(null);
+}
+
+    @Test
+    void user_report15_TestEmpty() {
+        ArrayList<User_report_15.CapitalCitiesByContinent> reportArray15 = new ArrayList<>();
+        User_report_15.printCapitalCitiesByContinent(reportArray15);
+    }
+
+    @Test
+    void print_user_report15_TestContainsNull() {
+        ArrayList<User_report_15.CapitalCitiesByContinent> reportArray15 = new ArrayList<>();
+        reportArray15.add(null);
+        User_report_15.printCapitalCitiesByContinent(reportArray15);
+    }
 
 //User_Report_16
+@Test
+void user_report16_TestNull() {
+    User_report_16.printCapitalCitiesWorld(null);
+}
+
+    @Test
+    void user_report16_TestEmpty() {
+        ArrayList<User_report_16.CapitalCitiesWorld> reportArray16 = new ArrayList<>();
+        User_report_16.printCapitalCitiesWorld(reportArray16);
+    }
+
+    @Test
+    void print_user_report16_TestContainsNull() {
+        ArrayList<User_report_16.CapitalCitiesWorld> reportArray16 = new ArrayList<>();
+        reportArray16.add(null);
+        User_report_16.printCapitalCitiesWorld(reportArray16);
+    }
 
 //User_Report_17
+@Test
+    void user_report17_TestNull() {
+    User_report_17.printTopCitiesInDistrict(null);
+}
+
+    @Test
+    void user_report17_TestEmpty() {
+        ArrayList<User_report_17.TopCitiesInDistrict> reportArray17 = new ArrayList<>();
+        User_report_17.printTopCitiesInDistrict(reportArray17);
+    }
+
+    @Test
+    void print_user_report17_TestContainsNull() {
+        ArrayList<User_report_17.TopCitiesInDistrict> reportArray17 = new ArrayList<>();
+        reportArray17.add(null);
+        User_report_17.printTopCitiesInDistrict(reportArray17);
+    }
 
 //User_Report_18
 @Test
