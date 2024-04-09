@@ -263,22 +263,58 @@ public class AppTest {
 
 
 //User_Report_10
+
 //User_Report_11
+
 //User_Report_12
+
 //User_Report_13
+
 //User_Report_14
+
 //User_Report_15
+
 //User_Report_16
+
 //User_Report_17
+
 //User_Report_18
+
 //User_Report_19
+
 //User_Report_20
+
 //User_Report_21
+
 //User_Report_22
+
 //User_Report_23
+
 //User_Report_24
+
 //User_Report_25
+
+
 //User_Report_26
+@Test
+void user_report26_TestNull() {
+    User_report_26.printTopPopulatedCountries(null);
+}
+
+    @Test
+    void user_report26_TestEmpty() {
+        ArrayList<User_report_26.CountryData> reportArray26 = new ArrayList<>();
+        User_report_26.printTopPopulatedCountries(reportArray26);
+    }
+
+    @Test
+    void print_user_report26_TestContainsNull() {
+        ArrayList<User_report_26.CountryData> reportArray26 = new ArrayList<>();
+        reportArray26.add(null);
+        User_report_26.printTopPopulatedCountries(reportArray26);
+    }
+
+
 //User_Report_27
     @Test
     void user_report27_TestNull() {

@@ -64,25 +64,14 @@ public class User_report_26{
 
     // Method to print the top N populated countries in the world
     public static void printTopPopulatedCountries(ArrayList<CountryData> countriesList) {
-        // Check Array List  is not null
-        if (countriesList == null)
-        {
-            System.out.println("No Countries");
+        if (countriesList == null) {
+            System.out.println("No countries");
             return;
         }
         System.out.println("Top Populated Countries Report:");
-        System.out.println("Country Report:");
-        //format and print header
-        System.out.println(String.format("%-25s %-25s %-25s %-25s", "CountryName", "Population"));
-
+        System.out.println(String.format("%-25s %-25s", "CountryName", "Population"));
         for (CountryData country : countriesList) {
-            if (countriesList == null)
-                continue;
-            //Prints table values in columbs
-            String Table_string =
-                    String.format("%-25s %-25s %-25s %-25s",
-                            country.countryName,  country.population);
-            System.out.println(Table_string);
+            System.out.println(String.format("%-25s %-25s", country.countryName, country.population));
         }
     }
 }
