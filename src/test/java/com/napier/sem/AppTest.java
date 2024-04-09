@@ -262,6 +262,44 @@ public class AppTest {
     }
 
 
+//User_Report_10
+//User_Report_11
+//User_Report_12
+//User_Report_13
+//User_Report_14
+//User_Report_15
+//User_Report_16
+//User_Report_17
+//User_Report_18
+//User_Report_19
+//User_Report_20
+//User_Report_21
+//User_Report_22
+//User_Report_23
+//User_Report_24
+//User_Report_25
+//User_Report_26
+//User_Report_27
+    @Test
+    void user_report27_TestNull() {
+        User_report_27.printTopPopulatedCountriesInContinent(null);
+    }
+
+    @Test
+    void user_report27_TestEmpty() {
+        ArrayList<User_report_27.TopCountriesInContinent> reportArray27 = new ArrayList<>();
+        User_report_27.printTopPopulatedCountriesInContinent(reportArray27);
+    }
+
+    @Test
+    void print_user_report27_TestContainsNull() {
+        ArrayList<User_report_27.TopCountriesInContinent> reportArray27 = new ArrayList<>();
+        reportArray27.add(null);
+        User_report_27.printTopPopulatedCountriesInContinent(reportArray27);
+    }
+
+//User_Report_28
+
     @Test
     void user_report28_TestNull() {
         User_report_28.printPopulationReport(null);
@@ -280,6 +318,8 @@ public class AppTest {
         User_report_28.printPopulationReport(reportArray28);
     }
 
+
+    //User_Report_29
     @Test
     void user_report29_TestNull() {
         User_report_29.printPopulationByContinent(null);
@@ -298,7 +338,7 @@ public class AppTest {
         User_report_29.printPopulationByContinent(ReportArray28);
     }
 
-
+//User_Report_30
 
     @Test
     void user_report30_TestNull() {
@@ -318,6 +358,7 @@ public class AppTest {
         User_report_30.printCountriesByRegion(ReportArray29);
     }
 
+    //User_Report_31
 
     @Test
     void user_report31_TestNull() {
@@ -330,6 +371,8 @@ public class AppTest {
         User_report_31.printCountriesByContinent(ReportArray30);
     }
 
+
+    //User_Report_32
     @Test
     void print_user_report31_TestContainsNull() {
         ArrayList<User_report_31.CountryInContinent> ReportArray30 = new ArrayList<>();
@@ -348,7 +391,6 @@ public class AppTest {
         ArrayList<User_report_32.CountryData> ReportArray31 = new ArrayList<>();
         User_report_32.printCountriesByPopulation(ReportArray31);
     }
-
     @Test
     void print_user_report32_TestContainsNull() {
         ArrayList<User_report_32.CountryData> ReportArray31 = new ArrayList<>();
