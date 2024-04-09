@@ -70,21 +70,17 @@ public class User_report_28{
 
     // Method to print population data
     public static void printPopulationReport(ArrayList<Population> populationList) {
-        // Check Array List  is not null
         if (populationList == null) {
             System.out.println("No populationList");
             return;
         }
         System.out.println(String.format("%-25s %-25s %-25s %-25s", "cityName", "cityPopulation", "countryName", "countryPopulation"));
-        for (Population Populations : populationList) {
-            if (populationList == null)
-                continue;
-            //Prints table values in columbs
-            String Table_string =
-                    String.format("%-25s %-25s %-25s %-25s",
-                            Populations.cityName, Populations.cityPopulation, Populations.countryName, Populations.countryPopulation);
-            System.out.println(Table_string);
-
+        for (Population population : populationList) {
+            if (population != null) {
+                String tableString = String.format("%-25s %-25s %-25s %-25s",
+                        population.cityName, population.cityPopulation, population.countryName, population.countryPopulation);
+                System.out.println(tableString);
+            }
         }
     }
 }

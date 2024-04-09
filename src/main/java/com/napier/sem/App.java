@@ -28,21 +28,12 @@ public class App {
         // Call getCity method from City class
         // user report 1
         // user report 2
-        ArrayList<User_report_2.CapitalCityReport> ReportArray = User_report_2.getAllCapitalCities(con);
-
-        User_report_2.printCapitalCityReport(ReportArray);
-
-        City cityInstance = new City();
-        City oneCity = cityInstance.getCity(30);
 
 
-        // Check if a city was returned
-        if (oneCity != null) {
-            // Display city information
-            cityInstance.displayCity(oneCity);
-        } else {
-            System.out.println("City not found.");
-        }
+        ArrayList<User_report_34.TopCitiesInContinent> ReportArray33 = User_report_34.getTopPopulatedCitiesInContinent(con);
+        User_report_34.printTopPopulatedCitiesInContinent(ReportArray33);
+
+
 
         a.disconnect();
         System.out.println("Database has successfully disconnected");

@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
+import javax.swing.JOptionPane;
 
 // The top N populated countries in a continent where N is provided by the user.
 public class User_report_34 {
@@ -32,7 +32,9 @@ public class User_report_34 {
     }
 
     // Method to retrieve top N populated cities in a continent
-    public static ArrayList<TopCitiesInContinent> getTopPopulatedCitiesInContinent(Connection con, String continent, int limit) {
+    public static ArrayList<TopCitiesInContinent> getTopPopulatedCitiesInContinent(Connection con) {
+        String input = "";
+        input = JOptionPane.showInputDialog("Enter the Number of top Populated Region's");
         try {
             Statement stmt = con.createStatement();
 
@@ -40,9 +42,9 @@ public class User_report_34 {
             String strSelect = "SELECT city.Name AS cityName, city.Population, country.Continent " +
                     "FROM city " +
                     "JOIN country ON city.CountryCode = country.Code " +
-                    "WHERE country.Continent = '" + continent + "' " +
+                    "WHERE country.Continent = '" + "continent" + "' " +
                     "ORDER BY city.Population DESC " +
-                    "LIMIT " + limit;
+                    "LIMIT " + input ;
 
             ResultSet rset = stmt.executeQuery(strSelect);
 

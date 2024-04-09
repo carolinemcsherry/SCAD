@@ -216,6 +216,44 @@ public class AppTest {
 
 
     @Test
+    void user_report28_TestNull() {
+        User_report_28.printPopulationReport(null);
+    }
+
+    @Test
+    void user_report28_TestEmpty() {
+        ArrayList<User_report_28.Population> reportArray28 = new ArrayList<>();
+        User_report_28.printPopulationReport(reportArray28);
+    }
+
+    @Test
+    void print_user_report28_TestContainsNull() {
+        ArrayList<User_report_28.Population> reportArray28 = new ArrayList<>();
+        reportArray28.add(null);
+        User_report_28.printPopulationReport(reportArray28);
+    }
+
+    @Test
+    void user_report29_TestNull() {
+        User_report_29.printPopulationByContinent(null);
+    }
+
+    @Test
+    void user_report29_TestEmpty() {
+        ArrayList<User_report_29.ContinentPopulation> ReportArray28 = new ArrayList<>();
+        User_report_29.printPopulationByContinent(ReportArray28);
+    }
+
+    @Test
+    void print_user_report29_TestContainsNull() {
+        ArrayList<User_report_29.ContinentPopulation> ReportArray28 = new ArrayList<>();
+        ReportArray28.add(null);
+        User_report_29.printPopulationByContinent(ReportArray28);
+    }
+
+
+
+    @Test
     void user_report30_TestNull() {
         User_report_30.printCountriesByRegion(null);
     }
