@@ -279,20 +279,111 @@ public class AppTest {
 //User_Report_17
 
 //User_Report_18
+@Test
 
 //User_Report_19
+@Test
 
 //User_Report_20
+@Test
 
 //User_Report_21
+@Test
+void user_report21_TestNull() {
+    User_report_21.printCityReport(null);
+}
+
+    @Test
+    void user_report21_TestEmpty() {
+        ArrayList<User_report_21.CityReport> reportArray21 = new ArrayList<>();
+        User_report_21.printCityReport(reportArray21);
+    }
+
+    @Test
+    void print_user_report21_TestContainsNull() {
+        ArrayList<User_report_21.CityReport> reportArray21 = new ArrayList<>();
+        reportArray21.add(null);
+        User_report_21.printCityReport(reportArray21);
+    }
+
+
 
 //User_Report_22
+@Test
+void user_report22_TestNull() {
+    User_report_22.printCityReport(null);
+}
+
+    @Test
+    void user_report22_TestEmpty() {
+        ArrayList<User_report_22.CityReport> reportArray22 = new ArrayList<>();
+        User_report_22.printCityReport(reportArray22);
+    }
+
+    @Test
+    void print_user_report22_TestContainsNull() {
+        ArrayList<User_report_22.CityReport> reportArray22 = new ArrayList<>();
+        reportArray22.add(null);
+        User_report_22.printCityReport(reportArray22);
+    }
 
 //User_Report_23
+@Test
+void user_report23_TestNull() {
+    User_report_23.printCityReport(null);
+}
+
+    @Test
+    void user_report23_TestEmpty() {
+        ArrayList<User_report_23.CityReport> reportArray23 = new ArrayList<>();
+        User_report_23.printCityReport(reportArray23);
+    }
+
+    @Test
+    void print_user_report23_TestContainsNull() {
+        ArrayList<User_report_23.CityReport> reportArray23 = new ArrayList<>();
+        reportArray23.add(null);
+        User_report_23.printCityReport(reportArray23);
+    }
+
+
 
 //User_Report_24
+@Test
+    void user_report24_TestNull() {
+    User_report_24.printCityReport(null);
+}
+    @Test
+    void user_report24_TestEmpty() {
+        ArrayList<User_report_24.CityReport> reportArray24 = new ArrayList<>();
+        User_report_24.printCityReport(reportArray24);
+    }
+
+    @Test
+    void print_user_report24_TestContainsNull() {
+        ArrayList<User_report_24.CityReport> reportArray24 = new ArrayList<>();
+        reportArray24.add(null);
+        User_report_24.printCityReport(reportArray24);
+    }
 
 //User_Report_25
+@Test
+    void user_report25_TestNull() {
+    User_report_25.printCityReport(null);
+}
+
+    @Test
+    void user_report25_TestEmpty() {
+        ArrayList<User_report_25.CityReport> reportArray25 = new ArrayList<>();
+        User_report_25.printCityReport(reportArray25);
+    }
+
+    @Test
+    void print_user_report25_TestContainsNull() {
+        ArrayList<User_report_25.CityReport> reportArray25 = new ArrayList<>();
+        reportArray25.add(null);
+        User_report_25.printCityReport(reportArray25);
+    }
 
 
 //User_Report_26
