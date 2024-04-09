@@ -1,3 +1,4 @@
+package com.napier.sem;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -22,11 +23,11 @@ public class User_report_21 {
         }
 
         public String toString() {
-            return CityName + " " + CountryName + " " + District + " " + Population;
+            return CityName + CountryName +  District + Population;
         }
     }
 
-    public static ArrayList<CityReport> getCityReportByDistrict(Connection con, String district) {
+    public static ArrayList<CityReport> getCityReportByDistrict(Connection con) {
         try {
             String input = JOptionPane.showInputDialog("Enter the Number of top Populated Regions");
 
@@ -35,7 +36,6 @@ public class User_report_21 {
             String strSelect = "SELECT A.Name AS CityName, B.Name AS CountryName, A.District, A.Population " +
                     "FROM city A " +
                     "LEFT JOIN country B ON A.CountryCode = B.Code " +
-                    "WHERE A.District = '" + district + "' " +
                     "ORDER BY A.Population DESC " +
                     "LIMIT " + input;
 
@@ -79,5 +79,4 @@ public class User_report_21 {
                             city.CityName, city.CountryName, city.District, city.Population);
             System.out.println(Table_string);
         }
-    }
-}
+    }}
