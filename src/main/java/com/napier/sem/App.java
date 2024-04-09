@@ -31,27 +31,109 @@ public class App {
 
 
 
+// user report 1
+        ArrayList<User_report_1.PopulationReport> ReportArray1 = User_report_1.getPopulationByRegion(con);
+        User_report_1.printPopulationReport(ReportArray1);
+// user report 2
+        ArrayList<User_report_2.CapitalCityReport> ReportArray2 = User_report_2.getAllCapitalCities(con);
+        User_report_2.printCapitalCityReport(ReportArray2);
+// user report 3
+        ArrayList<User_report_3.CityReport> ReportArray3 = User_report_3.getCityReport(con);
+        User_report_3.printCityReport(ReportArray3);
+// user report 4
+        ArrayList<User_report_4.CountryReport> ReportArray4 = User_report_4.getAllCountries(con);
+        User_report_4.printCountryReport(ReportArray4);
+// user report 5
+        ArrayList<User_report_5.LanguageStats> ReportArray5 = User_report_5.getLanguageStatistics(con);
+        User_report_5.printLanguageStatistics(ReportArray5);
+// user report 6
+        ArrayList<User_report_6.CityReport> ReportArray6 = User_report_6.getAllCities(con);
+        User_report_6.printCityReport(ReportArray6);
+// user report 7
+        ArrayList<User_report_7.RegionPopulationReport> ReportArray7 = User_report_7.getRegionPopulation(con);
+        User_report_7.printRegionPopulation(ReportArray7);
+// user report 8
+        ArrayList<User_report_8.CountryPopulation> ReportArray8 = User_report_8.getCountryPopulation(con);
+        User_report_8.printCountryPopulation(ReportArray8);
+// user report 9
+        ArrayList<User_report_9.RegionPopulationReport> ReportArray9 = User_report_9.getAllRegionsPopulation(con);
+        User_report_9.printAllRegionsPopulation(ReportArray9);
+// user report 10
+        ArrayList<User_report_10.ContinentPopulationReport> ReportArray10 = User_report_10.getAllContinentsPopulation(con);
+        User_report_10.printAllContinentsPopulation(ReportArray10);
+// user report 11
+        ArrayList<User_report_11.WorldPopulationReport> ReportArray11 = User_report_11.getWorldPopulationList(con);
+        User_report_11.printWorldPopulationReport(ReportArray11);
+// user report 12
+        ArrayList<User_report_12.PopulationbyRegionReport> ReportArray12 = User_report_12.getPopulationbyRegionReport(con);
+        User_report_12.printRegionPopulation(ReportArray12);
+// user report 13
+        ArrayList<User_report_13.TopCapitalCitiesInWorld> ReportArray13 = User_report_13.getTopPopulatedCapitalCitiesInWorld(con);
+        User_report_13.printTopCapitalCitiesInWorld(ReportArray13);
+// user report 14
+        ArrayList<User_report_14.CityReport> ReportArray14 = User_report_14.getCityReportByRegion(con);
+        User_report_14.printCityReport(ReportArray14);
+// user report 15
+        ArrayList<User_report_15.CapitalCitiesByContinent> ReportArray15 = User_report_15.getCapitalCitiesByContinent(con);
+        User_report_15.printCapitalCitiesByContinent(ReportArray15);
+// user report 16
+        ArrayList<User_report_16.CapitalCitiesWorld> ReportArray16 = User_report_16.getCapitalCitiesWorld(con);
+        User_report_16.printCapitalCitiesWorld(ReportArray16);
+// user report 17
+        ArrayList<User_report_17.TopCitiesInDistrict> ReportArray17 = User_report_17.getTopCitiesInDistrict(con);
+        User_report_17.printTopCitiesInDistrict(ReportArray17);
+// user report 18
+        ArrayList<User_report_18.TopCitiesInCountry> ReportArray18 = User_report_18.getTopPopulatedCitiesInCountry(con);
+        User_report_18.printTopPopulatedCitiesInCountry(ReportArray18);
+// user report 19
+        ArrayList<User_report_19.CapitalCityDataInContinent> ReportArray19 = User_report_19.getTopPopulatedCapitalCitiesInContinent(con);
+        User_report_19.printTopPopulatedCapitalCitiesInContinent(ReportArray19);
+// user report 20
+        ArrayList<User_report_20.TopCitiesInWorld> ReportArray20 = User_report_20.getTopPopulatedCitiesInWorld(con);
+        User_report_20.printTopPopulatedCitiesInWorld(ReportArray20);
+// user report 21
+        ArrayList<User_report_21.CityReport> ReportArray21 = User_report_21.getCityReportByDistrict(con);
+        User_report_21.printCityReport(ReportArray21);
+// user report 22
+        ArrayList<User_report_22.CityReport> ReportArray22 = User_report_22.getCityReportByCountry(con);
+        User_report_22.printCityReport(ReportArray22);
+// user report 23
+        ArrayList<User_report_23.CityReport> ReportArray23 = User_report_23.getCitiesByRegion(con);
+        User_report_23.printCityReport(ReportArray23);
+// user report 24
+        ArrayList<User_report_24.CityReport> ReportArray24 = User_report_24.getCitiesByContinent(con);
+        User_report_24.printCityReport(ReportArray24);
+// user report 25
+        ArrayList<User_report_25.CityReport> ReportArray25 = User_report_25.getCitiesInWorld(con);
+        User_report_25.printCityReport(ReportArray25);
+// user report 26
+        ArrayList<User_report_26.CountryData> ReportArray26 = User_report_26.getTopPopulatedCountries(con);
+        User_report_26.printTopPopulatedCountries(ReportArray26);
+// user report 27
+        ArrayList<User_report_27.TopCountriesInContinent> ReportArray27 = User_report_27.getTopPopulatedCountriesInContinent(con);
+        User_report_27.printTopPopulatedCountriesInContinent(ReportArray27);
 // user report 28
-        ArrayList<User_report_28.Population> ReportArray27 = User_report_28.getPopulationReport(con);
-        User_report_28.printPopulationReport(ReportArray27);
+        ArrayList<User_report_28.Population> ReportArray28 = User_report_28.getPopulationReport(con);
+        User_report_28.printPopulationReport(ReportArray28);
 // user report 29
-        ArrayList<User_report_29.ContinentPopulation> ReportArray28 = User_report_29.getPopulationByContinent(con);
-        User_report_29.printPopulationByContinent(ReportArray28);
+        ArrayList<User_report_29.ContinentPopulation> ReportArray29 = User_report_29.getPopulationByContinent(con);
+        User_report_29.printPopulationByContinent(ReportArray29);
 // user report 30
-        ArrayList<User_report_30.CountryInRegion> ReportArray29 = User_report_30.getCountriesByRegion(con);
-        User_report_30.printCountriesByRegion(ReportArray29);
+        ArrayList<User_report_30.CountryInRegion> ReportArray30 = User_report_30.getCountriesByRegion(con);
+        User_report_30.printCountriesByRegion(ReportArray30);
 // user report 31
-        ArrayList<User_report_31.CountryInContinent> ReportArray30 = User_report_31.getCountriesByContinent(con);
-        User_report_31.printCountriesByContinent(ReportArray30);
+        ArrayList<User_report_31.CountryInContinent> ReportArray31 = User_report_31.getCountriesByContinent(con);
+        User_report_31.printCountriesByContinent(ReportArray31);
 // user report 32
-        ArrayList<User_report_32.CountryData> ReportArray31 = User_report_32.getCountriesByPopulation(con);
-        User_report_32.printCountriesByPopulation(ReportArray31);
+        ArrayList<User_report_32.CountryData> ReportArray32 = User_report_32.getCountriesByPopulation(con);
+        User_report_32.printCountriesByPopulation(ReportArray32);
 // user report 33
-        ArrayList<User_report_33.CountryDataInRegion> ReportArray32 = User_report_33.getTopPopulatedCountriesInRegion(con);
-        User_report_33.printTopPopulatedCountriesInRegion(ReportArray32);
+        ArrayList<User_report_33.CountryDataInRegion> ReportArray33 = User_report_33.getTopPopulatedCountriesInRegion(con);
+        User_report_33.printTopPopulatedCountriesInRegion(ReportArray33);
 // user report 34
-        ArrayList<User_report_34.TopCitiesInContinent> ReportArray33 = User_report_34.getTopPopulatedCitiesInContinent(con);
-        User_report_34.printTopPopulatedCitiesInContinent(ReportArray33);
+        ArrayList<User_report_34.TopCitiesInContinent> ReportArray34 = User_report_34.getTopPopulatedCitiesInContinent(con);
+        User_report_34.printTopPopulatedCitiesInContinent(ReportArray34);
+
 
 
 
