@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
+
 
 public class User_report_21 {
 
@@ -29,7 +29,7 @@ public class User_report_21 {
 
     public static ArrayList<CityReport> getCityReportByDistrict(Connection con) {
         try {
-            String input = JOptionPane.showInputDialog("Enter the Number of top Populated Regions");
+
 
             Statement stmt = con.createStatement();
 
@@ -37,7 +37,7 @@ public class User_report_21 {
                     "FROM city A " +
                     "LEFT JOIN country B ON A.CountryCode = B.Code " +
                     "ORDER BY A.Population DESC " +
-                    "LIMIT " + input;
+
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
