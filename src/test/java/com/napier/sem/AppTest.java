@@ -284,8 +284,25 @@ public class AppTest {
 //User_Report_19
 @Test
 
+
 //User_Report_20
 @Test
+void user_report20_TestNull() {
+    User_report_20.printTopPopulatedCitiesInWorld(null);
+}
+
+    @Test
+    void user_report20_TestEmpty() {
+        ArrayList<User_report_20.TopCitiesInWorld> reportArray20 = new ArrayList<>();
+        User_report_20.printTopPopulatedCitiesInWorld(reportArray20);
+    }
+
+    @Test
+    void print_user_report20_TestContainsNull() {
+        ArrayList<User_report_20.TopCitiesInWorld> reportArray20 = new ArrayList<>();
+        reportArray20.add(null);
+        User_report_20.printTopPopulatedCitiesInWorld(reportArray20);
+    }
 
 //User_Report_21
 @Test
