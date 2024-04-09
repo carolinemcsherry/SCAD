@@ -12,23 +12,27 @@ public class User_report_19 {
     // Inner class to represent capital city data in a continent
     public static class CapitalCityDataInContinent {
         private String cityName;
-        private int population;
+        private Long population;
 
         // Constructor for CapitalCityDataInContinent class
-        public CapitalCityDataInContinent(String cityName, int population) {
+        public CapitalCityDataInContinent(String cityName, Long population) {
             this.cityName = cityName;
             this.population = population;
         }
 
         // Method to represent the object as a string
         public String toString() {
-            return "City Name: " + cityName + ", " +
-                    "Population: " + population;
+            return cityName +
+                    population;
         }
     }
 
     // Method to retrieve the top N populated capital cities in a continent
-    public static ArrayList<CapitalCityDataInContinent> getTopPopulatedCapitalCitiesInContinent(Connection con, String continent, int N) {
+    public static ArrayList<CapitalCityDataInContinent> getTopPopulatedCapitalCitiesInContinent(Connection con, String continent, Long N) {
+        ArrayList<>();
+        String input = "";
+        input = JOptionPane.showInputDialog("Enter the Number of top Populated Cities");
+
         try {
             Statement stmt = con.createStatement();
 
@@ -38,7 +42,7 @@ public class User_report_19 {
                     "JOIN country ON city.ID = country.Capital " +
                     "WHERE country.Continent = '" + continent + "' " +
                     "ORDER BY city.Population DESC " +
-                    "LIMIT " + N;
+                    "LIMIT " + input;
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -47,7 +51,7 @@ public class User_report_19 {
             // Iterate through the result set and create CapitalCityDataInContinent objects
             while (rset.next()) {
                 String cityName = rset.getString("CityName");
-                int population = rset.getInt("Population");
+                Long population = rset.getLong("Population");
 
                 // Create a CapitalCityDataInContinent object and add it to the list
                 CapitalCityDataInContinent city = new CapitalCityDataInContinent(cityName, population);
@@ -63,9 +67,25 @@ public class User_report_19 {
 
     // Method to print the top N populated capital cities in a continent
     public static void printTopPopulatedCapitalCitiesInContinent(ArrayList<CapitalCityDataInContinent> citiesList) {
+// Check Array List  is not null
+        if (citiesList == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
+
         System.out.println("Top Populated Capital Cities in Continent Report:");
+        System.out.println("City Report:");
+        //format and print header
+        System.out.println(String.format("%-25s %-25s %-25s %-25s", "CityName", "Population"));
         for (CapitalCityDataInContinent city : citiesList) {
-            System.out.println(city);
+            if (city == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s %-25s %-25s",
+                            city.cityName, city.population);
+            System.out.println(Table_string);
         }
     }
 }
