@@ -60,21 +60,18 @@ public class User_report_31 {
 
     // Method to print countries in a continent organized by largest population to smallest
     public static void printCountriesByContinent(ArrayList<CountryInContinent> countriesList) {
-        // Check Array List  is not null
-        if (countriesList == null)
-        {
+        if (countriesList == null) {
             System.out.println("No countriesList");
             return;
         }
-        System.out.println(String.format("%-25s %-25s %-25s %-25s","countryName","population"));
-        for (CountryInContinent countries : countriesList) {
-            if (countriesList == null)
-                continue;
-            //Prints table values in columbs
-            String Table_string =
-                    String.format("%-25s %-25s %-25s %-25s",
-                            countries.countryName, countries.population);
-            System.out.println(Table_string);
+
+        System.out.println(String.format("%-25s %-25s", "countryName", "population"));
+
+        for (CountryInContinent country : countriesList) {
+            if (country != null) {
+                String tableString = String.format("%-25s %-25s", country.countryName, country.population);
+                System.out.println(tableString);
+            }
         }
     }
 }
