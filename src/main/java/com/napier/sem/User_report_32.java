@@ -23,8 +23,8 @@ public class User_report_32{
 
         // Method to represent the object as a string
         public String toString() {
-            return "Country Name: " + countryName + ", " +
-                    "Population: " + population;
+            return countryName
+                    + population;
         }
     }
 
@@ -61,9 +61,22 @@ public class User_report_32{
 
     // Method to print all countries in the world organized by largest population to smallest
     public static void printCountriesByPopulation(ArrayList<CountryData> countriesList) {
-        System.out.println("Countries by Population Report:");
-        for (CountryData country : countriesList) {
-            System.out.println(country);
+        // Check Array List  is not null
+        if (countriesList == null)
+        {
+            System.out.println("No countriesList");
+            return;
+        }
+        System.out.println(String.format("%-25s %-25s %-25s %-25s","countryName","population"));
+
+        for (CountryData countries : countriesList) {
+            if (countriesList == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s %-25s %-25s",
+                            countries.countryName, countries.population);
+            System.out.println(Table_string);
         }
     }
 }
