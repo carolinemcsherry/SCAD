@@ -37,8 +37,7 @@ public class User_report_28{
 
     // Method to retrieve population data
     public static ArrayList<Population> getPopulationReport(Connection con) {
-        String input = "";
-        input = JOptionPane.showInputDialog("Enter the Number of top Populated Region's");
+       
         try {
             Statement stmt = con.createStatement();
 

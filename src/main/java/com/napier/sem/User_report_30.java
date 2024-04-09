@@ -30,7 +30,7 @@ public class User_report_30{
 
     // Method to retrieve countries in a region organized by largest population to smallest
     public static ArrayList<CountryInRegion> getCountriesByRegion(Connection con, String region) {
-       
+
         try {
             Statement stmt = con.createStatement();
 
