@@ -30,7 +30,9 @@ public class User_report_33 {
 
     // Method to retrieve the top N populated countries in a region
     public static ArrayList<CountryDataInRegion> getTopPopulatedCountriesInRegion(Connection con, String region, int N) {
-        try {
+        String input = "";
+        input = JOptionPane.showInputDialog("Enter the Number of top Populated Region's");
+       try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve the top N populated countries in a region
