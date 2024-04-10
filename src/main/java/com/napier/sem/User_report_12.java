@@ -31,8 +31,25 @@ public class User_report_12 {
     public static ArrayList<PopulationbyRegionReport> getPopulationbyRegionReport(Connection con) {
         ArrayList<PopulationbyRegionReport> populationReports = new ArrayList<>();
         String input = "";
-        input = JOptionPane.showInputDialog("Enter the Number of top Populated Region's");
 
+        boolean myBool = true;
+
+        while (myBool == true) {
+
+            input = JOptionPane.showInputDialog("Enter the Number of top Populated Region's");
+
+        try
+        {
+            Integer.parseInt(input);
+            myBool = false;
+            break;
+        }
+        catch (NumberFormatException e)
+        {
+            System.out.println(input + " is not a valid number!");
+            myBool = true;
+
+        } }
         try {
                         Statement stmt = con.createStatement();
 
