@@ -34,7 +34,7 @@ public class User_report_7 {
 
     // Method to retrieve population data for each region
     public static ArrayList<RegionPopulationReport> getRegionPopulation(Connection con) {
-        String input = JOptionPane.showInputDialog("Enter the name of the district or leave blank for all citys");
+        String input = JOptionPane.showInputDialog("Enter the name of the district or leave blank for all district's");
 
         if (input.isEmpty() == true) {
             input = "%";

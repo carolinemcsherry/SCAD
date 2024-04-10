@@ -1,5 +1,6 @@
 package com.napier.sem;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,59 +8,45 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 
-// The population of a country. For the population reports, the following information is requested:
-//•	The name of the continent/region/country.
-//•	The total population of the continent/region/country.
-//•	The total population of the continent/region/country living in cities (including a %).
-//•	The total population of the continent/region/country not living in cities (including a %).
+/*Additionally, the following information should be accessible to the organisation: The population of a country. */
 
 public class User_report_8 {
 
     // Inner class to represent the population report of a region
     public static class CountryPopulation{
         private String name;
-        private long totalPopulation;
-        private long populationInCities;
-        private String populationInCitiesPercentage;
-        private long populationNotInCities;
-        private String populationNotInCitiesPercentage;
+        private long Population;
+
 
         // Constructor for CountryPopulation class
-        public CountryPopulation(String name, long totalPopulation, long populationInCities, String populationInCitiesPercentage, long populationNotInCities, String populationNotInCitiesPercentage) {
+        public CountryPopulation(String name, long Population) {
             this.name = name;
-            this.totalPopulation = totalPopulation;
-            this.populationInCities = populationInCities;
-            this.populationInCitiesPercentage = populationInCitiesPercentage;
-            this.populationNotInCities = populationNotInCities;
-            this.populationNotInCitiesPercentage = populationNotInCitiesPercentage;
+            this.Population = Population;
+
         }
 
         // Method to represent the object as a string
         public String toString() {
-            return  name + ", " +
-                     totalPopulation +
-                     populationInCities +
-                     populationInCitiesPercentage +
-                     populationNotInCities +
-                     populationNotInCitiesPercentage;
+            return  name  +
+                     Population ;
         }
     }
 
     // Method to retrieve country population data
     public static ArrayList<CountryPopulation> getCountryPopulation(Connection con) {
+        String input = JOptionPane.showInputDialog("Enter the name of the country or leave blank for all country's");
+
+        if (input.isEmpty() == true) {
+            input = "%";
+            System.out.println(input);
+        }
+
+
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve country population data
-            String strSelect = "SELECT country.Name, " +
-                    "SUM(country.Population) AS TotalPopulation, " +
-                    "SUM(city.Population) AS PopulationInCities, " +
-                    "CONCAT(ROUND(SUM(city.Population) / SUM(country.Population) * 100, 2), '%') AS PopulationInCitiesPercentage, " +
-                    "(SUM(country.Population) - SUM(city.Population)) AS PopulationNotInCities, " +
-                    "CONCAT(ROUND((SUM(country.Population) - SUM(city.Population)) / SUM(country.Population) * 100, 2), '%') AS PopulationNotInCitiesPercentage " +
-                    "FROM country " +
-                    "LEFT JOIN city ON country.Code = city.CountryCode " +
-                    "GROUP BY country.Name";
+            String strSelect = "SELECT name, population FROM country where name like '" + input + "'";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -68,14 +55,11 @@ public class User_report_8 {
             // Iterate through the result set and create CountryPopulation objects
             while (rset.next()) {
                 String name = rset.getString("Name");
-                long totalPopulation = rset.getLong("TotalPopulation");
-                long populationInCities = rset.getLong("PopulationInCities");
-                String populationInCitiesPercentage = rset.getString("PopulationInCitiesPercentage");
-                long populationNotInCities = rset.getLong("PopulationNotInCities");
-                String populationNotInCitiesPercentage = rset.getString("PopulationNotInCitiesPercentage");
+                long Population = rset.getLong("Population");
+
 
                 // Create a CountryPopulation object and add it to the list
-                CountryPopulation countryPopulation = new CountryPopulation(name, totalPopulation, populationInCities, populationInCitiesPercentage, populationNotInCities, populationNotInCitiesPercentage);
+                CountryPopulation countryPopulation = new CountryPopulation(name, Population);
                 countryPopulationList.add(countryPopulation);
             }
             return countryPopulationList;
@@ -97,7 +81,7 @@ public class User_report_8 {
         //print report name
         System.out.println("Country Population Report:");
         //format and print header
-        System.out.println(String.format("%-20s %-20s %-20s %-20s %-20s %-20s", "Name", "TotalPopulation", "PopulationInCities", "PopulationInCitiesPercentage", "PopulationNotInCities", "PopulationNotInCitiesPercentage"));
+        System.out.println(String.format("%-35s %-20s", "Name", "Population"));
 
         for (CountryPopulation countryPopulation : countryPopulationList) {
             //If an atrabute value is null the job will continue
@@ -105,8 +89,8 @@ public class User_report_8 {
                 continue;
             //Prints table values in columbs
             String Table_string =
-                    String.format("%-20s %-20s %-20s %-20s %-20s %-20s",
-                            countryPopulation.name,countryPopulation.totalPopulation,countryPopulation.populationInCities, countryPopulation.populationInCitiesPercentage, countryPopulation.populationNotInCities, countryPopulation.populationNotInCitiesPercentage);
+                    String.format("%-35s %-20s ",
+                            countryPopulation.name,countryPopulation.Population);
             System.out.println(Table_string);
         }
     }
