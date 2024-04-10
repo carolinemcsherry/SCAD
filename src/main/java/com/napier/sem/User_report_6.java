@@ -1,5 +1,6 @@
 package com.napier.sem;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,14 +41,20 @@ public class User_report_6{
 
     // Method to retrieve city data for the report
     public static ArrayList<CityReport> getAllCities(Connection con) {
+
+        String input = JOptionPane.showInputDialog("Enter the name of the city or leave blank for all citys");
+
+        if (input.isEmpty() == true) {
+            input = "%";
+            System.out.println(input);
+        }
+
         try {
             // Create an SQL statement
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve city data for the report
-            String strSelect = "SELECT city.Name AS CityName, country.Name AS CountryName, city.District, city.Population " +
-                    "FROM city " +
-                    "JOIN country ON country.Code = city.CountryCode";
+            String strSelect = "SELECT city.Name AS CityName, country.Name AS CountryName, city.District, city.Population FROM city JOIN country ON country.Code = city.CountryCode where city.Name like '" + input +"'";
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
