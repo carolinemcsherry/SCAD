@@ -1,5 +1,6 @@
 package com.napier.sem;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,41 +14,38 @@ public class User_report_7 {
 
     // Inner class to represent the population report of a region
     public static class RegionPopulationReport {
-        private String Region;
-        private long Total_Population;
-        private long City_Population;
-        private long Non_City_Population;
+        private String district;
+        private long population;
+
 
         // Constructor for the RegionPopulationReport class
-        public RegionPopulationReport(String Region, long Total_Population, long City_Population, long Non_City_Population) {
-            this.Region = Region;
-            this.Total_Population = Total_Population;
-            this.City_Population = City_Population;
-            this.Non_City_Population = Non_City_Population;
+        public RegionPopulationReport(String district, long population) {
+            this.district = district;
+            this.population = population;
+
         }
 
         // Method to represent the object as a string
         public String toString() {
-            return   Region +
-                    Total_Population +
-                     City_Population +
-                     Non_City_Population;
+            return   district +
+                    population ;
         }
     }
 
     // Method to retrieve population data for each region
     public static ArrayList<RegionPopulationReport> getRegionPopulation(Connection con) {
+        String input = JOptionPane.showInputDialog("Enter the name of the district or leave blank for all citys");
+
+        if (input.isEmpty() == true) {
+            input = "%";
+            System.out.println(input);
+        }
+
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve population data for each region
-            String strSelect = "SELECT country.Region, " +
-                    "SUM(country.Population) AS Total_Population, " +
-                    "SUM(city.Population) AS City_Population, " +
-                    "(SUM(country.Population) - SUM(city.Population)) AS Non_City_Population " +
-                    "FROM country " +
-                    "LEFT JOIN city ON country.Code = city.CountryCode " +
-                    "GROUP BY country.Region";
+            String strSelect = "select district, population from city where district like '" + input + "'";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -55,13 +53,11 @@ public class User_report_7 {
 
             // Iterate through the result set and create RegionPopulationReport objects
             while (rset.next()) {
-                String Region = rset.getString("Region");
-                long Total_Population = rset.getLong("Total_Population");
-                long City_Population = rset.getLong("City_Population");
-                long Non_City_Population = rset.getLong("Non_City_Population");
+                String district = rset.getString("district");
+                long population = rset.getLong("population");
 
                 // Create a RegionPopulationReport object and add it to the list
-                RegionPopulationReport region = new RegionPopulationReport(Region, Total_Population, City_Population, Non_City_Population);
+                RegionPopulationReport region = new RegionPopulationReport(district, population);
                 regionReports.add(region);
             }
             return regionReports;
@@ -83,7 +79,7 @@ public class User_report_7 {
         //print report name
         System.out.println("Region Population Report");
         //format and print header
-        System.out.println(String.format("%-25s %-25s %-25s %-25s", "Region", "Total_Population", "City_Population", "Non_City_Population"));
+        System.out.println(String.format("%-25s %-25s", "District", "population"));
         // Iterate through the list of RegionPopulationReport objects and print each one
         for (RegionPopulationReport region : regions) {
             //If an atrabute value is null the job will continue
@@ -91,8 +87,8 @@ public class User_report_7 {
                 continue;
             //Prints table values in columbs
             String Table_string =
-                    String.format("%-25s %-25s %-25s %-25s",
-                            region.Region, region.Total_Population, region.City_Population,region.Non_City_Population);
+                    String.format("%-25s %-25s",
+                            region.district, region.population);
             System.out.println(Table_string);
         }
     }

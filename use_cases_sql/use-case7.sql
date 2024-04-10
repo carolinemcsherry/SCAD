@@ -1,3 +1,1 @@
-select
-population, district
-from city; -- retrieve data on population and district
+select district, population from city; -- retrieve data on population and district
