@@ -28,14 +28,15 @@ public class User_report_30{
     }
 
     // Method to retrieve countries in a region organized by largest population to smallest
-    public static ArrayList<CountryInRegion> getCountriesByRegion(Connection con, String region) {
+    public static ArrayList<CountryInRegion> getCountriesByRegion(Connection con) {
+
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve countries in a region organized by largest population to smallest
             String strSelect = "SELECT Name AS CountryName, Population " +
                     "FROM country " +
-                    "WHERE Region = '" + region + "' " +
+                    "WHERE Region = '" + "region" + "' " +
                     "ORDER BY Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);

@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 //The population of people, people living in cities, and people not living in cities in each continent.
 
@@ -36,6 +37,7 @@ public class User_report_29 {
 
     // Method to retrieve population data for each continent
     public static ArrayList<ContinentPopulation> getPopulationByContinent(Connection con) {
+
         try {
             Statement stmt = con.createStatement();
 

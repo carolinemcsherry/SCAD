@@ -111,6 +111,59 @@ public class App {
 
         User_report_18.printTopPopulatedCitiesInCountry(ReportArray16);
 
+
+
+
+        // user report 19
+        ArrayList<User_report_19.CapitalCityDataInContinent> ReportArray19 = User_report_19.getTopPopulatedCapitalCitiesInContinent(con);
+        User_report_19.printTopPopulatedCapitalCitiesInContinent(ReportArray19);
+// user report 20
+        ArrayList<User_report_20.TopCitiesInWorld> ReportArray20 = User_report_20.getTopPopulatedCitiesInWorld(con);
+        User_report_20.printTopPopulatedCitiesInWorld(ReportArray20);
+// user report 21
+        ArrayList<User_report_21.CityReport> ReportArray21 = User_report_21.getCityReportByDistrict(con);
+        User_report_21.printCityReport(ReportArray21);
+// user report 22
+        ArrayList<User_report_22.CityReport> ReportArray22 = User_report_22.getCityReport(con);
+        User_report_22.printCityReport(ReportArray22);
+// user report 23
+        ArrayList<User_report_23.CityReport> ReportArray23 = User_report_23.getCitiesByRegion(con);
+        User_report_23.printCityReport(ReportArray23);
+// user report 24
+        ArrayList<User_report_24.CityReport> ReportArray24 = User_report_24.getCitiesByContinent(con);
+        User_report_24.printCityReport(ReportArray24);
+// user report 25
+        ArrayList<User_report_25.CityReport> ReportArray25 = User_report_25.getCitiesInWorld(con);
+        User_report_25.printCityReport(ReportArray25);
+// user report 26
+        ArrayList<User_report_26.CountryData> ReportArray26 = User_report_26.getTopPopulatedCountries(con);
+        User_report_26.printTopPopulatedCountries(ReportArray26);
+// user report 27
+        ArrayList<User_report_27.TopCountriesInContinent> ReportArray27 = User_report_27.getTopPopulatedCountriesInContinent(con);
+        User_report_27.printTopPopulatedCountriesInContinent(ReportArray27);
+// user report 28
+        ArrayList<User_report_28.Population> ReportArray28 = User_report_28.getPopulationReport(con);
+        User_report_28.printPopulationReport(ReportArray28);
+// user report 29
+        ArrayList<User_report_29.ContinentPopulation> ReportArray29 = User_report_29.getPopulationByContinent(con);
+        User_report_29.printPopulationByContinent(ReportArray29);
+// user report 30
+        ArrayList<User_report_30.CountryInRegion> ReportArray30 = User_report_30.getCountriesByRegion(con);
+        User_report_30.printCountriesByRegion(ReportArray30);
+// user report 31
+        ArrayList<User_report_31.CountryInContinent> ReportArray31 = User_report_31.getCountriesByContinent(con);
+        User_report_31.printCountriesByContinent(ReportArray31);
+// user report 32
+        ArrayList<User_report_32.CountryData> ReportArray32 = User_report_32.getCountriesByPopulation(con);
+        User_report_32.printCountriesByPopulation(ReportArray32);
+// user report 33
+        ArrayList<User_report_33.CountryDataInRegion> ReportArray33 = User_report_33.getTopPopulatedCountriesInRegion(con);
+        User_report_33.printTopPopulatedCountriesInRegion(ReportArray33);
+// user report 34
+        ArrayList<User_report_34.TopCitiesInContinent> ReportArray34 = User_report_34.getTopPopulatedCitiesInContinent(con);
+        User_report_34.printTopPopulatedCitiesInContinent(ReportArray34);
+
+
         // disconect from BD
         a.disconnect();
         System.out.println("Database has successfully disconnected");

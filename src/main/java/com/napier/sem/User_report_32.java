@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 // All the countries in the world organised by largest population to smallest.
 
@@ -30,6 +31,7 @@ public class User_report_32 {
 
     // Method to retrieve all countries in the world organized by largest population to smallest
     public static ArrayList<CountryData> getCountriesByPopulation(Connection con) {
+
         try {
             Statement stmt = con.createStatement();
 
