@@ -17,7 +17,6 @@ jobs:
           distribution: 'adopt'
       - name: Unit Tests
         run: mvn -Dtest=com.napier.sem.AppTest test
-            ls target/surefire-reports
             cat target/surefire-reports/*.txt
       - name: Package and Run docker compose
         run: |
