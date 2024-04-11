@@ -30,17 +30,14 @@ public class User_report_12 {
 
     public static ArrayList<PopulationbyRegionReport> getPopulationbyRegionReport(Connection con) {
 
-
+//Var set up for methord
         ArrayList<PopulationbyRegionReport> populationReports = new ArrayList<>();
         String input = "";
-
         boolean myBool = true;
-
         int i = 1;
+        // check to see if user entered a number
         while (myBool == true & i <5) {
-
             input = JOptionPane.showInputDialog("Enter the Number of top Populated Region's");
-
         try
         {
             Integer.parseInt(input);
@@ -49,22 +46,18 @@ public class User_report_12 {
         }
         catch (NumberFormatException e)
         {
-
-            System.out.println("Attempt "+i);
+            //user gets 5 turns before stops
+            System.out.println("Attempt "+i +" of 5");
             System.out.println(input + " is not a valid number!");
             myBool = true;
             i++;
-
         } }
-
+//get string from user
         String Stringinput = JOptionPane.showInputDialog("Enter the name of the Region or leave blank for all Region's");
-
+// handeling null value in string to get full range
         if (Stringinput.isEmpty() == true) {
             Stringinput = "%";
-
         }
-
-
         try {
                         Statement stmt = con.createStatement();
 
@@ -98,12 +91,12 @@ public class User_report_12 {
         return populationReports;
     }
 
+    //print section
     public static void printRegionPopulation(ArrayList<PopulationbyRegionReport> regions) {
-        if (regions == null || regions.isEmpty()) {
+        if (regions == null) {
             System.out.println("No regions or empty list");
             return;
         }
-
         System.out.println("Region Population Report");
         //print header
         System.out.println(String.format("%-25s %-20s %-20s", "Region", "Capatial City", "Population"));
