@@ -29,12 +29,15 @@ public class User_report_12 {
     }
 
     public static ArrayList<PopulationbyRegionReport> getPopulationbyRegionReport(Connection con) {
+
+
         ArrayList<PopulationbyRegionReport> populationReports = new ArrayList<>();
         String input = "";
 
         boolean myBool = true;
 
-        while (myBool == true) {
+        int i = 1;
+        while (myBool == true & i <5) {
 
             input = JOptionPane.showInputDialog("Enter the Number of top Populated Region's");
 
@@ -46,10 +49,22 @@ public class User_report_12 {
         }
         catch (NumberFormatException e)
         {
+
+            System.out.println("Attempt "+i);
             System.out.println(input + " is not a valid number!");
             myBool = true;
+            i++;
 
         } }
+
+        String Stringinput = JOptionPane.showInputDialog("Enter the name of the Region or leave blank for all Region's");
+
+        if (Stringinput.isEmpty() == true) {
+            Stringinput = "%";
+
+        }
+
+
         try {
                         Statement stmt = con.createStatement();
 
@@ -57,8 +72,8 @@ public class User_report_12 {
             String strSelect = "SELECT country.Region, city.Name AS City, city.Population " +
                     "FROM city " +
                     "JOIN country ON city.CountryCode = country.Code " +
-                    "WHERE city.ID = country.Capital " +
-                    "ORDER BY city.Population DESC " +
+                    "WHERE city.ID = country.Capital  and country.Region like '" + Stringinput +
+                    "' ORDER BY city.Population DESC " +
                     "LIMIT " + input ;
 
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -92,7 +107,7 @@ public class User_report_12 {
 
         System.out.println("Region Population Report");
         //print header
-        System.out.println(String.format("%-25s %-20s %-20s", "Region", "City", "Population"));
+        System.out.println(String.format("%-25s %-20s %-20s", "Region", "Capatial City", "Population"));
 
         // Iterate through the list of ContinentPopulationReport objects and print each one
         for (PopulationbyRegionReport region : regions) {
