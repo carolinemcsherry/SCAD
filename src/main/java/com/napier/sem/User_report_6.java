@@ -42,8 +42,8 @@ public class User_report_6{
     // Method to retrieve city data for the report
     public static ArrayList<CityReport> getAllCities(Connection con) {
 
-        String input = JOptionPane.showInputDialog("Enter the name of the city or leave blank for all citys");
-
+        //String input = JOptionPane.showInputDialog("Enter the name of the city or leave blank for all citys");
+       String input = "";
         if (input.isEmpty() == true) {
             input = "%";
             System.out.println(input);
