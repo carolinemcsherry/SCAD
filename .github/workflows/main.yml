@@ -21,4 +21,3 @@ jobs:
         run: |
           mvn package -DskipTests
           docker-compose up --abort-on-container-exit
-

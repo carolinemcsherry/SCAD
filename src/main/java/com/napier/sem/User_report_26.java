@@ -31,14 +31,14 @@ public class User_report_26{
     public static ArrayList<CountryData> getTopPopulatedCountries(Connection con) {
         String input = "";
         input = JOptionPane.showInputDialog("Enter the Number of top Populated Countries");
-
+        String continent = "";
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve the top N populated countries in the world
             String strSelect = "SELECT Population, Name AS country, Continent " +
                     "FROM country " +
-                    "WHERE Continent = '" + "continent" + "' " + // corrected line
+                    "WHERE Continent = '" + continent + "' " + // corrected line
                     "ORDER BY Population DESC " +
                     "LIMIT " + input;
 
@@ -65,15 +65,19 @@ public class User_report_26{
     }
 
     // Method to print the top N populated countries in the world
-    public static void printTopPopulatedCountries(ArrayList<CountryData> countriesList) {
-        if (countriesList == null) {
+    public static void printTopPopulatedCountries(ArrayList<CountryData> countryDataList) {
+        if (countryDataList == null) {
             System.out.println("No countries");
             return;
         }
         System.out.println("Top Populated Countries Report:");
-        System.out.println(String.format("%-25s %-25s", "CountryName", "Population"));
-        for (CountryData country : countriesList) {
-            System.out.println(String.format("%-25s %-25s", country.countryName, country.population));
+        System.out.println(String.format("%-20s %-30s", "Population", "Country"));
+        for (CountryData countryData : countryDataList) {
+            if (countryData == null) {
+                System.out.println("Null country");
+                continue;
+            }
+            System.out.println(String.format("%-20s %-30s",
+                    countryData.population, countryData.countryName));
         }
-    }
-}
+    }}

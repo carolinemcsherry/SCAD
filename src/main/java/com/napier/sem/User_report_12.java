@@ -99,9 +99,8 @@ public class User_report_12 {
     }
 
     public static void printRegionPopulation(ArrayList<PopulationbyRegionReport> regions) {
-        if (regions == null)
-        {
-            System.out.println("No regions");
+        if (regions == null || regions.isEmpty()) {
+            System.out.println("No regions or empty list");
             return;
         }
 
@@ -109,13 +108,14 @@ public class User_report_12 {
         //print header
         System.out.println(String.format("%-25s %-20s %-20s", "Region", "Capatial City", "Population"));
 
-        // Iterate through the list of ContinentPopulationReport objects and print each one
         for (PopulationbyRegionReport region : regions) {
-            if (regions == null)
+            if (region == null) {
+                System.out.println("Encountered a null region");
                 continue;
+            }
             String emp_string =
                     String.format("%-25s %-20s %-20s",
-                            region.Region , region.City, region.Population);
+                            region.Region, region.City, region.Population);
             System.out.println(emp_string);
             //    System.out.println(continent);
         }}
