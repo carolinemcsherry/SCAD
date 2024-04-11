@@ -35,14 +35,14 @@ public class User_report_27{
 
         String input = "";
         input = JOptionPane.showInputDialog("Enter the Number of top Populated Countries");
-
+        String continent = "";
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve top N populated countries in a continent
             String strSelect = "SELECT Population, Name AS country, Continent " +
                     "FROM country " +
-                    "WHERE Continent = " + " continent " +
+                    "WHERE Continent = " + continent +
                     "ORDER BY Population DESC " +
                     "LIMIT " + input;
 
@@ -77,8 +77,11 @@ public class User_report_27{
         System.out.println("Top Populated Countries in the Continent Report:");
         System.out.println(String.format("%-20s %-30s %-20s", "Population", "Country", "Continent"));
         for (TopCountriesInContinent topCountry : topCountriesList) {
+            if (topCountry == null) {
+                System.out.println("Null country");
+                continue;
+            }
             System.out.println(String.format("%-20s %-30s %-20s",
                     topCountry.population, topCountry.countryName, topCountry.continent));
         }
-    }
-}
+    }}
