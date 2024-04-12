@@ -47,7 +47,7 @@ public class User_report_14 {
                     "FROM city " +
                     "JOIN country ON city.CountryCode = country.Code " +
                     "WHERE city.ID = country.Capital  and country.Region like '" + Stringinput +
-                    "' ORDER BY city.Population DESC " ;
+                    "' ORDER BY country.Region, city.Population DESC " ;
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
