@@ -77,6 +77,7 @@ public class User_report_14 {
             System.out.println("No regions or empty list");
             return;
         }
+        //name of report
         System.out.println("Region Population Report");
         //print header
         System.out.println(String.format("%-25s %-20s %-20s", "Region", "Capatial City", "Population"));
