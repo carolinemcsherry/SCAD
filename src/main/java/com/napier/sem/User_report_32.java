@@ -68,11 +68,11 @@ public class User_report_32 {
             return;
         }
 
-        System.out.println(String.format("%-25s %-25s", "countryName", "population"));
+        System.out.println(String.format("%-45s %-25s", "countryName", "population"));
 
         for (CountryData country : countriesList) {
             if (country != null) {
-                String tableString = String.format("%-25s %-25s", country.countryName, country.population);
+                String tableString = String.format("%-45s %-25s", country.countryName, country.population);
                 System.out.println(tableString);
             }
         }

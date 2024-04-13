@@ -11,18 +11,20 @@ public class User_report_31 {
 
     // Inner class to represent country data within a continent
     public static class CountryInContinent {
+        private String Continent;
         private String countryName;
         private int population;
 
         // Constructor for CountryInContinent class
-        public CountryInContinent(String countryName, int population) {
+        public CountryInContinent(String Continent, String countryName, int population) {
+            this.Continent = Continent;
             this.countryName = countryName;
             this.population = population;
         }
 
         // Method to represent the object as a string
         public String toString() {
-            return  countryName
+            return  Continent + countryName
                     + population;
         }
     }
@@ -34,10 +36,9 @@ public class User_report_31 {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve countries in a continent organized by largest population to smallest
-            String strSelect = "SELECT Name AS CountryName, Population " +
+            String strSelect = "SELECT country.Continent, Name AS CountryName, Population " +
                     "FROM country " +
-                    "WHERE Continent = '" + "continent" + "' " +
-                    "ORDER BY Population DESC";
+                    "ORDER BY Continent, Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -45,11 +46,12 @@ public class User_report_31 {
 
             // Iterate through the result set and create CountryInContinent objects
             while (rset.next()) {
+                String Continent = rset.getString("Continent");
                 String countryName = rset.getString("CountryName");
                 int population = rset.getInt("Population");
 
                 // Create a CountryInContinent object and add it to the list
-                CountryInContinent country = new CountryInContinent(countryName, population);
+                CountryInContinent country = new CountryInContinent(Continent, countryName, population);
                 countriesList.add(country);
             }
             return countriesList;
@@ -67,11 +69,11 @@ public class User_report_31 {
             return;
         }
 
-        System.out.println(String.format("%-25s %-25s", "countryName", "population"));
+        System.out.println(String.format("%-25s%-25s %-25s", "Continent", "countryName", "population"));
 
         for (CountryInContinent country : countriesList) {
             if (country != null) {
-                String tableString = String.format("%-25s %-25s", country.countryName, country.population);
+                String tableString = String.format("%-25s%-25s %-25s",country.Continent, country.countryName, country.population);
                 System.out.println(tableString);
             }
         }

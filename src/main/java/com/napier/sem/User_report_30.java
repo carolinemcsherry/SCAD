@@ -38,7 +38,7 @@ public class User_report_30{
             // SQL query to retrieve countries in a region organized by largest population to smallest
             String strSelect = "SELECT region, Name AS CountryName, Population " +
                     "FROM country " +
-                    "ORDER BY Population DESC, region desc";
+                    "ORDER BY region desc, Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
