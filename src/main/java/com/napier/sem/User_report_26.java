@@ -29,16 +29,33 @@ public class User_report_26{
 
     // Method to retrieve the top N populated countries in the world
     public static ArrayList<CountryData> getTopPopulatedCountries(Connection con) {
+        // set up vars for input
         String input = "";
-        input = JOptionPane.showInputDialog("Enter the Number of top Populated Countries");
-        String continent = "";
+        boolean myBool = true;
+        int i = 1;
+        // check to see if user entered a number
+        while (myBool == true & i <5) {
+            input = JOptionPane.showInputDialog("Enter the Number of top Populated Countries to retrieve ");
+            try
+            {
+                Integer.parseInt(input);
+                myBool = false;
+                break;
+            }
+            catch (NumberFormatException e)
+            {
+                //user gets 5 turns before stops
+                System.out.println("Attempt "+i +" of 5");
+                System.out.println(input + " is not a valid number!");
+                myBool = true;
+                i++;
+            } }
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve the top N populated countries in the world
-            String strSelect = "SELECT Population, Name AS country, Continent " +
+            String strSelect = "SELECT Name AS countryName, Population " +
                     "FROM country " +
-                    "WHERE Continent = '" + continent + "' " + // corrected line
                     "ORDER BY Population DESC " +
                     "LIMIT " + input;
 
@@ -71,13 +88,13 @@ public class User_report_26{
             return;
         }
         System.out.println("Top Populated Countries Report:");
-        System.out.println(String.format("%-20s %-30s", "Population", "Country"));
+        System.out.println(String.format("%-30s %-30s", "Country", "Population"));
         for (CountryData countryData : countryDataList) {
             if (countryData == null) {
                 System.out.println("Null country");
                 continue;
             }
-            System.out.println(String.format("%-20s %-30s",
-                    countryData.population, countryData.countryName));
+            System.out.println(String.format("%-30s %-30s",
+                    countryData.countryName, countryData.population));
         }
     }}
