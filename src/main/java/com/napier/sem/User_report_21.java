@@ -44,7 +44,7 @@ public class User_report_21 {
         String Stringinput = JOptionPane.showInputDialog("Enter the name of the district or leave blank for all district's");
 // handeling null value in string to get full range
         if (Stringinput.isEmpty() == true) {
-            Stringinput = "'%'";
+            Stringinput = "%";
         }
 
         try {
@@ -54,7 +54,7 @@ public class User_report_21 {
             String strSelect = "SELECT city.Name AS CityName, country.Name AS CountryName, city.District, city.Population " +
                     "FROM city " +
                     "LEFT JOIN country ON city.CountryCode = country.Code " +
-                    "WHERE city.District Like " + Stringinput +
+                    "WHERE city.District Like '" + Stringinput + "' "+
                     "ORDER BY city.Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);

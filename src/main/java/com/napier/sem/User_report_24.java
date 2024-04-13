@@ -1,5 +1,6 @@
 package com.napier.sem;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,14 +14,14 @@ public class User_report_24 {
     public static class CityReport {
         private String CityName;
         private String CountryName;
-        private String District;
+        private String Continent;
         private Long Population;
 
         // Constructor for the CityReport class
-        public CityReport(String CityName, String CountryName, String District, Long Population) {
+        public CityReport(String CityName, String CountryName, String Continent, Long Population) {
             this.CityName = CityName;
             this.CountryName = CountryName;
-            this.District = District;
+            this.Continent = Continent;
             this.Population = Population;
         }
 
@@ -28,21 +29,27 @@ public class User_report_24 {
         public String toString() {
             return  CityName +
                     CountryName +
-                    District +
+                    Continent +
                     Population;
         }
     }
 
     // Method to retrieve city report data for cities within a specific continent sorted by population
     public static ArrayList<CityReport> getCitiesByContinent(Connection con) {
+        String Stringinput = JOptionPane.showInputDialog("Enter the name of the continent or leave blank for all continent's");
+// handeling null value in string to get full range
+        if (Stringinput.isEmpty() == true) {
+            Stringinput = "%";
+        }
+
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve city report data for cities within a specific continent
-            String strSelect = "SELECT A.Name AS CityName, B.Name AS CountryName, A.District, A.Population " +
+            String strSelect = "SELECT A.Name AS CityName, B.Name AS CountryName, B.Continent, A.Population " +
                     "FROM city A " +
                     "JOIN country B ON A.CountryCode = B.Code " +
-                    "WHERE B.Continent = '" + " continent " +
+                    "WHERE B.Continent Like '" + Stringinput +"' "+
                     "ORDER BY A.Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -53,11 +60,11 @@ public class User_report_24 {
             while (rset.next()) {
                 String CityName = rset.getString("CityName");
                 String CountryName = rset.getString("CountryName");
-                String District = rset.getString("District");
+                String Continent = rset.getString("Continent");
                 Long Population = rset.getLong("Population");
 
                 // Create a CityReport object and add it to the list
-                CityReport city = new CityReport(CityName, CountryName, District, Population);
+                CityReport city = new CityReport(CityName, CountryName, Continent, Population);
                 cityReports.add(city);
             }
 
@@ -81,17 +88,17 @@ public class User_report_24 {
             System.out.println("No cities");
             return;
         }
-        System.out.println("Capital City Report:");
+
         System.out.println("City Report");
         //format and print header
-        System.out.println(String.format("%-25s %-25s %-25s %-25s", "CityName", "CountryName","District", "Population"));
+        System.out.println(String.format("%-25s %-25s %-25s %-25s", "City Name", "Country Name","Continent", "Population"));
         // Iterate through the list of CityReport objects and print each one
         for (CityReport city : cities) {if (city == null)
             continue;
             //Prints table values in columbs
             String Table_string =
                     String.format("%-25s %-25s %-25s %-25s",
-                            city.CityName, city.CountryName, city.District , city.Population);
+                            city.CityName, city.CountryName, city.Continent , city.Population);
             System.out.println(Table_string);
         }
     }

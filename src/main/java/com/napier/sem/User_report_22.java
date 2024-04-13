@@ -1,5 +1,6 @@
 package com.napier.sem;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,14 +15,12 @@ public class User_report_22 {
     public static class CityReport {
         private String CityName;
         private String CountryName;
-        private String District;
         private Long Population;
 
         // Constructor for the CityReport class
-        public CityReport(String CityName, String CountryName, String District, Long Population) {
+        public CityReport(String CityName, String CountryName,  Long Population) {
             this.CityName = CityName;
             this.CountryName = CountryName;
-            this.District = District;
             this.Population = Population;
         }
 
@@ -29,22 +28,29 @@ public class User_report_22 {
         public String toString() {
             return  CityName +
                     CountryName +
-                    District +
                     Population;
         }
     }
 
     // Method to retrieve city report data for a specific country sorted by population
     public static ArrayList<CityReport> getCityReport(Connection con) {
+
+        //get string from user
+        String Stringinput = JOptionPane.showInputDialog("Enter the name of the country or leave blank for all country's");
+// handeling null value in string to get full range
+        if (Stringinput.isEmpty() == true) {
+            Stringinput = "%";
+        }
+
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve city report data for a specific country
-            String strSelect = "SELECT A.Name AS CityName, B.Name AS CountryName, A.District, A.Population " +
+            String strSelect = "SELECT A.Name AS CityName, B.Name AS CountryName, A.Population " +
                     "FROM city A " +
                     "LEFT JOIN country B ON A.CountryCode = B.Code " +
-                    "WHERE B.Name = '" + "country" + "' " +
-                    "ORDER BY A.Population DESC";
+                    "WHERE B.Name like '" + Stringinput + "' "+
+                    " ORDER BY A.Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -54,11 +60,10 @@ public class User_report_22 {
             while (rset.next()) {
                 String CityName = rset.getString("CityName");
                 String CountryName = rset.getString("CountryName");
-                String District = rset.getString("District");
                 Long Population = rset.getLong("Population");
 
                 // Create a CityReport object and add it to the list
-                CityReport city = new CityReport(CityName, CountryName, District, Population);
+                CityReport city = new CityReport(CityName, CountryName, Population);
                 cityReports.add(city);
             }
 
@@ -82,19 +87,18 @@ public class User_report_22 {
             System.out.println("No cities");
             return;
         }
-        System.out.println("Capital City Report:");
-        System.out.println("City Report");
+        System.out.println("Country City Population Report");
         //format and print header
         // Iterate through the list of CityReport objects and print each one
-        System.out.println(String.format("%-25s %-25s %-25s %-25s", "CityName", "CountryName","District", "Population"));
+        System.out.println(String.format("%-25s %-35s %-25s", "City Name", "Country Name", "Population"));
         for (CityReport city : cities) {
 
             if (city == null)
                 continue;
             //Prints table values in columbs
             String Table_string =
-                    String.format("%-25s %-25s %-25s %-25s",
-                            city.CityName, city.CountryName, city.District , city.Population);
+                    String.format("%-25s %-35s %-25s",
+                            city.CityName, city.CountryName,  city.Population);
             System.out.println(Table_string);
         }
     }

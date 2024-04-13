@@ -62,8 +62,8 @@ public class User_report_18 {
         String Stringinput = JOptionPane.showInputDialog("Enter the name of the district or leave blank for all district's");
 
         if (Stringinput.isEmpty() == true) {
-            Stringinput = "You picked all!";
-            System.out.println(Stringinput);
+            Stringinput = "%";
+            System.out.println("You picked all!");
         }
 
         try {

@@ -32,12 +32,13 @@ public class User_report_12 {
 
 //Var set up for methord
         ArrayList<PopulationbyRegionReport> populationReports = new ArrayList<>();
+        // set up vars for input
         String input = "";
         boolean myBool = true;
         int i = 1;
         // check to see if user entered a number
         while (myBool == true & i <5) {
-            input = JOptionPane.showInputDialog("Enter the Number of top Populated Region's");
+            input = JOptionPane.showInputDialog("Enter the Number of top Populated City's in a Region's");
         try
         {
             Integer.parseInt(input);
