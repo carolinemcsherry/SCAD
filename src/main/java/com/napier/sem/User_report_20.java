@@ -24,7 +24,26 @@ public class User_report_20 {
     }
 
     public static ArrayList<TopCitiesInWorld> getTopPopulatedCitiesInWorld(Connection con) {
-        String input = JOptionPane.showInputDialog("Enter the Number of top Populated cities");
+        String input = JOptionPane.showInputDialog("Enter the Number of top Populated cities \nyou would like to retrevie!");
+        boolean myBool = true;
+        int i = 1;
+        // check to see if user entered a number
+        while (myBool == true & i <5) {
+            input = JOptionPane.showInputDialog("Enter the Number of top Populated Region's");
+            try
+            {
+                Integer.parseInt(input);
+                myBool = false;
+                break;
+            }
+            catch (NumberFormatException e)
+            {
+                //user gets 5 turns before stops
+                System.out.println("Attempt "+i +" of 5");
+                System.out.println(input + " is not a valid number!");
+                myBool = true;
+                i++;
+            } }
 
         try {
             Statement stmt = con.createStatement();
