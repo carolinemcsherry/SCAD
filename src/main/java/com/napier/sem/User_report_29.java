@@ -14,12 +14,12 @@ public class User_report_29 {
     // Inner class to represent the population data for each continent
     public static class ContinentPopulation {
         private String continentName;
-        private int totalPopulation;
-        private int populationInCities;
-        private int populationNotInCities;
+        private long totalPopulation;
+        private long populationInCities;
+        private long populationNotInCities;
 
         // Constructor for ContinentPopulation class
-        public ContinentPopulation(String continentName, int totalPopulation, int populationInCities, int populationNotInCities) {
+        public ContinentPopulation(String continentName,long totalPopulation,long populationInCities,long populationNotInCities) {
             this.continentName = continentName;
             this.totalPopulation = totalPopulation;
             this.populationInCities = populationInCities;
@@ -57,9 +57,9 @@ public class User_report_29 {
             // Iterate through the result set and create ContinentPopulation objects
             while (rset.next()) {
                 String continentName = rset.getString("Continent");
-                int totalPopulation = rset.getInt("TotalPopulation");
-                int populationInCities = rset.getInt("PopulationInCities");
-                int populationNotInCities = rset.getInt("PopulationNotInCities");
+                long totalPopulation = rset.getLong("TotalPopulation");
+                long populationInCities = rset.getLong("PopulationInCities");
+                long populationNotInCities = rset.getLong("PopulationNotInCities");
 
                 // Create a ContinentPopulation object and add it to the list
                 ContinentPopulation continentPopulation = new ContinentPopulation(continentName, totalPopulation, populationInCities, populationNotInCities);
@@ -80,7 +80,7 @@ public class User_report_29 {
             return;
         }
 
-        System.out.println(String.format("%-25s %-25s %-25s %-25s", "continentName", "totalPopulation", "populationInCities", "populationNotInCities"));
+        System.out.println(String.format("%-25s %-25s %-25s %-25s", "Continent Name", "Total Population", "Population In Cities", "population Not In Cities"));
 
         for (ContinentPopulation continentPopulation : continentPopulationList) {
             if (continentPopulation != null) {
