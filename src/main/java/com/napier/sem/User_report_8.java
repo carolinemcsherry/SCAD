@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 /*Additionally, the following information should be accessible to the organisation: The population of a country. */
@@ -34,12 +35,29 @@ public class User_report_8 {
 
     // Method to retrieve country population data
     public static ArrayList<CountryPopulation> getCountryPopulation(Connection con) {
-        String input = JOptionPane.showInputDialog("Enter the name of the country or leave blank for all country's");
 
-        if (input.isEmpty() == true) {
+        //Regex to check names
+        String Regex = "^[A-Za-z\\s%]+(?:[ '-][A-Za-z\\s%]+)*$";
+        //open scanner
+        Scanner scanner = new Scanner(System.in);
+        // ask user what they want
+        System.out.print("Enter the name of the country or leave blank for all country's");
+        // check input
+        String input = scanner.nextLine();
+        if (input.matches(Regex)||input.isEmpty() == true) {
+            //set the wild card to return all records
             input = "%";
             System.out.println(input);
+
+        } else {
+            //tell user that is not a valid city name
+            System.out.println("Invalid city name no records will show!");
         }
+
+        // close the scanner
+        scanner.close();
+
+
 
 
         try {

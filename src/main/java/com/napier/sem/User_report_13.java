@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 
 //The top N populated capital cities in the world where N is provided by the user.
@@ -37,26 +39,20 @@ public class User_report_13 {
     public static ArrayList<TopCapitalCitiesInWorld> getTopPopulatedCapitalCitiesInWorld(Connection con) {
         //Var set up for methord
         ArrayList<TopCapitalCitiesInWorld> topCapitalCitiesList = new ArrayList<>();
-        String input = "";
-        boolean myBool = true;
-        int i = 1;
-        // check to see if user entered a number
-        while (myBool == true & i <5) {
-            input = JOptionPane.showInputDialog("Enter the Number of top Populated Region's");
-            try
-            {
-                Integer.parseInt(input);
-                myBool = false;
-                break;
-            }
-            catch (NumberFormatException e)
-            {
-                //user gets 5 turns before stops
-                System.out.println("Attempt "+i +" of 5");
-                System.out.println(input + " is not a valid number!");
-                myBool = true;
-                i++;
-            } }
+        int input =0;
+        //new  scanner
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Enter the Number of top Populated Region's");
+             input = scanner.nextInt(); // Try to read an integer
+        } catch (InputMismatchException f) {
+            System.out.println("Invalid input! Please enter a valid number.");
+
+            scanner.nextInt(); // Clear the input buffer
+        }
+        // close the scanner
+        scanner.close();
+
         try {
             Statement stmt = con.createStatement();
 

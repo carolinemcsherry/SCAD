@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 // The population of the world.
@@ -34,11 +35,25 @@ public class User_report_14 {
         ArrayList<PopulationbyRegionReport> populationReports = new ArrayList<>();
 
 //get string from user
-        String Stringinput = JOptionPane.showInputDialog("Enter the name of the Region or leave blank for all Region's");
-// handeling null value in string to get full range
-        if (Stringinput.isEmpty() == true) {
+        //Regex to check names
+        String Regex = "^[A-Za-z\\s%]+(?:[ '-][A-Za-z\\s%]+)*$";
+        //open scanner
+        Scanner scanner = new Scanner(System.in);
+        // ask user what they want
+        System.out.print("Enter the name of the Region or leave blank for all Region's");
+        // check input
+        String Stringinput = scanner.nextLine();
+        if (Stringinput.matches(Regex)||Stringinput.isEmpty() == true) {
+            //set the wild card to return all records
             Stringinput = "%";
+
+        } else {
+            //tell user that is not a valid city name
+            System.out.println("Invalid name no records will show!");
         }
+
+        // close the scanner
+        scanner.close();
         try {
             Statement stmt = con.createStatement();
 

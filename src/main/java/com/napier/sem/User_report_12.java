@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 // The population of the world.
@@ -32,33 +34,35 @@ public class User_report_12 {
 
 //Var set up for methord
         ArrayList<PopulationbyRegionReport> populationReports = new ArrayList<>();
-        // set up vars for input
-        String input = "";
-        boolean myBool = true;
-        int i = 1;
-        // check to see if user entered a number
-        while (myBool == true & i <5) {
-            input = JOptionPane.showInputDialog("Enter the Number of top Populated City's in a Region's");
-        try
-        {
-            Integer.parseInt(input);
-            myBool = false;
-            break;
-        }
-        catch (NumberFormatException e)
-        {
-            //user gets 5 turns before stops
-            System.out.println("Attempt "+i +" of 5");
-            System.out.println(input + " is not a valid number!");
-            myBool = true;
-            i++;
-        } }
-//get string from user
-        String Stringinput = JOptionPane.showInputDialog("Enter the name of the Region or leave blank for all Region's");
-// handeling null value in string to get full range
-        if (Stringinput.isEmpty() == true) {
+        int input = 0;
+        //Regex to check names
+        String Regex = "^[A-Za-z\\s%]+(?:[ '-][A-Za-z\\s%]+)*$";
+        //open scanner
+        Scanner scanner = new Scanner(System.in);
+        // ask user what they want
+        System.out.print("Enter the Number of records to retrieve");
+        // check input
+        String Stringinput = scanner.nextLine();
+        if (Stringinput.matches(Regex)||Stringinput.isEmpty() == true) {
+            //set the wild card to return all records
             Stringinput = "%";
+
+        } else {
+            //tell user that is not a valid city name
+            System.out.println("Invalid name no records will show!");
         }
+
+        try {
+            System.out.print("Enter the number of records you want to retrieve : ");
+             input = scanner.nextInt(); // Try to read an integer
+        } catch (InputMismatchException f) {
+            System.out.println("Invalid input! Please enter a valid number.");
+
+            scanner.nextInt(); // Clear the input buffer
+        }
+        // close the scanner
+        scanner.close();
+
         try {
                         Statement stmt = con.createStatement();
 

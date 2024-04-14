@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 // The population of people, people living in cities, and people not living in cities in each region.
@@ -34,19 +35,33 @@ public class User_report_7 {
 
     // Method to retrieve population data for each region
     public static ArrayList<RegionPopulationReport> getRegionPopulation(Connection con) {
-        String input = JOptionPane.showInputDialog("Enter the name of the district or leave blank for all district's");
-
-        if (input.isEmpty() == true) {
+        //Regex to check names
+        String Regex = "^[A-Za-z\\s%]+(?:[ '-][A-Za-z\\s%]+)*$";
+        //open scanner
+        Scanner scanner = new Scanner(System.in);
+       // ask user what they want
+        System.out.print("Enter the name of the district or leave blank for all district's");
+        // check input
+        String input = scanner.nextLine();
+        if (input.matches(Regex)||input.isEmpty() == true) {
+            //set the wild card to return all records
             input = "%";
             System.out.println(input);
+
+        } else {
+            //tell user that is not a valid city name
+            System.out.println("Invalid city name no records will show!");
         }
+
+        // close the scanner
+        scanner.close();
 
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve population data for each region
             String strSelect = "select district, population from city where district like '" + input + "'";
-
+            scanner.close();
             ResultSet rset = stmt.executeQuery(strSelect);
 
             ArrayList<RegionPopulationReport> regionReports = new ArrayList<>();
