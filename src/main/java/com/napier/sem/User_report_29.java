@@ -80,7 +80,7 @@ public class User_report_29 {
             return;
         }
 
-        System.out.println(String.format("%-25s %-25s %-25s %-25s", "Continent Name", "Total Population", "Population In Cities", "population Not In Cities"));
+        System.out.println(String.format("%-25s %-25s %-25s %-25s", "Continent Name", "Total Population", "Population In Cities", "Population Not In Cities"));
 
         for (ContinentPopulation continentPopulation : continentPopulationList) {
             if (continentPopulation != null) {
