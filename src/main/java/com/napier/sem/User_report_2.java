@@ -6,16 +6,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 public class User_report_2{
-
-    //Capital City Report
-
-/*A Capital city report requires the following columns:
-
-Name.
-Country.
-District.
-Population*/
-
+    // User Report 2 - Capital City Report
+/*A Capital City Report
+Name
+Country
+Population
+.*/
     public static class CapitalCityReport {
         private String cityName;
         private String countryName;
@@ -30,13 +26,13 @@ Population*/
 
         // toString method to represent the object as a string
         public String toString() {
-            return "City Name: " + cityName + ", " +
-                    "Country: " + countryName + ", " +
-                    "Population: " + population;
+            return  cityName +
+                    countryName +
+                    population;
         }
     }
 
-    // Method to retrieve capital city data for the report
+    // Method to retrieve capital city data for the report.
     public static ArrayList<CapitalCityReport> getAllCapitalCities(Connection con) {
         try {
             // Create an SQL statement
@@ -45,8 +41,7 @@ Population*/
             // SQL query to retrieve capital city data for the report
             String strSelect = "SELECT city.Name AS CityName, country.Name AS CountryName, city.Population " +
                     "FROM city " +
-                    "JOIN country ON country.Code = city.CountryCode " +
-                    "WHERE city.ID IN (SELECT country.Capital FROM country)";
+                    "JOIN country ON country.Capital = city.ID ";
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -79,11 +74,26 @@ Population*/
             System.out.println("No cities");
             return;
         }
+        //print report name
         System.out.println("Capital City Report:");
+        //format and print header
+        System.out.println(String.format("%-30s %-15s %-20s", "Capital City Name", "Country Name", "Population"));
+
         for (CapitalCityReport city : cities) {
-            System.out.println(city);
+            //If an atrabute value is null the job will continue
+            if (city == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-10s %-15s %-20s",
+                            city.cityName, city.countryName, city.population);
+            System.out.println(Table_string);
+
+
+
+
         }
     }
 }
 
-// The End
+//End
