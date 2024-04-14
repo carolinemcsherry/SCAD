@@ -24,7 +24,7 @@ public class App {
        // user report 1 Continent
         ArrayList<User_report_1_Continent.PopulationReport> ReportArray1a = User_report_1_Continent.getPopulationByRegion(con);
 
-        User_report_1_Continent.printPopulationReport(ReportArray1a);l
+        User_report_1_Continent.printPopulationReport(ReportArray1a);
 
         // user report 1 Country
         ArrayList<User_report_1_Country.PopulationReport> ReportArray1b = User_report_1_Country.getPopulationByRegion(con);
