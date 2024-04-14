@@ -161,9 +161,10 @@ public class App {
 // user report 34
         ArrayList<User_report_34.TopCitiesInContinent> ReportArray34 = User_report_34.getTopPopulatedCitiesInContinent(con);
         User_report_34.printTopPopulatedCitiesInContinent(ReportArray34);
+//User report 35
         ArrayList<User_Report_35.PopulationbyRegionReport> ReportArray35 = User_Report_35.getPopulationbyRegionReport(con);
         User_Report_35.printRegionPopulation(ReportArray35);
-
+// User report 36
         ArrayList<User_report_36.ContinentPopulation> ReportArray36 = User_report_36.getPopulationByContinent(con);
         User_report_36.printPopulationByContinent(ReportArray36);
 
