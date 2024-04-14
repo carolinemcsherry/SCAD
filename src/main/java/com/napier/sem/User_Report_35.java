@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 // The population of the world.
-public class User_report_12 {
+public class User_Report_35 {
 
     public static class PopulationbyRegionReport {
         private String Region;
@@ -23,8 +23,8 @@ public class User_report_12 {
 
         public String toString() {
             return  Region +
-                     City +
-                     + Population;
+                    City +
+                    + Population;
         }
     }
 
@@ -39,20 +39,20 @@ public class User_report_12 {
         // check to see if user entered a number
         while (myBool == true & i <5) {
             input = JOptionPane.showInputDialog("Enter the Number of top Populated City's in a Region's");
-        try
-        {
-            Integer.parseInt(input);
-            myBool = false;
-            break;
-        }
-        catch (NumberFormatException e)
-        {
-            //user gets 5 turns before stops
-            System.out.println("Attempt "+i +" of 5");
-            System.out.println(input + " is not a valid number!");
-            myBool = true;
-            i++;
-        } }
+            try
+            {
+                Integer.parseInt(input);
+                myBool = false;
+                break;
+            }
+            catch (NumberFormatException e)
+            {
+                //user gets 5 turns before stops
+                System.out.println("Attempt "+i +" of 5");
+                System.out.println(input + " is not a valid number!");
+                myBool = true;
+                i++;
+            } }
 //get string from user
         String Stringinput = JOptionPane.showInputDialog("Enter the name of the Region or leave blank for all Region's");
 // handeling null value in string to get full range
@@ -60,13 +60,13 @@ public class User_report_12 {
             Stringinput = "%";
         }
         try {
-                        Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement();
 
             // SQL query to retrieve top N populated capital cities in each region
             String strSelect = "SELECT country.Region, city.Name AS City, city.Population " +
                     "FROM city " +
                     "JOIN country ON city.CountryCode = country.Code " +
-                    "WHERE city.ID = country.Capital  and country.Region like '" + Stringinput +
+                    "WHERE country.Region like '" + Stringinput +
                     "' ORDER BY city.Population DESC " +
                     "LIMIT " + input ;
 
@@ -100,7 +100,7 @@ public class User_report_12 {
         }
         System.out.println("Region Population Report");
         //print header
-        System.out.println(String.format("%-25s %-20s %-20s", "Region", "Capatial City", "Population"));
+        System.out.println(String.format("%-25s %-20s %-20s", "Region", "City", "Population"));
 
         for (PopulationbyRegionReport region : regions) {
             if (region == null) {
@@ -114,5 +114,6 @@ public class User_report_12 {
             //    System.out.println(continent);
         }}
 }
+
 
 

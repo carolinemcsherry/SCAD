@@ -5,82 +5,94 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
-
-//All the capital cities in a region organised by largest to smallest.
+// The population of the world.
 public class User_report_14 {
 
-    // Inner class to represent the city report
-    public static class CityReport {
-        private String CityName;
-        private String CountryName;
-        private String District;
+    public static class PopulationbyRegionReport {
+        private String Region;
+        private String City;
         private int Population;
 
-        // Constructor for the CityReport class
-        public CityReport(String CityName, String CountryName, String District, int Population) {
-            this.CityName = CityName;
-            this.CountryName = CountryName;
-            this.District = District;
+        public PopulationbyRegionReport(String Region, String City, int Population) {
+            this.Region = Region;
+            this.City = City;
             this.Population = Population;
         }
 
-        // Method to represent the object as a string
         public String toString() {
-            return "City Name: " + CityName + ", " +
-                    "Country Name: " + CountryName + ", " +
-                    "District: " + District + ", " +
-                    "Population: " + Population;
+            return  Region +
+                    City +
+                    + Population;
         }
     }
 
-    // Method to retrieve city report data for all cities in a specific region sorted by population
-    public static ArrayList<CityReport> getCityReportByRegion(Connection con, String region) {
+    public static ArrayList<PopulationbyRegionReport> getPopulationbyRegionReport(Connection con) {
+
+//Var set up for methord
+        ArrayList<PopulationbyRegionReport> populationReports = new ArrayList<>();
+
+//get string from user
+        String Stringinput = JOptionPane.showInputDialog("Enter the name of the Region or leave blank for all Region's");
+// handeling null value in string to get full range
+        if (Stringinput.isEmpty() == true) {
+            Stringinput = "%";
+        }
         try {
             Statement stmt = con.createStatement();
 
-            // SQL query to retrieve city report data for all cities in a specific region
-            String strSelect = "SELECT A.Name AS CityName, B.Name AS CountryName, A.District, A.Population " +
-                    "FROM city A " +
-                    "JOIN country B ON A.CountryCode = B.Code " +
-                    "WHERE B.Region = '" + region + "' " +
-                    "ORDER BY A.Population DESC";
+            // SQL query to retrieve top N populated capital cities in each region
+            String strSelect = "SELECT country.Region, city.Name AS City, city.Population " +
+                    "FROM city " +
+                    "JOIN country ON city.CountryCode = country.Code " +
+                    "WHERE city.ID = country.Capital  and country.Region like '" + Stringinput +
+                    "' ORDER BY country.Region, city.Population DESC " ;
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
-            ArrayList<CityReport> cityReports = new ArrayList<>();
-
-            // Iterate through the result set and create CityReport objects
             while (rset.next()) {
-                String CityName = rset.getString("CityName");
-                String CountryName = rset.getString("CountryName");
-                String District = rset.getString("District");
+                String Region = rset.getString("Region");
+                String City = rset.getString("City");
                 int Population = rset.getInt("Population");
 
-                // Create a CityReport object and add it to the list
-                CityReport city = new CityReport(CityName, CountryName, District, Population);
-                cityReports.add(city);
+                PopulationbyRegionReport report = new PopulationbyRegionReport(Region, City, Population);
+                populationReports.add(report);
             }
 
-            // Close the result set and statement
             rset.close();
             stmt.close();
 
-            return cityReports;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get city report details");
-            return null;
+            System.out.println("Failed to get population report details");
         }
+
+        return populationReports;
     }
 
-    // Method to print city report data
-    public static void printCityReport(ArrayList<CityReport> cities) {
-        System.out.println("City Report");
-        // Iterate through the list of CityReport objects and print each one
-        for (CityReport city : cities) {
-            System.out.println(city);
+    //print section
+    public static void printRegionPopulation(ArrayList<PopulationbyRegionReport> regions) {
+        if (regions == null) {
+            System.out.println("No regions or empty list");
+            return;
         }
-    }
+        //name of report
+        System.out.println("Region Population Report");
+        //print header
+        System.out.println(String.format("%-25s %-20s %-20s", "Region", "Capatial City", "Population"));
+
+        for (PopulationbyRegionReport region : regions) {
+            if (region == null) {
+                System.out.println("Encountered a null region");
+                continue;
+            }
+            String emp_string =
+                    String.format("%-25s %-20s %-20s",
+                            region.Region, region.City, region.Population);
+            System.out.println(emp_string);
+            //    System.out.println(continent);
+        }}
 }
+
 

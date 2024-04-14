@@ -1,56 +1,80 @@
 package com.napier.sem;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-// The top N populated capital cities in a continent where N is provided by the user
 public class User_report_19 {
 
-    // Inner class to represent capital city data in a continent
     public static class CapitalCityDataInContinent {
-        private String cityName;
-        private int population;
+        private String countryContinent;
+        private String CityName;
+        private Long population;
 
-        // Constructor for CapitalCityDataInContinent class
-        public CapitalCityDataInContinent(String cityName, int population) {
-            this.cityName = cityName;
+        public CapitalCityDataInContinent(String countryContinent, String cityName, Long population) {
+           this.countryContinent = countryContinent;
+            this.CityName = cityName;
             this.population = population;
         }
 
-        // Method to represent the object as a string
         public String toString() {
-            return "City Name: " + cityName + ", " +
-                    "Population: " + population;
+            return countryContinent + CityName +  population;
         }
     }
 
-    // Method to retrieve the top N populated capital cities in a continent
-    public static ArrayList<CapitalCityDataInContinent> getTopPopulatedCapitalCitiesInContinent(Connection con, String continent, int N) {
+    public static ArrayList<CapitalCityDataInContinent> getTopPopulatedCapitalCitiesInContinent(Connection con) {
+    // set up vars for input
+        String input = "";
+        boolean myBool = true;
+        int i = 1;
+        // check to see if user entered a number
+        while (myBool == true & i <5) {
+            input = JOptionPane.showInputDialog("Enter the Number of top Populated Capital City's in \r\n a continent you would like to retreive");
+            try
+            {
+                Integer.parseInt(input);
+                myBool = false;
+                break;
+            }
+            catch (NumberFormatException e)
+            {
+                //user gets 5 turns before stops
+                System.out.println("Attempt "+i +" of 5");
+                System.out.println(input + " is not a valid number!");
+                myBool = true;
+                i++;
+            } }
+//get string from user
+        String Stringinput = JOptionPane.showInputDialog("Enter the name of the Region or leave blank for all Region's");
+// handeling null value in string to get full range
+        if (Stringinput.isEmpty() == true) {
+            Stringinput = "%";
+        }
+
         try {
+
             Statement stmt = con.createStatement();
 
-            // SQL query to retrieve the top N populated capital cities in a continent
-            String strSelect = "SELECT city.Name AS CityName, city.Population " +
+            String strSelect = "SELECT country.Continent as countryContinent, city.Name AS CityName, city.Population " +
                     "FROM city " +
                     "JOIN country ON city.ID = country.Capital " +
-                    "WHERE country.Continent = '" + continent + "' " +
+                    "WHERE country.Continent like '" + Stringinput + "' " +
                     "ORDER BY city.Population DESC " +
-                    "LIMIT " + N;
+                    "LIMIT " + input;
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
             ArrayList<CapitalCityDataInContinent> citiesList = new ArrayList<>();
 
-            // Iterate through the result set and create CapitalCityDataInContinent objects
             while (rset.next()) {
-                String cityName = rset.getString("CityName");
-                int population = rset.getInt("Population");
+                String countryContinent = rset.getString("countryContinent");
+                String CityName = rset.getString("CityName");
+                Long population = rset.getLong("Population");
 
-                // Create a CapitalCityDataInContinent object and add it to the list
-                CapitalCityDataInContinent city = new CapitalCityDataInContinent(cityName, population);
+                CapitalCityDataInContinent city = new CapitalCityDataInContinent(countryContinent, CityName, population);
                 citiesList.add(city);
             }
             return citiesList;
@@ -61,11 +85,22 @@ public class User_report_19 {
         }
     }
 
-    // Method to print the top N populated capital cities in a continent
     public static void printTopPopulatedCapitalCitiesInContinent(ArrayList<CapitalCityDataInContinent> citiesList) {
+        if (citiesList == null) {
+            System.out.println("No cities");
+            return;
+        }
+
         System.out.println("Top Populated Capital Cities in Continent Report:");
+
+        System.out.println(String.format("%-25s %-25s %-25s","Continent" ,"Capital City", "Population"));
         for (CapitalCityDataInContinent city : citiesList) {
-            System.out.println(city);
+            if (city == null)
+                continue;
+            String Table_string =
+                    String.format("%-25s %-25s%-25s",
+                            city.countryContinent, city.CityName, city.population);
+            System.out.println(Table_string);
         }
     }
 }

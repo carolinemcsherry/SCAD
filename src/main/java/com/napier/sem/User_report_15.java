@@ -5,75 +5,93 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
-
-//To explore capital cities within a specific continent, sorted by population from largest to smallest
+// The population of the world.
 public class User_report_15 {
 
-    // Inner class to represent capital cities by continent report
-    public static class CapitalCitiesByContinent {
-        private String cityName;
-        private String countryName;
-        private String continent;
-        private int population;
+    public static class PopulationbyContinentReport {
+        private String Continent;
+        private String City;
+        private long Population;
 
-        // Constructor for CapitalCitiesByContinent class
-        public CapitalCitiesByContinent(String cityName, String countryName, String continent, int population) {
-            this.cityName = cityName;
-            this.countryName = countryName;
-            this.continent = continent;
-            this.population = population;
+        public PopulationbyContinentReport(String Continent, String City, long Population) {
+            this.Continent = Continent;
+            this.City = City;
+            this.Population = Population;
         }
 
-        // Method to represent the object as a string
         public String toString() {
-            return "City Name: " + cityName + ", " +
-                    "Country: " + countryName + ", " +
-                    "Continent: " + continent + ", " +
-                    "Population: " + population;
+            return  Continent +
+                    City +
+                    + Population;
         }
     }
 
-    // Method to retrieve capital cities by continent
-    public static ArrayList<CapitalCitiesByContinent> getCapitalCitiesByContinent(Connection con, String continent) {
+    public static ArrayList<PopulationbyContinentReport> getPopulationbyRegionReport(Connection con) {
+
+//Var set up for methord
+        ArrayList<PopulationbyContinentReport> populationContinent = new ArrayList<>();
+
+//get string from user
+        String Stringinput = JOptionPane.showInputDialog("Enter the name of the Continent or leave blank for all Continent's");
+// handeling null value in string to get full range
+        if (Stringinput.isEmpty() == true) {
+            Stringinput = "%";
+        }
         try {
             Statement stmt = con.createStatement();
 
-            // SQL query to retrieve capital cities by continent
-            String strSelect = "SELECT city.Name AS CityName, country.Name AS CountryName, country.Continent, city.Population " +
+            // SQL query to retrieve top N populated capital cities in each region
+            String strSelect = "SELECT country.Continent, city.Name AS City, city.Population " +
                     "FROM city " +
-                    "JOIN country ON city.ID = country.Capital " +
-                    "WHERE country.Continent = '" + continent + "' " +
-                    "ORDER BY city.Population DESC";
+                    "JOIN country ON city.CountryCode = country.Code " +
+                    "WHERE city.ID = country.Capital  and country.Continent like '" + Stringinput +
+                    "' ORDER BY country.Continent, city.Population DESC " ;
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
-            ArrayList<CapitalCitiesByContinent> capitalCitiesByContinentList = new ArrayList<>();
-
-            // Iterate through the result set and create CapitalCitiesByContinent objects
             while (rset.next()) {
-                String cityName = rset.getString("CityName");
-                String countryName = rset.getString("CountryName");
-                String continentName = rset.getString("Continent");
-                int population = rset.getInt("Population");
+                String Continent = rset.getString("Continent");
+                String City = rset.getString("City");
+                long Population = rset.getLong("Population");
 
-                // Create a CapitalCitiesByContinent object and add it to the list
-                CapitalCitiesByContinent capitalCity = new CapitalCitiesByContinent(cityName, countryName, continentName, population);
-                capitalCitiesByContinentList.add(capitalCity);
+                PopulationbyContinentReport report = new PopulationbyContinentReport(Continent, City, Population);
+                populationContinent.add(report);
             }
-            return capitalCitiesByContinentList;
+
+            rset.close();
+            stmt.close();
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get capital cities by continent");
-            return null;
+            System.out.println("Failed to get population report details");
         }
+
+        return populationContinent;
     }
 
-    // Method to print capital cities by continent
-    public static void printCapitalCitiesByContinent(ArrayList<CapitalCitiesByContinent> capitalCitiesByContinentList) {
-        System.out.println("Capital Cities By Continent Report:");
-        for (CapitalCitiesByContinent capitalCity : capitalCitiesByContinentList) {
-            System.out.println(capitalCity);
+    //print section
+    public static void printRegionPopulation(ArrayList<PopulationbyContinentReport> Continents) {
+        if (Continents == null) {
+            System.out.println("No regions or empty list");
+            return;
         }
-    }
+        System.out.println("Region Population Report");
+        //print header
+        System.out.println(String.format("%-25s %-20s %-20s", "Continent", "Capatial City", "Population"));
+
+        for (PopulationbyContinentReport Continent : Continents) {
+            if (Continent == null) {
+                System.out.println("Encountered a null region");
+                continue;
+            }
+            String emp_string =
+                    String.format("%-25s %-20s %-20s",
+                            Continent.Continent, Continent.City, Continent.Population);
+            System.out.println(emp_string);
+            //    System.out.println(continent);
+        }}
 }
+
+

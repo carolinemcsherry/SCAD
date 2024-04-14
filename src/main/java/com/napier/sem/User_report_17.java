@@ -1,5 +1,6 @@
 package com.napier.sem;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,69 +8,111 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 
-// the top N populated cities within a district, where N is determined based on planning requirement
-public class User_report_17{
+// The population of people, people living in cities, and people not living in cities in each region.
 
-    // Inner class to represent the top N populated cities in a district report
-    public static class TopCitiesInDistrict {
-        private String cityName;
-        private String districtName;
-        private int population;
+public class User_report_17 {
 
-        // Constructor for TopCitiesInDistrict class
-        public TopCitiesInDistrict(String cityName, String districtName, int population) {
-            this.cityName = cityName;
-            this.districtName = districtName;
+    // Inner class to represent the population report of a region
+    public static class RegionPopulationReport {
+        private String district;
+        private long population;
+
+
+        // Constructor for the RegionPopulationReport class
+        public RegionPopulationReport(String district, long population) {
+            this.district = district;
             this.population = population;
+
         }
 
         // Method to represent the object as a string
         public String toString() {
-            return "City Name: " + cityName + ", " +
-                    "District Name: " + districtName + ", " +
-                    "Population: " + population;
+            return   district +
+                    population ;
         }
     }
 
-    // Method to retrieve top N populated cities in a district
-    public static ArrayList<TopCitiesInDistrict> getTopPopulatedCitiesInDistrict(Connection con, String district, int limit) {
+    // Method to retrieve population data for each region
+    public static ArrayList<RegionPopulationReport> getRegionPopulation(Connection con) {
+        String input = "";
+        boolean myBool = true;
+        int i = 1;
+        // check to see if user entered a number
+        while (myBool == true & i <5) {
+            input = JOptionPane.showInputDialog("Enter the Number of top Populated district's you would like");
+            try
+            {
+                Integer.parseInt(input);
+                myBool = false;
+                break;
+            }
+            catch (NumberFormatException e)
+            {
+                //user gets 5 turns before stops
+                System.out.println("Attempt "+i +" of 5");
+                System.out.println(input + " is not a valid number!");
+                myBool = true;
+                i++;
+            } }
+
+
+
+        String Stringinput = JOptionPane.showInputDialog("Enter the name of the district or leave blank for all district's");
+
+        if (Stringinput.isEmpty() == true) {
+            Stringinput = "%";
+            System.out.println(Stringinput);
+        }
+
         try {
             Statement stmt = con.createStatement();
 
-            // SQL query to retrieve top N populated cities in a district
-            String strSelect = "SELECT Name AS CityName, District, Population " +
-                    "FROM city " +
-                    "WHERE District = '" + district + "' " +
-                    "ORDER BY Population DESC " +
-                    "LIMIT " + limit;
+            // SQL query to retrieve population data for each region
+            String strSelect = "select district, population from city where district like '" + Stringinput + "' LIMIT " + input;
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
-            ArrayList<TopCitiesInDistrict> topCitiesList = new ArrayList<>();
+            ArrayList<RegionPopulationReport> regionReports = new ArrayList<>();
 
-            // Iterate through the result set and create TopCitiesInDistrict objects
+            // Iterate through the result set and create RegionPopulationReport objects
             while (rset.next()) {
-                String cityName = rset.getString("CityName");
-                String districtName = rset.getString("District");
-                int population = rset.getInt("Population");
+                String district = rset.getString("district");
+                long population = rset.getLong("population");
 
-                // Create a TopCitiesInDistrict object and add it to the list
-                TopCitiesInDistrict topCity = new TopCitiesInDistrict(cityName, districtName, population);
-                topCitiesList.add(topCity);
+                // Create a RegionPopulationReport object and add it to the list
+                RegionPopulationReport region = new RegionPopulationReport(district, population);
+                regionReports.add(region);
             }
-            return topCitiesList;
+            return regionReports;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get top populated cities in the district");
+            System.out.println("Failed to get region population details");
             return null;
         }
     }
 
-    // Method to print top N populated cities in a district
-    public static void printTopPopulatedCitiesInDistrict(ArrayList<TopCitiesInDistrict> topCitiesList) {
-        System.out.println("Top Populated Cities in the District Report:");
-        for (TopCitiesInDistrict topCity : topCitiesList) {
-            System.out.println(topCity);
+    // Method to print population data for each region
+    public static void printRegionPopulation(ArrayList<RegionPopulationReport> regions) {
+        // Check Array List  is not null
+        if (regions == null)
+        {
+            System.out.println("No regions");
+            return;
+        }
+        //print report name
+        System.out.println("Region Population Report");
+        //format and print header
+        System.out.println(String.format("%-25s %-25s", "District", "population"));
+        // Iterate through the list of RegionPopulationReport objects and print each one
+        for (RegionPopulationReport region : regions) {
+            //If an atrabute value is null the job will continue
+            if (region == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-25s",
+                            region.district, region.population);
+            System.out.println(Table_string);
         }
     }
 }

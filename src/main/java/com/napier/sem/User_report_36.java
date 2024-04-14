@@ -1,78 +1,89 @@
 package com.napier.sem;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+/*The population of people, people living in cities, and people not living in cities in each region. */
 
 public class User_report_36 {
 
-    public static class CityPopulation {
-        private String cityName;
-        private int population;
+    // Inner class to represent the population data for each continent
+    public static class ContinentPopulation {
+        private String regionName;
+        private long populationInCities;
+        private long populationNotInCities;
 
-        public CityPopulation(String cityName, int population) {
-            this.cityName = cityName;
-            this.population = population;
+        // Constructor for ContinentPopulation class
+        public ContinentPopulation(String regionName,long populationInCities,long populationNotInCities) {
+            this.regionName = regionName;
+            this.populationInCities = populationInCities;
+            this.populationNotInCities = populationNotInCities;
         }
 
-        public String getCityName() {
-            return cityName;
-        }
-
-        public int getPopulation() {
-            return population;
+        // Method to represent the object as a string
+        public String toString() {
+            return regionName
+                    + populationInCities
+                    + populationNotInCities;
         }
     }
 
-    public static Map<String, Map<String, Integer>> getTopNCitiesPopulation(Connection con, int N) {
-        Map<String, Map<String, Integer>> topNCities = new HashMap<>();
+    // Method to retrieve population data for each continent
+    public static ArrayList<ContinentPopulation> getPopulationByContinent(Connection con) {
 
         try {
             Statement stmt = con.createStatement();
 
-            String strSelect = "SELECT R.Name AS Region, C.Name AS City, C.Population " +
-                    "FROM city C " +
-                    "JOIN country CO ON C.CountryCode = CO.Code " +
-                    "JOIN region R ON CO.Region = R.Code " +
-                    "ORDER BY R.Name, C.Population DESC";
+            // SQL query to retrieve population data for each continent
+            String strSelect = "SELECT country.region as regionName, " +
+                                        "SUM(city.Population) AS PopulationInCities, " +
+                    "(country.Population - SUM(city.Population)) AS PopulationNotInCities " +
+                    "FROM country " +
+                    "LEFT JOIN city ON country.Code = city.CountryCode " +
+                    "GROUP BY country.region, country.Population";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
+            ArrayList<ContinentPopulation> continentPopulationList = new ArrayList<>();
+
+            // Iterate through the result set and create ContinentPopulation objects
             while (rset.next()) {
-                String region = rset.getString("Region");
-                String city = rset.getString("City");
-                int population = rset.getInt("Population");
+                String regionName = rset.getString("regionName");
+                long populationInCities = rset.getLong("PopulationInCities");
+                long populationNotInCities = rset.getLong("PopulationNotInCities");
 
-                topNCities.putIfAbsent(region, new HashMap<>());
-                Map<String, Integer> cities = topNCities.get(region);
-
-                if (cities.size() < N) {
-                    cities.put(city, population);
-                }
+                // Create a ContinentPopulation object and add it to the list
+                ContinentPopulation continentPopulation = new ContinentPopulation(regionName, populationInCities, populationNotInCities);
+                continentPopulationList.add(continentPopulation);
             }
-
-            rset.close();
-            stmt.close();
-
+            return continentPopulationList;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get top N cities population");
+            System.out.println("Failed to get population data by continent");
+            return null;
         }
-
-        return topNCities;
     }
 
-    public static void printTopNCities(Map<String, Map<String, Integer>> topNCities) {
-        System.out.println("Top N Populated Cities Report");
-        for (String region : topNCities.keySet()) {
-            System.out.println("Region: " + region);
-            Map<String, Integer> cities = topNCities.get(region);
-            for (String city : cities.keySet()) {
-                System.out.println("City: " + city + ", Population: " + cities.get(city));
+    // Method to print population data for each continent
+    public static void printPopulationByContinent(ArrayList<ContinentPopulation> continentPopulationList) {
+        if (continentPopulationList == null) {
+            System.out.println("No continentPopulationList");
+            return;
+        }
+
+        System.out.println(String.format("%-35s %-25s %-25s", "Region Name", "Population In Cities", "Population Not In Cities"));
+
+        for (ContinentPopulation continentPopulation : continentPopulationList) {
+            if (continentPopulation != null) {
+                String tableString = String.format("%-35s %-25s %-25s",
+                        continentPopulation.regionName,  continentPopulation.populationInCities, continentPopulation.populationNotInCities);
+                System.out.println(tableString);
             }
-            System.out.println();
         }
     }
 }
+

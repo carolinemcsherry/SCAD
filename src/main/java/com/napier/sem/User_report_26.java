@@ -5,37 +5,60 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 // The top N populated countries in the world where N is provided by the user.
 public class User_report_26{
 
     // Inner class to represent country data
     public static class CountryData {
         private String countryName;
-        private int population;
+        private Long population;
 
         // Constructor for CountryData class
-        public CountryData(String countryName, int population) {
+        public CountryData(String countryName, Long population) {
             this.countryName = countryName;
             this.population = population;
         }
 
         // Method to represent the object as a string
         public String toString() {
-            return "Country Name: " + countryName + ", " +
-                    "Population: " + population;
+            return countryName +
+                    population;
         }
     }
 
     // Method to retrieve the top N populated countries in the world
-    public static ArrayList<CountryData> getTopPopulatedCountries(Connection con, int N) {
+    public static ArrayList<CountryData> getTopPopulatedCountries(Connection con) {
+        // set up vars for input
+        String input = "";
+        boolean myBool = true;
+        int i = 1;
+        // check to see if user entered a number
+        while (myBool == true & i <5) {
+            input = JOptionPane.showInputDialog("Enter the Number of top Populated Countries to retrieve ");
+            try
+            {
+                Integer.parseInt(input);
+                myBool = false;
+                break;
+            }
+            catch (NumberFormatException e)
+            {
+                //user gets 5 turns before stops
+                System.out.println("Attempt "+i +" of 5");
+                System.out.println(input + " is not a valid number!");
+                myBool = true;
+                i++;
+            } }
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve the top N populated countries in the world
-            String strSelect = "SELECT Name AS CountryName, Population " +
+            String strSelect = "SELECT Name AS countryName, Population " +
                     "FROM country " +
                     "ORDER BY Population DESC " +
-                    "LIMIT " + N;
+                    "LIMIT " + input;
+
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -44,7 +67,7 @@ public class User_report_26{
             // Iterate through the result set and create CountryData objects
             while (rset.next()) {
                 String countryName = rset.getString("CountryName");
-                int population = rset.getInt("Population");
+                Long population = rset.getLong("Population");
 
                 // Create a CountryData object and add it to the list
                 CountryData country = new CountryData(countryName, population);
@@ -59,10 +82,19 @@ public class User_report_26{
     }
 
     // Method to print the top N populated countries in the world
-    public static void printTopPopulatedCountries(ArrayList<CountryData> countriesList) {
-        System.out.println("Top Populated Countries Report:");
-        for (CountryData country : countriesList) {
-            System.out.println(country);
+    public static void printTopPopulatedCountries(ArrayList<CountryData> countryDataList) {
+        if (countryDataList == null) {
+            System.out.println("No countries");
+            return;
         }
-    }
-}
+        System.out.println("Top Populated Countries Report:");
+        System.out.println(String.format("%-30s %-30s", "Country", "Population"));
+        for (CountryData countryData : countryDataList) {
+            if (countryData == null) {
+                System.out.println("Null country");
+                continue;
+            }
+            System.out.println(String.format("%-30s %-30s",
+                    countryData.countryName, countryData.population));
+        }
+    }}

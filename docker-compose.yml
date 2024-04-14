@@ -8,7 +8,7 @@ services:
   # Builds container for db server, sets root password and gives port 3306 for container.
   db:
     build: db/.
-    command: --default-authentication-plugin=mysql_native_password --bind-address=0.0.0.0
+    command: --default-authentication-plugin=mysql_native_password
     restart: always
     ports:
-      - "3306:3306"
+    - "33060:3306"

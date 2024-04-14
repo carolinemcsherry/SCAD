@@ -1,6 +1,7 @@
 
 package com.napier.sem;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,10 +19,10 @@ public class User_report_21 {
         private String CityName;
         private String CountryName;
         private String District;
-        private int Population;
+        private Long Population;
 
         // Constructor for the CityReport class
-        public CityReport(String CityName, String CountryName, String District, int Population) {
+        public CityReport(String CityName, String CountryName, String District, Long Population) {
             this.CityName = CityName;
             this.CountryName = CountryName;
             this.District = District;
@@ -30,24 +31,31 @@ public class User_report_21 {
 
         // Method to represent the object as a string
         public String toString() {
-            return "City Name: " + CityName + ", " +
-                    "Country Name: " + CountryName + ", " +
-                    "District: " + District + ", " +
-                    "Population: " + Population;
+            return  CityName +
+                    CountryName +
+                    District +
+                    Population;
         }
     }
 
     // Method to retrieve city report data for a specific district sorted by population
-    public static ArrayList<CityReport> getCityReportByDistrict(Connection con, String district) {
+    public static ArrayList<CityReport> getCityReportByDistrict(Connection con) {
+        //get string from user
+        String Stringinput = JOptionPane.showInputDialog("Enter the name of the district or leave blank for all district's");
+// handeling null value in string to get full range
+        if (Stringinput.isEmpty() == true) {
+            Stringinput = "%";
+        }
+
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve city report data for a specific district
-            String strSelect = "SELECT A.Name AS CityName, B.Name AS CountryName, A.District, A.Population " +
-                    "FROM city A " +
-                    "LEFT JOIN country B ON A.CountryCode = B.Code " +
-                    "WHERE A.District = '" + district + "' " +
-                    "ORDER BY A.Population DESC";
+            String strSelect = "SELECT city.Name AS CityName, country.Name AS CountryName, city.District, city.Population " +
+                    "FROM city " +
+                    "LEFT JOIN country ON city.CountryCode = country.Code " +
+                    "WHERE city.District Like '" + Stringinput + "' "+
+                    "ORDER BY city.Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -58,7 +66,7 @@ public class User_report_21 {
                 String CityName = rset.getString("CityName");
                 String CountryName = rset.getString("CountryName");
                 String District = rset.getString("District");
-                int Population = rset.getInt("Population");
+                Long Population = rset.getLong("Population");
 
                 // Create a CityReport object and add it to the list
                 CityReport city = new CityReport(CityName, CountryName, District, Population);
@@ -79,10 +87,26 @@ public class User_report_21 {
 
     // Method to print city report data
     public static void printCityReport(ArrayList<CityReport> cities) {
-        System.out.println("City Report");
+        // Check Array List  is not null
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
+
+        System.out.println("All City's In a District Report:");
+        //format and print header
+        System.out.println(String.format("%-25s %-35s %-25s %-25s", "CityName", "CountryName","District", "Population"));
         // Iterate through the list of CityReport objects and print each one
-        for (CityReport city : cities) {
-            System.out.println(city);
+        for (CityReport city : cities)
+        {
+            if (city == null)
+                continue;
+            //Prints table values in columbs
+            String Table_string =
+                    String.format("%-25s %-35s %-25s %-25s",
+                            city.CityName, city.CountryName, city.District , city.Population);
+            System.out.println(Table_string);
         }
     }
 }

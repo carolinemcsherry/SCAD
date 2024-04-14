@@ -11,32 +11,34 @@ public class User_report_30{
 
     // Inner class to represent country data within a region
     public static class CountryInRegion {
+        private String region;
         private String countryName;
-        private int population;
+        private long population;
 
         // Constructor for CountryInRegion class
-        public CountryInRegion(String countryName, int population) {
+        public CountryInRegion(String countryName, String region, long population) {
+            this.region = region;
             this.countryName = countryName;
             this.population = population;
         }
 
         // Method to represent the object as a string
         public String toString() {
-            return "Country Name: " + countryName + ", " +
-                    "Population: " + population;
+            return region+ countryName
+                    + population;
         }
     }
 
     // Method to retrieve countries in a region organized by largest population to smallest
-    public static ArrayList<CountryInRegion> getCountriesByRegion(Connection con, String region) {
+    public static ArrayList<CountryInRegion> getCountriesByRegion(Connection con) {
+
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve countries in a region organized by largest population to smallest
-            String strSelect = "SELECT Name AS CountryName, Population " +
+            String strSelect = "SELECT region, Name AS CountryName, Population " +
                     "FROM country " +
-                    "WHERE Region = '" + region + "' " +
-                    "ORDER BY Population DESC";
+                    "ORDER BY region desc, Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -44,11 +46,12 @@ public class User_report_30{
 
             // Iterate through the result set and create CountryInRegion objects
             while (rset.next()) {
+                String region = rset.getString("region");
                 String countryName = rset.getString("CountryName");
                 int population = rset.getInt("Population");
 
                 // Create a CountryInRegion object and add it to the list
-                CountryInRegion country = new CountryInRegion(countryName, population);
+                CountryInRegion country = new CountryInRegion(countryName,region, population);
                 countriesList.add(country);
             }
             return countriesList;
@@ -61,9 +64,18 @@ public class User_report_30{
 
     // Method to print countries in a region organized by largest population to smallest
     public static void printCountriesByRegion(ArrayList<CountryInRegion> countriesList) {
-        System.out.println("Countries by Region Report:");
+        if (countriesList == null) {
+            System.out.println("No countriesList");
+            return;
+        }
+
+        System.out.println(String.format("%-35s %-40s %-25s", "Region", "Country Name", "population"));
+
         for (CountryInRegion country : countriesList) {
-            System.out.println(country);
+            if (country != null) {
+                String tableString = String.format("%-35s%-40s %-25s",country.region, country.countryName, country.population);
+                System.out.println(tableString);
+            }
         }
     }
 }
