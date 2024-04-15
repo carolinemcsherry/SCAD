@@ -32,7 +32,7 @@ void testGetPopulationForCity() {
 @Test
 void testGetPopulationForContinent() {
     int population = User_report_1_Continent.getPopulationByRegion ("Asia");
-    assertTrue(population > 0);
+    assertTrue(population = 0);
 }
 */
 
