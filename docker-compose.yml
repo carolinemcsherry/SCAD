@@ -5,6 +5,7 @@ services:
     build: .
 
 
+
   # Builds container for db server, sets root password and gives port 3306 for container.
   db:
     build: db/.

@@ -36,26 +36,26 @@ static boolean exit;
         System.out.println("Please make your choice: ");
     }
 
-    private static int getInput(boolean exit){
+    private static int getInput(boolean exit) {
         Scanner kb = new Scanner(System.in);
-        int choice = -1 ;
-                   if (kb.hasNextLine()) {
-                // Read the input line and parse it to an integer
-                try {
-                    choice = Integer.parseInt(kb.nextLine());
-                } catch (NumberFormatException e) {
-                    System.out.println("Invalid input. Please enter a valid integer.");
-                    // You might want to handle this error case appropriately
-                }
-            } else {
-                System.out.println("No input provided.");
-                // You might want to handle this case appropriately
+
+        int choice = 0;
+        if (kb.hasNextLine()) {
+            // Read the input line and parse it to an integer
+            try {
+                choice = Integer.parseInt(kb.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                // You might want to handle this error case appropriately
             }
+        } else {
+            System.out.println("No input provided.");
+            // You might want to handle this case appropriately
+        }
 
-            // Now you have the user's choice in the 'choice' variable
-            System.out.println("Your choice is: " + choice);
-
-        return choice;
+        // Now you have the user's choice in the 'choice' variable
+        System.out.println("Your choice is: " + choice);
+       return choice;
     }
 
     private static void performAction(int choice, Connection con){
@@ -64,6 +64,7 @@ static boolean exit;
             case 0:
                 exit = true;
                 System.out.println("Thank you for using this serviec!");
+
                  break;
             case 1:
                 // user report 32
