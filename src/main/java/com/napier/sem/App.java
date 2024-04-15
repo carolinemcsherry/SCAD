@@ -17,8 +17,8 @@ public class App {
             a.connect("localhost:33060", 10000);
         } else {
             a.connect(args[0], Integer.parseInt(args[1]));
-        }
 
+        }
         con = App.con;
 
        // user report 1 Continent
