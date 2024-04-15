@@ -21,6 +21,9 @@ public class App {
         }
         con = App.con;
 
+
+       CountryInfo.getCountryInfo("countryCode");
+/*
        // user report 1 Continent
         ArrayList<User_report_1_Continent.PopulationReport> ReportArray1a = User_report_1_Continent.getPopulationByRegion(con);
 
@@ -166,7 +169,7 @@ public class App {
 
         ArrayList<User_report_36.ContinentPopulation> ReportArray36 = User_report_36.getPopulationByContinent(con);
         User_report_36.printPopulationByContinent(ReportArray36);
-
+*/
         // disconect from BD
         a.disconnect();
         System.out.println("Database has successfully disconnected");
