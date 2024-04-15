@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 //cities within a particular region, sorted by population from largest to smallest
 
@@ -38,10 +39,15 @@ public class User_report_23 {
     // Method to retrieve city report data for cities within a specific region sorted by population
     public static ArrayList<CityReport> getCitiesByRegion(Connection con) {
         //get string from user
-        String Stringinput = JOptionPane.showInputDialog("Enter the name of the Region or leave blank for all Region's");
-// handeling null value in string to get full range
+        Scanner scanner = new Scanner(System.in);
+        // ask user what they want
+        System.out.print("Enter the name of the Region or leave blank for all Region's: ");
+        // check input
+        String Stringinput = scanner.nextLine();
         if (Stringinput.isEmpty() == true) {
+            //set the wild card to return all records
             Stringinput = "%";
+
         }
         try {
             Statement stmt = con.createStatement();

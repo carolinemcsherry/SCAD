@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 // The population of the world.
@@ -32,13 +34,28 @@ public class User_report_15 {
 
 //Var set up for methord
         ArrayList<PopulationbyContinentReport> populationContinent = new ArrayList<>();
-
-//get string from user
-        String Stringinput = JOptionPane.showInputDialog("Enter the name of the Continent or leave blank for all Continent's");
-// handeling null value in string to get full range
+        int input = 0;
+        //open scanner
+        Scanner scanner = new Scanner(System.in);
+        // ask user what they want
+        System.out.print("Enter the name of the Continent or leave blank for all Continent's");
+        // check input
+        String Stringinput = scanner.nextLine();
         if (Stringinput.isEmpty() == true) {
+            //set the wild card to return all records
             Stringinput = "%";
+
         }
+        try {
+            System.out.print("Enter the number of records you want to retrieve: ");
+            input = scanner.nextInt(); // Try to read an integer
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input! Please enter a valid number.");
+
+            scanner.nextInt(); // Clear the input buffer
+        }
+
+
         try {
             Statement stmt = con.createStatement();
 

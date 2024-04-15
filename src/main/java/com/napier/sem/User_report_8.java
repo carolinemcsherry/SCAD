@@ -33,38 +33,15 @@ public class User_report_8 {
         }
     }
 
+
     // Method to retrieve country population data
     public static ArrayList<CountryPopulation> getCountryPopulation(Connection con) {
-
-        //Regex to check names
-        String Regex = "^[A-Za-z\\s%]+(?:[ '-][A-Za-z\\s%]+)*$";
-        //open scanner
-        Scanner scanner = new Scanner(System.in);
-        // ask user what they want
-        System.out.print("Enter the name of the country or leave blank for all country's");
-        // check input
-        String input = scanner.nextLine();
-        if (input.matches(Regex)||input.isEmpty() == true) {
-            //set the wild card to return all records
-            input = "%";
-            System.out.println(input);
-
-        } else {
-            //tell user that is not a valid city name
-            System.out.println("Invalid city name no records will show!");
-        }
-
-        // close the scanner
-        scanner.close();
-
-
-
 
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve country population data
-            String strSelect = "SELECT name, population FROM country where name like '" + input + "'";
+            String strSelect = "SELECT name, population FROM country order by country.name ";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
@@ -75,11 +52,12 @@ public class User_report_8 {
                 String name = rset.getString("Name");
                 long Population = rset.getLong("Population");
 
-
                 // Create a CountryPopulation object and add it to the list
                 CountryPopulation countryPopulation = new CountryPopulation(name, Population);
                 countryPopulationList.add(countryPopulation);
             }
+
+
             return countryPopulationList;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -87,6 +65,7 @@ public class User_report_8 {
             return null;
         }
     }
+
 
     // Method to print country population data
     public static void printCountryPopulation(ArrayList<CountryPopulation> countryPopulationList) {

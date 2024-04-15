@@ -35,33 +35,17 @@ public class User_report_12 {
 //Var set up for methord
         ArrayList<PopulationbyRegionReport> populationReports = new ArrayList<>();
         int input = 0;
-        //Regex to check names
-        String Regex = "^[A-Za-z\\s%]+(?:[ '-][A-Za-z\\s%]+)*$";
         //open scanner
         Scanner scanner = new Scanner(System.in);
-        // ask user what they want
-        System.out.print("Enter the Number of records to retrieve");
-        // check input
-        String Stringinput = scanner.nextLine();
-        if (Stringinput.matches(Regex)||Stringinput.isEmpty() == true) {
-            //set the wild card to return all records
-            Stringinput = "%";
-
-        } else {
-            //tell user that is not a valid city name
-            System.out.println("Invalid name no records will show!");
-        }
-
-        try {
-            System.out.print("Enter the number of records you want to retrieve : ");
+            try {
+            System.out.print("Enter the number of records you want to retrieve: ");
              input = scanner.nextInt(); // Try to read an integer
-        } catch (InputMismatchException f) {
+        } catch (InputMismatchException e) {
             System.out.println("Invalid input! Please enter a valid number.");
 
             scanner.nextInt(); // Clear the input buffer
         }
-        // close the scanner
-        scanner.close();
+
 
         try {
                         Statement stmt = con.createStatement();
@@ -70,8 +54,8 @@ public class User_report_12 {
             String strSelect = "SELECT country.Region, city.Name AS City, city.Population " +
                     "FROM city " +
                     "JOIN country ON city.CountryCode = country.Code " +
-                    "WHERE city.ID = country.Capital  and country.Region like '" + Stringinput +
-                    "' ORDER BY city.Population DESC " +
+                    "WHERE city.ID = country.Capital " +
+                    " ORDER BY city.Population DESC " +
                     "LIMIT " + input ;
 
             ResultSet rset = stmt.executeQuery(strSelect);

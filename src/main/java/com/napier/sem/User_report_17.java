@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 
 // The population of people, people living in cities, and people not living in cities in each region.
@@ -34,34 +36,26 @@ public class User_report_17 {
 
     // Method to retrieve population data for each region
     public static ArrayList<RegionPopulationReport> getRegionPopulation(Connection con) {
-        String input = "";
-        boolean myBool = true;
-        int i = 1;
-        // check to see if user entered a number
-        while (myBool == true & i <5) {
-            input = JOptionPane.showInputDialog("Enter the Number of top Populated district's you would like");
-            try
-            {
-                Integer.parseInt(input);
-                myBool = false;
-                break;
-            }
-            catch (NumberFormatException e)
-            {
-                //user gets 5 turns before stops
-                System.out.println("Attempt "+i +" of 5");
-                System.out.println(input + " is not a valid number!");
-                myBool = true;
-                i++;
-            } }
 
-
-
-        String Stringinput = JOptionPane.showInputDialog("Enter the name of the district or leave blank for all district's");
-
+        int input = 0;
+        //open scanner
+        Scanner scanner = new Scanner(System.in);
+        // ask user what they want
+        System.out.print("Enter the name of the district or leave blank for all district's: ");
+        // check input
+        String Stringinput = scanner.nextLine();
         if (Stringinput.isEmpty() == true) {
+            //set the wild card to return all records
             Stringinput = "%";
-            System.out.println(Stringinput);
+
+        }
+        try {
+            System.out.print("Enter the number of records you want to retrieve: ");
+            input = scanner.nextInt(); // Try to read an integer
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input! Please enter a valid number.");
+
+            scanner.nextInt(); // Clear the input buffer
         }
 
         try {

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 //All the cities in a continent organised by largest population to smallest.
 public class User_report_24 {
@@ -36,10 +37,16 @@ public class User_report_24 {
 
     // Method to retrieve city report data for cities within a specific continent sorted by population
     public static ArrayList<CityReport> getCitiesByContinent(Connection con) {
-        String Stringinput = JOptionPane.showInputDialog("Enter the name of the continent or leave blank for all continent's");
-// handeling null value in string to get full range
+        //get string from user
+        Scanner scanner = new Scanner(System.in);
+        // ask user what they want
+        System.out.print("Enter the name of the continent or leave blank for all continent's: ");
+        // check input
+        String Stringinput = scanner.nextLine();
         if (Stringinput.isEmpty() == true) {
+            //set the wild card to return all records
             Stringinput = "%";
+
         }
 
         try {

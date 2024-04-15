@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 //All the cities in a country organised by largest population to smallest.
 
@@ -36,10 +37,15 @@ public class User_report_22 {
     public static ArrayList<CityReport> getCityReport(Connection con) {
 
         //get string from user
-        String Stringinput = JOptionPane.showInputDialog("Enter the name of the country or leave blank for all country's");
-// handeling null value in string to get full range
+        Scanner scanner = new Scanner(System.in);
+        // ask user what they want
+        System.out.print("Enter the name of the country or leave blank for all country's: ");
+        // check input
+        String Stringinput = scanner.nextLine();
         if (Stringinput.isEmpty() == true) {
+            //set the wild card to return all records
             Stringinput = "%";
+
         }
 
         try {

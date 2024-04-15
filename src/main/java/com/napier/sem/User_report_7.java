@@ -35,36 +35,14 @@ public class User_report_7 {
 
     // Method to retrieve population data for each region
     public static ArrayList<RegionPopulationReport> getRegionPopulation(Connection con) {
-        //Regex to check names
-        String Regex = "^[A-Za-z\\s%]+(?:[ '-][A-Za-z\\s%]+)*$";
-        //open scanner
-        Scanner scanner = new Scanner(System.in);
-       // ask user what they want
-        System.out.print("Enter the name of the district or leave blank for all district's");
-        // check input
-        String input = scanner.nextLine();
-        if (input.matches(Regex)||input.isEmpty() == true) {
-            //set the wild card to return all records
-            input = "%";
-            System.out.println(input);
-
-        } else {
-            //tell user that is not a valid city name
-            System.out.println("Invalid city name no records will show!");
-        }
-
-        // close the scanner
-        scanner.close();
-
+        ArrayList<RegionPopulationReport> regionReports = new ArrayList<>();
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve population data for each region
-            String strSelect = "select district, population from city where district like '" + input + "'";
-            scanner.close();
-            ResultSet rset = stmt.executeQuery(strSelect);
+            String strSelect = "select district, population from city ";
 
-            ArrayList<RegionPopulationReport> regionReports = new ArrayList<>();
+            ResultSet rset = stmt.executeQuery(strSelect);
 
             // Iterate through the result set and create RegionPopulationReport objects
             while (rset.next()) {
@@ -74,13 +52,17 @@ public class User_report_7 {
                 // Create a RegionPopulationReport object and add it to the list
                 RegionPopulationReport region = new RegionPopulationReport(district, population);
                 regionReports.add(region);
+
             }
+
             return regionReports;
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get region population details");
             return null;
         }
+
     }
 
     // Method to print population data for each region

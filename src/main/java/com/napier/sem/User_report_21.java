@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Scanner;
 
 //all cities within my district, sorted by population from largest to smallest
 
@@ -41,10 +42,15 @@ public class User_report_21 {
     // Method to retrieve city report data for a specific district sorted by population
     public static ArrayList<CityReport> getCityReportByDistrict(Connection con) {
         //get string from user
-        String Stringinput = JOptionPane.showInputDialog("Enter the name of the district or leave blank for all district's");
-// handeling null value in string to get full range
+        Scanner scanner = new Scanner(System.in);
+        // ask user what they want
+        System.out.print("Enter the name of the district or leave blank for all district's: ");
+        // check input
+        String Stringinput = scanner.nextLine();
         if (Stringinput.isEmpty() == true) {
+            //set the wild card to return all records
             Stringinput = "%";
+
         }
 
         try {

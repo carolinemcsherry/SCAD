@@ -41,36 +41,14 @@ public class User_report_10{
     // Method to retrieve population data for all continents
     public static ArrayList<ContinentPopulationReport> getAllContinentsPopulation(Connection con) {
 
-        //Regex to check names
-        String Regex = "^[A-Za-z\\s%]+(?:[ '-][A-Za-z\\s%]+)*$";
-        //open scanner
-        Scanner scanner = new Scanner(System.in);
-        // ask user what they want
-        System.out.print("Enter the name of the Continent or leave blank for all Continent's");
-        // check input
-        String input = scanner.nextLine();
-        if (input.matches(Regex)||input.isEmpty() == true) {
-            //set the wild card to return all records
-            input = "%";
-            System.out.println(input);
-
-        } else {
-            //tell user that is not a valid city name
-            System.out.println("Invalid city name no records will show!");
-        }
-
-        // close the scanner
-        scanner.close();
-
-
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve continent-wise population data
             String strSelect = "SELECT country.Continent, " +
                     "SUM(country.Population) AS Total_Continent_Population " +
-                     "FROM country where country.Continent like '" +  input +
-                    "' GROUP BY country.Continent";
+                     "FROM country " +
+                    "GROUP BY country.Continent";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 

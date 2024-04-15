@@ -43,15 +43,14 @@ public class User_report_13 {
         //new  scanner
         Scanner scanner = new Scanner(System.in);
         try {
-            System.out.print("Enter the Number of top Populated Region's");
+            System.out.print("Enter the Number of top Populated Region's: ");
              input = scanner.nextInt(); // Try to read an integer
-        } catch (InputMismatchException f) {
+        } catch (InputMismatchException e) {
             System.out.println("Invalid input! Please enter a valid number.");
 
             scanner.nextInt(); // Clear the input buffer
         }
-        // close the scanner
-        scanner.close();
+
 
         try {
             Statement stmt = con.createStatement();

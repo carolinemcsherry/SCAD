@@ -35,25 +35,19 @@ public class User_report_14 {
         ArrayList<PopulationbyRegionReport> populationReports = new ArrayList<>();
 
 //get string from user
-        //Regex to check names
-        String Regex = "^[A-Za-z\\s%]+(?:[ '-][A-Za-z\\s%]+)*$";
-        //open scanner
+           //open scanner
         Scanner scanner = new Scanner(System.in);
         // ask user what they want
-        System.out.print("Enter the name of the Region or leave blank for all Region's");
+        System.out.print("Enter the name of the Region or leave blank for all Region's: ");
         // check input
         String Stringinput = scanner.nextLine();
-        if (Stringinput.matches(Regex)||Stringinput.isEmpty() == true) {
+        if (Stringinput.isEmpty() == true) {
             //set the wild card to return all records
             Stringinput = "%";
 
-        } else {
-            //tell user that is not a valid city name
-            System.out.println("Invalid name no records will show!");
         }
 
-        // close the scanner
-        scanner.close();
+
         try {
             Statement stmt = con.createStatement();
 

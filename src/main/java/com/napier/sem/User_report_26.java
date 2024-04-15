@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 // The top N populated countries in the world where N is provided by the user.
 public class User_report_26{
@@ -29,27 +31,18 @@ public class User_report_26{
 
     // Method to retrieve the top N populated countries in the world
     public static ArrayList<CountryData> getTopPopulatedCountries(Connection con) {
-        // set up vars for input
-        String input = "";
-        boolean myBool = true;
-        int i = 1;
-        // check to see if user entered a number
-        while (myBool == true & i <5) {
-            input = JOptionPane.showInputDialog("Enter the Number of top Populated Countries to retrieve ");
-            try
-            {
-                Integer.parseInt(input);
-                myBool = false;
-                break;
-            }
-            catch (NumberFormatException e)
-            {
-                //user gets 5 turns before stops
-                System.out.println("Attempt "+i +" of 5");
-                System.out.println(input + " is not a valid number!");
-                myBool = true;
-                i++;
-            } }
+        int input = 0;
+        //open scanner
+        Scanner scanner = new Scanner(System.in);
+        // ask user what they want
+        try {
+            System.out.print("Enter the number of records you want to retrieve: ");
+            input = scanner.nextInt(); // Try to read an integer
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input! Please enter a valid number.");
+
+            scanner.nextInt(); // Clear the input buffer
+        }
         try {
             Statement stmt = con.createStatement();
 

@@ -42,34 +42,18 @@ Population */
 
     // Method to retrieve city data for the report
     public static ArrayList<CityReport> getAllCities(Connection con) {
-        String Regex = "^[A-Za-z\\s%]+(?:[ '-][A-Za-z\\s%]+)*$";
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the name of the city or leave blank for all citys");
-
-        String input = scanner.nextLine();
-        if (input.matches(Regex)||input.isEmpty() == true) {
-              //set the wild card to return all records
-                input = "%";
-                System.out.println(input);
-
-        } else {
-            //tell user that is not a valid city name
-            System.out.println("Invalid city name no records will show!");
-        }
-
-       // close the scanner
-        scanner.close();
+        ArrayList<CityReport> cityReports = new ArrayList<>();
         try {
             // Create an SQL statement
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve city data for the report
-            String strSelect = "SELECT city.Name AS CityName, country.Name AS CountryName, city.District, city.Population FROM city JOIN country ON country.Code = city.CountryCode where city.Name like '" + input +"'";
+            String strSelect = "SELECT city.Name AS CityName, country.Name AS CountryName, city.District, city.Population FROM city JOIN country ON country.Code = city.CountryCode ";
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
 
-            ArrayList<CityReport> cityReports = new ArrayList<>();
+
 
             // Iterate through the result set and create CityReport objects
             while (rset.next()) {
