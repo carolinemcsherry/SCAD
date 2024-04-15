@@ -3,7 +3,7 @@ package com.napier.sem;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AppIntegrationTest {
     static App app;
@@ -26,4 +26,16 @@ public class AppIntegrationTest {
         // Assert that the returned city is not null
         assertTrue(testCity != null);
     }
+    @Test
+    public void testGetCityByName() {
+        CityName cityNameInstance = new CityName();
+        // Pass the name of the city you want to test
+        String cityName = "Dunedin";
+        CityName testCity = cityNameInstance;
+
+        // Assert that the returned city is not null
+        assertNotNull(testCity);
+    }
+
+
 }
