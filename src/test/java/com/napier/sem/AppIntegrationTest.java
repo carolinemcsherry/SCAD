@@ -20,25 +20,23 @@ public class AppIntegrationTest {
 
     }
 }
-/* @Test
+/*
+ @Test
 void testGetPopulationForCountry() {
-    int population = app.getPopulationForCountry ("China");
+    int population = User_report_1_Country.getPopulationByRegion ("China");
     assertTrue(population > 0);     }
 @Test
 void testGetPopulationForCity() {
-    int population = app.getPopulationForCity ("Shanghai");
+    int population = User_report_1_Region.getPopulationByRegion ("Shanghai");
     assertTrue(population > 0);     }
 @Test
 void testGetPopulationForContinent() {
-    int population = app.getPopulationForContinent ("Asia");
+    int population = User_report_1_Continent.getPopulationByRegion ("Asia");
     assertTrue(population > 0);
 }
-}
- */
-/*
-@Test
-void testGetPopulationForCountry() {
-    SELECT COUNT (name)
-            From country then as if COUNT (name) > 1
+*/
 
-}*/
+
+
+
+
