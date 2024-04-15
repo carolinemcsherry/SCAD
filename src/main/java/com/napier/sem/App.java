@@ -21,8 +21,10 @@ public class App {
 
         con = App.con;
 
+        Menu.runMenu(con);
+
         // user report 1 Continent
-        ArrayList<User_report_1_Continent.PopulationReport> ReportArray1a = User_report_1_Continent.getPopulationByRegion(con);
+     /*   ArrayList<User_report_1_Continent.PopulationReport> ReportArray1a = User_report_1_Continent.getPopulationByRegion(con);
 
         User_report_1_Continent.printPopulationReport(ReportArray1a);
 
@@ -169,7 +171,7 @@ public class App {
         User_Report_35.printRegionPopulation(ReportArray35);
 // User report 36
         ArrayList<User_report_36.ContinentPopulation> ReportArray36 = User_report_36.getPopulationByContinent(con);
-        User_report_36.printPopulationByContinent(ReportArray36);
+        User_report_36.printPopulationByContinent(ReportArray36);*/
 
         // disconect from BD
         a.disconnect();

@@ -11,7 +11,7 @@ static boolean exit;
     PrintHeader();
     while (!exit){
         printMenu();
-        int choice = getInput();
+        int choice = getInput(exit);
         performAction(choice, con);
     }
 
@@ -33,13 +33,13 @@ static boolean exit;
         System.out.println("1)All the countries in the world organised by largest population to smallest.");
         System.out.println("2)All the countries in a continent organised by largest population to smallest.");
         System.out.println("3) All the countries in a region organised by largest population to smallest. ");
+        System.out.println("Please make your choice: ");
     }
 
-    private static int getInput(){
+    private static int getInput(boolean exit){
         Scanner kb = new Scanner(System.in);
-        int choice = -1;
-        while (choice < 0 || choice > 3){
-            if (kb.hasNextLine()) {
+        int choice = -1 ;
+                   if (kb.hasNextLine()) {
                 // Read the input line and parse it to an integer
                 try {
                     choice = Integer.parseInt(kb.nextLine());
@@ -55,10 +55,6 @@ static boolean exit;
             // Now you have the user's choice in the 'choice' variable
             System.out.println("Your choice is: " + choice);
 
-            // Close the scanner when done
-            kb.close();
-        }
-
         return choice;
     }
 
@@ -68,24 +64,21 @@ static boolean exit;
             case 0:
                 exit = true;
                 System.out.println("Thank you for using this serviec!");
-                break;
+                 break;
             case 1:
-                ArrayList<test_sql.CapitalCityReport> ReportArray1 = test_sql.getAllCities(con);
-                if (ReportArray1 != null) {
-                    // Print the retrieved cities to the console
-                    //log post
-                    System.out.println("going to print reports.");
-
-                    test_sql.printAllCities(ReportArray1);
-                } else {
-                    System.out.println("No report retrieved from the database.");
-                }
+                // user report 32
+                ArrayList<User_report_32.CountryData> ReportArray32 = User_report_32.getCountriesByPopulation(con);
+                User_report_32.printCountriesByPopulation(ReportArray32);
                 break;
             case 2:
-                System.out.println("testing.");
+                // user report 31
+                ArrayList<User_report_31.CountryInContinent> ReportArray31 = User_report_31.getCountriesByContinent(con);
+                User_report_31.printCountriesByContinent(ReportArray31);
                 break;
             case 3:
-                System.out.println("testing.");
+                // user report 30
+                ArrayList<User_report_30.CountryInRegion> ReportArray30 = User_report_30.getCountriesByRegion(con);
+                User_report_30.printCountriesByRegion(ReportArray30);
                 break;
             default:
                 System.out.println("testing.");
