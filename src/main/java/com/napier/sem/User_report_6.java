@@ -89,7 +89,7 @@ Population */
         for (CityReport city : cities) {
             if (city == null)
                 continue;
-            //Prints table values in columbs
+            //Prints table values in columns
             String Table_string =
                     String.format("%-25s %-25s %-25s %-25s",
                             city.cityName, city.countryName, city.district , city.population);
