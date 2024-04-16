@@ -3,9 +3,12 @@ package com.napier.sem;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import static com.napier.sem.App.con;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AppIntegrationTest {
@@ -86,7 +89,7 @@ public class AppIntegrationTest {
         // Optional: Add more assertions to validate the result set, if needed
     }
 
-    
+
     @Test
     public void testResultSetContent() throws SQLException {
         // Test the content of the result set returned by getCountryLanguage method
@@ -102,4 +105,125 @@ public class AppIntegrationTest {
 
         // Optional: Add more assertions to validate the result set content, if needed
     }
+    @Test
+    public void testGetPopulation1() {
+        // Test the getPopulationByRegion method
+        ArrayList<User_report_1_Continent.PopulationReport> populationReports = User_report_1_Continent.getPopulationByRegion(con);
+        assertNotNull(populationReports);
+
+        // Check if the result is not empty
+        assertFalse(populationReports.isEmpty());
+    }
+    @Test
+    public void testPrintPopulation1() {
+        // Test the printPopulationReport method
+        ArrayList<User_report_1_Continent.PopulationReport> populationReports = User_report_1_Continent.getPopulationByRegion(con);
+        assertNotNull(populationReports);
+
+        // Call the printPopulationReport method with the retrieved data
+        User_report_1_Continent.printPopulationReport(populationReports);
+
+        // No direct assertions, as it prints to the console
+    }
+
+    @Test
+    public void testGetPopulationByCountry() {
+        // Test the getPopulationByRegion method
+        ArrayList<User_report_1_Country.PopulationReport> populationReports = User_report_1_Country.getPopulationByRegion(con);
+        assertNotNull(populationReports);
+
+        // Check if the result is not empty
+        assertFalse(populationReports.isEmpty());
+
+        // Optionally, you can add more assertions to validate the contents of the result
+    }
+
+    @Test
+    public void testPrintPopulationReportCountry() {
+        // Test the printPopulationReport method
+        ArrayList<User_report_1_Country.PopulationReport> populationReports = User_report_1_Country.getPopulationByRegion(con);
+        assertNotNull(populationReports);
+
+        // Call the printPopulationReport method with the retrieved data
+        User_report_1_Country.printPopulationReport(populationReports);
+
+        // No direct assertions, as it prints to the console
+    }
+    @Test
+    public void testGetPopulationByRegion() {
+        // Test the getPopulationByRegion method
+        ArrayList<User_report_1_Region.PopulationReport> populationReports = User_report_1_Region.getPopulationByRegion(con);
+        assertNotNull(populationReports);
+
+        // Check if the result is not empty
+        assertFalse(populationReports.isEmpty());
+
+        // Optionally, you can add more assertions to validate the contents of the result
+    }
+
+    @Test
+    public void testPrintPopulationReport() {
+        // Test the printPopulationReport method
+        ArrayList<User_report_1_Region.PopulationReport> populationReports = User_report_1_Region.getPopulationByRegion(con);
+        assertNotNull(populationReports);
+
+        // Call the printPopulationReport method with the retrieved data
+        User_report_1_Region.printPopulationReport(populationReports);
+
+        // No direct assertions, as it prints to the console
+    }
+    @Test
+    public void testGetAllCapitalCities() {
+        // Test the getAllCapitalCities method
+        ArrayList<User_report_2.CapitalCityReport> capitalCities = User_report_2.getAllCapitalCities(con);
+        assertNotNull(capitalCities);
+
+        // Check if the result is not empty
+        assertFalse(capitalCities.isEmpty());
+
+        // Optionally, you can add more assertions to validate the contents of the result
+    }
+
+    @Test
+    public void testPrintCapitalCityReport() {
+        // Test the printCapitalCityReport method
+        ArrayList<User_report_2.CapitalCityReport> capitalCities = User_report_2.getAllCapitalCities(con);
+        assertNotNull(capitalCities);
+
+        // Call the printCapitalCityReport method with the retrieved data
+        User_report_2.printCapitalCityReport(capitalCities);
+    }
+
+    @Test
+    void testGetCityReport() {
+        // Test if the getCityReport method returns a non-null ArrayList
+        ArrayList<User_report_3.CityReport> cities = User_report_3.getCityReport(con);
+        assertNotNull(cities);
+    }
+
+    @Test
+    void testPrintCityReport() {
+        // Test if the printCityReport method prints something (no assertion)
+        ArrayList<User_report_3.CityReport> cities = User_report_3.getCityReport(con);
+        User_report_3.printCityReport(cities);
+    }
+
+
+    @Test
+    void testGetLanguageStatistics() {
+        // Test if the getLanguageStatistics method returns a non-null ArrayList
+        ArrayList<User_report_5.LanguageStats> languageStatsList = User_report_5.getLanguageStatistics(con);
+        assertNotNull(languageStatsList);
+    }
+
+    @Test
+    void testPrintLanguageStatistics() {
+        // Test if the printLanguageStatistics method prints something (no assertion)
+        ArrayList<User_report_5.LanguageStats> languageStatsList = User_report_5.getLanguageStatistics(con);
+        User_report_5.printLanguageStatistics(languageStatsList);
+    }
+
+
 }
+
+
