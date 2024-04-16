@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -34,20 +35,16 @@ public class User_report_12 {
 
 //Var set up for methord
         ArrayList<PopulationbyRegionReport> populationReports = new ArrayList<>();
-        int input = 0;
+
         //open scanner
         Scanner scanner = new Scanner(System.in);
-            try {
+        int input = 10; // Default value
+        try {
+
             System.out.print("Enter the number of records you want to retrieve: ");
-             input = scanner.nextInt(); // Try to read an integer
-                if(input == 0){
-
-                    input = 5;
-                }
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid input! Please enter a valid number.");
-
-            scanner.nextInt(); // Clear the input buffer
+            input = scanner.nextInt();
+        } catch (NoSuchElementException e) {
+            // No user input, continue with default value
         }
 
 
