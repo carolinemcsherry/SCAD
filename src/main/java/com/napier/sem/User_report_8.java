@@ -84,7 +84,7 @@ public class User_report_8 {
             //If an attribute value is null the job will continue
             if (countryPopulation == null)
                 continue;
-            //Prints table values in columbs
+            //Prints table values in columns
             String Table_string =
                     String.format("%-35s %-20s ",
                             countryPopulation.name,countryPopulation.Population);
