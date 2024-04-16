@@ -82,7 +82,7 @@ public class User_report_7 {
             //If an atrabute value is null the job will continue
             if (region == null)
                 continue;
-            //Prints table values in columbs
+            //Prints table values in columns
             String Table_string =
                     String.format("%-25s %-25s",
                             region.district, region.population);
