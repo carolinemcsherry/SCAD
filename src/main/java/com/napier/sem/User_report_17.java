@@ -41,14 +41,7 @@ public class User_report_17 {
         //open scanner
         Scanner scanner = new Scanner(System.in);
         // ask user what they want
-        System.out.print("Enter the name of the district or leave blank for all district's: ");
-        // check input
-        String Stringinput = scanner.nextLine();
-        if (Stringinput.isEmpty() == true) {
-            //set the wild card to return all records
-            Stringinput = "%";
 
-        }
         int input = 10; // Default value
         try {
 
@@ -62,7 +55,7 @@ public class User_report_17 {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve population data for each region
-            String strSelect = "select district, population from city where district like '" + Stringinput + "' LIMIT " + input;
+            String strSelect = "select district, population from city  LIMIT " + input;
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
