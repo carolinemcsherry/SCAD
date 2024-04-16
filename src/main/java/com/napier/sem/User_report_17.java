@@ -38,7 +38,7 @@ public class User_report_17 {
     // Method to retrieve population data for each region
     public static ArrayList<RegionPopulationReport> getRegionPopulation(Connection con) {
 
-        //open scanner
+        //Open scanner
         Scanner scanner = new Scanner(System.in);
         // ask user what they want
 
