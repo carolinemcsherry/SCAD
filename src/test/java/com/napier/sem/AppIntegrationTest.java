@@ -3,6 +3,9 @@ package com.napier.sem;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AppIntegrationTest {
@@ -62,8 +65,6 @@ public class AppIntegrationTest {
         // Pass the country code "BFA" to get country information
         CountryInfo.getCountryInfo("BFA");
 
-        // In this test case, we are not validating the output, just ensuring no exceptions are thrown
-        // You may add additional assertions to validate the output if needed
     }
 
     @Test
@@ -76,5 +77,29 @@ public class AppIntegrationTest {
         // You may add additional assertions to validate the output if needed
     }
 
+    @Test
+    public void testGetCountryLanguageWithValidLanguage() {
+        // Test with a language that exists in the database
+        ResultSet resultSet = CountryLanguage.getCountryLanguage("French");
+        assertNotNull(resultSet);
 
+        // Optional: Add more assertions to validate the result set, if needed
+    }
+
+    
+    @Test
+    public void testResultSetContent() throws SQLException {
+        // Test the content of the result set returned by getCountryLanguage method
+        ResultSet resultSet = CountryLanguage.getCountryLanguage("Spanish");
+        assertNotNull(resultSet);
+
+        // Check if the result set contains expected columns
+        assertTrue(resultSet.next());
+        assertNotNull(resultSet.getString("CountryCode"));
+        assertNotNull(resultSet.getString("Language"));
+        assertNotNull(resultSet.getString("IsOfficial"));
+        assertTrue(resultSet.getDouble("Percentage") >= 0);
+
+        // Optional: Add more assertions to validate the result set content, if needed
+    }
 }

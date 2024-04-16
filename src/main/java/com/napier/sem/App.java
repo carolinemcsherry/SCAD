@@ -1,8 +1,8 @@
 package com.napier.sem;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 /*
 * Main appliacation to run reports
@@ -20,9 +20,25 @@ public class App {
 
         }
         con = App.con;
+        ResultSet resultSet = CountryLanguage.getCountryLanguage("French");
+        try {
+            while (resultSet.next()) {
+                String countryCode = resultSet.getString("CountryCode");
+                String language = resultSet.getString("Language");
+                String isOfficial = resultSet.getString("IsOfficial");
+                double percentage = resultSet.getDouble("Percentage");
+                // Print or use the language information as needed
+                System.out.println("Country Code: " + countryCode);
+                System.out.println("Language: " + language);
+                System.out.println("Is Official: " + isOfficial);
+                System.out.println("Percentage: " + percentage);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
-       CountryInfo.getCountryInfo("countryCode");
+
 /*
        // user report 1 Continent
         ArrayList<User_report_1_Continent.PopulationReport> ReportArray1a = User_report_1_Continent.getPopulationByRegion(con);
