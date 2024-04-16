@@ -45,14 +45,14 @@ static boolean exit;
                     choice = Integer.parseInt(kb.nextLine());
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid input. Please enter a valid integer.");
-                    // You might want to handle this error case appropriately
+                    // catch if input is no number
                 }
             } else {
                 System.out.println("No input provided.");
-                // You might want to handle this case appropriately
+                // else if no input is provided
             }
 
-            // Now you have the user's choice in the 'choice' variable
+            // input is now stored in the choice variable
             System.out.println("Your choice is: " + choice);
 
             // Close the scanner when done
