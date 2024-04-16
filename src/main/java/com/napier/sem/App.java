@@ -116,13 +116,12 @@ public class App {
 
           // user report 18
         ArrayList<User_report_18.TopCitiesInCountry> ReportArray16 = User_report_18.getTopPopulatedCitiesInCountry(con);
-
         User_report_18.printTopPopulatedCitiesInCountry(ReportArray16);
 
-       // user report 19
+      // user report 19
         ArrayList<User_report_19.CapitalCityDataInContinent> ReportArray19 = User_report_19.getTopPopulatedCapitalCitiesInContinent(con);
-        User_report_19.printTopPopulatedCapitalCitiesInContinent(ReportArray19);
-   // user report 20
+        User_report_19.printTopPopulatedCapitalCitiesInContinent(ReportArray19);// user report 20
+
         ArrayList<User_report_20.TopCitiesInWorld> ReportArray20 = User_report_20.getTopPopulatedCitiesInWorld(con);
         User_report_20.printTopPopulatedCitiesInWorld(ReportArray20);
   // user report 21
@@ -133,7 +132,8 @@ public class App {
         User_report_22.printCityReport(ReportArray22);
  // user report 23
         ArrayList<User_report_23.CityReport> ReportArray23 = User_report_23.getCitiesByRegion(con);
-// user report 24
+        User_report_23.printCityReport(ReportArray23);
+   // user report 24
         ArrayList<User_report_24.CityReport> ReportArray24 = User_report_24.getCitiesByContinent(con);
         User_report_24.printCityReport(ReportArray24);
 // user report 25
