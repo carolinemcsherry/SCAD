@@ -103,7 +103,7 @@ public class User_report_1_Country {
             //If an attribute value is null the job will continue
             if (Region == null)
                 continue;
-            //Prints table values in columbs
+            //Prints table values in columns
             String Table_string =
                     String.format("%-35s %-25s %-25s%-25s %-25s %-25s",
                             Region.CountryName, Region.Total_Country_Population, Region.Total_City_Population, Region.City_Population_Percentage, Region.Total_City_Population, Region.None_City_Population_Percentage);
