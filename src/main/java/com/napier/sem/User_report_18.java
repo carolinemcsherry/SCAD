@@ -92,7 +92,7 @@ public class User_report_18 {
             System.out.println("No regions");
             return;
         }
-        //print report name
+        //Print report name
         System.out.println("Region Population Report");
         //format and print header
         System.out.println(String.format("%-25s %-25s %-25s", "countryName", "cityName", "population"));
