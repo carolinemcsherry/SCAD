@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
-//all cities within my district, sorted by population from largest to smallest
+//All cities within my district, sorted by population from largest to smallest
 
 public class User_report_21 {
 
