@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 
@@ -39,16 +40,16 @@ public class User_report_13 {
     public static ArrayList<TopCapitalCitiesInWorld> getTopPopulatedCapitalCitiesInWorld(Connection con) {
         //Var set up for methord
         ArrayList<TopCapitalCitiesInWorld> topCapitalCitiesList = new ArrayList<>();
-        int input =0;
+
         //new  scanner
         Scanner scanner = new Scanner(System.in);
+        int input = 10; // Default value
         try {
-            System.out.print("Enter the Number of top Populated Region's: ");
-             input = scanner.nextInt(); // Try to read an integer
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid input! Please enter a valid number.");
 
-            scanner.nextInt(); // Clear the input buffer
+            System.out.print("Enter the number of records you want to retrieve: ");
+            input = scanner.nextInt();
+        } catch (NoSuchElementException e) {
+            // No user input, continue with default value
         }
 
 
