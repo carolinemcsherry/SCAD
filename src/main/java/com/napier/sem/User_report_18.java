@@ -40,7 +40,7 @@ public class User_report_18 {
     // Method to retrieve population data for each region
     public static ArrayList<TopCitiesInCountry> getTopPopulatedCitiesInCountry(Connection con)  {
 
-        //open scanner
+        //Open scanner
         Scanner scanner = new Scanner(System.in);
 
         int input = 10; // Default value
