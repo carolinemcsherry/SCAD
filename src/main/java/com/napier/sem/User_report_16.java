@@ -72,7 +72,7 @@
             return;
         }
 
-        //name of report
+        //Name of report
         System.out.println("Capital Cities in the World Report:");
         //print header
         System.out.println(String.format("%-35s %-35s %-20s", "Country Name", "Capatial City", "Population"));
