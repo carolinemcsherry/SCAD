@@ -91,7 +91,7 @@ public class User_report_5{
         System.out.println(String.format("%-25s %-25s %-25s", "Language", "speakers_world_wide", "percentage_of_speakers"));
 
         for (LanguageStats Stat : languageStatsList) {
-            //If an atrabute value is null the job will continue
+            //If an attribute value is null the job will continue
             if (Stat == null)
                 continue;
             //Prints table values in columbs
