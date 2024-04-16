@@ -74,7 +74,7 @@
 
         //Name of report
         System.out.println("Capital Cities in the World Report:");
-        //print header
+        //Print header
         System.out.println(String.format("%-35s %-35s %-20s", "Country Name", "Capatial City", "Population"));
         for (CapitalCitiesWorld capitalCity : capitalCitiesWorldList) {
             if (capitalCity == null) {
