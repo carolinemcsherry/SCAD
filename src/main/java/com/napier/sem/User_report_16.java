@@ -8,7 +8,7 @@
     import java.sql.Statement;
     import java.util.ArrayList;
 
-    // capital cities in the world, sorted by population from largest to smallest
+    // Capital cities in the world, sorted by population from largest to smallest
 
     public class User_report_16 {
         public static class CapitalCitiesWorld {
