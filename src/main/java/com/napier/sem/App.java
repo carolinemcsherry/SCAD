@@ -1,12 +1,12 @@
 package com.napier.sem;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 /*
- * Main appliacation to run reports
- * */
+* Main appliacation to run reports
+* */
 
 public class App {
 
@@ -17,22 +17,38 @@ public class App {
             a.connect("localhost:33060", 10000);
         } else {
             a.connect(args[0], Integer.parseInt(args[1]));
+
+        }
+        con = App.con;
+        ResultSet resultSet = CountryLanguage.getCountryLanguage("French");
+        try {
+            while (resultSet.next()) {
+                String countryCode = resultSet.getString("CountryCode");
+                String language = resultSet.getString("Language");
+                String isOfficial = resultSet.getString("IsOfficial");
+                double percentage = resultSet.getDouble("Percentage");
+                // Print or use the language information as needed
+                System.out.println("Country Code: " + countryCode);
+                System.out.println("Language: " + language);
+                System.out.println("Is Official: " + isOfficial);
+                System.out.println("Percentage: " + percentage);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-        con = App.con;
 
-        Menu.runMenu(con);
 
-        // user report 1 Continent
-     /*   ArrayList<User_report_1_Continent.PopulationReport> ReportArray1a = User_report_1_Continent.getPopulationByRegion(con);
+/*
+       // user report 1 Continent
+        ArrayList<User_report_1_Continent.PopulationReport> ReportArray1a = User_report_1_Continent.getPopulationByRegion(con);
 
         User_report_1_Continent.printPopulationReport(ReportArray1a);
 
         // user report 1 Country
         ArrayList<User_report_1_Country.PopulationReport> ReportArray1b = User_report_1_Country.getPopulationByRegion(con);
 
-
-       User_report_1_Country.printPopulationReport(ReportArray1b);
+        User_report_1_Country.printPopulationReport(ReportArray1b);
         // user report 1 Region
         ArrayList<User_report_1_Region.PopulationReport> ReportArray1c = User_report_1_Region.getPopulationByRegion(con);
 
@@ -51,39 +67,36 @@ public class App {
 
         User_report_4.printCountryReport(ReportArray2);
 // user report 5
-
         ArrayList<User_report_5.LanguageStats> ReportArray3 = User_report_5.getLanguageStatistics(con);
 
         User_report_5.printLanguageStatistics(ReportArray3);
 
 // user report 6
-
-        ArrayList<User_report_6.CityReport> ReportArray4 = User_report_6.getAllCities(con);
+       ArrayList<User_report_6.CityReport> ReportArray4 = User_report_6.getAllCities(con);
 
         User_report_6.printCityReport(ReportArray4);
 
 // user report 7
-
-        ArrayList<User_report_7.RegionPopulationReport> ReportArray5 = User_report_7.getRegionPopulation(con);
+       ArrayList<User_report_7.RegionPopulationReport> ReportArray5 = User_report_7.getRegionPopulation(con);
 
         User_report_7.printRegionPopulation(ReportArray5);
 // user report 8
 
 
-        ArrayList<User_report_8.CountryPopulation> ReportArray6 = User_report_8.getCountryPopulation(con);
+         ArrayList<User_report_8.CountryPopulation> ReportArray6 = User_report_8.getCountryPopulation(con);
 
-        User_report_8.printCountryPopulation(ReportArray6);
+         User_report_8.printCountryPopulation(ReportArray6);
 // user report 9
-        ArrayList<User_report_9.RegionPopulationReport> ReportArray7 = User_report_9.getAllRegionsPopulation(con);
+       ArrayList<User_report_9.RegionPopulationReport> ReportArray7 = User_report_9.getAllRegionsPopulation(con);
 
         User_report_9.printAllRegionsPopulation(ReportArray7);
 
         // user report 10
-        ArrayList<User_report_10.ContinentPopulationReport> ReportArray8 = User_report_10.getAllContinentsPopulation(con);
+         ArrayList<User_report_10.ContinentPopulationReport> ReportArray8 = User_report_10.getAllContinentsPopulation(con);
 
         User_report_10.printAllContinentsPopulation(ReportArray8);
         // user report 11
-        ArrayList<User_report_11.WorldPopulationReport> ReportArray9 = User_report_11.getWorldPopulationList(con);
+       ArrayList<User_report_11.WorldPopulationReport> ReportArray9 = User_report_11.getWorldPopulationList(con);
 
         User_report_11.printWorldPopulationReport(ReportArray9);
 
@@ -92,7 +105,7 @@ public class App {
 
         User_report_12.printRegionPopulation(ReportArray10);
         // user report 13
-        ArrayList<User_report_13.TopCapitalCitiesInWorld> ReportArray11 = User_report_13.getTopPopulatedCapitalCitiesInWorld(con);
+         ArrayList<User_report_13.TopCapitalCitiesInWorld> ReportArray11 = User_report_13.getTopPopulatedCapitalCitiesInWorld(con);
 
         User_report_13.printTopCapitalCitiesInWorld(ReportArray11);
 
@@ -100,8 +113,9 @@ public class App {
         ArrayList<User_report_14.PopulationbyRegionReport> ReportArray12 = User_report_14.getPopulationbyRegionReport(con);
 
         User_report_14.printRegionPopulation(ReportArray12);
+
         // user report 15
-        ArrayList<User_report_15.PopulationbyContinentReport> ReportArray13 = User_report_15.getPopulationbyRegionReport(con);
+       ArrayList<User_report_15.PopulationbyContinentReport> ReportArray13 = User_report_15.getPopulationbyRegionReport(con);
 
         User_report_15.printRegionPopulation(ReportArray13);
 
@@ -110,7 +124,7 @@ public class App {
 
         User_report_16.printCapitalCitiesWorld(ReportArray14);
         // user report 17
-        ArrayList<User_report_17.RegionPopulationReport> ReportArray15 = User_report_17.getRegionPopulation(con);
+         ArrayList<User_report_17.RegionPopulationReport> ReportArray15 = User_report_17.getRegionPopulation(con);
 
         User_report_17.printRegionPopulation(ReportArray15);
 
@@ -126,7 +140,7 @@ public class App {
         ArrayList<User_report_20.TopCitiesInWorld> ReportArray20 = User_report_20.getTopPopulatedCitiesInWorld(con);
         User_report_20.printTopPopulatedCitiesInWorld(ReportArray20);
 // user report 21
-        ArrayList<User_report_21.CityReport> ReportArray21 = User_report_21.getCityReportByDistrict(con);
+       ArrayList<User_report_21.CityReport> ReportArray21 = User_report_21.getCityReportByDistrict(con);
         User_report_21.printCityReport(ReportArray21);
 // user report 22
         ArrayList<User_report_22.CityReport> ReportArray22 = User_report_22.getCityReport(con);
@@ -137,10 +151,10 @@ public class App {
         ArrayList<User_report_24.CityReport> ReportArray24 = User_report_24.getCitiesByContinent(con);
         User_report_24.printCityReport(ReportArray24);
 // user report 25
-        ArrayList<User_report_25.CityReport> ReportArray25 = User_report_25.getCitiesInWorld(con);
+         ArrayList<User_report_25.CityReport> ReportArray25 = User_report_25.getCitiesInWorld(con);
         User_report_25.printCityReport(ReportArray25);
 // user report 26
-        ArrayList<User_report_26.CountryData> ReportArray26 = User_report_26.getTopPopulatedCountries(con);
+       ArrayList<User_report_26.CountryData> ReportArray26 = User_report_26.getTopPopulatedCountries(con);
         User_report_26.printTopPopulatedCountries(ReportArray26);
 // user report 27
         ArrayList<User_report_27.TopCountriesInContinent> ReportArray27 = User_report_27.getTopPopulatedCountriesInContinent(con);
@@ -152,13 +166,13 @@ public class App {
         ArrayList<User_report_29.ContinentPopulation> ReportArray29 = User_report_29.getPopulationByContinent(con);
         User_report_29.printPopulationByContinent(ReportArray29);
 // user report 30
-        ArrayList<User_report_30.CountryInRegion> ReportArray30 = User_report_30.getCountriesByRegion(con);
+         ArrayList<User_report_30.CountryInRegion> ReportArray30 = User_report_30.getCountriesByRegion(con);
         User_report_30.printCountriesByRegion(ReportArray30);
 // user report 31
-        ArrayList<User_report_31.CountryInContinent> ReportArray31 = User_report_31.getCountriesByContinent(con);
+       ArrayList<User_report_31.CountryInContinent> ReportArray31 = User_report_31.getCountriesByContinent(con);
         User_report_31.printCountriesByContinent(ReportArray31);
 // user report 32
-        ArrayList<User_report_32.CountryData> ReportArray32 = User_report_32.getCountriesByPopulation(con);
+         ArrayList<User_report_32.CountryData> ReportArray32 = User_report_32.getCountriesByPopulation(con);
         User_report_32.printCountriesByPopulation(ReportArray32);
 // user report 33
         ArrayList<User_report_33.TopCountriesInContinent> ReportArray33 = User_report_33.getTopPopulatedCountriesInContinent(con);
@@ -166,13 +180,12 @@ public class App {
 // user report 34
         ArrayList<User_report_34.TopCitiesInContinent> ReportArray34 = User_report_34.getTopPopulatedCitiesInContinent(con);
         User_report_34.printTopPopulatedCitiesInContinent(ReportArray34);
-//User report 35
         ArrayList<User_Report_35.PopulationbyRegionReport> ReportArray35 = User_Report_35.getPopulationbyRegionReport(con);
         User_Report_35.printRegionPopulation(ReportArray35);
-// User report 36
-        ArrayList<User_report_36.ContinentPopulation> ReportArray36 = User_report_36.getPopulationByContinent(con);
-        User_report_36.printPopulationByContinent(ReportArray36);*/
 
+        ArrayList<User_report_36.ContinentPopulation> ReportArray36 = User_report_36.getPopulationByContinent(con);
+        User_report_36.printPopulationByContinent(ReportArray36);
+*/
         // disconect from BD
         a.disconnect();
         System.out.println("Database has successfully disconnected");
@@ -251,3 +264,4 @@ public class App {
     }
 
 }
+
