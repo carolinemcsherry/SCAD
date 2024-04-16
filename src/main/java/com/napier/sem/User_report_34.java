@@ -40,7 +40,7 @@ public class User_report_34 {
 
         //Open scanner
         Scanner scanner = new Scanner(System.in);
-        // ask user what they want
+        // Ask user what they want
 
         int input = 10; // Default value
         try {
