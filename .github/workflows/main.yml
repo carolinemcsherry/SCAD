@@ -74,6 +74,11 @@ jobs:
           mvn package -DskipTests
           docker-compose up --abort-on-container-exit
       - uses: "marvinpinto/action-automatic-releases@latest"
+      - name: Upload coverage reports to Codecov
+  uses: codecov/codecov-action@v4.0.1
+  with:
+    token: ${{ secrets.CODECOV_TOKEN }}
+    slug: carolinemcsherry/SCAD
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
