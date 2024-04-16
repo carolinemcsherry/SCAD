@@ -100,7 +100,7 @@ public class User_report_1_Country {
         System.out.println(String.format("%-35s %-25s %-25s%-25s %-25s %-25s", "Country_Name", "Total_Country_Population", "Total_City_Population", "City_Population_Percentage", "Total_Not_City_Population", "None_City_Population_Percentage"));
 
         for (PopulationReport Region : reports) {
-            //If an atrabute value is null the job will continue
+            //If an attribute value is null the job will continue
             if (Region == null)
                 continue;
             //Prints table values in columbs
