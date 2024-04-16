@@ -13,5 +13,6 @@ Creating workflow.
 
 * Release [![Releases](https://img.shields.io/github/release/carolinemcsherry/SCAD/all.svg?style=flat-square)](https://github.com/<username>/<repository>/releases)
 
+* Codecov [![codecov](https://codecov.io/gh/carolinemcsherry/SCAD/graph/badge.svg?token=U106UJCD26)](https://codecov.io/gh/carolinemcsherry/SCAD)
 
 Updated to now have DB Connectivity
