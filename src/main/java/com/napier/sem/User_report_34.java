@@ -38,7 +38,7 @@ public class User_report_34 {
     // Method to retrieve top N populated cities in a continent
     public static ArrayList<TopCitiesInContinent> getTopPopulatedCitiesInContinent(Connection con) {
 
-        //open scanner
+        //Open scanner
         Scanner scanner = new Scanner(System.in);
         // ask user what they want
 
