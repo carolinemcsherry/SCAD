@@ -51,6 +51,10 @@ public class User_report_27{
         try {
             System.out.print("Enter the number of records you want to retrieve: ");
             input = scanner.nextInt(); // Try to read an integer
+            if(input == 0){
+
+                input = 5;
+            }
         } catch (InputMismatchException e) {
             System.out.println("Invalid input! Please enter a valid number.");
 
