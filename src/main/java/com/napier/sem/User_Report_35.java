@@ -47,7 +47,7 @@ public class User_Report_35 {
         } catch (NoSuchElementException e) {
             // No user input, continue with default value
         }
-// handeling null value in string to get full range
+// Handeling null value in string to get full range
 
         try {
             Statement stmt = con.createStatement();
