@@ -94,7 +94,7 @@ public class User_report_5{
             //If an attribute value is null the job will continue
             if (Stat == null)
                 continue;
-            //Prints table values in columbs
+            //Prints table values in columns
             String Table_string =
                     String.format("%-25s %-25s %-25s",
                             Stat.language, Stat.speakersWorldwide, Stat.percentageOfWorldPopulation);
