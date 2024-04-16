@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//cities within a particular region, sorted by population from largest to smallest
+//Cities within a particular region, sorted by population from largest to smallest
 
 public class User_report_23 {
 
