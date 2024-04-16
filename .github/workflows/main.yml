@@ -55,7 +55,7 @@ jobs:
           directory: ./target/site/jacoco
           flags: Integration Tests # optional
           verbose: true # optional (default = false)
-          slug: <GitHub Carolinemcsherry>/<SCAD>
+          slug: <GitHub username>/<repository name>
   build:
     name: Build Run in Docker and Deploy Release
     runs-on: ubuntu-20.04
@@ -78,7 +78,7 @@ jobs:
   uses: codecov/codecov-action@v4.0.1
   with:
     token: ${{ secrets.CODECOV_TOKEN }}
-    slug: carolinemcsherry/SCAD
+slug: carolinemcsherry/SCAD
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
