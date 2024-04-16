@@ -55,7 +55,7 @@ jobs:
           directory: ./target/site/jacoco
           flags: Integration Tests # optional
           verbose: true # optional (default = false)
-          slug: <GitHub username>/<SCAD>
+          slug: <GitHub Carolinemcsherry>/<SCAD>
   build:
     name: Build Run in Docker and Deploy Release
     runs-on: ubuntu-20.04
