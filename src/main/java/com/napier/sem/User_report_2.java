@@ -83,7 +83,7 @@ Population
             //If an attribute value is null the job will continue
             if (city == null)
                 continue;
-            //Prints table values in columbs
+            //Prints table values in columns
             String Table_string =
                     String.format("%-10s %-15s %-20s",
                             city.cityName, city.countryName, city.population);
