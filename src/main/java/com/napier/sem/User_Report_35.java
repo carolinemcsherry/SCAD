@@ -36,7 +36,7 @@ public class User_Report_35 {
 //Var set up for methord
         ArrayList<PopulationbyRegionReport> populationReports = new ArrayList<>();
 
-        //open scanner
+        //Open scanner
         Scanner scanner = new Scanner(System.in);
         // ask user what they want
                 int input = 10; // Default value
