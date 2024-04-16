@@ -81,7 +81,7 @@ public class User_report_10{
         }
 
         System.out.println("Continent Population Report");
-        //print header
+        //Print header
         System.out.println(String.format("%-25s %-15s ", "Continent", "Total_Continent_Population"));
 
         // Iterate through the list of ContinentPopulationReport objects and print each one
