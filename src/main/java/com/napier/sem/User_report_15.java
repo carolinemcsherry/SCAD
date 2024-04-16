@@ -91,7 +91,7 @@ public class User_report_15 {
         return populationContinent;
     }
 
-    //print section
+    //Print section
     public static void printRegionPopulation(ArrayList<PopulationbyContinentReport> Continents) {
         if (Continents == null) {
             System.out.println("No regions or empty list");
