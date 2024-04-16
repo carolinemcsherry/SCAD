@@ -36,7 +36,7 @@ public class User_report_33{
     public static ArrayList<TopCountriesInContinent> getTopPopulatedCountriesInContinent(Connection con) {
         // set up vars for input
 
-        //open scanner
+        //Open scanner
         Scanner scanner = new Scanner(System.in);
 
         int input = 10; // Default value
