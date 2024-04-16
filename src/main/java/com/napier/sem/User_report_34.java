@@ -41,14 +41,7 @@ public class User_report_34 {
         //open scanner
         Scanner scanner = new Scanner(System.in);
         // ask user what they want
-        System.out.print("Enter the name of the Continent or leave blank for all Continent's: ");
-        // check input
-        String Stringinput = scanner.nextLine();
-        if (Stringinput.isEmpty() == true) {
-            //set the wild card to return all records
-            Stringinput = "%";
 
-        }
         int input = 10; // Default value
         try {
 
@@ -65,7 +58,6 @@ public class User_report_34 {
             String strSelect = "SELECT country.Continent, city.Name AS cityName, city.Population  " +
                     "FROM city " +
                     "JOIN country ON city.CountryCode = country.Code " +
-                    "WHERE country.Continent like '" + Stringinput + "' " +
                     "ORDER BY country.Continent, city.Population DESC " +
                     "LIMIT " + input ;
 

@@ -39,15 +39,7 @@ public class User_Report_35 {
         //open scanner
         Scanner scanner = new Scanner(System.in);
         // ask user what they want
-        System.out.print("Enter the name of the Region or leave blank for all Region's: ");
-        // check input
-        String Stringinput = scanner.nextLine();
-        if (Stringinput.isEmpty() == true) {
-            //set the wild card to return all records
-            Stringinput = "%";
-
-        }
-        int input = 10; // Default value
+                int input = 10; // Default value
         try {
 
             System.out.print("Enter the number of records you want to retrieve: ");
@@ -64,8 +56,7 @@ public class User_Report_35 {
             String strSelect = "SELECT country.Region, city.Name AS City, city.Population " +
                     "FROM city " +
                     "JOIN country ON city.CountryCode = country.Code " +
-                    "WHERE country.Region like '" + Stringinput +
-                    "' ORDER BY city.Population DESC " +
+                  " ORDER BY city.Population DESC " +
                     "LIMIT " + input ;
 
             ResultSet rset = stmt.executeQuery(strSelect);

@@ -36,17 +36,6 @@ public class User_report_22 {
     // Method to retrieve city report data for a specific country sorted by population
     public static ArrayList<CityReport> getCityReport(Connection con) {
 
-        //get string from user
-        Scanner scanner = new Scanner(System.in);
-        // ask user what they want
-        System.out.print("Enter the name of the country or leave blank for all country's: ");
-        // check input
-        String Stringinput = scanner.nextLine();
-        if (Stringinput.isEmpty() == true) {
-            //set the wild card to return all records
-            Stringinput = "%";
-
-        }
 
         try {
             Statement stmt = con.createStatement();
@@ -55,8 +44,7 @@ public class User_report_22 {
             String strSelect = "SELECT A.Name AS CityName, B.Name AS CountryName, A.Population " +
                     "FROM city A " +
                     "LEFT JOIN country B ON A.CountryCode = B.Code " +
-                    "WHERE B.Name like '" + Stringinput + "' "+
-                    " ORDER BY A.Population DESC";
+                                 " ORDER BY A.Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 

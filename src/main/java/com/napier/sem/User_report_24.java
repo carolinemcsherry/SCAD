@@ -37,17 +37,7 @@ public class User_report_24 {
 
     // Method to retrieve city report data for cities within a specific continent sorted by population
     public static ArrayList<CityReport> getCitiesByContinent(Connection con) {
-        //get string from user
-        Scanner scanner = new Scanner(System.in);
-        // ask user what they want
-        System.out.print("Enter the name of the continent or leave blank for all continent's: ");
-        // check input
-        String Stringinput = scanner.nextLine();
-        if (Stringinput.isEmpty() == true) {
-            //set the wild card to return all records
-            Stringinput = "%";
 
-        }
 
         try {
             Statement stmt = con.createStatement();
@@ -56,8 +46,7 @@ public class User_report_24 {
             String strSelect = "SELECT A.Name AS CityName, B.Name AS CountryName, B.Continent, A.Population " +
                     "FROM city A " +
                     "JOIN country B ON A.CountryCode = B.Code " +
-                    "WHERE B.Continent Like '" + Stringinput +"' "+
-                    "ORDER BY A.Population DESC";
+                         "ORDER BY A.Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 

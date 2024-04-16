@@ -42,15 +42,7 @@ public class User_report_18 {
 
         //open scanner
         Scanner scanner = new Scanner(System.in);
-        // ask user what they want
-        System.out.print("Enter the name of the district or leave blank for all district's: ");
-        // check input
-        String Stringinput = scanner.nextLine();
-        if (Stringinput.isEmpty() == true) {
-            //set the wild card to return all records
-            Stringinput = "%";
 
-        }
         int input = 10; // Default value
         try {
 
@@ -68,7 +60,7 @@ public class User_report_18 {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve population data for each region
-            String strSelect = "SELECT country.Name as countryName, city.Name as cityName, city.Population from city join country on city.CountryCode = country.Code where country.Name like '" + Stringinput +"' order by city.Population DESC LIMIT " + input;
+            String strSelect = "SELECT country.Name as countryName, city.Name as cityName, city.Population from city join country on city.CountryCode = country.Code order by city.Population DESC LIMIT " + input;
 
             ResultSet rset = stmt.executeQuery(strSelect);
 

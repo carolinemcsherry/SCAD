@@ -38,15 +38,7 @@ public class User_report_33{
 
         //open scanner
         Scanner scanner = new Scanner(System.in);
-        // ask user what they want
-        System.out.print("Enter the name of the region or leave blank for all region 's: ");
-        // check input
-        String Stringinput = scanner.nextLine();
-        if (Stringinput.isEmpty() == true) {
-            //set the wild card to return all records
-            Stringinput = "%";
 
-        }
         int input = 10; // Default value
         try {
 
@@ -56,17 +48,13 @@ public class User_report_33{
             // No user input, continue with default value
         }
 
-// handeling null value in string to get full range
-        if (Stringinput.isEmpty() == true) {
-            Stringinput = "%";
-        }
+
         try {
             Statement stmt = con.createStatement();
 
             // SQL query to retrieve top N populated countries in a continent
             String strSelect = "SELECT region, Name AS countryName,  Population " +
                     "FROM country " +
-                    "WHERE region like '" + Stringinput + "'"+
                     "ORDER BY Population DESC " +
                     "LIMIT " + input ;
 

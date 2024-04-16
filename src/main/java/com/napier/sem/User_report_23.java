@@ -38,17 +38,7 @@ public class User_report_23 {
 
     // Method to retrieve city report data for cities within a specific region sorted by population
     public static ArrayList<CityReport> getCitiesByRegion(Connection con) {
-        //get string from user
-        Scanner scanner = new Scanner(System.in);
-        // ask user what they want
-        System.out.print("Enter the name of the Region or leave blank for all Region's: ");
-        // check input
-        String Stringinput = scanner.nextLine();
-        if (Stringinput.isEmpty() == true) {
-            //set the wild card to return all records
-            Stringinput = "%";
 
-        }
         try {
             Statement stmt = con.createStatement();
 
@@ -56,7 +46,6 @@ public class User_report_23 {
             String strSelect = "SELECT city.Name AS CityName, country.Name AS CountryName, country.Region as countryRegion, city.Population " +
                     "FROM city " +
                     "JOIN country ON city.CountryCode = country.Code " +
-                    "WHERE country.Region like '" + Stringinput + "'"+
                     " ORDER BY city.Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);

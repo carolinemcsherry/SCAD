@@ -38,16 +38,7 @@ public class User_report_27{
 
                 //open scanner
         Scanner scanner = new Scanner(System.in);
-        // ask user what they want
-        System.out.print("Enter the name of the Continent or leave blank for all Continent's: ");
-        // check input
-        String Stringinput = scanner.nextLine();
-        if (Stringinput.isEmpty() == true) {
-            //set the wild card to return all records
-            Stringinput = "%";
-
-        }
-        int input = 10; // Default value
+                int input = 10; // Default value
         try {
 
             System.out.print("Enter the number of records you want to retrieve: ");
@@ -61,8 +52,7 @@ public class User_report_27{
             // SQL query to retrieve top N populated countries in a continent
             String strSelect = "SELECT Name AS countryName, Continent, Population " +
                     "FROM country " +
-                    "WHERE Continent like '" + Stringinput + "'"+
-                    "ORDER BY Population DESC " +
+                   "ORDER BY Population DESC " +
                     "LIMIT " + input;
 
             ResultSet rset = stmt.executeQuery(strSelect);

@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -35,16 +36,16 @@ public class User_report_14 {
         ArrayList<PopulationbyRegionReport> populationReports = new ArrayList<>();
 
 //get string from user
-           //open scanner
-        Scanner scanner = new Scanner(System.in);
-        // ask user what they want
-        System.out.print("Enter the name of the Region or leave blank for all Region's: ");
-        // check input
-        String Stringinput = scanner.nextLine();
-        if (Stringinput.isEmpty() == true) {
-            //set the wild card to return all records
-            Stringinput = "%";
 
+        String Stringinput = "%"; // Default value
+        try {
+            //open scanner
+            Scanner scanner = new Scanner(System.in);
+            // ask user what they want
+            System.out.print("Enter the name of the Region or leave blank for all Region's: ");
+            Stringinput = scanner.nextLine();
+        } catch (NoSuchElementException e) {
+            // No user input, continue with default value
         }
 
 

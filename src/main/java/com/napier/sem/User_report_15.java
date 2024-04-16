@@ -35,18 +35,20 @@ public class User_report_15 {
 
 //Var set up for methord
         ArrayList<PopulationbyContinentReport> populationContinent = new ArrayList<>();
-
-        //open scanner
         Scanner scanner = new Scanner(System.in);
-        // ask user what they want
-        System.out.print("Enter the name of the Continent or leave blank for all Continent's");
-        // check input
-        String Stringinput = scanner.nextLine();
-        if (Stringinput.isEmpty() == true) {
-            //set the wild card to return all records
-            Stringinput = "%";
+        String Stringinput = "%"; // Default value
+        try {
 
+            // ask user what they want
+            System.out.print("Enter the name of the Continent or leave blank for all Continent's");
+
+            Stringinput = scanner.nextLine();
+        } catch (NoSuchElementException e) {
+            // No user input, continue with default value
         }
+
+// Use 'Stringinput' in your program
+
         int input = 10; // Default value
         try {
 

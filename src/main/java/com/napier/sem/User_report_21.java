@@ -41,17 +41,7 @@ public class User_report_21 {
 
     // Method to retrieve city report data for a specific district sorted by population
     public static ArrayList<CityReport> getCityReportByDistrict(Connection con) {
-        //get string from user
-        Scanner scanner = new Scanner(System.in);
-        // ask user what they want
-        System.out.print("Enter the name of the district or leave blank for all district's: ");
-        // check input
-        String Stringinput = scanner.nextLine();
-        if (Stringinput.isEmpty() == true) {
-            //set the wild card to return all records
-            Stringinput = "%";
 
-        }
 
         try {
             Statement stmt = con.createStatement();
@@ -60,8 +50,7 @@ public class User_report_21 {
             String strSelect = "SELECT city.Name AS CityName, country.Name AS CountryName, city.District, city.Population " +
                     "FROM city " +
                     "LEFT JOIN country ON city.CountryCode = country.Code " +
-                    "WHERE city.District Like '" + Stringinput + "' "+
-                    "ORDER BY city.Population DESC";
+                     "ORDER BY city.Population DESC";
 
             ResultSet rset = stmt.executeQuery(strSelect);
 
