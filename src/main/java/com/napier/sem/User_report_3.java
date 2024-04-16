@@ -89,7 +89,7 @@ public class User_report_3 {
             //If an attribute value is null the job will continue
             if (city == null)
                 continue;
-            //Prints table values in columbs
+            //Prints table values in columns
             String Table_string =
                     String.format("%-20s %-20s %-25s %-20s",
                             city.CityName, city.CountryName, city.District, city.Population);
