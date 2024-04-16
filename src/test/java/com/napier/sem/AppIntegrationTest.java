@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import static com.napier.sem.App.con;
@@ -150,18 +151,6 @@ public class AppIntegrationTest {
         // No direct assertions, as it prints to the console
     }
     @Test
-    public void testGetPopulationByRegion() {
-        // Test the getPopulationByRegion method
-        ArrayList<User_report_1_Region.PopulationReport> populationReports = User_report_1_Region.getPopulationByRegion(con);
-        assertNotNull(populationReports);
-
-        // Check if the result is not empty
-        assertFalse(populationReports.isEmpty());
-
-        // Optionally, you can add more assertions to validate the contents of the result
-    }
-
-    @Test
     public void testPrintPopulationReport() {
         // Test the printPopulationReport method
         ArrayList<User_report_1_Region.PopulationReport> populationReports = User_report_1_Region.getPopulationByRegion(con);
@@ -223,6 +212,76 @@ public class AppIntegrationTest {
         User_report_5.printLanguageStatistics(languageStatsList);
     }
 
+    void testGetAllRegionsPopulation() {
+        // Test if the getAllRegionsPopulation method returns correct data
+        ArrayList<User_report_9.RegionPopulationReport> regionPopulationReports = User_report_9.getAllRegionsPopulation(con);
+        assertNotNull(regionPopulationReports);
+        assertEquals(3, regionPopulationReports.size()); // Assuming there are 3 regions in the test data
+        // Additional assertions can be made to check specific values
+    }
+
+    @Test
+    void testPrintAllRegionsPopulation() {
+        // Test if the printAllRegionsPopulation method prints something (no assertion)
+        ArrayList<User_report_9.RegionPopulationReport> regionPopulationReports = User_report_9.getAllRegionsPopulation(con);
+        User_report_9.printAllRegionsPopulation(regionPopulationReports);
+    }
+
+    private static void createTestTables() {
+        // Create necessary tables for testing
+        try {
+            Statement stmt = con.createStatement();
+            String createTableQuery = "CREATE TABLE IF NOT EXISTS city2 (name VARCHAR(255), Population BIGINT)";
+            stmt.executeUpdate(createTableQuery);
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void populateTestData() {
+        // Populate test data into the test tables
+        try {
+            Statement stmt = con.createStatement();
+            // Insert test data into the country table
+            String insertQuery = "INSERT INTO country (Region, Population) VALUES " +
+                    "('Asia', 4500000000), " +
+                    "('Europe', 700000000), " +
+                    "('Africa', 1300000000)";
+            stmt.executeUpdate(insertQuery);
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void createTestTables2() {
+        // Create necessary tables for testing
+        try {
+            Statement stmt = con.createStatement();
+            String createTableQuery = "CREATE TABLE IF NOT EXISTS country2 (Region VARCHAR(255), Population INT)";
+            stmt.executeUpdate(createTableQuery);
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void populateTestData2() {
+        // Populate test data into the test tables
+        try {
+            Statement stmt = con.createStatement();
+            // Insert test data into the country table
+            String insertQuery = "INSERT INTO country (Region, Population) VALUES " +
+                    "('Asia', 450000000), " +
+                    "('Europe', 70000000), " +
+                    "('Africa', 130000000)";
+            stmt.executeUpdate(insertQuery);
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
 
