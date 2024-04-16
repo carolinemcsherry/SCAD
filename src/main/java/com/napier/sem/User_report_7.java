@@ -79,7 +79,7 @@ public class User_report_7 {
         System.out.println(String.format("%-25s %-25s", "District", "population"));
         // Iterate through the list of RegionPopulationReport objects and print each one
         for (RegionPopulationReport region : regions) {
-            //If an atrabute value is null the job will continue
+            //If an attribute value is null the job will continue
             if (region == null)
                 continue;
             //Prints table values in columns
