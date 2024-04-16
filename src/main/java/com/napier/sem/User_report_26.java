@@ -33,7 +33,7 @@ public class User_report_26{
     // Method to retrieve the top N populated countries in the world
     public static ArrayList<CountryData> getTopPopulatedCountries(Connection con) {
 
-        //open scanner
+        //Open scanner
         Scanner scanner = new Scanner(System.in);
         // ask user what they want
         int input = 10; // Default value
