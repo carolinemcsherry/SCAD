@@ -81,7 +81,7 @@ public class User_report_8 {
         System.out.println(String.format("%-35s %-20s", "Name", "Population"));
 
         for (CountryPopulation countryPopulation : countryPopulationList) {
-            //If an atrabute value is null the job will continue
+            //If an attribute value is null the job will continue
             if (countryPopulation == null)
                 continue;
             //Prints table values in columbs
