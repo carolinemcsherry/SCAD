@@ -23,11 +23,12 @@ Results
 | Task No. | Description                                                                                     | Met | Screenshot |
 |----------|-------------------------------------------------------------------------------------------------|-----|------------|
 | 1        | Population Report – 1 does not exist because all population reports are 6-11                    | Yes |            |
-| 2        | Capital City Report                                                                             | Yes |            |
-| 3        | City Report                                                                                     | Yes |            |
-| 4        | Country Report                                                                                  | Yes |            |
-| 5        | Finally, the organisation has asked if it is possible to provide the number of people who speak the following the following languages from greatest number to smallest, including the percentage of the world population: | Yes |            |
-| 6        | The population of a city.                                                                      | Yes |            |
+| 2        | Capital City Report                                                                             | Yes | https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/2.png
+| 3        | City Report                                                                                     | Yes | https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/3.png 
+| 4        | Country Report                                                                                  | Yes | https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/4.png
+| 5        | Finally, the organisation has asked if it is possible to provide the number of people who speak the following the following languages from greatest number to smallest, including the percentage of the world population:
+                                                                                                             | Yes |  https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/5.png                                                                                                                                  
+| 6        | The population of a city.                                                                      | Yes | https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/6.png
 | 7        | The population of a district.                                                                  | Yes |            |
 | 8        | The population of a country.                                                                   | Yes |            |
 | 9        | The population of a region.                                                                    | Yes |  
