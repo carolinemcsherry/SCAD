@@ -90,10 +90,10 @@ public class User_report_9{
 
         // Iterate through the list of RegionPopulationReport objects and print each one
         for (RegionPopulationReport region : regions) {
-            //If an atrabute value is null the job will continue
+            //If an attribute value is null the job will continue
             if (region == null)
                 continue;
-            //Prints table values in columbs
+            //Prints table values in columns
             String Table_string =
                     String.format("%-35s %-20s ",
                             region.Region, region.Total_Region_Population);

@@ -101,10 +101,10 @@ public class User_report_4 {
         System.out.println(String.format("%-5s %-20s %-20s %-20s %-20s%-20s", "Code", "Name", "Continent", "Region","Population","Capital"));
         // Iterate through the list of CityReport objects and print each one
         for (CountryReport country : countries) {
-            //If an atrabute value is null the job will continue
+            //If an attribute value is null the job will continue
             if (country == null)
                 continue;
-            //Prints table values in columbs
+            //Prints table values in columns
             String Table_string =
                     String.format("%-5s %-20s %-20s %-20s %-20s%-20s",
                             country.code, country.name, country.continent, country.region, country.population, country.capital);

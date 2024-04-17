@@ -30,7 +30,7 @@ public class User_report_19 {
 
     public static ArrayList<CapitalCityDataInContinent> getTopPopulatedCapitalCitiesInContinent(Connection con) {
 
-        //open scanner
+        //Open scanner
         Scanner scanner = new Scanner(System.in);
 
         int input = 10; // Default value

@@ -38,7 +38,7 @@ public class User_report_17 {
     // Method to retrieve population data for each region
     public static ArrayList<RegionPopulationReport> getRegionPopulation(Connection con) {
 
-        //open scanner
+        //Open scanner
         Scanner scanner = new Scanner(System.in);
         // ask user what they want
 
@@ -86,7 +86,7 @@ public class User_report_17 {
             System.out.println("No regions");
             return;
         }
-        //print report name
+        //Print report name
         System.out.println("Region Population Report");
         //format and print header
         System.out.println(String.format("%-25s %-25s", "District", "population"));

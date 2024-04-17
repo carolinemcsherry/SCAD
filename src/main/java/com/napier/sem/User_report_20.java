@@ -27,7 +27,7 @@ public class User_report_20 {
     }
 
     public static ArrayList<TopCitiesInWorld> getTopPopulatedCitiesInWorld(Connection con) {
-        //open scanner
+        //Open scanner
         Scanner scanner = new Scanner(System.in);
         // ask user what they want
         int input = 10; // Default value

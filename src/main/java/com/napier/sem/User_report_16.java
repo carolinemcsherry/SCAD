@@ -8,7 +8,7 @@
     import java.sql.Statement;
     import java.util.ArrayList;
 
-    // capital cities in the world, sorted by population from largest to smallest
+    // Capital cities in the world, sorted by population from largest to smallest
 
     public class User_report_16 {
         public static class CapitalCitiesWorld {
@@ -72,9 +72,9 @@
             return;
         }
 
-        //name of report
+        //Name of report
         System.out.println("Capital Cities in the World Report:");
-        //print header
+        //Print header
         System.out.println(String.format("%-35s %-35s %-20s", "Country Name", "Capatial City", "Population"));
         for (CapitalCitiesWorld capitalCity : capitalCitiesWorldList) {
             if (capitalCity == null) {

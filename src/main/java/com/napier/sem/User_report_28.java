@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-// the population of people, people living in cities, and people not living in cities in each country
+// The population of people, people living in cities, and people not living in cities in each country
 public class User_report_28{
 
     // Inner class to represent population report

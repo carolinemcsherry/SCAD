@@ -36,7 +36,7 @@ public class User_report_27{
     // Method to retrieve top N populated countries in a continent
     public static ArrayList<TopCountriesInContinent> getTopPopulatedCountriesInContinent(Connection con) {
 
-                //open scanner
+                //Open scanner
         Scanner scanner = new Scanner(System.in);
                 int input = 10; // Default value
         try {

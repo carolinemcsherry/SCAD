@@ -36,7 +36,7 @@ public class User_Report_35 {
 //Var set up for methord
         ArrayList<PopulationbyRegionReport> populationReports = new ArrayList<>();
 
-        //open scanner
+        //Open scanner
         Scanner scanner = new Scanner(System.in);
         // ask user what they want
                 int input = 10; // Default value
@@ -47,7 +47,7 @@ public class User_Report_35 {
         } catch (NoSuchElementException e) {
             // No user input, continue with default value
         }
-// handeling null value in string to get full range
+// Handeling null value in string to get full range
 
         try {
             Statement stmt = con.createStatement();
@@ -81,7 +81,7 @@ public class User_Report_35 {
         return populationReports;
     }
 
-    //print section
+    //Print section
     public static void printRegionPopulation(ArrayList<PopulationbyRegionReport> regions) {
         if (regions == null) {
             System.out.println("No regions or empty list");

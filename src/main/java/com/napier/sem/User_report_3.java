@@ -86,10 +86,10 @@ public class User_report_3 {
         System.out.println(String.format("%-20s %-20s %-25s %-20s" , "CityName", "CountryName", "District", "Population"));
         // Iterate through the list of CityReport objects and print each one
         for (CityReport city : cities) {
-            //If an atrabute value is null the job will continue
+            //If an attribute value is null the job will continue
             if (city == null)
                 continue;
-            //Prints table values in columbs
+            //Prints table values in columns
             String Table_string =
                     String.format("%-20s %-20s %-25s %-20s",
                             city.CityName, city.CountryName, city.District, city.Population);
