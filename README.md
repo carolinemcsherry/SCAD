@@ -29,9 +29,9 @@ Results
 | 5        | Finally, the organisation has asked if it is possible to provide the number of people who speak the following the following languages from greatest number to smallest, including the percentage of the world population:
                                                                                                              | Yes |  https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/5.png                                                                                                                                  
 | 6        | The population of a city.                                                                      | Yes | https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/6.png
-| 7        | The population of a district.                                                                  | Yes |            |
-| 8        | The population of a country.                                                                   | Yes |            |
-| 9        | The population of a region.                                                                    | Yes |  
+| 7        | The population of a district.                                                                  | Yes |   https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/7.png     
+| 8        | The population of a country.                                                                   | Yes |    https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/8.png        
+| 9        | The population of a region.                                                                    | Yes |  https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/9.png
 | 10       | The population of a continent.                                                                 | Yes |  https://github.com/carolinemcsherry/SCAD/blob/6a2140d34a70f08333fe4a0d84d67fd4e88a5cd5/images/10.png
 | 11       | The population of the world.                                                                   | Yes |  https://github.com/carolinemcsherry/SCAD/blob/6a2140d34a70f08333fe4a0d84d67fd4e88a5cd5/images/11.png
 | 12       | The top N populated capital cities in a region where N is provided by the user.                 | Yes | https://github.com/carolinemcsherry/SCAD/blob/6a2140d34a70f08333fe4a0d84d67fd4e88a5cd5/images/12.png
@@ -39,8 +39,8 @@ Results
 | 14       | All the capital cities in a region organised by largest to smallest.                             | Yes |https://github.com/carolinemcsherry/SCAD/blob/6a2140d34a70f08333fe4a0d84d67fd4e88a5cd5/images/14.png
 | 15       | All the capital cities in a continent organised by largest population to smallest.               | Yes |https://github.com/carolinemcsherry/SCAD/blob/6a2140d34a70f08333fe4a0d84d67fd4e88a5cd5/images/15.png
 | 16       | All the capital cities in the world organised by largest population to smallest.                 | Yes |https://github.com/carolinemcsherry/SCAD/blob/6a2140d34a70f08333fe4a0d84d67fd4e88a5cd5/images/16.png
-| 17       | The top N populated cities in a district where N is provided by the user.                       | Yes |            |
-| 18       | The top N populated cities in a country where N is provided by the user.                        | Yes |            |
+| 17       | The top N populated cities in a district where N is provided by the user.                       | Yes |          
+| 18       | The top N populated cities in a country where N is provided by the user.                        | Yes |            
 | 19       | The top N populated capital cities in a continent where N is provided by the user.              | Yes |            |
 | 20       | The top N populated cities in the world where N is provided by the user.                        | Yes |            |
 | 21       | All the cities in a district organised by largest population to smallest.                         | Yes |            |
