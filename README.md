@@ -22,9 +22,9 @@ Results
 
 | Task No. | Description                                                                                     | Met | Screenshot           |
 |----------|-------------------------------------------------------------------------------------------------|-----|----------------------|
-| 1        | Population Report – 1 does not exist because all population reports are 6-11                    | Yes | [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/1a.png) [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/1a.png) |
-|          |                                                                                                 | Yes | [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/1b.png) [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/1b.png) |
-|          |                                                                                                 | Yes | [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/1c.png) [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/1c.png) |
+| 1        | Population Report – 1 does not exist because all population reports are 6-11                    | Yes | (https://github.com/carolinemcsherry/SCAD/blob/master/images/1a.png) [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/1a.png) |
+|          |                                                                                                 | Yes | (https://github.com/carolinemcsherry/SCAD/blob/master/images/1b.png) [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/1b.png) |
+|          |                                                                                                 | Yes | (https://github.com/carolinemcsherry/SCAD/blob/master/images/1c.png) [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/1c.png) |
 | 2        | Capital City Report                                                                             | Yes | [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/2.png) |
 | 3        | City Report                                                                                     | Yes | [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/3.png) |
 | 4        | Country Report                                                                                  | Yes | [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/4.png) |
