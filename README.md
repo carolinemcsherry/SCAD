@@ -39,10 +39,10 @@ Results
 | 14       | All the capital cities in a region organised by largest to smallest.                             | Yes |https://github.com/carolinemcsherry/SCAD/blob/6a2140d34a70f08333fe4a0d84d67fd4e88a5cd5/images/14.png
 | 15       | All the capital cities in a continent organised by largest population to smallest.               | Yes |https://github.com/carolinemcsherry/SCAD/blob/6a2140d34a70f08333fe4a0d84d67fd4e88a5cd5/images/15.png
 | 16       | All the capital cities in the world organised by largest population to smallest.                 | Yes |https://github.com/carolinemcsherry/SCAD/blob/6a2140d34a70f08333fe4a0d84d67fd4e88a5cd5/images/16.png
-| 17       | The top N populated cities in a district where N is provided by the user.                       | Yes |          
-| 18       | The top N populated cities in a country where N is provided by the user.                        | Yes |            
-| 19       | The top N populated capital cities in a continent where N is provided by the user.              | Yes |            |
-| 20       | The top N populated cities in the world where N is provided by the user.                        | Yes |            |
+| 17       | The top N populated cities in a district where N is provided by the user.                       | Yes |  https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/17.png        
+| 18       | The top N populated cities in a country where N is provided by the user.                        | Yes |  https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/18.png          
+| 19       | The top N populated capital cities in a continent where N is provided by the user.              | Yes |  https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/19.png         
+| 20       | The top N populated cities in the world where N is provided by the user.                        | Yes | https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/20.png
 | 21       | All the cities in a district organised by largest population to smallest.                         | Yes |            |
 | 22       | All the cities in a country organised by largest population to smallest.                          | Yes |            |
 | 23       | All the cities in a region organised by largest population to smallest.                           | Yes |            |
