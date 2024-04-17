@@ -30,14 +30,14 @@ Results
 | 6        | The population of a city.                                                                      | Yes |            |
 | 7        | The population of a district.                                                                  | Yes |            |
 | 8        | The population of a country.                                                                   | Yes |            |
-| 9        | The population of a region.                                                                    | Yes |            |
-| 10       | The population of a continent.                                                                 | Yes |            |
-| 11       | The population of the world.                                                                   | Yes |            |
-| 12       | The top N populated capital cities in a region where N is provided by the user.                 | Yes |            |
-| 13       | The top N populated capital cities in the world where N is provided by the user.                | Yes |            |
-| 14       | All the capital cities in a region organised by largest to smallest.                             | Yes |            |
-| 15       | All the capital cities in a continent organised by largest population to smallest.               | Yes |            |
-| 16       | All the capital cities in the world organised by largest population to smallest.                 | Yes |            |
+| 9        | The population of a region.                                                                    | Yes |  
+| 10       | The population of a continent.                                                                 | Yes |  https://github.com/carolinemcsherry/SCAD/blob/6a2140d34a70f08333fe4a0d84d67fd4e88a5cd5/images/10.png
+| 11       | The population of the world.                                                                   | Yes |  https://github.com/carolinemcsherry/SCAD/blob/6a2140d34a70f08333fe4a0d84d67fd4e88a5cd5/images/11.png
+| 12       | The top N populated capital cities in a region where N is provided by the user.                 | Yes | https://github.com/carolinemcsherry/SCAD/blob/6a2140d34a70f08333fe4a0d84d67fd4e88a5cd5/images/12.png
+| 13       | The top N populated capital cities in the world where N is provided by the user.                | Yes | https://github.com/carolinemcsherry/SCAD/blob/6a2140d34a70f08333fe4a0d84d67fd4e88a5cd5/images/13.png
+| 14       | All the capital cities in a region organised by largest to smallest.                             | Yes |https://github.com/carolinemcsherry/SCAD/blob/6a2140d34a70f08333fe4a0d84d67fd4e88a5cd5/images/14.png
+| 15       | All the capital cities in a continent organised by largest population to smallest.               | Yes |https://github.com/carolinemcsherry/SCAD/blob/6a2140d34a70f08333fe4a0d84d67fd4e88a5cd5/images/15.png
+| 16       | All the capital cities in the world organised by largest population to smallest.                 | Yes |https://github.com/carolinemcsherry/SCAD/blob/6a2140d34a70f08333fe4a0d84d67fd4e88a5cd5/images/16.png
 | 17       | The top N populated cities in a district where N is provided by the user.                       | Yes |            |
 | 18       | The top N populated cities in a country where N is provided by the user.                        | Yes |            |
 | 19       | The top N populated capital cities in a continent where N is provided by the user.              | Yes |            |
