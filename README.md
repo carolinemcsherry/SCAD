@@ -51,12 +51,12 @@ Results
 | 26       | The top N populated countries in the world where N is provided by the user.                      | Yes |      https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/26.png    
 | 27       | The top N populated countries in a continent where N is provided by the user.                   | Yes |            |
 | 28       | The population of people, people living in cities, and people not living in cities in each country. | Yes |        https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/28.png
-| 29       | The population of people, people living in cities, and people not living in cities in each continent. | Yes |            |
-| 30       | All the countries in a region organised by largest population to smallest.                        | Yes |            |
-| 31       | All the countries in a continent organised by largest population to smallest.                     | Yes |            |
-| 32       | All the countries in the world organised by largest population to smallest.                        | Yes |            |
-| 33       | The top N populated countries in a region where N is provided by the user.                       | Yes |            |
-| 34       | The top N populated cities in a continent where N is provided by the user.                       | Yes |            |
-| 35       | The top N populated cities in a region where N is provided by the user.                          | Yes |            |
-| 36       | The population of people, people living in cities, and people not living in cities in each region. | Yes |            |
+| 29       | The population of people, people living in cities, and people not living in cities in each continent. | Yes |       https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/29.png     |
+| 30       | All the countries in a region organised by largest population to smallest.                        | Yes |          https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/30.png  |
+| 31       | All the countries in a continent organised by largest population to smallest.                     | Yes |          https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/31.png  |
+| 32       | All the countries in the world organised by largest population to smallest.                        | Yes |         https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/32.png   |
+| 33       | The top N populated countries in a region where N is provided by the user.                       | Yes |          https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/33.png  |
+| 34       | The top N populated cities in a continent where N is provided by the user.                       | Yes |          https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/34.png  |
+| 35       | The top N populated cities in a region where N is provided by the user.                          | Yes |          https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/35.png  |
+| 36       | The population of people, people living in cities, and people not living in cities in each region. | Yes |         https://github.com/carolinemcsherry/SCAD/blob/6562373493c0f39a049610f166fb24f33939fc9b/images/36.png   |
 
