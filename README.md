@@ -22,7 +22,7 @@ Results
 
 | Task No. | Description                                                                                     | Met | Screenshot           |
 |----------|-------------------------------------------------------------------------------------------------|-----|----------------------|
-| 1        | Population Report – 1 does not exist because all population reports are 6-11                    | Yes | [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/1a.png) |
+| 1        | Population Report                  | Yes | [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/1a.png) |
 |          |                                                                                                 | Yes | [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/1b.png) |
 |          |                                                                                                 | Yes | [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/1c.png) |
 | 2        | Capital City Report                                                                             | Yes | [View](https://github.com/carolinemcsherry/SCAD/blob/master/images/2.png) |
