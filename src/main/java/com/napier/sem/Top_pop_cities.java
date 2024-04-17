@@ -97,7 +97,7 @@ public class Top_pop_cities {
                 User_report_17.printRegionPopulation(ReportArray15);
                 break;
             default:
-                Menu.runMenu(con);
+                System.out.println("\nNot Valid Choice \n Try Again ");
                 break;
 
         }

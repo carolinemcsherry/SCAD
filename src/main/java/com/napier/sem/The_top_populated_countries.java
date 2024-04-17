@@ -75,7 +75,6 @@ public class The_top_populated_countries {
                 User_report_26.printTopPopulatedCountries(ReportArray26);
                 break;
             case 2:
-                // user report 31
                 // user report 27
                 ArrayList<User_report_27.TopCountriesInContinent> ReportArray27 = User_report_27.getTopPopulatedCountriesInContinent(con);
                 User_report_27.printTopPopulatedCountriesInContinent(ReportArray27);
@@ -86,7 +85,7 @@ public class The_top_populated_countries {
                 User_report_33.printTopPopulatedCountriesInContinent(ReportArray33);
                 break;
             default:
-                Menu.runMenu(con);
+                System.out.println("\nNot Valid Choice \n Try Again ");
                 break;
 
         }

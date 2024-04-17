@@ -57,7 +57,6 @@ public class people_living_in_cities {
         }
 
         // Now you have the user's choice in the 'choice' variable
-        System.out.println("Your choice is: " + choice);
         return choice;
     }
 
@@ -85,7 +84,7 @@ public class people_living_in_cities {
                 User_report_28.printPopulationReport(ReportArray28);
                 break;
             default:
-                Menu.runMenu(con);
+                System.out.println("\nNot Valid Choice \n Try Again ");
                 break;
 
         }

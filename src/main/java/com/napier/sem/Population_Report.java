@@ -57,8 +57,7 @@ public class Population_Report {
         }
 
         // Now you have the user's choice in the 'choice' variable
-        System.out.println("Your choice is: " + choice);
-        return choice;
+              return choice;
     }
 
     private static void performAction(int choice, Connection con){
@@ -85,7 +84,7 @@ public class Population_Report {
                 User_report_1_Country.printPopulationReport(ReportArray1b);
                 break;
             default:
-                Menu.runMenu(con);
+                System.out.println("\nNot Valid Choice \n Try Again ");
                 break;
 
         }

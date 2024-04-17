@@ -49,16 +49,15 @@ public class The_top_populated_capital {
                 choice = Integer.parseInt(kb.nextLine());
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please enter a valid integer.");
-                // You might want to handle this error case appropriately
+
             }
         } else {
             System.out.println("No input provided.");
-            // You might want to handle this case appropriately
+
         }
 
         // Now you have the user's choice in the 'choice' variable
-        System.out.println("Your choice is: " + choice);
-        return choice;
+              return choice;
     }
 
     private static void performAction(int choice, Connection con){
@@ -85,7 +84,7 @@ public class The_top_populated_capital {
                 User_report_12.printRegionPopulation(ReportArray10);
                 break;
             default:
-                Menu.runMenu(con);
+                System.out.println("\nNot Valid Choice \n Try Again ");
                 break;
 
         }

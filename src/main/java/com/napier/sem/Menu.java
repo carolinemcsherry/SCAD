@@ -30,42 +30,17 @@ static boolean exit;
 
         System.out.println("\nPlease choose report to process: ");
         System.out.println("0) EXIT ");
-        System.out.println("1) All the countries organised by largest population to smallest menu.");
-        System.out.println("2) The top ?? populated countries menu.");
-        System.out.println("3) . ");
-        System.out.println("4) ");
-        System.out.println("5) ");
-        System.out.println("6) ");
-        System.out.println("7) ");
-        System.out.println("8) ");
-        System.out.println("9) ");
-        System.out.println("10) ");
-        System.out.println("11) ");
-        System.out.println("12) ");
-        System.out.println("13) ");
-        System.out.println("14) ");
-        System.out.println("15) ");
-        System.out.println("16) ");
-        System.out.println("17) ");
-        System.out.println("18) ");
-        System.out.println("19) ");
-        System.out.println("20) ");
-        System.out.println("21) ");
-        System.out.println("22) ");
-        System.out.println("23) ");
-        System.out.println("24) ");
-        System.out.println("25) ");
-        System.out.println("26) ");
-        System.out.println("27) ");
-        System.out.println("28) ");
-        System.out.println("29) ");
-        System.out.println("30) ");
-        System.out.println("31) ");
-        System.out.println("32) ");
-        System.out.println("33) ");
-        System.out.println("34) ");
-        System.out.println("35) ");
-        System.out.println("36) ");
+        System.out.println("1)  All the countries organised by largest to smallest MENU");
+        System.out.println("2)  The top Nº populated countries MENU");
+        System.out.println("3)  All the cities organised by largest population to smallest MENU");
+        System.out.println("4)  The top Nº populated cities MENU");
+        System.out.println("5)  All the capital cities organised by largest population to smallest");
+        System.out.println("6)  The top Nº populated capital cities MENU");
+        System.out.println("7)  The population of people, people living in cities, and people not living in cities.");
+        System.out.println("8)  The population of **USER CHOICE**");
+        System.out.println("9)  Languages Report, Country Report, City Report and Capital City Report ");
+        System.out.println("10) Population Report % living in cities and % not living in cities.");
+
 
         System.out.println("Please make your choice: ");
     }
@@ -101,21 +76,77 @@ static boolean exit;
 
                  break;
             case 1:
-                // user report 32
+                // launch menu All the countries in the world organised by largest population to smallest.
+                //All the countries in a continent organised by largest population to smallest.
+                //All the countries in a region organised by largest population to smallest.
                 countries_largest_population.runMenu(con);
                 break;
             case 2:
-                // user report 31
-                ArrayList<User_report_31.CountryInContinent> ReportArray31 = User_report_31.getCountriesByContinent(con);
-                User_report_31.printCountriesByContinent(ReportArray31);
+                //The top N populated countries in the world where N is provided by the user.
+                //The top N populated countries in a continent where N is provided by the user.
+                //The top N populated countries in a region where N is provided by the user.
+                The_top_populated_countries.runMenu(con);
                 break;
             case 3:
-                // user report 30
-                ArrayList<User_report_30.CountryInRegion> ReportArray30 = User_report_30.getCountriesByRegion(con);
-                User_report_30.printCountriesByRegion(ReportArray30);
+                // All the cities in the world organised by largest population to smallest.
+                //All the cities in a continent organised by largest population to smallest.
+                //All the cities in a region organised by largest population to smallest.
+                //All the cities in a country organised by largest population to smallest.
+                //All the cities in a district organised by largest population to smallest.
+                cities_orgd_by_larg_to_small.runMenu(con);
+                break;
+            case 4:
+                // The top N populated cities in the world where N is provided by the user.
+                //The top N populated cities in a continent where N is provided by the user.
+                //The top N populated cities in a region where N is provided by the user.
+                //The top N populated cities in a country where N is provided by the user.
+                //The top N populated cities in a district where N is provided by the user.
+                Top_pop_cities.runMenu(con);
+                break;
+            case 5:
+                // All the capital cities in the world organised by largest population to smallest.
+                //All the capital cities in a continent organised by largest population to smallest.
+                //All the capital cities in a region organised by largest to smallest.
+                capital_cities_largest_pop_to_small.runMenu(con);
+                break;
+            case 6:
+                //The top N populated capital cities in the world where N is provided by the user.
+                //The top N populated capital cities in a continent where N is provided by the user.
+                //The top N populated capital cities in a region where N is provided by the user.
+                The_top_populated_capital.runMenu(con);
+                break;
+            case 7:
+                //The population of people, people living in cities, and people not living in cities in each continent.
+                //The population of people, people living in cities, and people not living in cities in each region.
+                //The population of people, people living in cities, and people not living in cities in each country.
+                people_living_in_cities.runMenu(con);
+                break;
+            case 8:
+                //Additionally, the following information should be accessible to the organisation:
+                //The population of the world.
+                //The population of a continent.
+                //The population of a region.
+                //The population of a country.
+                //The population of a district.
+                //The population of a city.
+                population.runMenu(con);
+                break;
+            case 9:
+                //Finally, the organisation has asked if it is possible to provide the number of people who speak the following the following languages from greatest number to smallest, including the percentage of the world population:
+                //Chinese, English, Hindi, Spanish and Arabic.
+                Additionally.runMenu(con);
+                break;
+            case 10:
+                //or the population reports, the following information is requested:
+                //
+                //The name of the continent/region/country.
+                //The total population of the continent/region/country.
+                //The total population of the continent/region/country living in cities (including a %).
+                //The total population of the continent/region/country not living in cities (including a %).
+                Population_Report.runMenu(con);
                 break;
             default:
-                System.out.println("testing.");
+                System.out.println("\nNot Valid Choice \n Try Again ");
                 break;
 
         }

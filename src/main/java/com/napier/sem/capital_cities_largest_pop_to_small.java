@@ -57,7 +57,6 @@ public class capital_cities_largest_pop_to_small {
         }
 
         // Now you have the user's choice in the 'choice' variable
-        System.out.println("Your choice is: " + choice);
         return choice;
     }
 
@@ -86,7 +85,7 @@ public class capital_cities_largest_pop_to_small {
                 User_report_14.printRegionPopulation(ReportArray12);
                 break;
             default:
-                Menu.runMenu(con);
+                System.out.println("\nNot Valid Choice \n Try Again ");
                 break;
 
         }

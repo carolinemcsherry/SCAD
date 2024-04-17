@@ -85,7 +85,7 @@ import java.util.Scanner;
                     User_report_30.printCountriesByRegion(ReportArray30);
                     break;
                 default:
-                    Menu.runMenu(con);
+                    System.out.println("\nNot Valid Choice \n Try Again ");
                     break;
 
             }

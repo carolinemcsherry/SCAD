@@ -78,7 +78,6 @@ public class Additionally {
         }
 
         // Now you have the user's choice in the 'choice' variable
-        System.out.println("Your choice is: " + choice);
         return choice;
     }
 
@@ -111,7 +110,7 @@ public class Additionally {
                 User_report_2.printCapitalCityReport(ReportArray);
                 break;
             default:
-                Menu.runMenu(con);
+                System.out.println("\nNot Valid Choice \n Try Again ");
                 break;
 
         }

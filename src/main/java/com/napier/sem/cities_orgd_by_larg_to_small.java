@@ -59,7 +59,6 @@ public class cities_orgd_by_larg_to_small {
         }
 
         // Now you have the user's choice in the 'choice' variable
-        System.out.println("Your choice is: " + choice);
         return choice;
     }
 
@@ -97,7 +96,7 @@ public class cities_orgd_by_larg_to_small {
                 User_report_21.printCityReport(ReportArray21);
                 break;
             default:
-                Menu.runMenu(con);
+                System.out.println("\nNot Valid Choice \n Try Again ");
                 break;
 
         }
