@@ -146,7 +146,7 @@ static boolean exit;
                 Population_Report.runMenu(con);
                 break;
             default:
-                System.out.println("\nNot Valid Choice \n Try Again ");
+                System.out.println("\nNot Valid Choice \n Try Again\n***OR 0 TO EXIT!!*** ");
                 break;
 
         }

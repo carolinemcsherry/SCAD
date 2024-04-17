@@ -23,7 +23,7 @@ public class Additionally {
         //print header for menu
         System.out.println("+----------------------------------------------------+");
         System.out.println("|                 Welcome To                         |");
-        System.out.println("|          The Additional Report Menu                    |");
+        System.out.println("|          The Additional Report Menu                |");
         System.out.println("+----------------------------------------------------+");
 
     }
@@ -32,7 +32,8 @@ public class Additionally {
 //menu options
         System.out.println("\nPlease choose report to process: ");
         System.out.println("0) Main Menu ");
-        System.out.println("1)Number of people who speak •\tChinese. \n" +
+        System.out.println("1)Number of people who speak\n" +
+                "•\tChinese. \n" +
                 "•\tEnglish. \n" +
                 "•\tHindi. \n" +
                 "•\tSpanish. \n" +
@@ -67,19 +68,16 @@ public class Additionally {
         int i = 5;
         boolean validInput = false;
 //while loop to get valid input from user
-        while (!validInput && i<5) {
-            System.out.println("Please enter an integer:");
+        while (!validInput && i!=0) {
             if (kb.hasNextLine()) {
                 try {
                     choice = Integer.parseInt(kb.nextLine());
                     validInput = true;
                 } catch (NumberFormatException e) {
                     i--;
-                    System.out.println("Invalid input. Please enter a valid integer.\nYou have "+ i + " left of 5 tries.");
-                }
-            } else {
-                System.out.println("No input provided.");
+                    System.out.println("Invalid input!! Please enter a valid Number.\nYou have "+ i + " Attempts of 5!");
 
+                }
             }
         }
 
@@ -115,7 +113,7 @@ public class Additionally {
                 User_report_2.printCapitalCityReport(ReportArray);
                 break;
             default:
-                System.out.println("\nNot Valid Choice \n Try Again ");
+                System.out.println("\nNot Valid Choice \nTry Again ");
                 break;
 
         }

@@ -40,26 +40,27 @@ public class The_top_populated_capital {
     }
 
     private static int getInput(boolean exit) {
+        //set vars up
         Scanner kb = new Scanner(System.in);
-        //exit code when 0
         int choice = 0;
-        if (kb.hasNextLine()) {
-            // Read the input line and parse it to an integer
-            try {
-                choice = Integer.parseInt(kb.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a valid integer.");
+        int i = 5;
+        boolean validInput = false;
+//while loop to get valid input from user
+        while (!validInput && i!=0) {
+            if (kb.hasNextLine()) {
+                try {
+                    choice = Integer.parseInt(kb.nextLine());
+                    validInput = true;
+                } catch (NumberFormatException e) {
+                    i--;
+                    System.out.println("Invalid input!! Please enter a valid Number.\nYou have "+ i + " Attempts of 5!");
 
+                }
             }
-        } else {
-            System.out.println("No input provided.");
-
         }
 
-        // Now you have the user's choice in the 'choice' variable
-              return choice;
+        return choice;
     }
-
     private static void performAction(int choice, Connection con){
 //switch case to run reports
         switch(choice){
