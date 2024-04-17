@@ -61,23 +61,28 @@ public class Additionally {
     }
 
     private static int getInput(boolean exit) {
+       //set vars up
         Scanner kb = new Scanner(System.in);
-        //exit code when 0
         int choice = 0;
-        if (kb.hasNextLine()) {
-            // Read the input line and parse it to an integer
-            try {
-                choice = Integer.parseInt(kb.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a valid integer.");
-                // You might want to handle this error case appropriately
+        int i = 5;
+        boolean validInput = false;
+//while loop to get valid input from user
+        while (!validInput && i<5) {
+            System.out.println("Please enter an integer:");
+            if (kb.hasNextLine()) {
+                try {
+                    choice = Integer.parseInt(kb.nextLine());
+                    validInput = true;
+                } catch (NumberFormatException e) {
+                    i--;
+                    System.out.println("Invalid input. Please enter a valid integer.\nYou have "+ i + " left of 5 tries.");
+                }
+            } else {
+                System.out.println("No input provided.");
+
             }
-        } else {
-            System.out.println("No input provided.");
-            // You might want to handle this case appropriately
         }
 
-        // Now you have the user's choice in the 'choice' variable
         return choice;
     }
 
