@@ -17,7 +17,7 @@ Creating workflow.
 
 Updated to now have DB Connectivity
 
-
+32 requirements of 32 have been implemented, which is 100%
 Results
 
 | Task No. | Description                                                                                                                                                                                                               | Requirement Met | Screenshot           |
