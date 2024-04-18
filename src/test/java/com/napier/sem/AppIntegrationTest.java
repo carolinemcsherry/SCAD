@@ -19,12 +19,11 @@ public class AppIntegrationTest {
     static void init() {
         app = new App();
         // Assuming connect method in App class establishes the database connection
-        app.connect("localhost:33060", 30000);
+        app.connect("localhost:33060", 10000);
     }
 
     @Test
     public void testGetCity() {
-        // Use the existing connection from the App class
         City cityInstance = new City();
         // Pass the ID of the city you want to test
         // Make sure the city with ID 1 exists in your database for this test
